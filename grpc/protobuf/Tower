@@ -1,0 +1,59 @@
+package com.yq.msg.CityMsg;
+import "Battle";
+import "Attribute";    
+    message TowerDataMsg {
+        required int32 curPassId = 1; 
+        repeated BuffDataMsg buffData = 2; 
+        required int32 passMaxId = 3; 
+        optional PendingBuffPool pendingBuffPool = 4; 
+        optional int32 leftPendingTimes = 5; 
+    }
+    message BuffDataMsg {
+        required int32 skillId = 1; 
+        required int32 lv = 2; 
+    }
+    message PendingBuffPool {
+        repeated int32 buffSkillId = 1; 
+    }
+    message TowerChallengeResp {
+        required int32 ret = 1;
+        optional BattleRecordMsg allBattleRecord = 2; 
+        optional bool challengeSuccess = 3; 
+        optional string rewards = 4; 
+        optional TowerDataMsg towerDataSync = 5; 
+    }
+    message SelectBuffReq {
+        required int32 index = 1; 
+        optional int32 replaceIndex = 2; 
+        optional bool isOneKey = 3;  
+    }
+    message SelectBuffResp {
+        required int32 ret = 1;
+        optional TowerDataMsg towerDataSync = 2; 
+    }
+    message QuickChallengeResp {
+        required int32 ret = 1;
+        optional TowerDataMsg towerDataSync = 2; 
+        optional string reward = 3; 
+        optional string miracleReward = 4; 
+    }
+    message ViewMonsterAttrResp {
+        required int32 ret = 1;
+        repeated AttributeDataMsg attributeList = 2; 
+    }
+    message MarkupPreference{
+        optional int32 priority = 1; 
+        optional int32 skillType = 2; 
+    }
+    message SaveSelectOptionReq {
+        repeated MarkupPreference markPreference = 1;
+    }
+    message SaveSelectOptionResp {
+        required int32 ret = 1;
+    }
+    message GetSelectOptionReq {
+    }
+    message GetSelectOptionResp {
+        required int32 ret = 1;
+        repeated MarkupPreference markPreference = 2;
+    }

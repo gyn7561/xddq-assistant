@@ -1,0 +1,25 @@
+package com.yq.msg.CityMsg;    
+import "ActivityBase";
+    message WestTravelActivityPlayerDataMsg {
+        required int32 activityId = 1;
+        required int32 maxLevel = 2;
+    }        
+    message WestTravelData {
+        required int32 id = 1;
+        required int32 backgroundID = 2;
+        required int32 levelType = 3;
+        required int64 unlockTime = 4;
+    }
+    message WestTravelDataMsgSync{
+        repeated WestTravelData WestTravelDatas = 1;        
+    }
+    message WestTravelPassGameReq{
+        required int32 activityId = 1; 
+        required int32 levelId = 2;  
+    }
+    message WestTravelPassGameResp{
+        required int32 ret = 1;
+    }
+    message WestTravelActivityPlayerDataSync {
+        optional WestTravelActivityPlayerDataMsg syncMsg = 1;
+    }

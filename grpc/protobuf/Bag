@@ -1,0 +1,47 @@
+package com.yq.msg.CityMsg;
+import "Pet";
+    message SyncBagMsg{
+        repeated BagDataMsg bagData = 1;
+    }
+    message BagDataMsg{
+        required int32 propId = 1; 
+        required string num = 2;  
+    }
+    message UsePropReq {
+        required int32 propId = 1; 
+        required string count = 2; 
+        optional bytes extraParam = 3; 
+    }
+    message UsePropResp {
+        required int32 ret = 1;
+        optional string reward = 2;
+    }
+    message CompoundPropReq{
+        required int32 id = 1; 
+        required string count = 2; 
+    }
+    message CompoundPropResp{
+        required int32 ret = 1;
+        optional string reward = 2;
+        optional int32 type = 3; 
+        optional PetDataMsg petData = 4; 
+        repeated int32 collectPetId = 5; 
+    }
+    message UseOptionalBoxParam {
+        repeated BagDataMsg chooseItem = 1; 
+    }
+    message HoldPetEggDataSync {
+        optional int64 holdStartTimes = 1; 
+        repeated int32 petUid = 2; 
+    }
+    message HoldNestedBoxData {
+        optional int32 systemId = 1; 
+        optional int64 holdStartTimes = 2; 
+        repeated int32 ItemId = 3; 
+    }
+    message HoldNestedBoxDataSync {
+        repeated HoldNestedBoxData itemData = 1; 
+    }
+    message ChangeRoleParam {
+        required int32 roleId = 1; 
+    }

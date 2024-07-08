@@ -1,0 +1,22 @@
+package com.yq.msg.CityMsg;
+message FirstRechargeActivityPlayerDataMsg {
+    required int32 activityId = 1;
+    repeated RechargeMallDataMsg rechargeMallDataMsg = 2;
+}
+message RechargeMallDataMsg {
+    required int32 mallId = 1; 
+    repeated int32 getReward = 2; 
+    required int64 rechargeTime = 3; 
+}
+message FirstRechargeActivityPlayerDataSync {
+    optional FirstRechargeActivityPlayerDataMsg syncMsg = 1;
+}
+message GetMallRewardReq {
+    required int32 activityId = 1;  
+    required int32 mallId = 2;  
+    required int32 index = 3;   
+}
+message GetMallRewardResp {
+    required int32 ret = 1;
+    optional string reward = 2; 
+}

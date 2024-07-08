@@ -1,0 +1,42 @@
+package com.yq.msg.CityMsg;
+    message MallBuyCountTempMsg {
+        required int32 mallId =1;          
+        required int32 count =2;           
+    }
+    message MallTempMsg {
+        optional int32 id = 1; 
+        optional string name = 2; 
+        optional int32 shopType = 3; 
+        optional string reward = 4; 
+        optional int32 category = 5; 
+        optional string price = 6; 
+        optional string oldPrice = 7; 
+        optional int32 priceAdd = 8; 
+        optional bool isDouble = 9; 
+        optional int32 buyLimitType = 10; 
+        optional int32 buyLimit = 11; 
+        optional int32 sort = 12; 
+        optional string param = 13; 
+        optional int32 vipLimit = 14; 
+        optional string rechargeId = 15; 
+    }
+    message MallBuyCountListMsg {
+        repeated MallBuyCountTempMsg mallBuyCountList = 1;
+    }
+    message BuyGoodsReq {
+        required int32 mallId = 1;          
+        required int32 count = 2;           
+        optional int32 activityId = 3;      
+    }
+    message BuyGoodsResp {
+        required int32  ret = 1;            
+        optional int32  mallId =2;          
+        optional string reward =3;          
+    }
+    message MallRandomGoodsReqMsg{
+        required int32 shopType = 1;       
+    }
+    message MallRandomGoodsRespMsg{
+        required int32 ret = 1;
+        repeated MallTempMsg mallGoods = 2;     
+    }

@@ -1,0 +1,96 @@
+package com.yq.msg.CityMsg;    
+    message SpiritPlayerDataMsg {
+        repeated SpiritDataMsg spiritData = 1; 
+        repeated SpiritBattleTeamMsg spiritBattleTeamMsg = 2; 
+        optional int32 battleTeamNo = 3; 
+        required int32 drawTimes = 4; 
+        optional int32 protectTimes = 5; 
+        repeated SpiritCombineMsg spiritCombineMsg = 6; 
+        optional int32 drawTimesTotal = 7; 
+        optional SpiritFreeAdData spiritFreeAd = 8; 
+        optional bool pieceShopOpen = 9; 
+        repeated SpiritLinkageDataMsg SpiritLinkageDataMsg = 10; 
+    }
+    message SpiritLinkageDataMsg {
+        required int32 spiritId = 1; 
+        required int32 linkageId = 2; 
+    }
+    message SpiritFreeAdData{
+        optional int32 freeTimes = 1; 
+        optional int64 lastAdTime = 2;
+    }
+    message SpiritDataMsg {
+        required int32 spiritId = 1; 
+        required int32 lv = 2; 
+        optional int32 equipLinkageId = 3; 
+    }
+    message SpiritBattleTeamMsg {
+        required int32 teamNo = 1; 
+        repeated int32 spiritId = 2; 
+    }
+    message SpiritDrawReq {
+        required int32 drawTimes = 1; 
+        optional bool isAd = 2; 
+        optional bool isUseADTime = 3;
+    }
+    message SpiritDrawResp {
+        required int32 ret = 1;
+        repeated SpiritDrawResult drawResult = 2;
+        optional SpiritPlayerDataMsg syncMsg = 3; 
+        optional int32 score = 4; 
+    }
+    message SpiritDrawResult {
+        optional int32 spiritId = 1; 
+        optional bool full = 2; 
+        optional bool isNew = 3;  
+        optional string reward = 4; 
+    }
+    message SpiritUnlockReq {
+        required int32 spiritId = 1;
+    }
+    message SpiritUnlockResp {
+        required int32 ret = 1;
+        optional SpiritDataMsg spiritData = 2; 
+    }
+    message SpiritLvUpReq {
+        required int32 spiritId = 1;
+    }
+    message SpiritLvUpResp {
+        required int32 ret = 1;
+        optional SpiritDataMsg spiritData = 2; 
+        optional string reward = 3; 
+        optional bool pieceShopOpen = 4; 
+    }
+    message SwitchBattleTeamReq {
+        required int32 teamNo = 1; 
+    }
+    message SwitchBattleTeamResp {
+        required int32 ret = 1;
+        required int32 battleTeamNo = 2; 
+    }
+    message SpiritBattleReq {
+        repeated int32 spirit = 1; 
+    }
+    message SpiritBattleResp {
+        required int32 ret = 1;
+        optional SpiritBattleTeamMsg spiritBattleTeamMsg = 2; 
+    }
+    message SpiritCombineMsg {
+        required int32 combineId = 1;
+        required int32 lv = 2; 
+    }
+    message SpiritCombineLvUpReq {
+        required int32 combineId = 1;
+    }
+    message SpiritCombineLvUpResp {
+        required int32 ret = 1;
+        optional SpiritCombineMsg spiritCombineMsg = 2; 
+    }
+message SpiritSwitchLinkageSkinReq {
+    required int32 spiritId = 1;
+    required int32 linkageId = 2;
+}
+message SpiritSwitchLinkageSkinResp {
+    required int32 ret = 1;
+    optional SpiritDataMsg spiritData = 2; 
+}

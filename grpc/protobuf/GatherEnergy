@@ -1,0 +1,271 @@
+package com.yq.msg.CityMsg;        
+import "WatchPlayer";
+import "Battle";
+import "Common";
+message SyncGatherEnergyMsg{
+    optional GatherEnergyMsg gatherEnergy = 1;
+}
+message GatherEnergyMsg{
+    optional int32 state = 1;       
+    optional int32 openNum = 2;     
+    optional int32 attendNum = 3;   
+    optional bool red = 4;          
+    optional bool hadLike = 5;      
+    repeated int64 enemyList = 6;   
+    optional int32 getTimes = 7;    
+}
+message GatherEnergyGetADAwardReq{
+    optional bool isUseADTime = 1;
+}
+message GatherEnergyGetADAwardResp{
+    required int32 ret = 1;
+    optional AwardInfoList reward = 2;
+    optional int32 getTimes = 3; 
+}
+message GatherEnergyLeaveReq{
+}
+message GatherEnergyLeaveResp{
+    required int32 ret = 1;
+}
+message GatherEnergyOpenViewReq{
+}
+message GatherEnergyOpenViewResp{
+    required int32 ret = 1;
+    optional int64 income = 2;      
+    optional int64 getTimes = 3;    
+}
+message GatherEnergyOpenReq{
+    required int32 num = 1;         
+}
+message GatherEnergyOpenResp{
+    required int32 ret = 1;
+    optional int64 id = 2;          
+    optional int32 num = 3;         
+}
+message GatherEnergyInsideReportMsg{
+    optional NoticePlayer player1 = 1;    
+    optional NoticePlayer player2 = 2;    
+    optional int32 noticeType = 3;        
+    optional int64 time = 4;              
+    optional string msg = 5;              
+}
+message NoticePlayer{
+    optional string nickName = 1;               
+    optional int64 serverId = 2;                
+}
+message GatherEnergyNoticeReq{
+    required int64 id = 1;          
+}
+message GatherEnergyNoticeResp{
+    required int32 ret = 1;
+    repeated GatherEnergyInsideReportMsg list = 2;        
+}
+message GatherEnergyFightReq{
+    required int64 id = 1;          
+    required int64 energyId = 2;    
+    required int32 indexId = 3;     
+}
+message GatherEnergyFightResp{
+    required int32 ret = 1;
+    optional int32 state = 2;                   
+    optional PlayerCharacterImageMsg oppoPlayerInfo = 3;        
+    optional PlayerCharacterImageMsg myPlayerInfo = 4;          
+    optional BattleRecordMsg allBattleRecord = 5;           
+}
+message GatherEnergyFightReportMsg{
+    optional int64 time = 1;        
+    optional string msg = 2;        
+    optional PlayerBaseDataMsg playerInfo = 3; 
+    optional int32 state = 4;       
+}
+message GatherEnergySearchMsg{
+    optional int64 energyId = 1;        
+    optional int32 type = 2;            
+}
+message GatherEnergyRewardReq{
+    required int64 id = 1;          
+}
+message GatherEnergyRewardResp{
+    required int32 ret = 1;
+    optional int64 id = 2;          
+    optional AwardInfoList reward = 3; 
+}
+message GatherEnergyRewardShowResp{
+    optional GatherEnergyRewardMsg reward = 1;
+}
+message GatherEnergyRewardMsg{
+    optional int64 id = 1;     
+    optional AwardInfoList reward = 2; 
+    optional int64 time = 3;   
+    optional NoticePlayer attackerInfo = 4; 
+    optional bool isSp = 5;     
+}
+message GatherEnergyLikeReq{
+}
+message GatherEnergyLikeResp{
+    required int32 ret = 1;
+    optional AwardInfoList reward = 2;
+    optional RankNo1ShowMsg rankNo1ShowMsg = 3;
+}
+message RankNo1ShowMsg{
+    required int64 playerId = 1;
+    required int64 serverId = 2;
+    required string nickName = 3;
+    repeated int32 pet = 4;
+    repeated int32 spirit = 5;
+    optional int32 appearanceId = 6;
+    optional int32 equipCloudId = 7;
+    optional int32 realmsId = 8;
+    optional int32 titleId = 9;
+    repeated int32 petSoulShapeList = 10;
+    repeated int32 petLinkageId = 11; 
+    repeated int32 spiritLinkageId = 12; 
+}
+message GatherEnergyTransformReq{
+    required int32 energyLevel = 1; 
+}
+message GatherEnergyTransformResp{
+    required int32 ret = 1;
+    optional int32 energyLevel = 2; 
+}
+message GatherEnergyEnterNewReq{
+}
+message GatherEnergyEnterNewResp{
+    required int32 ret = 1;
+    repeated GatherEnergyRewardMsg reward = 2;
+    optional int32 energyLevel = 3; 
+    repeated int64 serverId = 4; 
+    optional GatherEnergyMsg gatherEnergy = 5;  
+}
+message GatherEnergyFirstListViewReq{
+    required int32 offset = 1;      
+    required int32 filterType = 2;  
+}
+message GatherEnergyFirstListViewResp{
+    required int32 ret = 1;
+    optional int32 offset = 2;      
+    optional int32 filterType = 3;     
+    repeated GatherEnergyFirstListMsg list = 4;        
+}
+message GatherEnergyFirstListMsg{
+    optional GatherEnergyListBaseMsg energyBaseMsg = 1;          
+    optional OpenerMsg openerMsg = 2;                            
+    optional int32 listSize = 3;                                 
+    optional bool isAttend = 4;                                  
+}
+message GatherEnergyListBaseMsg{
+    optional int64 id = 1;          
+    optional int64 endTime = 2;    
+    optional int64 income = 3;      
+    optional int32 titleId = 4;     
+    optional int32 realmsId = 5;     
+}
+message OpenerMsg{
+    optional int64 playerId = 1; 
+    optional string nickName = 2;   
+    optional int32 appearanceId = 3; 
+    optional int32 realmsId = 4;     
+    optional int32 titleId = 5;
+}
+message GatherEnergySecondListViewReq{
+    required int32 offset = 1;      
+    required int32 filterType = 2;  
+}
+message GatherEnergySecondListViewResp{
+    required int32 ret = 1;
+    optional int32 offset = 2;      
+    optional int32 filterType = 3;     
+    repeated GatherEnergySecondListMsg list = 4;        
+    repeated int64 enemyList = 5;   
+}
+message GatherEnergySecondListMsg{
+    optional GatherEnergyListBaseMsg energyBaseMsg = 1;          
+    repeated TeamAttenderMsg attenderList = 2;                   
+}
+message TeamAttenderMsg{
+    optional int64 playerId = 1;    
+    optional string nickName = 2;   
+    optional int32 headIcon = 3;    
+    optional string wxHeadUrl = 4;  
+}
+message GatherEnergyInsideViewNewReq{
+    required int64 id = 1;          
+}
+message GatherEnergyInsideViewNewResp{
+    required int32 ret = 1;
+    repeated GatherEnergyInsideReportMsg list = 2;        
+    optional GatherEnergyDetailListMsg detailInfo = 3;    
+    optional int64 dislodgedTime = 4; 
+}
+message GatherEnergyAttendNewReq{
+    required int64 id = 1;          
+}
+message GatherEnergyAttendNewResp{
+    required int32 ret = 1;
+    repeated GatherEnergyInsideReportMsg list = 2;        
+    optional GatherEnergyDetailListMsg detailInfo = 3;    
+    optional int64 dislodgedTime = 4; 
+}
+message GatherEnergyDetailListMsg{
+    optional GatherEnergyListBaseMsg energyBaseMsg = 1;          
+    repeated GatherEnergyTeamMsgNew teamList = 2;                
+}
+message GatherEnergyTeamMsgNew{
+    optional int32 index = 1;       
+    optional int64 income = 2;      
+    optional int64 protectTime = 3; 
+    required InsidePlayerBaseDataMsg playerInfo = 4;
+    repeated dislodgedTimesMap dislodgedTimesMap = 5; 
+}
+message dislodgedTimesMap{
+    optional int64 playerId = 1;
+    optional int32 Times = 2;
+}
+message InsidePlayerBaseDataMsg {
+    optional int64 playerId = 1; 
+    optional string nickName = 2; 
+    optional int32 realmsId = 3; 
+    optional int32 appearanceId = 4; 
+    optional int64 serverId = 5; 
+    optional int32 titleId = 6;
+}
+message GatherEnergyFightReportNewReq{
+}
+message GatherEnergyFightReportNewResp{
+    required int32 ret = 1;
+    repeated GatherEnergyFightReportMsgNew list = 2; 
+}
+message GatherEnergyFightReportMsgNew{
+    optional int64 time = 1;        
+    optional string msg = 2;        
+    optional ReportPlayerInfo playerInfo = 3; 
+    optional int32 state = 4;       
+}
+message ReportPlayerInfo{
+    optional int64 playerId = 1; 
+    optional string nickName = 2; 
+    optional int32 headIcon = 3;    
+    optional string wxHeadUrl = 4;  
+    optional int64 serverId = 5; 
+    optional int32 titleId = 6;
+}
+message GatherEnergySearchNewReq{
+    optional string searchKey = 1;          
+    optional int64 serverId = 2;            
+}
+message GatherEnergySearchNewResp{
+    required int32 ret = 1;
+    optional SearchPlayerInfo playerInfo = 2; 
+    repeated GatherEnergySearchMsg list = 3; 
+}
+message SearchPlayerInfo{
+    optional int64 playerId = 1; 
+    optional string nickName = 2; 
+    optional int64 serverId = 3; 
+    optional int32 headIcon = 4;    
+    optional string wxHeadUrl = 5;  
+}
+message RedPointExtraValue{
+    optional bool canOpen = 1; 
+    optional int32 energyLevel = 2; 
+}

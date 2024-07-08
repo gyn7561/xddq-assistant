@@ -1,0 +1,98 @@
+package com.yq.msg.CityMsg;
+import "WatchPlayer";
+import "Battle";
+import "Common";
+message HeroRankPlayerInfo{
+    optional int32 energy = 1;           
+    optional int64 lastRefreshTime = 2;  
+    optional int32 buyNumDaily = 3;      
+    optional int32 historyRank = 4;      
+    repeated int32 taskIdList = 5;       
+    optional int64 dailyRefreshTime = 6; 
+}
+message SynHeroRankPlayerInfo{
+    optional HeroRankPlayerInfo playerInfo = 1;
+}
+message RspHeroRankEnter{
+    optional int32 ret = 1;                                                 
+    optional HeroRankPlayerInfo playerInfo = 2;                             
+    optional HeroRankFightPlayerDataListMsg fightPlayerList = 3;            
+    optional int32 rank = 4;                                                
+    optional int32 roundReward = 5;                                         
+}
+message ReqHeroRankFightPlayerList {
+    optional int32 type = 1; 
+}
+message RspHeroRankFightPlayerList {
+    optional int32 ret = 1;                                                 
+    optional HeroRankFightPlayerDataListMsg fightPlayerList = 2;            
+    optional int32 type = 3;                                                
+    optional int32 rank = 4;                                                
+}
+message ReqHeroRankFight {
+    optional int64 targetId = 1;     
+    optional int32 targetRank = 2;   
+    optional int32 masterId = 3;      
+    optional int32 masterLv = 4;      
+    optional int32 appearanceId = 5;  
+    optional int32 cloudId = 6;       
+}
+message RspHeroRankFight {
+    optional int32 ret = 1;                                             
+    optional HeroRankPlayerInfo playerInfo = 2;                         
+    optional int32 rank = 3;                                            
+    optional string rewards = 4;                                        
+    optional BattleRecordMsg allBattleRecord = 5;                       
+    optional PlayerHeadAndNameMsg otherPlayerHeadAndNameMsg = 6;        
+    optional HeroRankFightPlayerDataListMsg fightPlayerList = 7;        
+}
+message ReqHeroRankClear {
+    optional int32 type = 1;       
+    optional int64 targetId = 2;     
+    optional int32 targetRank = 3;   
+}
+message RspHeroRankClear {
+    optional int32 ret = 1;                                         
+    optional int32 clearNum = 2;                                    
+    optional string rewards = 3;                                    
+    optional PlayerHeadAndNameMsg otherPlayerHeadAndNameMsg = 4;    
+    optional HeroRankPlayerInfo playerInfo = 5;                     
+}
+message HeroRankFightPlayerDataListMsg{
+    repeated HeroRankFightPlayerDataMsg topPlayerInfoList = 1;              
+    repeated HeroRankFightPlayerDataMsg canFightPlayerInfoList = 2;         
+}
+message HeroRankFightPlayerDataMsg {
+    optional int32 rank = 1;                          
+    optional PlayerAppearanceDataMsg showInfo = 2;    
+    optional int32 masterId = 3;                      
+    optional int32 masterLv = 4;                      
+}
+message RspHeroRankRecord {
+    optional int32 ret = 1;                             
+    repeated HeroRankRecordDataMsg recordList = 2;      
+}
+message HeroRankRecordDataMsg {
+    optional HeroRankRecordPlayerDataMsg fightPlayerData = 1;        
+    optional HeroRankRecordPlayerDataMsg defensePlayerData = 2;      
+    optional bool isFightWin = 3;                                    
+}
+message HeroRankRecordPlayerDataMsg {
+    optional PlayerHeadAndNameMsg headAndNameData = 1;        
+    optional int32 realmsId = 2;                              
+    optional int32 rank = 3;                                  
+}
+message ReqHeroRankGetAchieve {
+    optional int32 taskId = 1;                          
+}
+message RspHeroRankGetAchieve {
+    optional int32 ret = 1;                             
+    optional string reward = 2;                         
+}
+message ReqHeroRankBuyEnergy {
+    optional int32 num = 1;                          
+}
+message RspHeroRankBuyEnergy {
+    optional int32 ret = 1;                             
+    optional HeroRankPlayerInfo playerInfo = 2;         
+}

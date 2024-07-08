@@ -1,0 +1,24 @@
+package com.yq.msg.CityMsg;
+    message TaskDataTempMsg{
+        required int32   taskId =1;         
+        required string  value =2;          
+        required int32   state =3;        
+    }
+    message TaskDataListMsg{
+        repeated TaskDataTempMsg dataList =1;
+    }
+    message TaskGetRewardReqMsg{
+        repeated int32 taskId =1;       
+    }
+    message TaskGetRewardRespMsg{
+        required int32  ret = 1;             
+        optional string rewards = 2;        
+    }
+    message WatchAdReq{
+        required int32 activityId = 1; 
+        required int32 conditionId = 2;
+        optional bool isUseADTime = 3;
+    }
+    message WatchAdResp{
+        required int32 ret = 1;
+    }

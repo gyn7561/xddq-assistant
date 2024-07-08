@@ -1,0 +1,13 @@
+package com.yq.msg.CityMsg;        
+message SignInFundPlayerDataMsg {
+    optional int32 activityId = 1; 
+    optional int32 childType = 2; 
+    repeated int32 signInDays = 3; 
+}
+message ReqSignInFundRepair {
+    optional int32 activityId = 1; 
+}
+message RspSignInFundRepair {
+    optional int32 ret = 1;
+    optional string rewards = 2;
+}

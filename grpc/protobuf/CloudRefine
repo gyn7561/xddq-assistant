@@ -1,0 +1,26 @@
+package com.yq.msg.CityMsg;
+import "Common";
+    message CloudRefinePlayerDataMsg{
+        optional int32 bigType = 1; 
+        optional int32 starLv = 2; 
+        optional int32 refineLv = 3; 
+        repeated CloudRefineSkill  refineHoleSkills = 4; 
+        repeated AttributeDataMsg cloudRefineAttrDataList = 5; 
+        optional int32 exp = 6;
+    }
+    message CloudRefineSkill{
+        optional int32 skillId = 1; 
+        optional int32 skillLv = 2; 
+    }
+    message CloudRefineReq{
+    }
+    message CloudRefineResp{
+        optional int32 ret = 1;
+        optional bool success = 2;
+        optional int32 skillId = 3;
+    }
+    message CloudRefineStarLvUpReq{
+    }
+    message CloudRefineStarLvUpResp{
+        optional int32 ret = 1;
+    }

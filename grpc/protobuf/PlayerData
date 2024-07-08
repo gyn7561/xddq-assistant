@@ -1,0 +1,120 @@
+package com.yq.msg.CityMsg;
+message PlayerDataMsg {
+    optional int64  playerId = 1; 
+    optional string nickName = 2; 
+    optional int32 roleId = 3; 
+    optional int64 serverId = 4; 
+    optional int64 lastLoginTime = 5; 
+    optional string playerBelong = 6; 
+    optional int32 hideAddress = 7; 
+    optional int64 unionId = 8; 
+    optional string myInviteCode = 9; 
+    optional string wxHeadUrl = 10; 
+    optional int32 changeNameTimes = 11; 
+    optional PlayerEnterType enterType = 12; 
+    optional int64 registerTime = 13; 
+    optional int32 isSubscribeMail = 15; 
+    optional int32 changeNums = 16; 
+    optional int64 startTime = 17;  
+}
+enum PlayerEnterType {
+    Normal = 0;    
+    DouluoAd = 1;    
+  }
+  message RandomNickNameResp {
+    required int32 ret = 1;
+    optional string randomName = 2;
+}
+message CreateRoleReq {
+    required int32 roleId = 1; 
+    required string nickName = 2; 
+}
+message CreateRoleResp {
+    required int32 ret = 1;
+    optional PlayerDataMsg syncData = 2;
+}
+message ChangeNickNameReq {
+    required string nickName = 1; 
+}
+message ChangeNickNameResp {
+    required int32 ret = 1;
+}
+message UseExchangeKeyReq {
+    required string key = 1;       
+}
+message UseExchangeKeyResp {
+    required int32 ret = 1;       
+    optional string reward = 2;   
+}
+message GetServerConfigVersionResp {
+    required int32 ret = 1;
+    required string serverConfigVersion = 2; 
+}
+message AuthorizePlayerHeadReq {
+    required string wxHeadUrl = 1; 
+}
+message AuthorizePlayerHeadResp {
+    required int32 ret = 1;
+}
+message TempKeyValueData{
+    required string key = 1;
+    required string value = 2;
+ }
+ message SaveToServiceReq{
+    repeated TempKeyValueData dataList = 1;
+ }
+ message SaveToServiceRsp{
+    required int32 ret = 1;
+ }
+ message AllClientDataSync{
+    repeated TempKeyValueData dataList = 1;
+ }
+message GetPolicyInfoReq {
+    required string appId = 1;
+    required int32  gameId= 2;
+    required int32  contentType =3; 
+}
+message GetPolicyInfoRsp {
+    required int32 ret = 1;
+    optional string content =2; 
+}
+message SyncRecallPlayerMsg {
+    optional int64 recallTime =1; 
+}
+message GetBindStatusReq{
+    required string appId = 1;
+    required int32  gameId= 2;
+  }
+  message GetBindStatusResp{
+    required int32 ret = 1;
+    optional bool isBind =2;
+  }
+  message GetBindCodeReq{
+    required string appId = 1;
+    required int32  gameId= 2;
+  }
+  message GetBindCodeResp{
+    required int32 ret = 1;
+    optional string code =2;
+  }
+  message UntieBindCodeReq{
+    required string appId = 1;
+    required int32  gameId= 2;
+  }
+  message UntieBindCodeResp{
+     required int32 ret = 1;
+  }
+  message GetBindCodeInfoReq{
+    required string appId = 1;
+    required int32  gameId= 2;
+  }
+  message GetBindCodeInfoResp{
+    required int32 ret = 1;
+    optional string param =2;
+  }
+message DeletePlayerReq{
+    optional string openId = 1;   
+}
+message DeletePlayerResp{
+    optional int32 ret = 1;
+}

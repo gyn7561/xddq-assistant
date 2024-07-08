@@ -1,0 +1,119 @@
+package com.yq.msg.CityMsg;        
+import "WatchPlayer";
+message PalaceSyncMsg{
+  required bool  outerWorship = 1;
+  repeated int32 canWorshipTitle = 2;
+  required int32 sendGiftTimes = 3;
+  optional PalaceAchievementDataMsg achievementData = 4; 
+}
+message PalaceMiracleDataMsg{
+  required int32 miracleId = 1;
+  required int32 usedTimes = 2;
+}
+message PalaceAchievementDataMsg{
+  required int32 num = 1; 
+  repeated int32 receivedId = 2; 
+}
+message EnterPalaceReq{
+}
+message EnterPalaceRsp{
+  required int32 ret= 1;
+  repeated PalaceDataMsg palaceData = 2; 
+  optional bool  worship = 3;
+  optional bool worshipRandom = 4;
+  optional int64 consumeScore = 5;
+}
+message PalaceDataMsg{
+  required int32 titleId = 1;
+  required bool  worship = 2;
+  required bool  show = 3;
+  optional bool worshipRandom = 4; 
+}
+message GetTitleIdListReq{
+}
+message GetTitleIdListRsp{
+  required int32 ret= 1;
+  repeated int32 titleId = 2;  
+}
+message PalaceWorshipReq{
+  required int32 titleId = 1;
+  required int32 isRandom = 2; 
+}
+message PalaceWorshipRsp{
+  required int32 ret= 1;
+  optional string reward = 2; 
+  optional PalacePlayerShowMsg playerData = 3;
+  optional int32 titleId = 4;
+}
+message EnterPalaceInnerReq{
+  required int32 titleId = 1;
+}
+message EnterPalaceInnerRsp{
+  required int32 ret = 1;
+  repeated PalacePlayerShowMsg data = 2;
+}
+message PalaceInnerBookReq{
+  required int32 titleId = 1;
+}
+message PalaceInnerBookRsp{
+  required int32 ret = 1;
+  repeated PalacePlayerShowMsg data = 2;
+}
+message PalacePlayerShowMsg{
+  required int64 playerId = 1;
+  required int64 serverId = 2;
+  required string nickName = 3;
+  repeated int32 pet = 4;
+  repeated int32 spirit = 5;
+  optional int32 appearanceId = 6; 
+  optional int32 equipCloudId = 7; 
+  optional int32 realmsId = 8;  
+  optional int64 time = 9;
+  optional int32 rank = 10;
+  optional int32 headIcon = 11; 
+  optional string wxHeadUrl = 12; 
+  optional PlayerHeadDataMsg headInfo = 13;
+  repeated int32 petSoulShapeList = 14; 
+  optional int32 titleId = 15; 
+  repeated int32 petLinkageId = 16; 
+  repeated int32 spiritLinkageId = 17; 
+}
+message SendGiftReq{
+  required string words = 1;
+}
+message SendGiftRsp{
+  required int32 ret = 1;
+}
+message SendGiftSyncMsg{
+  repeated SendGiftDataMsg data = 1;
+}
+message SendGiftDataMsg{
+  required string id = 1;
+  required PalacePlayerShowMsg playerData=2;
+  required int64 expiredTime = 3;
+  repeated int32 title = 4;
+  required string words = 5;
+  optional string param = 6; 
+  optional SendGiftType type = 7;
+}
+enum SendGiftType{
+  SendGiftType_Null = 0;
+  SendGiftType_Palace = 1;
+  SendGiftType_StarTrial = 2;
+}
+message GetSendGiftRewardReq{
+  required string id =1;
+  optional bool getReward = 2;
+  optional SendGiftType type = 3;
+}
+message GetSendGiftRewardRsp{
+  required int64 ret = 1;
+  optional string reward = 2;
+}
+message PalaceAchievementGetRewardReq{
+  required int32 taskId = 1;
+}
+message PalaceAchievementGetRewardRsp{
+  required int32 ret = 1;
+  optional string reward = 2;
+}

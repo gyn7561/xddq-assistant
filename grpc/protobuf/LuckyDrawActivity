@@ -1,0 +1,33 @@
+package com.yq.msg.CityMsg;
+    message ActivityDrawConfig {
+        repeated LuckyDrawConfig luckyDrawConfig = 1;
+    }
+    message LuckyDrawConfig {
+        optional int32 id = 1;
+        optional string reward = 2;
+        optional int32 weight = 3;
+        optional int32 limit = 4;
+        optional int32 big = 5;
+        optional int32 protectTimes = 6;
+    }
+    message LuckyDrawReq {
+        required int32 activityId = 1;
+        required int32 times = 2;
+    }
+    message LuckyDrawResp {
+        required int32 ret = 1;
+        repeated LuckyDrawResult result = 2;
+    }
+    message LuckyDrawResult {
+        required int32 id = 1;
+        optional string reward = 2;
+    }
+    message LuckyDrawActivityDataMsg {
+        repeated LimitRewardTimes limitRewardTimes = 1;
+        optional int32 addUpDrawTimes = 2; 
+        optional int32 protectDrawTimes = 3; 
+    }
+    message LimitRewardTimes {
+        required int32 id = 1;
+        optional int32 times = 2;
+    }

@@ -1,0 +1,238 @@
+package com.yq.msg.CityMsg;    
+import "PetKernel";
+message PlayerPetDataMsg {
+    repeated PetPoolDataMsg petPoolData = 1; 
+    required int32 petBagCount = 2; 
+    repeated PetDataMsg petData = 3; 
+    optional int32 equipPetId = 4; 
+    required int32 refreshTimes = 5; 
+    repeated int32 collectPetId = 6; 
+    required int32 freeRefreshTimes = 7; 
+    required int32 privilegeTimes = 8; 
+    required int32 wishPetId = 9; 
+    required int32 wishPetProgress = 10; 
+    optional int32 soulShapeResetTimes = 11; 
+    repeated PetLinkageDataMsg petLinkageDataMsg = 12; 
+    optional PetKernelPlayerDataMsg kernelData = 13; 
+    repeated PetFateMsg petFateList = 14; 
+    optional int64 forceUnlockTime = 15; 
+}
+message PetLinkageDataMsg {
+    required int32 petConfigId = 1;
+    required int32 linkageId = 2;
+}
+message ChooseWishPetReq{
+    required int32 petId = 1;
+}
+message ChooseWishPetResp{
+    required int32 ret = 1;
+    optional PlayerPetDataMsg playerPetData = 2;
+}
+    message PetPoolDataMsg {
+        required int32 petId = 1; 
+        required bool isGet = 2; 
+    }
+message PetDataMsg {
+    required int32 id = 1;  
+    required int32 configId = 2; 
+    required int32 lv = 3; 
+    required int32 star = 4; 
+    repeated PetPassiveSkillMsg petPassiveSkill = 5; 
+    optional int32 assistantPetId = 6; 
+    optional int32 assistantConfigId = 7; 
+    repeated PetPassiveSkillMsg petSoulShapePassiveSkill = 8; 
+    repeated int32 waitSelectSkill = 9; 
+    optional int32 soulShapeLv = 10; 
+    optional int32 assistantPetSoulShapeLv = 11; 
+    optional int32 haveWaitRefreshSkill = 12;
+    optional int32 lockState = 13; 
+    optional int32 equipLinkageId = 14; 
+    optional int32 synergyLinkageId = 15; 
+    optional int32 kernelLv = 16; 
+    repeated int32 equipKernelId = 17; 
+    optional int32 rootLv = 18;    
+    optional int32 awakeLv = 19;   
+}
+    message PetPassiveSkillMsg {
+        required int32 skillId = 1; 
+        required int32 lv = 2; 
+    }
+    message PlayerPetDataSync {
+        required PlayerPetDataMsg playerPetData = 1;
+    }
+    message CatchPetReq {
+        required int32 poolIndex = 1;
+    }
+    message CatchPetResp {
+        required int32 ret = 1;
+        optional PetDataMsg petData = 2; 
+        repeated int32 collectPetId = 3; 
+    }
+    message RefreshPetPoolReq {
+        required int32 isFree = 1;
+        optional bool isUseADTime = 2;
+    }
+    message RefreshPetPoolResp {
+        required int32 ret = 1;
+        repeated PetPoolDataMsg petPoolData = 2; 
+        optional int32 privilegeTimes = 3;
+        optional int32 wishPetProgress = 4;     
+    }
+    message AddPetBagCountReq {
+    }
+    message AddPetBagCountResp {
+        required int32 ret = 1;
+        optional int32 petBagCount = 2; 
+    }
+    message ReleasePetReq {
+        required int32 petId = 1; 
+    }
+message ReleasePetResp {
+    required int32 ret = 1;
+    optional string rewards = 2; 
+    optional int32 petId = 3; 
+    repeated PetKernelDataMsg syncKernelMsg = 4;  
+}
+    message PetLevelUpReq {
+        required int32 petId = 1;
+    }
+    message PetLevelUpResp {
+        required int32 ret = 1;
+        optional PetDataMsg petData = 2; 
+    }
+    message PetGobbleUpReq {
+        required int32 mainPetId = 1; 
+        required int32 vicePetId = 2; 
+    }
+message PetGobbleUpResp {
+    required int32 ret = 1;
+    optional PetDataMsg mainPetData = 2; 
+    optional int32 vicePetId = 3; 
+    optional string returnRewards = 4; 
+    repeated PetKernelDataMsg syncKernelMsg = 5;  
+}
+    message EquipPetReq {
+        required int32 petId = 1;
+    }
+    message EquipPetResp {
+        required int32 ret = 1;
+        optional int32 petId = 2; 
+    }
+    message PetResetReq {
+        required int32 petId = 1;
+    }
+message PetResetResp {
+    required int32 ret = 1;
+    optional string reward = 2; 
+    optional PetDataMsg petData = 3; 
+    optional int32 soulShapeResetTimes = 4; 
+    repeated PetKernelDataMsg syncKernelMsg = 5;  
+}
+    message PetAssistantReq{
+        required int32 petId = 1; 
+        required int32 assistantId = 2;
+    }
+    message PetAssistantResp{
+        required int32 ret = 1;
+        optional PetDataMsg petData = 2; 
+    }
+message PetSoulShapeReq {
+    required int32 petId = 1;
+}
+message PetSoulShapeResp {
+    required int32 ret = 1;
+    optional PetDataMsg petData = 2; 
+}
+message SelectSoulShapeSkillReq {
+    required int32 petId = 1;
+    required int32 index = 2;
+    required int32 skillId = 3;
+}
+message SelectSoulShapeSkillResp {
+    required int32 ret = 1;
+    optional PetDataMsg petData = 2; 
+}
+message PetSkillRefreshViewReq {
+    required int32 petId = 1;
+}
+message PetSkillRefreshViewResp {
+    required int32 ret = 1;
+    optional int32 state = 2; 
+    repeated PetPassiveSkillMsg petRefreshSkill = 3; 
+    repeated PetPassiveSkillMsg petSoulShapeRefreshSkill = 4; 
+    repeated int32 RefreshLockSkillIndexList = 5;
+    repeated int32 RefreshLockSoulShapeSkillIndexList = 6;
+}
+message PetSkillRefreshReq {
+    required int32 petId = 1;
+    repeated int32 passiveSkillIndex = 2; 
+    repeated int32 petSoulSkillIndex = 3; 
+}
+message PetSkillRefreshResp {
+    required int32 ret = 1;
+    repeated PetPassiveSkillMsg petRefreshSkill = 2; 
+    repeated PetPassiveSkillMsg petSoulShapeRefreshSkill = 3; 
+    repeated int32 RefreshLockSkillIndexList = 4;
+    repeated int32 RefreshLockSoulShapeSkillIndexList = 5;
+}
+message PetSkillRefreshResultReq {
+    required int32 petId = 1;
+    required int32 flag = 2; 
+}
+message PetSkillRefreshResultResp {
+    required int32 ret = 1;
+    optional PetDataMsg petData = 2;
+    repeated int32 RefreshLockSkillIndexList = 3;
+    repeated int32 RefreshLockSoulShapeSkillIndexList = 4;
+}
+message PetLockStateReq {
+    required int32 petId = 1;
+    required int32 lockState = 2; 
+}
+message PetLockStateResp {
+    required int32 ret = 1;
+}
+message PetLockReq {
+    required int32 petId = 1;
+    required int32 stat = 2; 
+    optional string passwd = 3; 
+}
+message PetLockResp {
+    required int32 ret = 1;
+    optional int64 forceUnlockTime = 2; 
+    optional PetDataMsg petData = 3; 
+    optional int64 nextEnterTime = 4; 
+}
+message PetFateMsg {
+    required int32 fateId = 1; 
+    required int32 lv = 2; 
+}
+message PetFateUpReq {
+    required int32 fateId = 1;
+}
+message PetFateUpResp {
+    required int32 ret = 1;
+    optional PetFateMsg petFateMsg = 2; 
+}
+message PetRootUpReq {
+    required int32 petId = 1;
+}
+message PetRootUpResp {
+    required int32 ret = 1;
+    optional PetDataMsg petData = 2;
+}
+message PetAwakeReq {
+    required int32 petId = 1;
+}
+message PetAwakeResp {
+    required int32 ret = 1;
+    optional PetDataMsg petData = 2;
+}
+message PetSwitchLinkageSkinReq {
+    required int32 petId = 1;
+    required int32 linkageId = 2;
+}
+message PetSwitchLinkageSkinResp {
+    required int32 ret = 1;
+    optional PetDataMsg petData = 2;
+}

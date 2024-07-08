@@ -1,0 +1,322 @@
+package com.yq.msg.CityMsg;
+import "Battle";
+import "Common";
+import "WatchPlayer";
+ enum UnionBountyPb {
+     S_UNION_BOUNTY_ENTRY_MAP = 213602;                    
+     S_UNION_BOUNTY_EXIT_MAP = 213603;                     
+     S_UNION_BOUNTY_PLUNDER = 213604;                      
+     S_UNION_BOUNTY_DEAL_BOUNTY = 213605;                  
+     S_UNION_BOUNTY_GET_REWARD_ESCORT = 213606;            
+     S_UNION_BOUNTY_CHECK_ESCORT = 213608;                 
+     S_UNION_BOUNTY_GET_REPORT = 213609;                   
+     S_UNION_BOUNTY_REPORT_CHECK_ESCORT = 213611;          
+     S_UNION_BOUNTY_WORSHIP = 213612;                      
+     S_UNION_BOUNTY_REFRESH_MAP = 213613;                  
+     S_UNION_BOUNTY_OPEN_BOUNTY_EVENT = 213614;            
+     S_UNION_BOUNTY_OPEN_BOUNTY_RETALIATE = 213615;        
+     S_UNION_BOUNTY_GET_MEMBER_SCORE = 213616;             
+     S_UNION_BOUNTY_HAVE_ESCORT = 213617;                  
+     S_UNION_BOUNTY_OPEN_ESCORT_DETAIL = 213618;           
+     S_UNION_BOUNTY_OPEN_MONSTER = 213619;                 
+     S_UNION_BOUNTY_ATTACK_MONSTER = 213620;               
+     S_UNION_BOUNTY_ASK_HELP = 213621;                     
+     S_UNION_BOUNTY_OPEN_ASK_HELP = 213622;                
+     S_UNION_BOUNTY_DEAL_ASK_HELP = 213623;                
+     S_UNION_BOUNTY_MANAGE_TEAM = 213624;                  
+     S_UNION_BOUNTY_SYN_MONSTER_INFO = 213625;             
+     S_UNION_BOUNTY_GET_MONSTER_ATTRIBUTE = 213626;        
+     S_UNION_BOUNTY_MONSTER_CHANGE_POS = 213627;           
+     S_UNION_BOUNTY_GET_EXIST_MONSTER = 213628;            
+ }
+message UnionBountyPlayerDataMsg {
+    optional int32 bountyTimes = 1;      
+    optional int32 robTimes = 2;         
+    optional int32 refreshTimes = 3;     
+    optional int64 refreshTime = 4;      
+    optional int64 lastWorshipTime = 5;  
+    optional int32 helpTimes = 6;        
+}
+message UnionBountyEnterMapReq {
+}
+message UnionBountyEnterMapResp {
+    optional int32 ret = 1;
+    optional UnionBountyPlayerDataMsg playerData = 2; 
+    repeated UnionBountyEscortCartMsg cartList = 3;  
+    optional UnionBountyEscortCartMsg myCart = 4;    
+    repeated int64 serverList = 5;                   
+    optional bool repointRedPoint = 6;               
+    optional bool worshipRedPoint = 7;               
+    optional bool settlementRedPoint = 8;            
+    optional bool askHelpRedPoint = 9;               
+    repeated UnionBountyMonsterMsg monsterList = 10;   
+}
+message UnionBountyOpenEscortCartDetailReq{
+    optional int64 playerId = 1;
+}
+message UnionBountyOpenEscortCartDetailRsp{
+    optional int32 ret = 1;
+    optional UnionBountyEscortCartMsg cart = 2;
+}
+message UnionBountyExitMapReq{
+}
+message UnionBountyExitMapResp {
+    optional int32 ret = 1;
+}
+message UnionBountyHaveEscortReq{
+}
+message UnionBountyHaveEscortResp {
+    optional int32 ret = 1;
+    optional bool exist = 2;
+}
+message UnionBountyEscortCartMsg {
+    optional int32 configId = 1;                       
+    optional int32 robbedNum = 2;                      
+    optional int64 startTime = 3;                      
+    optional int32 energy = 4;                         
+	optional int64 maxBlood = 5;                       
+    optional int64 curBlood = 6;                       
+    optional int32 monsterId = 7;                      
+    optional int32 npcId = 8;                          
+    optional UnionBountyPlayerInfo playerData = 9;     
+    optional int64 escortCartFightValue = 10;          
+    optional bool attackedByMe = 11;                   
+}
+message UnionBountyPlunderReq {
+    required int64 targetId = 1;    
+    optional int64 startTime = 2;   
+    optional int64 energy = 3;      
+}
+message UnionBountyPlunderResp {
+    optional int32 ret = 1;
+    optional bool result = 2;                               
+    optional BattleRecordMsg allBattleRecord = 3;           
+    optional string reward = 4;                             
+    optional int32 addScore = 5;                            
+    optional UnionBountyEscortCartMsg cart = 6;             
+    optional UnionBountyPlayerDataMsg playerData = 7;
+}
+message UnionBountyDealBountyReq {
+    required int32 curConfigId = 1;      
+    required int32 type = 2;             
+}
+message UnionBountyDealBountyResp {
+    optional int32 ret = 1;
+    optional UnionBountyPlayerDataMsg playerData = 2;
+    optional UnionBountyEscortCartMsg myCart = 3;       
+    optional UnionBountyBountyInfo bountyInfo = 4;      
+}
+message UnionBountyGetRewardEscortReq {
+}
+message UnionBountyGetRewardEscortResp {
+    optional int32 ret = 1;
+    optional int32 configId = 2;                          
+    repeated int32 adventureList = 3;                     
+    repeated UnionBountyRobEscortMsg robList = 4;         
+    optional string reward = 5;                           
+}
+message UnionBountyRobEscortMsg {
+    optional string playerName = 1;                
+    optional string robbedReward = 2;              
+    optional int64 robTime = 3;                    
+}
+message UnionBountyCheckEscortReq {
+    required string value = 1;                  
+    required int64 serverId = 2;
+}
+message UnionBountyCheckEscortResp {
+    optional int32 ret = 1;
+    optional UnionBountyEscortCartMsg cartInfo = 2; 
+}
+message UnionBountyGetReportReq {
+    required int32 type = 1;                                  
+}
+message UnionBountyGetReportResp {
+    optional int32 ret = 1;
+    repeated UnionBountyMyReportMsg playerReportList = 2;       
+    repeated UnionBountyUnionReportMsg unionReportList = 3;     
+}
+message UnionBountyMyReportMsg {
+    optional int32 reportId = 1;                                    
+    optional int32 configId = 2;                                    
+    optional UnionBountyPlayerInfo playerData = 3;                  
+    optional int64 time = 4;                                        
+    optional int32 result = 5;                                      
+    optional bool isRetaliate = 6;                                  
+}
+message UnionBountyUnionReportMsg {
+    optional int32 reportId = 1;                                    
+    optional int32 configId = 2;                                    
+    optional UnionBountyPlayerInfo playerData = 3;                  
+    repeated UnionBountyUnionReportPlayerMsg playerList = 4;        
+}
+message UnionBountyUnionReportPlayerMsg {
+    optional UnionBountyPlayerInfo playerData = 1;                  
+    optional bool counterAttackResult = 2;                          
+    optional bool isEscort = 3;                                     
+    optional int64 time = 4;                                        
+}
+message UnionBountyReportCheckEscortReq {
+    optional int32 reportId = 1;                                    
+    optional int32 type = 2;                                        
+    optional int32 index = 3;                                       
+}
+message UnionBountyReportCheckEscortResp {
+    optional int32 ret = 1;
+    optional UnionBountyEscortCartMsg cartInfo = 2;                 
+    optional UnionBountyPlayerInfo counterAttackInfo = 3;           
+}
+message UnionBountyRetaliateReq{
+    required int32 type = 1;            
+    optional int32 reportId = 2;        
+    optional int32 index = 3;           
+    optional int64 energy = 4;          
+}
+message UnionBountyRetaliateResp{
+    optional int32 ret = 1;
+    optional bool result = 2;                               
+    optional BattleRecordMsg allBattleRecord = 3;           
+    optional string reward = 4;                             
+    optional int32 addScore = 5;                            
+    optional UnionBountyPlayerDataMsg playerData = 6;       
+    optional int32 energy = 7;                              
+}
+message UnionBountyWorshipReq {
+}
+message UnionBountyWorshipResp {
+    optional int32 ret = 1;
+    optional string reward = 2; 
+}
+message UnionBountyRefreshMapReq {
+}
+message UnionBountyRefreshMapResp {
+    optional int32 ret = 1;
+    repeated UnionBountyEscortCartMsg cartList = 2; 
+    optional UnionBountyPlayerDataMsg playerData = 3;
+}
+message UnionBountyOpenBountyEventReq {
+}
+message UnionBountyOpenBountyEventResp {
+    optional int32 ret = 1;
+    optional UnionBountyBountyInfo bountyInfo = 2;  
+    optional UnionBountyPlayerDataMsg playerData = 3;
+    optional bool isNewEvent = 4;                   
+}
+message UnionBountyGetMemberScoreReq {
+    required int32 type = 1;            
+    required int64 unionId = 2;         
+    required int64 serverId = 3;        
+}
+message UnionBountyGetMemberScoreResp {
+    optional int32 ret = 1;
+    repeated UnionBountyMemberScoreMsg memberScoreList = 2;
+}
+message UnionBountyOpenMonsterReq{
+    optional int64 playerId = 1;
+}
+message UnionBountyOpenMonsterResp{
+    optional int32 ret = 1;
+    optional int32 event = 2;
+    repeated BattleMain battleMainList = 3;              
+    repeated PlayerHeadAndFightMsg headAndFightMsg = 4;  
+    optional BattleMain bossBattleMain = 5;              
+    repeated int64 invitedPeoples = 6;                   
+    optional int64 monsterPower = 7;                     
+}
+message UnionBountyMonsterChangePosReq{
+    required int64 resPlayerId = 1;     
+    required int32 resPos = 2;          
+    required int64 tarPlayerId = 3;     
+    required int32 tarPos = 4;          
+}
+message UnionBountyMonsterChangePosRsp{
+    optional int32 ret = 1;
+    repeated BattleMain battleMainList = 2;              
+}
+message UnionBountyMonsterChangePosData{
+    required int64 playerId = 1;	
+    required int32 pos = 2;		    
+}
+message UnionBountyAttackMonsterReq{
+    repeated UnionBountyMonsterTeamPlayerMsg teamPlayerList = 1;
+    optional int32 bossId = 2;                          
+}
+message UnionBountyAttackMonsterResp{
+    optional int32 ret = 1;
+    optional BattleRecordMsg allBattleRecord = 2;       	
+    optional string reward = 3;                             
+}
+message UnionBountyAskHelpReq{
+    optional int32 type = 1;        
+    optional int64 playerId = 2;        
+}
+message UnionBountyAskHelpResp {
+    optional int32 ret = 1;
+}
+message UnionBountyOpenAskHelpReq{
+}
+message UnionBountyOpenAskHelpResp{
+    optional int32 ret = 1;
+    repeated UnionBountyAskHelpMsg askHelpMsgList = 2;
+}
+message UnionBountyAskHelpMsg{
+    optional int64 playerId = 1;                
+    optional string leaderName = 2;             
+    optional int64 serverId = 3;                
+    optional int32 eventId = 4;                 
+    optional int64 teamPower = 5;               
+}
+message UnionBountyDealAskHelpReq{
+    optional int32 type = 1;        
+    optional int64 playerId = 2;    
+}
+message UnionBountyDealAskHelpResp{
+    optional int32 ret = 1;
+}
+message UnionBountyMonsterMsg{
+    optional int64 playerId = 1;
+    optional int32 eventId = 2;
+    optional string playerName = 3;
+    optional int32 pos = 4;         
+}
+message UnionBountyMemberScoreMsg{
+    optional string memberName = 1;
+    optional int64 score = 2;
+    optional int64 changeTime = 3;
+}
+message UnionBountyPlayerInfo{
+    optional int64 playerId = 1; 
+    optional int32 headIcon = 2; 
+    optional string nickName = 3; 
+    optional int64 fightValue = 4; 
+    optional string unionName = 5;
+    optional int32 appearanceId = 6; 
+    optional int64 serverId = 7; 
+    optional string wxHeadUrl = 8; 
+    optional int32 equipHeadIconFrame = 9; 
+    optional int32 cloudId = 10; 
+}
+message UnionBountyBountyInfo{
+    optional int32 curConfigId = 1;                          
+    optional int32 unionBountyExp = 2;                       
+    optional UnionBountyFinishReward finishReward = 3;       
+    optional int32 unionBountyDailyExp = 4;                  
+    optional int64 monsterPower = 5;                         
+    optional int32 pos = 6;                                  
+}
+message UnionBountyFinishReward{
+    optional string reward = 1;                
+    optional int32 addScore = 2;               
+    optional int32 escortCartConfigId = 3;     
+}
+message UnionBountyGetMonsterAttributeReq {
+    optional int64 playerId = 1;    
+}
+message UnionBountyGetMonsterAttributeResp {
+    optional int32 ret = 1;
+    repeated AttributeDataMsg attributeList = 2; 
+}
+message UnionBountyMonsterTeamPlayerMsg{
+    optional int64 playerId = 1;
+    optional int32 pos = 2;
+}

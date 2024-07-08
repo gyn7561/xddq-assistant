@@ -1,0 +1,74 @@
+package com.yq.msg.CityMsg;
+message SyncMagicTreasureDataMsg{
+  repeated MagicTreasureDataMsg magicTreasureData = 1; 
+  optional bool isComplete = 2;
+}
+message MagicTreasurePlayerDataMsg {
+    repeated MagicTreasureDataMsg magicTreasureData = 1; 
+    repeated MagicTreasureJackpotMsg jackpotData = 2; 
+    repeated MagicTreasureJackpotConfigMsg jackpotConfig = 3;
+  }
+  message MagicTreasureJackpotMsg{
+    optional int32 poolId = 1;
+    optional int32 drawTimes = 2;
+    optional int32 freeDrawTimes = 3;   
+    optional int32 adFreeTimes = 4; 
+    optional int64 lastAdTime = 5;
+  }
+  message MagicTreasureJackpotConfigMsg{
+    optional int32 poolId = 1;
+    optional int64 startTime = 2;
+    optional int64 endTime = 3;
+    optional string title = 4;
+    optional string protectParam = 5;
+    optional string drawItemCostParam = 6;
+    optional string weightParam = 7;
+    optional int32 freeTimes = 8;
+    optional string adParam = 9;
+    optional int32 bgIndex = 10;
+    optional string immortalDemonWeightParam = 11;
+  }
+  message MagicTreasureDataMsg {
+    required int32 magicTreasureId = 1; 
+    required int32 starLv = 2; 
+    required int32 lv = 3; 
+    optional int32 cumulativeNum = 4; 
+  }
+  message MagicTreasureResultItemMsg{
+    required string reward  = 1;
+    optional string item = 2;
+  }
+  message MagicTreasureDrawReq {
+    required int32 drawTimes = 1; 
+    optional bool isAd = 2; 
+    required int32 poolId = 3; 
+    optional bool isUseADTime = 4;
+    optional int32 itemId = 5; 
+  }
+  message MagicTreasureDrawRsp {
+    required int32 ret = 1;
+    repeated MagicTreasureResultItemMsg rewards = 2;
+    optional MagicTreasurePlayerDataMsg syncMsg = 3; 
+  }
+  message MagicTreasureLvUpReq {
+    required int32 magicTreasureId = 1;
+    optional bool isQuick = 2;
+  }
+  message MagicTreasureLvUpRsp {
+    required int32 ret = 1;
+    optional MagicTreasureDataMsg magicTreasureData = 2; 
+  }
+  message MagicTreasureActiveReq {
+    required int32 magicTreasureId = 1;
+  }
+  message MagicTreasureActiveRsp {
+    required int32 ret = 1;
+    optional MagicTreasureDataMsg magicTreasureData = 2; 
+  }
+  message MagicTreasureStarUpReq {
+    required int32 magicTreasureId = 1;
+  }
+  message MagicTreasureStarUpRsp {
+    required int32 ret = 1;
+    optional MagicTreasureDataMsg magicTreasureData = 2; 
+  }

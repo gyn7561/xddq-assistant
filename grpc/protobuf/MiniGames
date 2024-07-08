@@ -1,0 +1,28 @@
+package com.yq.msg.CityMsg;  
+import "Battle";
+enum MiniGamesPb {
+    MiniGamesPb_ReceiveMiniGamesReward = 200021;  
+    MiniGamesPb_StageMapChallenge = 200022; 
+}
+enum MiniGamesType {
+    SaveThePig = 1; 
+    RelicExplore = 2; 
+    Shoot = 3; 
+}
+message ReceiveMiniGamesRewardReq {
+    required MiniGamesType type = 1; 
+    required int32 stage = 2; 
+}
+message ReceiveMiniGamesRewardResp {
+    required int32 ret = 1;
+    optional string reward = 2; 
+}
+message StageMapChallengeReq {
+    required int32 stage = 1;
+    required int32 index = 2;
+}
+message StageMapChallengeRsp {
+    required int32 ret = 1;
+    optional bool challengeSuccess = 2; 
+    optional BattleRecordMsg allBattleRecord = 3; 
+}

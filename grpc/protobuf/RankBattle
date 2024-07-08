@@ -1,0 +1,56 @@
+package com.yq.msg.CityMsg;    
+import "WatchPlayer";
+import "Battle";    
+message GetBattleListResp {
+    optional int32 ret = 1;
+    repeated PlayerBattleShowDataMsg playerBattleShowDataMsg = 2; 
+}
+message PlayerBattleShowDataMsg {
+    optional PlayerBaseDataMsg playerBaseDataMsg = 1; 
+    optional int64 score = 2; 
+    optional int64 protectEndTime = 3; 
+}
+message RefreshBattleListResp {
+    optional int32 ret = 1;
+    repeated PlayerBattleShowDataMsg playerBattleShowDataMsg = 2; 
+}
+message RankBattleChallengeReq {
+    required int32 index = 1; 
+}
+message RankBattleChallengeResp {
+    required int32 ret = 1;
+    optional RankBattleResultMsg rankBattleResultMsg = 2; 
+}
+message RankBattleResultMsg {
+    optional BattleRecordMsg allBattleRecord = 1; 
+    optional bool challengeSuccess = 2; 
+    optional string rewards = 3; 
+    repeated BattleScoreChangeMsg battleScoreChangeMsg = 4; 
+}
+message BattleScoreChangeMsg {
+    optional PlayerBaseDataMsg playerBaseDataMsg = 1; 
+    optional int64 score = 2; 
+    optional int64 changeScore = 3; 
+}
+message GetRankBattleLogResp {
+    required int32 ret = 1;
+    repeated RankBattleLogMsg rankBattleLogMsg = 2; 
+}
+message RankBattleLogMsg {
+    optional int32 logId = 1; 
+    optional int64 beAttackTime = 2; 
+    optional PlayerBaseDataMsg attackPlayer = 3; 
+    optional int64 scoreChange = 4; 
+    optional bool revengeSuccess = 5; 
+}
+message RankBattleRevengeReq {
+    required int32 logId = 1;
+}
+message RankBattleRevengeResp {
+    required int32 ret = 1;
+    optional RankBattleResultMsg rankBattleResultMsg = 2; 
+}
+message RankBattleSync {
+    required int32 groupId = 1;
+    required int32 round = 2;
+}

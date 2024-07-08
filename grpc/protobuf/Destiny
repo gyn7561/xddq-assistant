@@ -1,0 +1,93 @@
+package com.yq.msg.CityMsg;     
+import "Battle";   
+message DestinyData {
+    repeated RelativeData relativeList = 1;         
+    required PlayerDestinyDataMsg playerDestinyDataMsg = 2; 
+    repeated DestinyLinkageDataMsg DestinyLinkageDataMsg = 3; 
+}
+message DestinyLinkageDataMsg {
+    required int32 id = 1; 
+    required int32 linkageId = 2; 
+}
+message PlayerDestinyDataMsg {
+    required int32 power = 1; 
+    required int64 lastRecoveryTime = 2;
+}
+message RelativeData {
+    required int32 id = 1;                          
+    optional int64 favor = 2;                       
+    optional int32 challengeId = 3;              
+    optional int32 curSkinId = 4;                 
+    repeated DestinySkinData skinData =5; 
+    optional int32 equipLinkageId = 6; 
+}
+message DestinySkinData{
+    optional int32 skinId=1;
+    optional int32 lv=2;   
+    optional int32 isWear=3; 
+}
+message ReqDestinyGift {
+    optional int32 relativeId = 1;                  
+    optional int32 propId = 2;                      
+    optional int32 propNum = 3;                     
+}
+message RspDestinyGift {
+    required int32 ret = 1;
+    optional RelativeData relative = 2;
+}
+message ReqDestinyTravel {
+    required bool isOneKey = 1; 
+}
+message RspDestinyTravel {
+    required int32 ret = 1;
+    repeated DestinyTravelResult result = 2;
+}
+message DestinyTravelResult {
+    optional int32 destination = 1;     
+    optional string reward = 2;         
+    optional int32 eventId = 3;         
+}
+message ReqDestinyChallenge {
+    required int32 relativeId = 1;      
+}
+message RspDestinyChallenge {
+    required int32 ret = 1;
+    optional BattleRecordMsg allBattleRecord = 2; 
+    optional bool challengeSuccess = 3; 
+    optional string rewards = 4; 
+    optional RelativeData  relative = 5;
+}
+message ReqUnlockDestinyByItem {
+    optional int32 relativeId = 1;                  
+}
+message RspUnlockDestinyByItem {
+    required int32 ret = 1;
+}
+message ReqUnlockDestinySkinByItem{
+    optional int32 skinId = 1;                  
+}
+message RspUnlockDestinySkinByItem {
+    required int32 ret = 1;
+}
+message ReqEnhanceDestinySkin{
+    optional int32 skinId = 1;                  
+}
+message RspEnhanceDestinySkin{
+    required int32 ret = 1;
+    optional int32 lv  = 2;                    
+}
+message ReqWearDestinySkin{
+    optional int32 skinId = 1;                  
+}
+message RspWearDestinySkin{
+    required int32 ret = 1;
+    optional int32 curSkinId = 2;               
+}
+message DestinySwitchLinkageSkinReq {
+    required int32 id = 1;
+    required int32 linkageId = 2;
+}
+message DestinySwitchLinkageSkinResp {
+    required int32 ret = 1;
+    optional RelativeData relativeData = 2;
+}

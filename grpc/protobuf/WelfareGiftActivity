@@ -1,0 +1,14 @@
+package com.yq.msg.CityMsg;    
+    message WelfareGiftActivityPlayerDataMsg {
+        required int32 activityId = 1;
+        repeated TriggerGiftDataMsg triggerGiftDataMsg = 2;
+    }
+    message TriggerGiftDataMsg {
+        required int32 conditionId = 1;
+        required int64 endTime = 2;
+        repeated int32 hasBeenBought = 3;
+        repeated int32 triggerMallId = 4;
+    }
+    message WelfareGiftActivityPlayerDataSync {
+        optional WelfareGiftActivityPlayerDataMsg syncMsg = 1;
+    }

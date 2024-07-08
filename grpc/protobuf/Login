@@ -1,0 +1,29 @@
+package com.yq.msg.CityMsg;
+message ReqLoginMsg {
+    required string token = 1;
+    optional string language = 2;              
+}
+message RspLoginMsg{
+    required int32 ret = 1;
+    optional TimeDataMsg timeData = 2;
+}
+ message TimeDataMsg {
+    required int64 timestamp = 1; 
+    required int32 timeZone = 2; 
+}
+message LoginOverMsg {
+}
+message ReqPingMsg {
+}
+message RspPingMsg {
+    required TimeDataMsg timeData = 1;
+}
+message OtherLoginMsg {
+}
+message RspConfigMsg {
+    repeated ConfigParam configList = 1;        
+}
+message ConfigParam {
+    required string key = 1;                    
+    required string value = 2;                  
+}

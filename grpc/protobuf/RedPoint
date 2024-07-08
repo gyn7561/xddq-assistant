@@ -1,0 +1,23 @@
+package com.yq.msg.CityMsg;    
+    message SystemRedPointSync {
+        required string redPointVal = 1;
+    }
+    enum SystemRedPointTypeEnum {
+        HomeLand = 1; 
+        RankBattle = 2; 
+        UnionJoinNew = 3; 
+        UnionClear = 4; 
+        UnionNotice = 5; 
+        UnionTask = 6; 
+        UnionGetReward = 7; 
+        UnionApply = 8; 
+        UnionHelp = 9;  
+        PalaceEntry = 10;
+        UnionBoss = 12; 
+        UnionBossReward = 13; 
+        UnionBossAchieveReward = 14;
+        HeroRank_Enter = 15; 
+    }
+    message ActivityRedPointSync {
+        repeated int32 activityId = 2;
+    }

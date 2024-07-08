@@ -1,0 +1,499 @@
+package com.yq.msg.CityMsg;
+import "Union";
+import "WatchPlayer";
+import "WorldMessage";
+import "Common";
+import "Battle";
+enum PackagesBaseProtocols{
+    SkyWarPb_Login_Sync = 208414;                     
+    SYNC_UNION_DUEL_MSG = 208501;                     
+    S_UNION_DUEL_OPEN_VIEW = 208502;                  
+    S_UNION_DUEL_SYNC_DATA = 208511;                  
+    TRIAL_SYNC_BOSS_CONFIG = 209104; 
+    TRIAL_PLAYER_DATA_SYNC = 209105; 
+    MOUNTAIN_SEA_LOGIN_SYNC = 209733;               
+    Holy_Land_Battle_Login_Sync = 209570;             
+    Holy_Land_Battle_Time_Sync = 209575;             
+    S_SOUL_LIQUID_DATA_MSG = 209801;                
+    ASKDING_GET_CHAMPION_INFO = 205935;               
+    ASKDING_SYNC_PLAYER_JOIN = 205938;                
+    S_SKY_PRESENT_DATA_SYNC = 209910;                 
+    DOUBLE_DEMONS_DATA_LOGIN_SYNC = 211111;           
+    DOUBLE_DEMONS_AGREE = 211112;                     
+    DOUBLE_DEMONS_REFUSE = 211113;                    
+    DOUBLE_DEMONS_RECEIVE_PRESENT = 211114;           
+    DOUBLE_DEMONS_APPOINT_INVITE = 211106;            
+    TOWNDEMON_LOGIN_SYNC = 213250;                    
+    TOWNDEMON_TIME_SYNC = 213251;                    
+    S_FRIEND_SYNC = 214130;                           
+    S_FRIEND_SYNC_MODIFY = 214132;                    
+    S_UNIVERSE_SYNC_PLAYER_DATA = 214302;             
+    FairyLandPb_Sync_Player_Data = 214202;          
+    FairyLandPb_Sync_Server_Data = 214211;              
+    S_PAINT_FAIRYLAND_BEING_SYNC = 214670;            
+    S_PAINT_FAIRYLAND_CHECK_POOL = 214698;            
+}
+message SkyWarDataLoginSync {
+    optional int32 battleTimes = 1; 
+    optional bool isJoinWar = 2; 
+    optional bool waitNextWeek = 3; 
+}
+message UnionDuelSyncMsgReq{
+    required bool needResult = 1;
+}
+message SyncUnionDuelMsg{
+    optional int32 ret = 1;
+    optional bool hasQualification = 2; 
+    optional bool masterOrDeputy = 3; 
+    optional int32 state = 4; 
+    optional UnionDuelBattleResultMsg myUnion = 5;
+    optional UnionDuelBattleResultMsg oppoUnion = 6;
+    optional int32 battleState = 7; 
+}
+message UnionDuelBattleResultMsg {
+    optional string unionName = 1; 
+    optional int64 serverId = 2; 
+    optional int32 flag = 3; 
+    optional int32 star = 4; 
+    optional int32 curPeople = 5; 
+}
+message UnionDuelSyncDataReq{
+    required int64 unionId = 1;
+}
+message UnionDuelSyncDataResp{
+    required int32 ret = 1;
+    optional int32 state = 2; 
+}
+message UnionDuelOpenViewReq{
+}
+message UnionDuelOpenViewResp{
+    required int32 ret = 1;
+    optional bool isApplication = 2;      
+    optional bool isBye = 3;            
+    optional UnionDuelFightInfo fightInfo = 4; 
+    optional int32 active = 5; 
+    repeated int32 joinLimit = 6; 
+    optional bool hasQualification = 7; 
+}
+message UnionDuelFightInfo{
+    optional UnionDuelBaseMsg myUnion = 1; 
+    optional UnionDuelBaseMsg oppoUnion = 2; 
+    optional int32 curLeftTime = 3; 
+    repeated UnionDuelFightRecordMsg record = 4; 
+    optional int32 state = 5; 
+}
+message UnionDuelBaseMsg {
+    optional int64 unionId = 1; 
+    optional string unionName = 2; 
+    optional int32 flag = 3; 
+    optional int64 power = 4; 
+    optional int32 star = 5; 
+    optional int32 curPeople = 6; 
+    optional int32 maxPeople = 7; 
+    repeated UnionDuelCloudMemberMsg cloudMember = 8; 
+    optional int64 serverId = 9; 
+}
+message UnionDuelCloudMemberMsg {
+    optional bool isAlive = 1; 
+    optional int32 headIcon = 2;    
+    optional string wxHeadUrl = 3;  
+    optional int32 appearanceId = 4; 
+    optional int32 equipHeadIconFrame = 5; 
+    optional int32 level = 6; 
+    optional int64 playerId = 7; 
+}
+message UnionDuelFightRecordMsg {
+    optional int64 time = 1; 
+    optional int32 myLevel = 2; 
+    optional int32 oppoLevel = 3;    
+    optional int32 type = 4; 
+}
+enum RuleTrialType{
+    Gold = 1; 
+    Wood = 2; 
+    Water = 3; 
+    Fire = 4; 
+    Earth = 5; 
+}
+message RuleTrialDataTemp {
+    required RuleTrialType type = 1; 
+    required bool isUnlock = 2; 
+    required int32 bossId = 3; 
+}
+message RuleTrialDataSync {
+    repeated RuleTrialDataTemp data = 1;
+    required int32 totalChallengeTimes = 2; 
+    required int32 bestBoosId = 3; 
+    required bool isRepeated = 4; 
+    required int64 sysUnlockTime = 5; 
+}
+message RuleTrialBossPowerData{
+    required int32 bossId = 1; 
+    required int64 power = 2; 
+}
+message RuleTrialBossConfigSyncMsg{
+    repeated RuleTrialBossPowerData data = 1; 
+}
+message MountainSeaJoinTeamReq {
+    required int64 teamId = 1;
+}
+message MountainSeaJoinTeamRsp {
+    required int32 ret = 1;
+}
+message MountainSeaChallengeTimeReq{
+}
+message MountainSeaChallengeTimeRsp{
+    required int32 ret = 1;
+    optional int32 challengeTimes = 2;
+}
+message HolyLandBattleApplyDataSyncReq{
+}
+message HolyLandBattleApplyDataSync {
+    required int32 ret = 1;
+    optional bool isApply = 2; 
+    optional bool hasQuality = 3; 
+    optional bool  isOpen = 4; 
+    optional int32 roundId = 5; 
+    repeated int64 scheduleTimestamp = 6;   
+    optional bool  notFoundCrossId = 7; 
+}
+message HolyLandBattleTimeStampsDataSync {
+    required int32 ret = 1;
+    repeated int64 scheduleTimestamp = 2;   
+}
+message PlayerSoulLiQuidDataMsg {
+    required int32 lv = 1; 
+    required int64 dailyAura = 2;
+    optional int64 dreamItemCostTotalNum = 3;
+    optional int32 remainTimes = 4;
+}
+message AskDingConfigSyncMsg {
+  repeated AskDingPlaceConfigTemp placeConfig = 1;        
+  repeated AskDingTimeConfigMsg timeConf = 2; 
+}
+message AskDingPlaceConfigTemp {
+  required int32 activityId = 1;            
+  required int32 id = 2;                    
+  required int32 type = 3;                  
+  required string name = 4;                 
+  required int32 level = 5;                 
+  required int32 radius = 6;                
+  required int32 seizeScore = 7;            
+  required int32 seizeProduce = 8;          
+}
+message AskDingTimeConfigMsg {
+  required int32 activityId = 1;            
+  required int32 timeId = 2; 
+  required int32 type = 3; 
+  required int32 session = 4; 
+  required int32 beginDay = 5;
+  required int32 beginTime = 6; 
+  required int32 seat = 7; 
+  required int32 durTime = 8; 
+  required string score = 9; 
+  optional string rewardsPresident = 10; 
+  optional string rewardsMember = 11; 
+  optional string params = 12; 
+  optional int32 guessParam = 13; 
+}
+message AskDingGetChampionInfoReq {
+  required int32 activityId = 1;
+}
+message AskDingGetChampionInfoResp {
+  optional int32 ret = 1;
+  optional int32 activityId = 2;
+  optional UnionBaseData championUnion = 3; 
+  repeated AskDingChampionLeadersMsg leaders = 4; 
+}
+message AskDingChampionLeadersMsg {
+  optional int64 playerId = 1;
+  optional int32 appearanceId = 2; 
+  optional int32 equipCloudId = 3; 
+  optional int32 position = 4; 
+  optional string nickName = 5; 
+}
+message AskDingSyncPlayerJoinMsg {
+  required int32 activityId = 1;
+  optional bool joined = 2; 
+}
+message SkyPresentDataSync {
+    repeated SkyPresentPresentData dataList = 1; 
+    optional bool isLogin = 2; 
+}
+message SkyPresentPresentData {
+    optional int32 typeParam = 1; 
+    optional int32 mallId = 2; 
+    optional int64 beginTimes = 3; 
+    optional int64 endTimes = 4; 
+}
+message AuspiciousBlessDataSyncResp{
+  required int32 ret = 1;
+  required int32 activityId = 2;
+  required int32 sumDraw = 3;
+  required int32 dailyCount = 4;
+  required int32 dailySumCount = 5;
+  required int64 cdEndTime = 6;
+  required int64 restTime = 7;
+  required int32 rareRewardId = 8;
+}
+message RecallPlayerDataMsg {
+    optional int32 activityId = 1; 
+    optional int64 triggerTime = 2; 
+    optional int64 endTime = 3;    
+    optional int32 offlineDay = 4; 
+    repeated int32 systemId = 5; 
+    optional string recallCode =6; 
+    optional bool  isMonthCardFree =7; 
+    optional bool  isMouseFree =8; 
+    optional int32 isWhite = 9; 
+}
+message RegressionActivePlayerData{
+    optional int32 lotteryTimes = 1; 
+    optional string recallCode = 2; 
+    repeated int32 hasRewardIds = 3; 
+    optional bool  isFirstShare =4; 
+    repeated RegressionSelectReward regressionSelectReward = 5; 
+}
+message RegressionSelectReward{
+    optional int32 index  = 1;
+    optional string reward = 2; 
+}
+message RenewNewPlayerDataMsg{
+    optional RenewPlayerInfo RenewPlayerInfo = 1; 
+    optional int64 triggerTime = 2; 
+    optional int64 endTime = 3;    
+}
+message RenewPlayerInfo {
+    optional PlayerBaseDataMsg playerBaseDataMsg = 1; 
+    optional bool  isActive = 2; 
+    optional bool  isWhite =3; 
+    optional int32 reamsId = 4; 
+}
+message DoubleDemonsDataLoginSync{
+    repeated DoubleDemonsInviteData inviteData = 1; 
+    repeated DoubleDemonsPresentData presentData = 2; 
+}
+message DoubleDemonsInviteData {
+    optional int64 inviteTime  = 1; 
+    optional PlayerBaseDataMsg playerBaseData = 2; 
+}
+message DoubleDemonsPresentData {
+    optional PlayerCharacterImageMsg playerShowData = 1; 
+    optional string words = 2; 
+    optional string rewards = 3; 
+}
+message DoubleDemonsAgreeReq {
+    required int64 playerId = 1; 
+    required int32 activityId = 2; 
+}
+message DoubleDemonsAgreeResp {
+    required int32 ret = 1;
+}
+message DoubleDemonsRefuseReq {
+    required int32 activityId = 1; 
+}
+message DoubleDemonsRefuseResp {
+    required int32 ret = 1;
+}
+message DoubleDemonsReceivePresentReq {
+    required int64 playerId = 1; 
+    required int32 activityId = 2; 
+}
+message DoubleDemonsReceivePresentResp {
+    required int32 ret = 1;
+}
+message DoubleDemonsAppointInviteReq {
+    required int32 activityId = 1;
+    required int64 playerId = 2; 
+}
+message DoubleDemonsAppointInviteResp {
+    required int32 ret = 1;
+}
+message PupilSystemLoginSync {
+    optional int32 sectLv = 1; 
+    repeated CurrentTrainTimeInfoMsg trainInfo = 2;
+    optional int32 unEducatedPupilNums = 3; 
+    repeated int32 havePupilSiteIndexList = 4;
+}
+message  CurrentTrainTimeInfoMsg{
+    required int32 index = 1;                     
+    optional int32 trainTimes = 2;                
+    optional int32 remainTrainTimes = 3;          
+    optional int64 lastRestoreTime = 4;           
+}
+message MarriageRecordTempSync{
+	optional string reward = 1;  
+	optional bytes marriageData = 2;
+}
+message MarriageGetAppointApplyTimeSync{
+    repeated int64 requestMarryTime = 1;	
+}
+message TownDemonApplyDataSyncReq{
+}
+message TownDemonApplyDataSync {
+    required int32 ret = 1;
+    optional bool unionQualification = 2; 
+    optional bool playerQualification = 3; 
+    optional bool  isOpen = 4; 
+    optional int32 roundId = 5; 
+    repeated int64 scheduleTimestamp = 6;   
+    optional int32 tipType = 7; 
+}
+message TownDemonTimeStampsDataSync {
+    required int32 ret = 1;
+    repeated int64 scheduleTimestamp = 2;   
+}
+message PeachBanquetLoginSync {
+    optional int64 endShowTime = 1; 
+}
+message PeachBanquetBaseInfo {
+    required string banquetId = 1; 
+    required int32 banquetLv = 2; 
+}
+message PeachBanquetInfo {
+    required PeachBanquetBaseInfo baseInfo = 1; 
+    required PlayerBaseDataMsg ownerInfo = 2; 
+    required int64 endTime = 3; 
+    optional int32 seniorSeatEmptyNum = 4; 
+    optional bool haveReward = 5; 
+    optional bool haveApply = 6; 
+}
+message PeachBanquetOpenSync {
+    repeated PeachBanquetInfo banquetList = 1; 
+}
+message PeachBanquetItemInfo {
+    required int32 uid = 1; 
+    required int32 itemId = 2; 
+    repeated int64 serverIdList = 3; 
+}
+message PeachBanquetItemSync {
+    repeated PeachBanquetItemInfo itemList = 1; 
+}   
+message UsePeachBanquetItemReq {
+    required int32 uid = 1; 
+}
+message UsePeachBanquetItemResp {
+    required int32 ret = 1;
+    optional string reward = 2; 
+}
+message FriendInfo {
+    optional PlayerBaseDataMsg playerBaseData = 1; 
+    optional int32 marryNum = 2; 
+    optional int32 online = 3; 
+	optional int64 lastLoginTime = 4; 
+    optional bool isSendOther = 5; 
+    optional bool isSendMe = 6; 
+    optional bool isReceive = 7; 
+    optional WorldMessageTempMsg lastMessage = 8; 
+}
+message SyncFriendList {
+    repeated FriendInfo friendList = 1; 
+    optional int32 receiveNumToday = 2; 
+}
+message SyncFriendInfo {
+    optional FriendInfo friendInfo = 1; 
+    optional int32 type = 2; 
+    optional int32 receiveNumToday = 3; 
+}
+message UniverseDataMsg {
+  required int32 level = 1; 
+  required int32 stoneNum = 2;
+  optional int64 lastStoneRecoverTime = 3;
+  repeated UniverseSkillDataMsg universeSkillList = 4; 
+  repeated universeSkillLCombineMsg universeSkillLCombineList = 5;
+  optional int32 protectTimes = 6; 
+  optional int32 freeDrawTimes = 7; 
+  repeated EquipUniverseSkillMsg equipUniverseData = 8; 
+  optional bool pieceShopOpen = 9; 
+  optional int32 drawTimes = 10; 
+  optional UniverseDrawTwiceMsg drawTwiceData = 11;
+}
+message UniverseDrawTwiceMsg{
+    optional int32 drawStatus = 1; 
+    optional UniverseLookMsg universeLookMsg = 2; 
+    repeated UniverseDrawMap drawMap = 3; 
+}
+message UniverseDrawMap{
+    optional int32 pos = 1;
+    optional int32 index = 2;
+}
+message UniverseDataMsgSync{
+    required UniverseDataMsg universeDataMsg = 1;
+}
+message UniverseSkillDataMsg {
+  required int32 runeId = 1; 
+  required int32 lv = 2; 
+}
+message universeSkillLCombineMsg{
+  required int32 combineId = 1;
+  required int32 lv = 2; 
+}
+message UniverseLookMsg{
+  optional int32 universeLv = 1;
+  optional PlayerHeadAndNameMsg headInfo = 2; 
+  optional int32 robotId = 3; 
+}
+message PlayerFairyLandDataMsg {
+    required int32 soarStatus = 1; 
+    optional FairyLandHeartDevilInfo heartDevilInfo = 2;
+    optional FairyLandBattleInfo battleInfo = 3;
+    optional int32 helpTimes = 4;
+}
+message FairyLandServerSync {
+    repeated int64 serverIdList = 1;
+}
+message FairyLandHeartDevilInfo{
+    required int32 id = 1;
+    optional int32 battleTimes = 2;
+    optional int64 lastRefreshTime = 3;
+}
+message FairyLandBattleInfo{
+    required int64 hp = 1;
+    optional int64 maxHpTime = 2;
+    repeated PlayerAppearanceDataMsg members = 3; 
+}
+message FairyLandSouthDoorHelpReq {
+    required int32 type = 1;     
+    required int64 playerId = 2; 
+    required int32 inviteId = 3; 
+    required int64 serverId = 4; 
+    optional int64 unionId = 5;  
+}
+message FairyLandSouthDoorHelpResp {
+    required int32 ret = 1;
+    optional string rewards = 2; 
+    optional int32 helpTimes = 3;
+    repeated int64 playerIds = 4;
+}
+message UnionBountyGetExistMonsterReq {
+}
+message UnionBountyGetExistMonsterResp {
+    optional int32 ret = 1;
+    repeated int64 monsterIdList = 2;         
+    repeated int64 ownerMonsterIdList = 3;           
+}
+message UnionBountyManageAskHelpReq{
+    optional int32 type = 1;         
+    optional int64 playerId = 2;     
+}
+message UnionBountyManageAskHelpResp{
+    optional int32 ret = 1;
+}
+message UnionBountySynMonsterInfoMsg {
+    optional int32 type = 1;                                
+    optional BattleRecordMsg allBattleRecord = 2;       	
+}
+message BeingSnatchedSync {
+    optional int32 type = 1; 
+    optional int32 cultivationTime = 2; 
+    optional int64 getAnima = 3; 
+}
+message CheckFairyPoolReq {
+    required int32 activityId = 1; 
+    required int32 id = 2; 
+    required int32 cardIndex = 3; 
+    required int64 playerId = 4; 
+}
+message CheckFairyPoolResp {
+    required int32 ret = 1; 
+}

@@ -1,0 +1,4 @@
+package com.yq.msg.CityMsg;
+message MallRechargeIdShieldSync{
+    repeated int32 shieldMallRechargeIdList = 1;
+}

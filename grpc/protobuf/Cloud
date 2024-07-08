@@ -1,0 +1,60 @@
+package com.yq.msg.CityMsg;
+    message PlayerCloudDataMsg {
+        optional int32 equipCloudId = 1; 
+        repeated CloudDataMsg cloudDataMsg = 2; 
+        required int32 stage = 3; 
+        required int32 lv = 4; 
+        required int32 exp = 5; 
+        repeated CloudSkinDataMsg cloudSkinDataMsg = 6; 
+        optional int32 equipCloudSkinId = 7; 
+    }
+    message CloudSkinDataMsg {
+        required int32 cloudSkinId = 1; 
+        optional int64 expirationTime = 2; 
+        optional int32 lv = 3; 
+    }   
+    message CloudDataMsg {
+        required int32 cloudId = 1; 
+    }
+    message UnlockCloudReq {
+        required int32 cloudId = 1; 
+    }
+    message UnlockCloudResp {
+        required int32 ret = 1;
+        optional PlayerCloudDataMsg playerCloudDataMsg = 2;
+    }
+    message CloudLvUpReq {
+        required bool quick = 1; 
+    }
+    message CloudLvUpResp {
+        required int32 ret = 1;
+        optional int32 addExp = 2;
+        optional PlayerCloudDataMsg playerCloudDataMsg = 3;
+    }
+    message CloudStageUpReq {
+    }
+    message CloudStageUpResp {
+        required int32 ret = 1;
+        optional PlayerCloudDataMsg playerCloudDataMsg = 2;
+    }
+    message CloudEquipReq {
+        required int32 cloudId = 1;
+    }
+    message CloudEquipResp {
+        required int32 ret = 1;
+        optional PlayerCloudDataMsg playerCloudDataMsg = 2;
+    }
+    message CloudEquipSkinReq {
+        required int32 cloudSkinId = 1; 
+    }
+    message CloudEquipSkinResp {
+        required int32 ret = 1;
+        optional PlayerCloudDataMsg playerCloudDataMsg = 2;
+    }
+    message CloudSkinLvUpReq {
+        required int32 cloudSkinId = 1;
+    }
+    message CloudSkinLvUpResp {
+        required int32 ret = 1;
+        optional PlayerCloudDataMsg playerCloudDataMsg = 2;
+    }

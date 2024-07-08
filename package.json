@@ -1,0 +1,22 @@
+{
+    "name": "xddq-requests",
+    "version": "1.0.0",
+    "main": "app.js",
+    "type": "module",
+    "license": "MIT",
+    "dependencies": {
+        "async": "^3.2.5",
+        "axios": "^1.7.2",
+        "crypto-js": "^4.2.0",
+        "long": "^5.2.3",
+        "node-schedule": "^2.1.1",
+        "protobufjs": "^7.3.0",
+        "qs": "^6.12.1",
+        "uuid": "^10.0.0",
+        "winston": "^3.13.0",
+        "ws": "^8.17.0"
+    },
+    "scripts": {
+        "start": "node app.js"
+    }
+}

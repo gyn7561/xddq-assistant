@@ -1,0 +1,65 @@
+package com.yq.msg.CityMsg;
+    message PreChargeReq {
+        optional int32 preChargeType = 1;
+        optional int32 mallId = 2;
+        optional int32 activityId = 3;
+        optional SignParam signParam = 4;       
+        optional bytes extraParam = 5;       
+        optional string clientPackageId = 6;  
+    }
+    message ExtraParam{
+        repeated HolidayCellSelectItemMsg selectItem = 1;   
+        optional DoubleDemonsSendPresentMsg  sendPresent = 2; 
+    }
+    message DoubleDemonsSendPresentMsg {
+        required int32 activityId = 1;
+        required int64 playerId = 2; 
+        required string words = 3; 
+    }
+    message HolidayCellSelectItemMsg {
+        optional int32 index = 1;   
+        optional int32 selectIndex = 2; 
+        optional int32 ItemId =3;
+        optional int32 ItemNum =4;
+    }
+    message PreChargeResp {
+        required int32 ret = 1;
+        optional string orderNo = 2;            
+        optional string sign = 3;               
+        optional int32 time = 4;                
+    }
+    message NotifyRechargeSuccess {
+        optional string reward = 1;             
+        optional int32 mallId =2;               
+    }
+    message RechargeMallTimesSync {
+        repeated RechargeMallTimesMsg rechargeMallTimesMsg = 1;
+    }
+    message RechargeMallTimesMsg {
+        optional int32 mallId = 1;              
+        optional int32 src = 2;                 
+        optional int32 times = 3;               
+    }
+    message SignParam {
+        optional string appid = 1;              
+        optional string gameId = 2;             
+        optional string uid = 3;                
+        optional string sid = 4;                
+        optional string actorId = 5;            
+        optional string money = 6;              
+        optional string productId = 7;          
+        optional string subject = 8;            
+        optional string gameCoin = 9;           
+        optional string ext = 10;               
+    }
+    message MallChanceUseReqMsg{
+        required int32 shopType = 1;       
+        required int32 mallId = 2;          
+        required int32 count = 3;           
+        optional int32 activityId = 4;      
+        optional bytes extraParam = 5;       
+    }
+    message MallChanceUseRespMsg{
+        required int32 ret = 1;
+        optional string reward = 2;          
+    }

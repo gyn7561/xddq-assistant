@@ -1,0 +1,7 @@
+package com.yq.msg.CityMsg;
+message ForbiddenTrailsGetRewardReq {
+}
+message ForbiddenTrailsGetRewardResp {
+    required int32 ret = 1;
+    optional string reward = 2;    
+}

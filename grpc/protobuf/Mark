@@ -1,0 +1,21 @@
+package com.yq.msg.CityMsg;
+enum MarkPb {
+  S_MARK_NULL = 0;
+  S_SYNC_MARK_STATE_MSG = 208601;
+  S_MARK_FINISH = 208602;
+}
+message SyncMarkStateMsg {
+  required int32 ret = 1;
+  optional bool markState = 2;
+}
+message MarkFinishReq {
+  required int32 markType = 1;  
+}
+message MarkFinishResp {
+  required int32 ret = 1;
+  required string rewards = 2;
+}
+enum MarkType{
+  Finished = 1;
+  Closed = 2;
+}

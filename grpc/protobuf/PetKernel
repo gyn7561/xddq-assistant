@@ -1,0 +1,83 @@
+package com.yq.msg.CityMsg;  
+import "Common";
+import "WatchPlayer";
+import "Battle";
+import "Rank";
+import "Pet";
+message PetKernelPlayerDataMsg {
+  repeated PetKernelDataMsg petKernelData = 1;        
+  repeated PetKernelCombineMsg petKernelCombine = 2;  
+  required int32 freeDrawTimes = 3;                   
+  required int32 drawCount = 4;                       
+  required int32 ensureCount = 5;                     
+  optional bool  pieceShopOpen = 6;                   
+}
+message PetKernelDataMsg {
+  required int32 kernelId = 1;  
+  required int32 attachPet = 2; 
+  required int32 star = 3;      
+}
+message PetKernelCombineMsg {
+  required int32 combineId = 1;  
+  required int32 level = 2;      
+}
+message PetKernelSlotMsg {
+  required int32 slotId = 1;     
+  required bool stat = 2;        
+}
+message PetKernelDrawResult {
+  optional string rewards = 1;  
+  optional string items = 2;    
+}
+message PetKernelSyncMsg {
+  required int32 petId = 1;                  
+  optional int32 kernelLv = 2;               
+  repeated int32 equipKernelId = 3;          
+}
+message PetKerneCarryReq {
+  required int32 kernelId = 1;  
+  required int32 petId = 2;     
+}
+message PetKerneCarryResp {
+  required int32 ret = 1;
+  repeated PetKernelSyncMsg syncPetMsg = 2;     
+  repeated PetKernelDataMsg syncKernelMsg = 3;  
+}
+message PetKerneUpLevelReq {
+  required int32 petId = 1;     
+}
+message PetKerneUpLevelResp {
+  required int32 ret = 1;
+}
+message PetKerneUpStarReq {
+  required int32 kernelId = 1;  
+}
+message PetKerneUpStarResp {
+  required int32 ret = 1;
+}
+message PetKerneActiveReq {
+  required int32 kernelId = 1;  
+}
+message PetKerneActiveResp {
+  required int32 ret = 1;
+  optional PetKernelDataMsg petKernelData = 2;
+}
+message PetKernelDrawReq {
+  required bool isTen = 1;      
+}
+message PetKernelDrawResp {
+  required int32 ret = 1;
+  repeated PetKernelDrawResult drawResult = 2;
+  repeated PetKernelDataMsg syncKernelMsg = 3;  
+  optional int32 freeDrawTimes = 4;
+  optional int32 drawCount = 5;
+  optional int32 ensureCount = 6;
+  optional bool  pieceShopOpen = 7; 
+}
+message PetKerneCombineUpLevelReq {
+  required int32 combineId = 1;  
+}
+message PetKerneCombineUpLevelResp {
+  required int32 ret = 1;
+  optional PetKernelCombineMsg combine = 2;
+}

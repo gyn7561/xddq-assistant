@@ -1,0 +1,887 @@
+package com.yq.msg.CityMsg;
+import "Union";
+import "ActivityBase";
+enum GodIslandProtocols {
+  god_island_base_info_load = 206801;   
+  god_island_group = 206802;  
+  god_island_report_data = 206803;  
+  god_island_report_detail = 206804;  
+  god_island_union_damage_info = 206805; 
+  god_island_union_get_member_list = 206806;
+  god_island_union_group_damage_info = 206807; 
+  god_island_red_dot_data = 206808; 
+  god_island_worship = 206809; 
+  god_island_player_battle_report = 206810 ; 
+  god_island_update_power = 206811; 
+  god_island_union_battle_score_list = 206812; 
+  god_island_union_liquid_receive_record = 206813; 
+  god_island_union_member_score_list = 206814; 
+  god_island_heart_beat = 206819; 
+  god_island_game_info_load = 206820;   
+  god_island_game_route_info_sync = 206822;  
+  god_island_game_map_city_info = 206823;  
+  god_island_game_event = 206824;  
+  god_island_game_city_buff_sync = 206825; 
+  god_island_game_spiritualBall_info = 206826; 
+  god_island_game_useSpiritualBall = 206827; 
+  god_island_game_target_city_info = 206828; 
+  god_island_game_target_city_line_info = 206829; 
+  god_island_game_attack = 206830; 
+  god_island_game_auto_attack = 206831; 
+  god_island_game_move = 206832; 
+  god_island_game_event_sync = 206833;  
+  god_island_game_miniMap_info = 206834; 
+  god_island_game_set_union_type = 206835; 
+  god_island_game_plant_info = 206836; 
+  god_island_game_use_fruit = 206837; 
+  god_island_game_plant_receive_fruits = 206838; 
+  god_island_game_plant_water = 206839; 
+  god_island_crystal_info = 206840; 
+  god_island_crystal_receive = 206841; 
+  god_island_game_strategy_info = 206842; 
+  god_island_game_commander_set = 206843; 
+  god_island_game_set_union_target = 206844; 
+  god_island_game_for_help = 206845; 
+  god_island_game_city_change_sync = 206846; 
+  god_island_game_player_win_sync = 206847; 
+  god_island_game_line_info_sync = 206848; 
+  god_island_game_accelerate_move = 206849; 
+  god_island_game_myGameInfo_sync = 206850; 
+  god_island_game_plant_Send_liquid = 206851; 
+  god_island_game_plant_Send_liquid_record =206852; 
+  god_island_game_horse_lamp_sync = 206853; 
+  god_island_suppress_buff_sync = 206854; 
+  god_island_game_city_buff_info = 206855; 
+  god_island_game_back_home = 206856; 
+  god_island_game_left_out_sync = 206857; 
+  god_island_game_set_friend_union = 206858; 
+  god_island_game_friend_union_sync = 206859; 
+  god_island_game_commander_change_sync = 206860; 
+  god_island_been_kill_sync = 206861; 
+  god_island_game_city_battle = 206862; 
+  god_island_auto_battle_stop_sync = 206863; 
+  god_island_ghost_city_unlock_sync = 206864; 
+  god_island_worship_back = 206870; 
+  god_island_union_apply = 206871; 
+  god_island_member_lock = 206872; 
+  god_island_data_sync_agent = 206873; 
+  god_island_game_plant_water_receive_reward =206874; 
+  god_island_game_plant_receive_fruits_reward =206875; 
+  god_island_game_send_liquid_cross = 206876; 
+  god_island_crystal_receive_back = 206877;  
+  god_island_move_speed_up_back = 206878; 
+  god_island_crystal_reward_after_occupied = 206879; 
+  god_island_crystal_reward_after_end = 206880; 
+  god_island_auto_send_reward = 206881; 
+  god_island_use_fruit_back = 206882; 
+  god_island_broadcast_agent = 206883; 
+  god_island_red_point_back = 206884; 
+  god_island_union_data_agent = 206885; 
+  god_island_base_info_load_back = 206886; 
+}
+message GodIslandConfigSync {
+  repeated ActivityPeakHoldTimeConfig peakHoldTimeConfigs = 1;  
+  repeated GodIslandGroupConfig groupConfig = 2;                
+  repeated GodIslandEventConfig npcEventConfig = 3;             
+  repeated GodIslandCityConfig cityConfig = 4;                  
+}
+message GodIslandGroupConfig {
+  required int32 activityId = 1;
+  required int32 rankId = 2; 
+  required int32 size = 3;  
+  required int32 up = 4; 
+  required int32 down = 5; 
+  required string score = 6; 
+}
+message GodIslandEventConfig {
+  required int32 activityId = 1;
+  required int32 id = 2; 
+  required int32 type = 3; 
+  required int32 weight = 4; 
+  required int32 icon = 5; 
+  required string rewards = 6; 
+  required string param = 7; 
+}
+message GodIslandCityConfig {
+  required int32 activityId = 1;
+  required int32 type = 2; 
+  required string placeParam = 3; 
+  required string guardParam = 4; 
+  required int32 guardMonsterId = 5; 
+  required int32 rankId = 6; 
+}
+message GodIslandGetJoinMemberListReq{
+  required int32 activityId = 1;
+}
+message GodIslandGetJoinMemberListRsp{
+  optional int32 ret = 1;
+  repeated GodIslandJoinMemberMsg joinMemberList = 2;
+  optional int64 unionExp = 3;
+}
+message GodIslandJoinMemberMsg {
+  optional PlayerHeadDataMsg headInfo = 1; 
+  optional string nickname = 2;
+  optional string fightValue = 3;  
+  optional int32  position = 4;   
+}
+message GodIslandUnionRankMsg {
+  optional UnionBaseData baseData = 1;            
+  required int32 score = 2;                       
+  required int64 fightValue = 3;                  
+  required int32 rank = 4;                        
+  required int64 masterId = 5;                    
+  required string masterName = 6;                 
+}
+message GodIslandUnionRankList {
+  repeated GodIslandUnionRankMsg rankInfo = 1;
+}
+message GodIslandPlayerRankMsg {
+  required int64 playerId = 1;
+  required PlayerCharacterImageMsg playerBaseData = 2;
+  required string value = 3;                                
+  required int32 rank = 4;                                  
+}
+message GodIslandPlayerRankList {
+  repeated GodIslandPlayerRankMsg rankInfo = 1;
+}
+message GodIslandBaseInfoReqMsg {
+  required int32 activityId = 1;
+}
+message GodIslandBaseInfoRespMsg {
+  required int32 ret = 1;
+  optional int32 activityId = 2;
+  optional int32 selfRank = 3;  
+  optional int32 group = 4; 
+  optional int32 floor = 5;
+  optional int64 unionId = 6; 
+  optional int32 position = 7; 
+  optional GodIslandRoundSettleData roundSettleInfo = 8; 
+  repeated FloorGroupCountMsg floorGroupList = 9; 
+  optional GodIslandWorshipPlayerMsg worshipPlayer = 10; 
+  repeated UnionBaseData top3Union = 11; 
+  optional bool canWorship = 12; 
+}
+message FloorGroupCountMsg {
+  optional int32 floorId = 1; 
+  optional int32 groupCount = 2; 
+}
+message GodIslandRoundSettleData {
+  optional int32 round = 1; 
+  optional int32  statues = 2; 
+  optional int32 groupRank = 3;
+  optional int32 rank = 4; 
+  optional int32 rankScore = 5; 
+  optional int32 totalScore = 6;
+  optional int32 cityCount = 7; 
+  optional int32 playerKillCount = 8; 
+  optional string unionName = 9; 
+  optional string first_unionName = 10; 
+  optional int64 first_serverId = 11; 
+  optional int64 first_unionFlag = 12; 
+  optional int32 floor = 13; 
+  optional int32 group = 14; 
+}
+message GodIslandWorshipPlayerMsg {
+  required int64 playerId = 1;
+  required int64 serverId = 2;
+  required string nickName = 3;
+  repeated int32 pet = 4;
+  repeated int32 spirit = 5;
+  optional int32 appearanceId = 6; 
+  optional int32 equipCloudId = 7; 
+  optional int32 realmsId = 8;  
+  optional int32 rank = 10;
+  optional PlayerHeadDataMsg headInfo = 13;
+  repeated int32 petSoulShapeList = 14; 
+  optional int32 titleId = 15; 
+  repeated int32 petLinkageId = 16; 
+  repeated int32 spiritLinkageId = 17; 
+}
+message GodIslandUnionDamageReqMsg{
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message GodIslandUnionDamageRespMsg{
+  required int32 ret = 1;
+  optional int64 unionId = 2; 
+  optional string unionName = 3; 
+  repeated GodIslandPlayerBaseInfo playerInfo = 4; 
+}
+message GodIslandPlayerBaseInfo{
+  required int64 playerId = 1 ; 
+  required string memberName =2 ; 
+  required string score = 3; 
+}
+message GodIslandGroupReqMsg {
+  required int32 activityId = 1;                  
+  required int32 floorId = 2;  
+  required int32 groupId = 3; 
+}
+message GodIslandGroupRespMsg {
+  required int32 ret = 1;
+  optional int32 groupId = 2; 
+  required int32 floorId = 3;  
+  repeated GodIslandGroupBaseMsg groupInfo = 4; 
+}
+message GodIslandGroupBaseMsg {
+  optional int64 unionId = 1; 
+  optional string unionName = 2; 
+  optional int32 flag = 3; 
+  optional string masterName = 4; 
+  optional int32 rank = 5; 
+  optional int64 cityScore = 6; 
+  optional int64 serverId = 7 ; 
+}
+message GodIslandReportReqMsg {
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message GodIslandReportRespMsg {
+  required int32 ret = 1;
+  optional int64 unionId = 2;
+  repeated GodIslandCityBattleReport cityReports = 3; 
+  optional string unionName = 4; 
+}
+message GodIslandCityBattleReport {
+  optional int64 reportUid = 1; 
+  optional bool  win = 2;   
+  optional int64 time = 3;    
+  optional int32 cityId = 4;  
+  optional int64 enemyUnionSid = 5; 
+  optional string enemyUnionName = 6; 
+  optional int32 detailCount = 8; 
+}
+message GodIslandReportDetailReqMsg {
+  required int32 activityId = 1;
+  required int64 reportUid  = 2; 
+  optional int32 from = 3; 
+  optional int32 size = 4; 
+}
+message GodIslandReportDetailRespMsg {
+  required int32 ret = 1;
+  optional int64 reportUid = 2; 
+  repeated GodIslandCityReportDetail reportDetails = 3; 
+  optional int32 from = 4; 
+}
+message GodIslandCityReportDetail {
+  optional PlayerHeadDataMsg attackHeadInfo = 1; 
+  optional string attackName = 2; 
+  optional PlayerHeadDataMsg beAttackHeadInfo = 3;
+  optional string beAttackName = 4; 
+  optional bool attackWin = 5; 
+  optional int64 attackPower = 6;  
+  optional int64 beAttackPower = 7; 
+}
+message GodIslandCityReportItem {
+  optional string nickName = 1; 
+  optional string score = 2; 
+}
+message GodIslandWorshipReq{
+  required int32 activityId = 1;
+}
+message GodIslandWorshipResp{
+  required int32 ret = 1;
+  optional string reward = 2; 
+  optional GodIslandWorshipPlayerMsg worshipPlayer = 3;
+}
+message GodIslandRedDotReqMsg {
+  required int32 activityId = 1;
+}
+message GodIslandRedDotRespMsg {
+  required int32 ret = 1;
+  optional string data = 2;
+}
+enum GodIslandRedPointEnum {
+  godIslandRedNone = 0;
+  godIslandRedPowerFull = 1; 
+  godIslandRedGuess = 2; 
+  godIslandRedGuessReward = 3; 
+  godIslandRedPlantWater = 4; 
+  godIslandRedFruitReward = 5; 
+  godIslandRedCrystalReward = 6; 
+  godIslandRedPlayerReport  = 7; 
+  godIslandRedUnionReport = 8; 
+  godIslandRedPlayerRankReward =  9; 
+  godIslandRedPlayerUnionReward = 10; 
+  godIslandRedWorship = 11; 
+  godIslandRedPowerUpdate = 12; 
+  godIslandRedUnionRecharge = 13; 
+}
+message GodIslandBetUnionInfoList {
+  repeated GodIslandBetUnionInfo infoList = 1;
+}
+message GodIslandBetUnionInfo {
+  optional GodIslandUnionRankMsg rankInfo = 1;
+  optional int32 selectedCount = 2;
+}
+message GodIslandSettleData{
+  optional int32 timeId = 1;
+  optional bool upgrade = 2;
+  optional int32 rank = 3;
+  optional int32 groupRank = 4;
+  optional int32 riseScore = 5;
+  optional int32 totalScore = 6;
+}
+message GodIslandUnionGroupDamageReqMsg{
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message GodIslandUnionGroupDamageRespMsg{
+  required int32 ret = 1;
+  optional int64 unionId = 2; 
+  optional string unionName = 3; 
+  repeated GodIslandGroupScoreInfo info = 4; 
+}
+message GodIslandGroupScoreInfo{
+  required int32 groupId = 1 ; 
+  required int32 rank =2 ; 
+  required int64 cityScore = 3; 
+  required int32 point = 4; 
+  required int32 floor = 5; 
+}
+message GodIslandHeartBeatReqMsg {
+  required int32 activityId = 1;
+}
+message GodIslandHeartBeatRespMsg {
+  optional int32 ret = 1;
+}
+message GodIslandGameInfoReqMsg{
+  required int32 activityId = 1;
+}
+message GodIslandGameInfoRespMsg{
+  required int32 ret = 1;
+  optional int32 home = 2; 
+  repeated GodIslandNpcEvent npcEvents = 3; 
+  repeated int64 friendUnions = 4; 
+  optional GodIslandGameRouteInfo myRouteInfo = 5; 
+  repeated GodIslandGameCityBuffInfo cityBuffInfo = 6; 
+  optional bool leftout = 7; 
+  optional int32 location = 8; 
+  optional int32 speedUpCount = 9; 
+  optional bool haveCommand = 11; 
+  optional string curPower = 12; 
+  optional string maxPower = 13; 
+  optional int32 autoAtkCityId = 14; 
+  optional int64 attackCd = 15; 
+  optional bool unlockGhostCity = 16; 
+  optional bool suppressBuff = 17; 
+  optional bool onlyAttackNpc = 18; 
+  optional GodIslandDeadWeakEffectMsg deadWeakEffect = 19; 
+}
+message GodIslandNpcEvent {
+  required int64 id = 1;  
+  required int32 configId = 2;  
+  required int64 expired = 3; 
+}
+message GodIslandGameRouteInfo {
+  optional int64 playerId = 1; 
+  optional int32 fromCityId = 2; 
+  optional int32 toCityId = 3; 
+  optional int64 time = 4; 
+  optional int64 arrival = 5; 
+  optional int64 unionId = 6; 
+  optional GodIslandRouterAppearanceMsg appearance = 7; 
+  optional int32 currentRank = 8; 
+  optional string name = 9; 
+  optional bool suppressBuff = 10; 
+}
+/**
+前X名 显示形象和坐骑, 其他玩家使用头像
+ */
+message GodIslandRouterAppearanceMsg {
+  optional int32 headIcon = 1;   
+  optional string wxHeadUrl = 2; 
+  optional int32  appearanceId = 3;
+  optional int32 equipCloudId = 4; 
+}
+message GodIslandGameRouteInfoSyncMsg{
+  repeated GodIslandGameRouteInfo routeInfo = 2; 
+}
+message GodIslandGameCityInfoReqMsg{
+  required int32 activityId = 1;
+  repeated int32 cityVec = 2; 
+  required int32 floorId = 3; 
+  required int32 groupId = 4; 
+}
+message GodIslandGameCityInfoRespMsg{
+  required int32 ret = 1;
+  repeated GodIslandGameCityInfo cityInfo = 2; 
+  repeated GodIslandGameRouteInfo routeInfo = 3; 
+  optional int32 floorId = 4; 
+  optional int32 groupId = 5; 
+}
+message GodIslandGameCityInfo {
+  required int32 cityId = 1;    
+  optional bool haveFight = 2;  
+  optional GodIslandUnionSimpleInfo baseData = 3; 
+  repeated PlayerHeadDataMsg headInfo = 4; 
+  optional int32 hp = 5;        
+  optional int32 curHp = 6;     
+  required bool updateType = 7; 
+  optional bool destroyed = 8;  
+}
+message GodIslandUnionSimpleInfo {
+  optional int64 unionId = 1;
+  optional string unionName = 2;
+  optional int64 serverId = 3;
+}
+message GodIslandGameEventReqMsg{
+  required int32 activityId = 1;
+  required int32 eventId = 2; 
+  required int32 chooseId = 3; 
+}
+message GodIslandGameEventRespMsg{
+  required int32 ret = 1;
+  optional string reward = 2; 
+}
+message GodIslandGameEventSyncMsg{
+  repeated int32 eventVec = 1; 
+}
+message GodIslandGameCityBuffSync{
+  repeated GodIslandGameCityBuffInfo cityBuffInfo = 1; 
+}
+message GodIslandGameCityBuffInfo{
+  optional int32 cityId = 1; 
+  optional int32 buffId = 2; 
+  optional string unionName = 3; 
+  optional int64 beginTime = 4; 
+  optional int64 endTime = 5; 
+  optional int64 beginShowTime = 6; 
+  optional int64 unionServerId = 7; 
+  optional int64 unionId = 8; 
+}
+message GodIslandGameSpiritualBallInfoReqMsg{
+  required int32 activityId = 1;
+}
+message GodIslandGameSpiritualBallInfoRespMsg{
+  required int32 ret = 1;
+  optional string curPower = 2; 
+  optional string maxPower = 3; 
+  optional string ballCurPower = 4; 
+  optional string ballMaxPower = 5; 
+  optional int64 fightValue = 6; 
+  optional int64 time = 7; 
+  optional int32 updatePowerCount = 8; 
+  optional int64 lastUpdatePowerTime = 9; 
+  optional GodIslandDeadWeakEffectMsg deadWeakEffect = 10; 
+}
+message GodIslandGameUseSpiritualBallReqMsg{
+  required int32 activityId = 1;
+  optional int64 usePower = 2; 
+}
+message GodIslandGameUseSpiritualBallRespMsg{
+  required int32 ret = 1;
+  optional string curPower = 2; 
+  optional string ballCurPower = 3; 
+}
+message GodIslandGameTargetCityInfoReqMsg{
+  required int32 activityId = 1;
+  required int32 cityId = 2; 
+}
+message GodIslandGameTargetCityInfoRespMsg{
+  required int32 ret = 1;
+  optional bool isTarget = 2; 
+  optional int64 costTime = 3; 
+  repeated GodIslandPlayerIconMsg attackIcon = 4; 
+  repeated GodIslandPlayerIconMsg defendIcon = 5; 
+  repeated GodIslandGameLineBattleInfo battleInfo = 6; 
+  repeated int64 npcList = 7; 
+}
+message GodIslandPlayerIconMsg {
+  optional PlayerHeadDataMsg icon = 1;
+  optional int64 unionId = 2;
+}
+message GodIslandGameTargetCityLineInfoReqMsg{
+  required int32 activityId = 1;
+  required int32 cityId = 2; 
+  optional int32 type = 3;  
+}
+message GodIslandGameTargetCityLineInfoRespMsg{
+  required int32 ret = 1;
+  repeated GodIslandGameLinePlayerInfo attackInfo = 2; 
+  repeated GodIslandGameLinePlayerInfo defendInfo = 3; 
+  repeated GodIslandGameLinePlayerInfo npcGuardInfo = 4; 
+  repeated GodIslandBattleMsg battleInfo = 5; 
+}
+message GodIslandBattleMsg{
+  optional int32 cityId = 1; 
+  optional GodIslandBattlePlayer attacker = 2; 
+  optional GodIslandBattlePlayer beAttacker = 3; 
+  optional int64 battleTime = 4; 
+  optional bool attackSpeedUp = 5; 
+}
+message GodIslandGameLinePlayerInfo{
+  optional string name = 1;   
+  optional string power = 2; 
+  optional int64 union = 3; 
+  optional PlayerHeadDataMsg headInfo = 4; 
+  optional int64 playerId = 5; 
+  optional bool npc = 6; 
+  optional string unionName = 7; 
+  optional string maxPower = 8; 
+}
+message GodIslandGameLineBattleInfo{
+  optional int64 playerIdAttack = 1; 
+  optional int64 playerIdDefend = 2; 
+  optional int64 battleTime = 3; 
+  optional bool attackSpeedUp = 4; 
+}
+message GodIslandGameAttackReqMsg {
+  required int32 activityId = 1;
+  required int32 targetId = 2; 
+  optional int64 enemyId = 3; 
+  required bool isNpc = 4; 
+}
+message GodIslandGameAttackRespMsg {
+  required int32 ret = 1;
+}
+message GodIslandGameAutoAttackReqMsg{
+  required int32 activityId = 1;
+  required int32 targetId = 2;
+  optional bool onlyNpc = 3; 
+}
+message GodIslandGameAutoAttackRespMsg{
+  required int32 ret = 1;
+  optional int32 targetId = 2; 
+  optional bool onlyNpc = 3;
+}
+message GodIslandGameMoveReqMsg {
+  required int32 activityId = 1;
+  required int32 targetId = 2; 
+}
+message GodIslandGameMoveRespMsg {
+  optional int32 ret = 1;
+}
+message GodIslandGameMiniMapInfoReqMsg{
+  required int32 activityId = 1;
+  optional int32 floor = 2;  
+  optional int32 group = 3;
+}
+message GodIslandGameMiniMapInfoRespMsg{
+  required int32 ret = 1;
+  repeated GodIslandGameMiniCityInfo cityInfo = 2; 
+  optional bool unlockGhostCity = 3; 
+}
+message GodIslandGameMiniCityInfo{
+  optional int32 cityId = 1;
+  optional UnionBaseData baseData = 2; 
+  optional bool haveFight = 3; 
+}
+message GodIslandGameSetUnionTypeReqMsg{
+  required int32 activityId = 1;
+  required int64 unionId = 2; 
+  required int32 type = 3; 
+}
+message GodIslandGameSetUnionTypeRespMsg{
+  required int32 ret = 1;
+}
+message GodIslandGamePlantInfoReqMsg{
+  required int32 activityId = 1;
+}
+message GodIslandGamePlantInfoRespMsg{
+  required int32 ret = 1;
+  optional int32 lv = 2; 
+  optional int32 exp = 3; 
+  repeated GodIslandGamePlantNoticeInfo noticeInfo = 4; 
+  optional int32 canReceive = 5; 
+  optional int32 waterCount = 6; 
+}
+message GodIslandGamePlantNoticeInfo{
+  optional string name = 1; 
+  optional int32 liquidId = 2; 
+  optional int64 id = 3;  
+  optional int32 status=4; 
+  optional int64 time = 5;
+}
+message GodIslandGamePlantReceiveFruitsReqMsg{
+  required int32 activityId = 1;
+}
+message GodIslandGamePlantReceiveFruitsRespMsg{
+  required int32 ret = 1;
+  optional string reward = 2; 
+  optional int32 lv = 3; 
+  optional int32 exp = 4; 
+  optional int32 canReceive = 5; 
+}
+message GodIslandGamePlantWaterReqMsg{
+  required int32 activityId = 1;
+  required int64 id = 2; 
+}
+message GodIslandGamePlantWaterRespMsg{
+  required int32 ret = 1;
+  optional string reward = 2; 
+  optional int32 exp = 3; 
+  optional int32 canReceive = 4; 
+  optional int32 lv = 5; 
+  optional int32 waterCount = 6; 
+}
+message GodIslandCrystalInfoReqMsg {
+  required int32 activityId = 1;
+}
+message GodIslandCrystalInfoRespMsg {
+  required int32 ret = 1;
+  repeated GodIslandCityCrystalInfo crystalInfo = 2;
+}
+message GodIslandCityCrystalInfo {
+  optional int32 cityId = 1;
+  optional int64 num = 2; 
+}
+message GodIslandCrystalReceiveReqMsg {
+  required int32 activityId = 1;
+}
+message GodIslandCrystalReceiveRespMsg {
+  required int32 ret = 1;
+  optional string reward = 2;
+}
+message GodIslandGameStrategyInfoReqMsg{
+  required int32 activityId = 1;
+}
+message GodIslandGameStrategyInfoRespMsg{
+  required int32 ret = 1;
+  repeated GodIslandOccupyCities occupyCities = 2; 
+  repeated GodIslandPlayerSimpleInfo commanders = 3; 
+  repeated int32 cityId = 4; 
+}
+message GodIslandPlayerSimpleInfo {
+  optional PlayerHeadDataMsg headInfo = 1;
+  optional string nickname = 2;
+}
+message GodIslandOccupyCities {
+  optional int32 type = 1; 
+  optional int32 count = 2; 
+}
+message GodIslandGameCommanderSetReqMsg{
+  required int32 activityId = 1;
+  repeated int64 commanders = 2; 
+}
+message GodIslandGameCommanderSetRespMsg{
+  required int32 ret = 1;
+  repeated int64 commanders = 2;
+}
+message GodIslandGameSetUnionTargetReqMsg{
+  required int32 activityId = 1;
+  repeated int32 cityId = 2; 
+}
+message GodIslandGameSetUnionTargetRespMsg{
+  required int32 ret = 1;
+  optional int32 cityId = 2;
+}
+message GodIslandGameForHelpReqMsg{
+  required int32 activityId = 1;
+  required int32 cityId = 2; 
+}
+message GodIslandGameForHelpRespMsg{
+  required int32 ret = 1;
+}
+message GodIslandGameCityChangeSyncMsg{
+  repeated GodIslandGameCityInfo cityInfo = 1; 
+}
+message GodIslandGamePlayerWinSyncMsg{
+  repeated GodIslandGamePlayerWinInfo info = 1; 
+}
+message GodIslandGamePlayerWinInfo{
+  optional string name = 1;                       
+  optional string unionName = 2;                       
+  optional int32 winCount = 3;                    
+  optional PlayerHeadDataMsg headInfo = 4; 
+}
+message GodIslandGameLineInfoSyncMsg{
+  repeated GodIslandGameLineInfo lineInfo = 1; 
+  repeated GodIslandBattleMsg battleInfo = 2; 
+  repeated GodIslandPlayerPowerChangeInfo powerChange = 3; 
+}
+message GodIslandBattlePlayer {
+  optional int32 realmsType = 1; 
+  optional GodIslandGameLinePlayerInfo playerInfo = 2; 
+}
+message GodIslandGameLineInfo{
+  optional int32 inCityId = 1; 
+  optional int32 outCityId = 2; 
+  optional int32 inLineType = 3; 
+  optional int32 outLineType = 4; 
+  optional int64 playerId = 5; 
+  optional GodIslandGameLinePlayerInfo playerInfo = 6; 
+}
+message GodIslandPlayerPowerChangeInfo {
+  optional int32 cityId = 1;
+  optional int64 playerId = 2;
+  optional string power = 3; 
+}
+message GodIslandGameAcclerateMoveMsg{
+  required int32 activityId = 1;
+  optional int32 speedUpCount = 2; 
+}
+message GodIslandGameAcclerateMoveRespMsg{
+  required int32 ret = 1;
+  optional string costInfo = 2; 
+  optional int32 speedUpCount = 3; 
+}
+message GodIslandGameMyGameInfoSyncMsg{
+  required int32 activityId = 1;
+  optional int32 location = 2; 
+  optional string curPower = 3; 
+  optional string maxPower = 4; 
+  optional int64 attackCd = 5; 
+}
+message GodIslandGameSendLiquidReqMsg{
+  required int32 activityId = 1;
+  required int32 liquidId = 2; 
+  required int32 sendNum = 3; 
+}
+message GodIslandGameSendLiquidRespMsg{
+  required int32 ret = 1;
+  optional GodIslandGamePlantNoticeInfo noticeInfo = 2; 
+}
+message GodIslandGameSendLiquidRecordReqMsg{
+  required int32 activityId = 1;
+}
+message GodIslandGameSendLiquidRecordRespMsg{
+  required int32 ret = 1;
+  repeated GodIslandSendLiquidRecord sendLiquidRecord=2;
+}
+message GodIslandSendLiquidRecord{
+  optional string nickName =1; 
+  optional string reward =2;
+}
+message GodIslandGameHorseLampSyncMsg{
+  repeated GodIslandGameHorseLampInfo info = 1; 
+}
+message GodIslandGameHorseLampInfo{
+  optional int64 serverId = 1; 
+  optional string unionName = 2; 
+  optional int32 cityId = 3; 
+}
+message GodIslandGameCityBuffInfoReqMsg{
+  required int32 activityId = 1;
+}
+message GodIslandGameCityBuffInfoRespMsg{
+  required int32 ret = 1;
+  repeated GodIslandGameCityBuffInfo info = 2;
+}
+message GodIslandPlayerReportReqMsg {
+  required int32 activityId = 1;
+}
+message GodIslandPlayerReportRespMsg {
+  required int32 ret = 1;
+  repeated GodIslandPlayerBattleReportMsg reportList = 2; 
+}
+message GodIslandPlayerBattleReportMsg {
+  optional PlayerHeadDataMsg enemy = 1; 
+  optional string enemyName = 2; 
+  optional bool win = 3; 
+  optional int64 time = 4; 
+  optional string selfPower = 5; 
+  optional string enemyPower = 6; 
+  optional string enemyLostPower = 7; 
+  optional string addScore = 8; 
+  optional int32 cityId = 9; 
+}
+message GodIslandUseFruitReq {
+  required int32 activityId = 1;
+  required int32 useCount = 2; 
+}
+message GodIslandUseFruitResp {
+  required int32 ret = 1;
+  optional string costInfo = 2; 
+  optional string ballCurPower = 3; 
+  optional string ballMaxPower = 4; 
+}
+message GodIslandUpdatePowerReq {
+  required int32 activityId = 1;
+}
+message GodIslandUpdatePowerResp {
+  optional int32 ret = 1;
+}
+message GodIslandBackHomeReq {
+  required int32 activityId = 1;
+}
+message GodIslandBackHomeResp {
+  required int32 ret = 1;
+}
+message GodIslandLeftOutSyncInfo {
+  required int32 activityId = 1;
+  required int64 unionId = 2; 
+}
+message GodIslandSetFriendUnionReq {
+  required int32 activityId = 1;
+  required int64 targetId = 2; 
+  required bool friend = 3; 
+}
+message GodIslandSetFriendUnionResp {
+  required int32 ret = 1;
+}
+message GodIslandSyncFriendUnionMsg {
+  required int64 targetId = 1;
+  required bool friend = 2; 
+}
+message GodIslandCommanderChangeSyncMsg {
+  required int32 activityId = 1;
+  required bool haveCommand = 2; 
+}
+message GodIslandBeenKillSyncMsg {
+  required int32 activityId = 1;
+  optional int32 cityId = 2; 
+  optional int64 targetId = 3; 
+  optional string targetName = 4; 
+  optional bool killByNPc = 5; 
+}
+message GodIslandGameCityBattleSyncMsg{
+  repeated GodIslandCityBattleState cityStates = 1;
+}
+message GodIslandCityBattleState {
+  optional int32 cityId = 1; 
+  optional bool isBattle = 2; 
+}
+message GodIslandAutoBattleStopSyncMsg {
+  required int32 activityId = 1;
+}
+message GodIslandUnionBattleScoreListReq {
+  required int32 activityId = 1;
+}
+message GodIslandUnionBattleScoreListResp {
+   optional int32 ret = 1;
+   repeated GodIslandUnionBattleScoreMsg scoreList = 2; 
+}
+message GodIslandUnionBattleScoreMsg {
+  optional int64 unionId = 1; 
+  optional string unionName = 2; 
+  optional int32 flag = 3; 
+  optional string masterName = 4; 
+  optional int64 serverId = 5 ; 
+  optional int64 battleScore = 6; 
+}
+message GodIslandGhostCityUnlockSyncMsg {
+  required int32 activityId = 1;
+  required int32 floor = 2; 
+  required int32 group = 3; 
+}
+message GodIslandDeadWeakEffectMsg {
+  optional int32 overlay = 1; 
+  optional int32 value = 2; 
+  optional int64 expireTime = 3; 
+}
+message GodIslandSuppressBuffSyncMsg {
+  optional bool suppressBuff = 1; 
+}
+message GodIslandLiquidReceiveRecordReq {
+  required int32 activityId = 1;
+}
+message GodIslandLiquidReceiveRecordResp {
+  optional int32 ret = 1;
+  repeated GodIslandSendLiquidRecord receiveLiquidRecord = 2;
+}
+message GodIslandUnionMemberScoreListReq {
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message GodIslandUnionMemberScoreListResp {
+  optional int32 ret = 1;
+  required int64 unionId = 2;
+  repeated GodIslandPlayerScoreMsg scores = 3; 
+}
+message GodIslandPlayerScoreMsg {
+  optional PlayerHeadDataMsg headInfo = 1;
+  optional int64 score = 2; 
+  repeated int64 roundScore = 3; 
+  optional bool suppressBuff = 4; 
+}

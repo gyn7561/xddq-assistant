@@ -1,0 +1,5 @@
+package com.yq.msg.CityMsg; 
+message ADTimeTriggerReq {
+}
+message ADTimeUseReq{
+}

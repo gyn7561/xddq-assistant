@@ -1,0 +1,61 @@
+package com.yq.msg.CityMsg;
+import "Common";
+message WorldRulePlayerDataMsg {
+    repeated WorldRuleDetailsMsg ruleListMsg = 1;
+    optional int32 curRuleProgrammeIdx = 2;
+    optional int32 adTimes = 3;
+    optional SkillMsg baseAtt  = 4;
+}
+message WorldRuleDetailsMsg {
+    optional int32 id = 1;
+    optional int32 perceptionTimes= 2;
+    repeated WorldRuleProgrammeDetailsMsg programmeDetailsListMsg = 3;
+}
+message WorldRuleProgrammeDetailsMsg{
+    optional int32 programmeIndex = 1;
+    repeated WorldRuleHoleDetailsMsg holeListMsg = 2;
+}
+message WorldRuleHoleDetailsMsg{
+    optional int32 index=1;
+    optional WorldRuleHoldAttributeMsg curHoldMsg = 2;
+    optional WorldRuleHoldAttributeMsg perceptionHoldMsg = 3;
+}
+message WorldRuleHoldAttributeMsg{
+    optional int32 quality = 1;
+    optional AttributeDataMsg attributeData = 2;
+}
+message WorldRulePerceptionLogMsg{
+    optional int32 programmeIndex = 1;
+    repeated WorldRuleHoleDetailsMsg holeListMsg = 2;
+    optional SkillMsg baseAtt  = 3;
+    optional int32 perceptionTimes= 4;
+    optional bool isUpgrade = 5;
+}
+message WorldRulePerceptionReq {
+    required int32 ruleId = 1;
+    repeated int32 lockHoleIndex = 2;
+    optional bool isAdRealize = 3;
+    optional bool isUseKillTimeItem = 4;
+}
+message WorldRulePerceptionResp {
+    required int32 ret = 1;
+}
+message WorldRulePerceptionReplaceReq {
+    required int32 ruleId = 1;
+}
+message WorldRulePerceptionReplaceResp {
+    required int32 ret = 1;
+}
+message WorldRuleGetPerceptionLogReq{
+    required int32 ruleId = 1;
+}
+message WorldRuleGetPerceptionLogResp {
+    required int32 ret = 1;
+    repeated WorldRulePerceptionLogMsg realizeRecordMsg = 2;
+}
+message WorldRuleSwitchProgrammeReq{
+    required int32 programmeIndex = 1;
+}
+message WorldRuleSwitchProgrammeResp {
+    required int32 ret = 1;
+}
