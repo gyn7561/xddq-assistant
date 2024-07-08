@@ -29,8 +29,14 @@ class Attribute {
         return new Task("YearCardAward", 20105, { type: 2 }, 0);
     }
 
+    static FetchBattle() {
+        const timestamp = new Date().getTime();
+        return new Task(`FetchBattle${timestamp}`, 20410, {}, 0);
+    }
+
     static Battle() {
-        return new Task("Battle", 20412, { index: 0 }, 0);
+        const timestamp = new Date().getTime();
+        return new Task(`Battle${timestamp}`, 20412, { index: 0 }, 0);
     }
 
     static SpeedUpTreeUpgradeReq(i) {
@@ -115,18 +121,6 @@ class AttributeManager {
                 }
             });
             logger.debug("[Server] [背包] 更新背包数据");
-        }
-
-        // 斗法券 > 0 的时候自动斗法
-        const fightTicket = this.findItemById(100026);
-        if (fightTicket.num > 0) {
-            TaskManager.instance.add(Attribute.Battle());
-        }
-
-        // 万能灵芝 > 0 的时候自动激活
-        const books = this.findItemById(100008);
-        if (books.num > 0) {
-            TaskManager.instance.add(Attribute.ReadBooks(books.num));
         }
     }
 
