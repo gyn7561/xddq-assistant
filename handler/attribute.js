@@ -1,60 +1,60 @@
 import schedule from "node-schedule";
 import logger from "../utils/logger.js";
 import account from "../account.js";
-import { TaskManager, Task } from "../modules/tasks.js";
+import { TaskManager, ImmediateTask } from "../modules/tasks.js";
 import { DBMgr } from "../modules/dbMgr.js";
 
 class Attribute {
     static Chop(i, times = 1) {
-        return new Task(`Chop${i}`, 20203, { auto: false, times: times }, 0);
+        return new ImmediateTask(`Chop${i}`, 20203, { auto: false, times: times });
     }
 
     static CheckUnfinishedEquipment() {
-        return new Task("CheckUnfinishedEquipment", 20209, {}, 0);
+        return new ImmediateTask("CheckUnfinishedEquipment", 20209, {});
     }
 
     static FetchSeparation() {
-        return new Task("FetchSeparation", 20215, {}, 0);
+        return new ImmediateTask("FetchSeparation", 20215, {});
     }
 
     static SwitchSeparation(idx) {
-        return new Task(`SwitchSeparation${idx}`, 20214, { separationIdx: idx }, 0);
+        return new ImmediateTask(`SwitchSeparation${idx}`, 20214, { separationIdx: idx });
     }
 
     static MonthCardAward() {
-        return new Task("MonthCardAward", 20105, { type: 1 }, 0);
+        return new ImmediateTask("MonthCardAward", 20105, { type: 1 });
     }
 
     static YearCardAward() {
-        return new Task("YearCardAward", 20105, { type: 2 }, 0);
+        return new ImmediateTask("YearCardAward", 20105, { type: 2 });
     }
 
     static FetchBattle() {
         const timestamp = new Date().getTime();
-        return new Task(`FetchBattle${timestamp}`, 20410, {}, 0);
+        return new ImmediateTask(`FetchBattle${timestamp}`, 20410, {});
     }
 
     static Battle() {
         const timestamp = new Date().getTime();
-        return new Task(`Battle${timestamp}`, 20412, { index: 0 }, 0);
+        return new ImmediateTask(`Battle${timestamp}`, 20412, { index: 0 });
     }
 
     static SpeedUpTreeUpgradeReq(i) {
-        return new Task(`SpeedUpTreeUpgradeReq${i}`, 20206, { speedUpType: 1, useTimes: 1, isUseADTime: false }, 0);
+        return new ImmediateTask(`SpeedUpTreeUpgradeReq${i}`, 20206, { speedUpType: 1, useTimes: 1, isUseADTime: false });
     }
 
     static ReadBooks(times) {
-        return new Task("ReadBooks", 20624, { readTimes: times }, 0);
+        return new ImmediateTask("ReadBooks", 20624, { readTimes: times });
     }
 
     // 粉碎装备
     static DealEquipmentEnum_Resolve(id) {
-        return new Task("DealEquipmentEnum_Resolve", 20202, { type: 1, idList: [id] }, 0);
+        return new ImmediateTask("DealEquipmentEnum_Resolve", 20202, { type: 1, idList: [id] });
     }
 
     // 佩戴装备 & 分解旧装备
     static DealEquipmentEnum_EquipAndResolveOld(id) {
-        return new Task("DealEquipmentEnum_EquipAndResolveOld", 20202, { type: 2, idList: [id] }, 0);
+        return new ImmediateTask("DealEquipmentEnum_EquipAndResolveOld", 20202, { type: 2, idList: [id] });
     }
 }
 

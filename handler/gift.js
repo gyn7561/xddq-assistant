@@ -1,17 +1,12 @@
 import logger from "../utils/logger.js";
-import { TaskManager, Task } from "../modules/tasks.js";
+import { TaskManager, ImmediateTask } from "../modules/tasks.js";
 
 function Gift(id) {
-    return new Task(
-        `Gift${id}`,
-        24807,
-        {
-            id: id,
-            getReward: true,
-            type: "SendGiftType_Palace",
-        },
-        0
-    ); // 仙友游历
+    return new ImmediateTask(`Gift${id}`, 24807, {
+        id: id,
+        getReward: true,
+        type: "SendGiftType_Palace",
+    });
 }
 
 function handlerGift(body) {

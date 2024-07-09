@@ -1,27 +1,31 @@
 import logger from "../utils/logger.js";
-import { TaskManager, Task } from "../modules/tasks.js";
+import { TaskManager, Task, RepeatedTask, ImmediateTask } from "../modules/tasks.js";
 import { deepCopy } from '../utils/convert.js';
 import account from "../account.js";
 
 class Homeland {
     static ExploreReq(interval) {
-        return new Task("HomelandExploreReq", 21058, {}, interval); // 福地探寻
+        return new RepeatedTask("HomelandExploreReq", 21058, {}, interval); // 福地探寻
     }
 
-    static ExploreEnter(playerId = env.playerId, interval = 0) {
-        return new Task(`HomelandExploreEnter${playerId}`, 21052, { playerId: playerId }, interval);
+    static ExploreMyself(playerId, interval = 0) {
+        return new RepeatedTask("ExploreMyself", 21052, { playerId: playerId }, interval);
     }
 
-    static Steal(playerId = env.playerId, pos, workerNum = 1) {
-        return new Task(`HomelandSteal${playerId}`, 21060, {
+    static ExploreEnter(playerId) {
+        return new ImmediateTask(`HomelandExploreEnter${playerId}`, 21052, { playerId: playerId });
+    }
+
+    static Steal(playerId, pos, workerNum = 1) {
+        return new ImmediateTask(`HomelandSteal${playerId}`, 21060, {
             playerId: playerId,
             pos: pos,
             workerNum: workerNum,
         });
     }
 
-    static Reset(playerId = env.playerId, pos) {
-        return new Task(`HomelandReset${playerId}`, 21060, {
+    static Reset(playerId, pos) {
+        return new ImmediateTask(`HomelandReset${playerId}`, 21060, {
             playerId: playerId,
             pos: pos,
             workerNum: 0,
@@ -29,11 +33,11 @@ class Homeland {
     }
 
     static RefreshNear() {
-        return new Task("HomelandRefreshNear", 21059);
+        return new ImmediateTask("HomelandRefreshNear", 21059);
     }
 
     static Manage(interval) {
-        return new Task("HomelandManage", 21053, {}, interval);
+        return new RepeatedTask("HomelandManage", 21053, {}, interval);
     }
 }
 
@@ -60,7 +64,7 @@ class HomelandManager {
             items: [],              // 临时数据 存储符合规则的玩家的福地数据
             canRefresh: false,
             stealCounter: 0,        // 记录探寻失败次数
-            maxStealMisses: 5,      // 最大允许探寻失败次数
+            maxStealMisses: 6,      // 连续 6 x 5 分钟未发现合适的福地, 停止流程
         };
         this.translate = {
             10022: "100003=1", // 1级灵石
@@ -133,12 +137,12 @@ class HomelandManager {
             logger.info(`[福地] 有${body.freeWorkerNum}只空闲老鼠, 还剩${body.energy}体力`);
             this.tempData.worker.ready = true;
             TaskManager.instance.add(Homeland.ExploreReq(30000));
-            TaskManager.instance.add(Homeland.ExploreEnter(global.playerId, 30000));
+            TaskManager.instance.add(Homeland.ExploreMyself(global.playerId, 30000));
         } else {
             logger.info(`[福地] 没有空闲老鼠或体力不足`);
             this.tempData.worker.ready = false;
             TaskManager.instance.remove("HomelandExploreReq");
-            TaskManager.instance.remove(`HomelandExploreEnter${global.playerId}`);
+            TaskManager.instance.remove("ExploreMyself");
         }
     }
 

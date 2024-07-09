@@ -1,8 +1,8 @@
 import logger from "../utils/logger.js";
-import { TaskManager, Task } from "../modules/tasks.js";
+import { TaskManager, ImmediateTask } from "../modules/tasks.js";
 
 function Destiny() {
-    return new Task("Destiny", 20653, { isOneKey: true }, 0) // 仙友游历
+    return new ImmediateTask("Destiny", 20653, { isOneKey: true }) // 仙友游历
 }
 
 function handlerDestiny(body) {
