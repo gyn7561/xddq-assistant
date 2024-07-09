@@ -59,6 +59,8 @@ class HomelandManager {
             itemsMyself: [],        // 临时数据 存储自己的福地数据
             items: [],              // 临时数据 存储符合规则的玩家的福地数据
             canRefresh: false,
+            stealCounter: 0,        // 记录探寻失败次数
+            maxStealMisses: 5,      // 最大允许探寻失败次数
         };
         this.translate = {
             10022: "100003=1", // 1级灵石
@@ -269,9 +271,20 @@ class HomelandManager {
             });
         }
 
+        if (nearPlayers.length > 0) {
+            this.tempData.stealCounter = 0; // 重置次数
+        }
+
         const timeSinceLastRefresh = (Date.now() - body.exploreData.lastRefreshTime) / 1000;
-        logger.debug(`[福地] ${timeSinceLastRefresh}时间`);
+        logger.debug(`[福地] ${timeSinceLastRefresh}秒自上次刷新`);
         if ((nearPlayers.length == 0 || this.tempData.canRefresh) && timeSinceLastRefresh >= 300) {
+            this.tempData.stealCounter++;
+            logger.info(`[福地] 未发现合适的福地, ${this.tempData.stealCounter}/${this.tempData.maxStealMisses}`);
+            if (this.tempData.stealCounter >= this.tempData.maxStealMisses) {
+                logger.info(`[福地] 已连续${this.tempData.stealCounter}次未发现合适的福地，停止流程`);
+                this.stopAllTasks();
+                return
+            }
             logger.info("[福地] 刷新附近福地!");
             TaskManager.instance.add(Homeland.RefreshNear());
             this.tempData.canRefresh = false;
@@ -378,6 +391,7 @@ class HomelandManager {
                 }
             });
         });
+
         // Remove empty keys and merge value to array
         let mergedValues = [];
         for (let key in result) {
@@ -399,6 +413,28 @@ class HomelandManager {
         this.tempData.player.near = [];
         this.tempData.itemsAll = [];
         this.tempData.items = [];
+    }
+
+    stopAllTasks() {
+        logger.info("[福地] 停止所有福地相关任务");
+        
+        // 停止所有与福地相关的任务
+        const homelandTasks = TaskManager.instance.tasks.filter(task => task.name.startsWith("Homeland"));
+        homelandTasks.forEach(task => TaskManager.instance.remove(task.name));
+        
+        // 停止额外的定时任务
+        if (TaskManager.instance.taskIntervals["HomelandManage"]) {
+            clearInterval(TaskManager.instance.taskIntervals["HomelandManage"]);
+            delete TaskManager.instance.taskIntervals["HomelandManage"];
+        }
+        if (TaskManager.instance.taskIntervals["HomelandExploreReq"]) {
+            clearInterval(TaskManager.instance.taskIntervals["HomelandExploreReq"]);
+            delete TaskManager.instance.taskIntervals["HomelandExploreReq"];
+        }
+        if (TaskManager.instance.taskIntervals[`HomelandExploreEnter${global.playerId}`]) {
+            clearInterval(TaskManager.instance.taskIntervals[`HomelandExploreEnter${global.playerId}`]);
+            delete TaskManager.instance.taskIntervals[`HomelandExploreEnter${global.playerId}`];
+        }
     }
 }
 
