@@ -1,7 +1,6 @@
-import schedule from "node-schedule";
 import logger from "../utils/logger.js";
 import account from "../account.js";
-import { TaskManager, ImmediateTask } from "../modules/tasks.js";
+import { TaskManager, ImmediateTask, CountedTask } from "../modules/tasks.js";
 import { DBMgr } from "../modules/dbMgr.js";
 
 class Attribute {
@@ -39,8 +38,8 @@ class Attribute {
         return new ImmediateTask(`Battle${timestamp}`, 20412, { index: 0 });
     }
 
-    static SpeedUpTreeUpgradeReq(i) {
-        return new ImmediateTask(`SpeedUpTreeUpgradeReq${i}`, 20206, { speedUpType: 1, useTimes: 1, isUseADTime: false });
+    static SpeedUpTreeUpgradeReq(interval, count) {
+        return new CountedTask("SpeedUpTreeUpgradeReq", 20206, { speedUpType: 1, useTimes: 1, isUseADTime: false }, interval, count);
     }
 
     static ReadBooks(times) {
@@ -89,6 +88,21 @@ class AttributeManager {
         return this._instance;
     }
 
+    restart() {
+        this.separation = false;
+        this.equipmentData = { 0: [], 1: [], 2: [] };
+        this.talentData = { 0: [], 1: [], 2: [] };
+        this.fightValueData = { 0: [], 1: [], 2: [] };
+        this.bagData = [];
+        this.treeLevel = 0;
+        this.chopTimes = 0;
+        this.isMonthCardVip = false;
+        this.isYearCardVip = false;
+        this.chopTreeJob = null;
+        this.previousPeachNum = 0;
+        this.status = "idle";
+    }
+    
     handlerPlayerAttribute(body) {
         this.playerLevel = Number(body.realmsId); // 等级
         this.playerFightValue = Number(body.fightValue); // 妖力
@@ -237,58 +251,62 @@ class AttributeManager {
         let freeSpeedUpTimes = body.freeSpeedUpTimes;
 
         // 计算剩余次数并设置自动加速任务
-        const remainingTimes = 8 - freeSpeedUpTimes;
+        const totalTimes = 8;
+        const remainingTimes = totalTimes - freeSpeedUpTimes;
 
         if (remainingTimes > 0) {
             logger.debug(`[Server] [树自动加速] [剩余次数: ${remainingTimes}]`);
-            for (let i = 0; i < remainingTimes; i++) {
-                let jobTime;
-
-                // 如果是第一次加速，且距离上次加速时间超过30分钟，则立即加速
-                if (i === 0 && now - freeSpeedUpCdEndTime >= intervalInMinutes) {
-                    jobTime = new Date();
-                    freeSpeedUpTimes--;
-                } else {
-                    jobTime = new Date(freeSpeedUpCdEndTime + (i + 1 - freeSpeedUpTimes) * intervalInMinutes);
-                }
-
-                schedule.scheduleJob(jobTime, () => {
-                    logger.debug(`[Server] [树自动加速] [剩余次数: ${8 - 1 - i}] 一键加速`);
-                    TaskManager.instance.add(Attribute.SpeedUpTreeUpgradeReq(i));
-                });
+        
+            let jobTime;
+        
+            // 如果距离上次加速时间超过30分钟，则立即加速
+            if (now - freeSpeedUpCdEndTime >= intervalInMinutes) {
+                jobTime = 0; // 立即执行
+            } else {
+                jobTime = (freeSpeedUpCdEndTime + intervalInMinutes) - now;
             }
+        
+            setTimeout(async () => {
+                logger.debug(`[Server] [树自动加速] [启动自动加速任务，剩余次数: ${remainingTimes}]`);
+                await TaskManager.instance.add(Attribute.SpeedUpTreeUpgradeReq(intervalInMinutes, remainingTimes));
+            }, jobTime);
         }
     }
 
     doChopTree() {
+        const chopTreeTask = async () => {
+            if (this.status === "idle") {
+                const peach = this.findItemById(100004);
+                if (peach.num < account.chopTree.stop.peach || this.playerLevel == account.chopTree.stop.level) {
+                    logger.warn(`[砍树] 停止任务`);
+                    this.chopTreeJob = null;
+                } else {
+                    if (peach.num !== this.previousPeachNum) {
+                        logger.info(`[砍树] 执行砍树任务 还剩 ${peach.num} 桃子`);
+                        this.previousPeachNum = peach.num; // 更新上一次桃子数量
+                    }
+                    await TaskManager.instance.add(Attribute.Chop(peach.num, this.chopTimes));
+                    await TaskManager.instance.add(Attribute.CheckUnfinishedEquipment());
+                }
+            } else {
+                logger.warn(`[砍树] 正在忙碌，跳过此次砍树`);
+            }
+    
+            if (this.chopTreeJob) {
+                setTimeout(chopTreeTask, 1000); // 每秒钟执行一次
+            }
+        };
+    
         if (account.switch.chopTree) {
             if (this.chopTreeJob) {
-                this.chopTreeJob.cancel(); // 如果已经有定时任务，先取消
+                clearTimeout(this.chopTreeJob);
             }
-            this.chopTreeJob = schedule.scheduleJob("*/1 * * * * *", async () => {
-                if (this.status === "idle") {
-                    const peach = this.findItemById(100004);
-                    if (peach.num < account.chopTree.stop.peach || this.playerLevel == account.chopTree.stop.level) {
-                        logger.warn(`[砍树] 停止任务`);
-                        this.chopTreeJob.cancel();
-                        this.chopTreeJob = null;
-                    } else {
-                        if (peach.num !== this.previousPeachNum) {
-                            logger.info(`[砍树] 执行砍树任务 还剩 ${peach.num} 桃子`);
-                            this.previousPeachNum = peach.num; // 更新上一次桃子数量
-                        }
-                        await TaskManager.instance.add(Attribute.Chop(peach.num, this.chopTimes));
-                        await TaskManager.instance.add(Attribute.CheckUnfinishedEquipment());
-                    }
-                } else {
-                    logger.warn(`[砍树] 正在忙碌，跳过此次砍树`);
-                }
-            });
+            this.chopTreeJob = setTimeout(chopTreeTask, 1000);
         } else if (this.chopTreeJob) {
-            this.chopTreeJob.cancel(); // 如果开关关闭且任务存在，取消任务
+            clearTimeout(this.chopTreeJob);
             this.chopTreeJob = null;
         }
-    }
+    }     
 
     calculateMultiplier(treeLevel) {
         if (treeLevel >= 22) {

@@ -5,11 +5,9 @@
     "type": "module",
     "license": "MIT",
     "dependencies": {
-        "async": "^3.2.5",
         "axios": "^1.7.2",
         "crypto-js": "^4.2.0",
         "long": "^5.2.3",
-        "node-schedule": "^2.1.1",
         "protobufjs": "^7.3.0",
         "qs": "^6.12.1",
         "uuid": "^10.0.0",

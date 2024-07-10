@@ -145,6 +145,14 @@ class TaskManager {
         }
     }
 
+    restart() {
+        for (const task of this.tasks) {
+            clearTimeout(this.taskHandlers[task.name]);
+            delete this.taskHandlers[task.name];
+        }
+        this.tasks = [];
+    }
+
     async init(ws) {
         this.ws = ws;
         const initialTasks = [
@@ -179,13 +187,13 @@ class TaskManager {
             initialTasks.push(...staticTasks);
 
             initialTasks.push(
-                new CountedTask("广告精怪", 20822, { drawTimes: 1, isAd: true, isUseADTime: false }, 0, 2),
-                new CountedTask("广告神通", 24408, { times: 1, isAd: true, isUseADTime: false }, 0, 2),
-                new CountedTask("广告法宝", 26302, { drawTimes: 1, isAd: true, poolId: 1, isUseADTime: false }, 0, 2),
-                new CountedTask("广告宗门", 211814, { isUseADTime: false }, 0, 2),
-                new CountedTask("挑战妖王", 20733, {}, 0, 8)
+                new CountedTask("广告精怪", 20822, { drawTimes: 1, isAd: true, isUseADTime: false }, 1000, 2),
+                new CountedTask("广告神通", 24408, { times: 1, isAd: true, isUseADTime: false }, 1000, 2),
+                new CountedTask("广告法宝", 26302, { drawTimes: 1, isAd: true, poolId: 1, isUseADTime: false }, 1000, 2),
+                new CountedTask("广告宗门", 211814, { isUseADTime: false }, 1000, 2),
+                new CountedTask("挑战妖王", 20733, {}, 1000, 8)
             );
-            // initialTasks.push(new CountedTask("异兽入侵", 20215, {}, 0, 5)); // 异兽入侵5次 - 需要切分身
+            // initialTasks.push(new CountedTask("异兽入侵", 20215, {}, 1000, 5)); // 异兽入侵5次 - 需要切分身
         }
 
         for (const task of initialTasks) {
