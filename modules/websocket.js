@@ -1,5 +1,4 @@
 import WebSocket from "ws";
-import schedule from "node-schedule";
 import logger from "../utils/logger.js";
 import { toHexString } from "../utils/convert.js";
 import { parse } from "./messages.js";
@@ -8,6 +7,7 @@ import { TaskManager } from "./tasks.js";
 import { ProtobufMgr } from './protobufMgr.js';
 import { DBMgr } from './dbMgr.js';
 import agenda from "../handler/agenda.js";
+import { Attribute } from "../handler/attribute.js";
 
 class WebSocketManager {
     constructor() {
@@ -45,9 +45,9 @@ class WebSocketManager {
             Upgrade: "websocket",
             Origin: "https://proxy-xddq.hdnd01.com",
         };
-        // this.reconnectInterval = 60 * 1000; // 默认重连时间为60秒
-        // this.maxReconnectAttempts = 3;      // 最大重连次数
-        // this.reconnectAttempts = 0;         // 当前重连次数
+        this.reconnectInterval = 60 * 1000; // 默认重连时间为60秒
+        this.maxReconnectAttempts = 3;      // 最大重连次数
+        this.reconnectAttempts = 0;         // 当前重连次数
         this.uri = null;
     }
 
@@ -68,15 +68,15 @@ class WebSocketManager {
 
         this.connect();
 
-        // // Restart the WebSocket connection at 00:00:30 every day
-        // schedule.scheduleJob('30 0 0 * * *', this.restartConnection.bind(this));
+        // Schedule the daily restart task
+        this.scheduleDailyRestart();
     }
 
     connect() {
-        // if (this.reconnectAttempts >= this.maxReconnectAttempts) {
-        //     logger.error(`Reached maximum reconnect attempts (${this.maxReconnectAttempts}). No longer attempting to reconnect.`);
-        //     return;
-        // }
+        if (this.reconnectAttempts >= this.maxReconnectAttempts) {
+            logger.error(`Reached maximum reconnect attempts (${this.maxReconnectAttempts}). No longer attempting to reconnect.`);
+            return;
+        }
 
         this.ws = new WebSocket(this.uri, { headers: this.headers });
         this.ws.on("open", this.handleOpen.bind(this));
@@ -110,24 +110,37 @@ class WebSocketManager {
 
     handleClose() {
         logger.info("WebSocket connection closed");
-        // this.reconnectAttempts++;
-        // setTimeout(() => {
-        //     logger.info(`Reconnecting... (attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts})`);
-        //     this.connect();
-        // }, this.reconnectInterval);
+        this.reconnectAttempts++;
+        setTimeout(() => {
+            logger.info(`Reconnecting... (attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts})`);
+            this.connect();
+        }, this.reconnectInterval);
     }
 
     handleError(err) {
         logger.error(`WebSocket error: ${err}`);
     }
 
-    // async restartConnection() {
-    //     logger.info("Restarting WebSocket connection as scheduled...");
-    //     if (this.ws) {
-    //         this.ws.close(); // 关闭现有连接
-    //     }
-    //     this.connect();      // 重新连接
-    // }
+    async restartConnection() {
+        logger.info("Restarting WebSocket connection as scheduled...");
+        if (this.ws) {
+            this.ws.close(); // 关闭现有连接
+            TaskManager.instance.restart(); // 重置任务
+            Attribute.instance.restart(); // 重置属性
+        }
+        this.connect(); // 重新连接
+    }
+
+    scheduleDailyRestart() {
+        const now = new Date();
+        const nextRestart = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 30);
+        const timeUntilNextRestart = nextRestart - now;
+
+        setTimeout(() => {
+            this.restartConnection();
+            this.scheduleDailyRestart(); // Schedule the next restart
+        }, timeUntilNextRestart);
+    }
 }
 
 export default WebSocketManager;

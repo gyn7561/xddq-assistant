@@ -2,7 +2,6 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import logger from "../utils/logger.js";
-import { get } from 'http';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const resolvePath = (...segments) => path.resolve(__dirname, ...segments);

@@ -1,0 +1,3962 @@
+{
+    "17": {
+        "name": "SystemShield",
+        "comments": "RegressionActivePlayerData解析",
+        "protocol": "S_SYSTEMSHIELD_DATA_SYNC",
+        "method": ""
+    },
+    "4600": {
+        "name": "Bag",
+        "comments": "同步灵兽蛋数据",
+        "protocol": "S_HOLD_PET_EGG_DATA_SYNC",
+        "method": "CityMsg.HoldPetEggDataSync"
+    },
+    "1": {
+        "name": "Login",
+        "comments": "登陆消息",
+        "protocol": "S_PLAYER_LOGIN",
+        "method": "CityMsg.RspLoginMsg"
+    },
+    "2": {
+        "name": "Login",
+        "comments": "登录下发完成",
+        "protocol": "S_LOGIN_SYNC_OVER",
+        "method": "CityMsg.LoginOverMsg"
+    },
+    "3": {
+        "name": "Login",
+        "comments": "心跳",
+        "protocol": "S_PLAYER_PING",
+        "method": "CityMsg.RspPingMsg"
+    },
+    "4": {
+        "name": "Recharge",
+        "comments": "预购买",
+        "protocol": "S_PRECHARGE",
+        "method": "CityMsg.PreChargeResp"
+    },
+    "5": {
+        "name": "Recharge",
+        "comments": "通知充值到账",
+        "protocol": "S_NOTIFY_RECHARGE_SUCCESS",
+        "method": "CityMsg.NotifyRechargeSuccess"
+    },
+    "6": {
+        "name": "PlayerData",
+        "comments": "创建角色请求",
+        "protocol": "S_CREATE_ROLE",
+        "method": "CityMsg.CreateRoleResp"
+    },
+    "7": {
+        "name": "PlayerData",
+        "comments": "随机昵称回复",
+        "protocol": "S_GET_RANDOM_NICKNAME",
+        "method": "CityMsg.RandomNickNameResp"
+    },
+    "8": {
+        "name": "PlayerData",
+        "comments": "改名",
+        "protocol": "S_CHANGE_NICK_NAME",
+        "method": "CityMsg.ChangeNickNameResp"
+    },
+    "9": {
+        "name": "PlayerData",
+        "comments": "兑换码",
+        "protocol": "S_EXCHANGE_CODE",
+        "method": "CityMsg.UseExchangeKeyResp"
+    },
+    "10": {
+        "name": "PlayerData",
+        "comments": "服务端配置",
+        "protocol": "S_GET_SERVER_CONFIG_VERSION",
+        "method": "CityMsg.GetServerConfigVersionResp"
+    },
+    "11": {
+        "name": "Login",
+        "comments": "其他人登录你的账户",
+        "protocol": "S_OTHER_LOGIN_YOUR_ROLE",
+        "method": "CityMsg.OtherLoginMsg"
+    },
+    "12": {
+        "name": "RedPoint",
+        "comments": "系统红点同步",
+        "protocol": "S_SYSTEM_RED_POINT_SYNC",
+        "method": "CityMsg.SystemRedPointSync"
+    },
+    "13": {
+        "name": "RedPoint",
+        "comments": "活动红点同步",
+        "protocol": "S_ACTIVITY_RED_POINT_SYNC",
+        "method": "CityMsg.ActivityRedPointSync"
+    },
+    "14": {
+        "name": "Recharge",
+        "comments": "充值商品次数同步",
+        "protocol": "S_RECHARGE_MALL_TIMES_SYNC",
+        "method": "CityMsg.RechargeMallTimesSync"
+    },
+    "16": {
+        "name": "Login",
+        "comments": "同步后台配置",
+        "protocol": "S_SYN_BACKEND_CONFIG",
+        "method": "CityMsg.RspConfigMsg"
+    },
+    "19": {
+        "name": "Task",
+        "comments": "观看视频广告任务",
+        "protocol": "S_WATCH_AD_TASK",
+        "method": "CityMsg.WatchAdResp"
+    },
+    "20": {
+        "name": "PigEscape",
+        "comments": "熊口逃生领奖",
+        "protocol": "S_PIG_ESCAPE_GET_REWARD",
+        "method": "CityMsg.CutRopeGetRewardRsp"
+    },
+    "31": {
+        "name": "PlayerData",
+        "comments": "获取隐私注册协议",
+        "protocol": "S_GET_POLICY_INFO_REQ",
+        "method": "CityMsg.GetPolicyInfoRsp"
+    },
+    "32": {
+        "name": "PlayerData",
+        "comments": "同步协议 回归玩家信息",
+        "protocol": "S_BACK_INFO_SYNC",
+        "method": "CityMsg.SyncRecallPlayerMsg"
+    },
+    "33": {
+        "name": "PlayerData",
+        "comments": "获取绑定状态",
+        "protocol": "S_GET_BIND_STATUS_REQ",
+        "method": "CityMsg.GetBindStatusResp"
+    },
+    "34": {
+        "name": "PlayerData",
+        "comments": "生成绑定码",
+        "protocol": "S_GET_BIND_CODE_REQ",
+        "method": "CityMsg.GetBindCodeResp"
+    },
+    "35": {
+        "name": "PlayerData",
+        "comments": "解绑",
+        "protocol": "S_UNTIE_BIND_CODE_REQ",
+        "method": "CityMsg.UntieBindCodeResp"
+    },
+    "36": {
+        "name": "PlayerData",
+        "comments": "获取绑定信息",
+        "protocol": "S_GET_BIND_CODE_INFO_REQ",
+        "method": "CityMsg.GetBindCodeInfoResp"
+    },
+    "101": {
+        "name": "PlayerData",
+        "comments": "用户信息同步",
+        "protocol": "S_PLAYER_DATA_SYNC_MSG",
+        "method": "CityMsg.PlayerDataMsg"
+    },
+    "102": {
+        "name": "PlayerSystem",
+        "comments": "系统解锁同步",
+        "protocol": "S_SYSTEM_UNLOCK_SYNC_MSG",
+        "method": "CityMsg.SystemUnlockSync"
+    },
+    "103": {
+        "name": "PlayerSystem",
+        "comments": "请求领取系统解锁奖 励",
+        "protocol": "S_SYSTEM_GET_REWARD_MSG",
+        "method": "CityMsg.GetSysRewardResp"
+    },
+    "104": {
+        "name": "PrivilegeCard",
+        "comments": "同步特权卡数据",
+        "protocol": "S_PRIVILEGE_CARD_SYNC_DATA",
+        "method": "CityMsg.PrivilegeCardDataMsg"
+    },
+    "105": {
+        "name": "PrivilegeCard",
+        "comments": "领取特权卡奖励",
+        "protocol": "S_PRIVILEGE_CARD_RECEIVE_REWARD",
+        "method": "CityMsg.PrivilegeCardReceiveRewardRsp"
+    },
+    "106": {
+        "name": "PlayerChara",
+        "comments": "玩家形象同步",
+        "protocol": "S_PLAYER_CHARA_DATA_SYNC",
+        "method": "CityMsg.PlayerCharaDataMsg"
+    },
+    "107": {
+        "name": "PlayerChara",
+        "comments": "切换形象请求",
+        "protocol": "S_PLAYER_CHARA_CHANGE",
+        "method": "CityMsg.ChangePlayerCharaResp"
+    },
+    "108": {
+        "name": "PlayerChara",
+        "comments": "获取形象回复",
+        "protocol": "S_PLAYER_GET_CHARA_LIST",
+        "method": "CityMsg.GetPlayerCharaListResp"
+    },
+    "109": {
+        "name": "WatchPlayer",
+        "comments": "获取玩家详细数据",
+        "protocol": "S_GET_PLAYER_DETAIL_DATA",
+        "method": "CityMsg.getPlayerDetailDataResp"
+    },
+    "110": {
+        "name": "WorldMessage",
+        "comments": "请求聊天",
+        "protocol": "S_WORLD_MESSAGE_CHAT",
+        "method": "CityMsg.WorldChatRespMsg"
+    },
+    "111": {
+        "name": "WorldMessage",
+        "comments": "世界消息同步",
+        "protocol": "S_WORLD_MESSAGE_SYNC",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "112": {
+        "name": "WorldMessage",
+        "comments": "世界消息列表，登录时下发",
+        "protocol": "S_WORLD_MESSAGE_LIST",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "113": {
+        "name": "WorldMessage",
+        "comments": "妖盟消息同步",
+        "protocol": "S_UNION_MESSAGE_SYNC",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "114": {
+        "name": "WorldMessage",
+        "comments": "妖盟消息列表，登录时下发",
+        "protocol": "S_UNION_MESSAGE_LIST",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "115": {
+        "name": "WorldMessage",
+        "comments": "活动消息同步",
+        "protocol": "S_ACTIVITY_MESSAGE_SYNC",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "116": {
+        "name": "WorldMessage",
+        "comments": "请求活动消息列表",
+        "protocol": "S_ACTIVITY_MESSAGE_LIST",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "117": {
+        "name": "WorldMessage",
+        "comments": "跑马灯广播通知",
+        "protocol": "S_HORSE_RACE_LAMP_MSG_ADD",
+        "method": "CityMsg.HorseRaceLampMsgAdd"
+    },
+    "118": {
+        "name": "WatchPlayer",
+        "comments": "获取仙树后面飘的玩家信息",
+        "protocol": "S_GET_TOP_PLAYER_INFO",
+        "method": "CityMsg.GetTopPlayerInfoResp"
+    },
+    "119": {
+        "name": "PlayerChara",
+        "comments": "玩家称号同步",
+        "protocol": "S_SYNC_TITLE_MSG",
+        "method": "CityMsg.TitleSyncMsg"
+    },
+    "120": {
+        "name": "PlayerChara",
+        "comments": "穿戴称号",
+        "protocol": "S_USE_TITLE",
+        "method": "CityMsg.UseTitleRsp"
+    },
+    "121": {
+        "name": "GoodsShield",
+        "comments": "道具屏蔽列表同步",
+        "protocol": "S_GOODSSHIELD_DATA_SYNC",
+        "method": "CityMsg.GoodsShieldSync"
+    },
+    "122": {
+        "name": "PlayerChara",
+        "comments": "玩家勋章同步",
+        "protocol": "S_SYNC_MEDAL_MSG",
+        "method": "CityMsg.MedalSyncMsg"
+    },
+    "123": {
+        "name": "PlayerChara",
+        "comments": "穿戴称号",
+        "protocol": "S_USE_MEDAL",
+        "method": "CityMsg.UseMedalRsp"
+    },
+    "125": {
+        "name": "MallShield",
+        "comments": "同步渠道屏蔽商城付费项列表",
+        "protocol": "S_SHIELD_MALL_RECHARGE_ID",
+        "method": "CityMsg.MallRechargeIdShieldSync"
+    },
+    "130": {
+        "name": "WorldMessage",
+        "comments": "举报玩家",
+        "protocol": "S_REPORT_PLAYER",
+        "method": "CityMsg.WorldChatBlockRespMsg"
+    },
+    "131": {
+        "name": "WorldMessage",
+        "comments": "系统聊天同步",
+        "protocol": "S_SYSTEM_MESSAGE_SYNC",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "132": {
+        "name": "WorldMessage",
+        "comments": "系统聊天列表，请求下发",
+        "protocol": "S_SYSTEM_MESSAGE_LIST",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "133": {
+        "name": "WorldMessage",
+        "comments": "聊天举报",
+        "protocol": "S_REPORT_MESSAGE",
+        "method": "CityMsg.ReportMessageRespMsg"
+    },
+    "134": {
+        "name": "WatchPlayer",
+        "comments": "获取玩家(某个系统)锁定的详细数 据-请求",
+        "protocol": "S_GET_PLAYER_DETAIL_DATA_BY_SYSTEM",
+        "method": "CityMsg.getLockedPlayerDetailDataResp"
+    },
+    "135": {
+        "name": "WatchPlayer",
+        "comments": "请求飞行员列表数据-请求",
+        "protocol": "S_GET_PLAYER_PILOT_SHOW_DATA_MSG_LIST",
+        "method": "CityMsg.getPlayerPilotShowDataMsgListResp"
+    },
+    "140": {
+        "name": "WorldMessage",
+        "comments": "红包状态同步",
+        "protocol": "S_RED_PACKET_STATE_MSG_SYNC",
+        "method": "CityMsg.RedPacketStateMsgSync"
+    },
+    "141": {
+        "name": "WorldMessage",
+        "comments": "获取红包信息",
+        "protocol": "S_RED_PACKET_OPEN_REQ",
+        "method": "CityMsg.RedPacketOpenResp"
+    },
+    "142": {
+        "name": "WorldMessage",
+        "comments": "领取红包奖励",
+        "protocol": "S_RED_PACKET_DRAW_RESULT",
+        "method": "CityMsg.RedPacketDrawResp"
+    },
+    "201": {
+        "name": "Attribute",
+        "comments": "玩家属性信息同步",
+        "protocol": "S_ATTRIBUTE_DATA_SYNC_MSG",
+        "method": "CityMsg.PlayerAttributeDataMsg"
+    },
+    "202": {
+        "name": "Attribute",
+        "comments": "处理装备",
+        "protocol": "S_ATTRIBUTE_EQUIPMENT_DEAL_MSG",
+        "method": "CityMsg.RspDealEquipmentMsg"
+    },
+    "203": {
+        "name": "Attribute",
+        "comments": "做梦",
+        "protocol": "S_ATTRIBUTE_DREAM_MSG",
+        "method": "CityMsg.RspDreamMsg"
+    },
+    "204": {
+        "name": "Attribute",
+        "comments": "境界升级",
+        "protocol": "S_ATTRIBUTE_REALMS_LEVE_UP_MSG",
+        "method": "CityMsg.RspRealmsLeveUpMsg"
+    },
+    "205": {
+        "name": "Attribute",
+        "comments": "梦境升级",
+        "protocol": "S_ATTRIBUTE_DREAM_LV_UP",
+        "method": "CityMsg.DreamLvUpResp"
+    },
+    "206": {
+        "name": "Attribute",
+        "comments": "梦境升级加速",
+        "protocol": "S_ATTRIBUTE_DREAM_LV_UP_SPEED_UP",
+        "method": "CityMsg.DreamLvUpSpeedUpResp"
+    },
+    "207": {
+        "name": "Attribute",
+        "comments": "做梦玩家数据",
+        "protocol": "S_DREAM_DATA_SYNC",
+        "method": "CityMsg.DreamDataMsg"
+    },
+    "208": {
+        "name": "Attribute",
+        "comments": "获取渡劫成功率",
+        "protocol": "S_ATTRIBUTE_GET_TRIBULATION_SUCCESS_PRO",
+        "method": "CityMsg.GetTribulationSuccessProResp"
+    },
+    "209": {
+        "name": "Attribute",
+        "comments": "获取未处理装备数据",
+        "protocol": "S_ATTRIBUTE_GET_UNDEAL_EQUIPMENT_MSG",
+        "method": "CityMsg.GetUnDealEquipmentMsgResp"
+    },
+    "210": {
+        "name": "AdReward",
+        "comments": "数据同步",
+        "protocol": "S_AD_REWARD_DATA_SYNC",
+        "method": "CityMsg.PlayerAdRewardDataMsg"
+    },
+    "211": {
+        "name": "AdReward",
+        "comments": "广告领奖",
+        "protocol": "S_AD_REWARD_GET_REWARD",
+        "method": "CityMsg.GetAdRewardResp"
+    },
+    "212": {
+        "name": "Attribute",
+        "comments": "斩道也调用这个接口",
+        "protocol": "S_ATTRIBUTE_SOARING_REQ",
+        "method": "CityMsg.SoaringResp"
+    },
+    "213": {
+        "name": "Attribute",
+        "comments": "设置分身名字",
+        "protocol": "S_ATTRIBUTE_SET_SEPARATION_NAME_REQ",
+        "method": "CityMsg.SetSeparationNameResp"
+    },
+    "214": {
+        "name": "Attribute",
+        "comments": "切换分身",
+        "protocol": "S_ATTRIBUTE_SWITCH_SEPARATION_REQ",
+        "method": "CityMsg.SwitchSeparationResp"
+    },
+    "215": {
+        "name": "Attribute",
+        "comments": "获取分身列表数据",
+        "protocol": "S_ATTRIBUTE_GET_SEPARATION_DATAA_MSG_LIST_REQ",
+        "method": "CityMsg.GetSeparationDataMsgListResp"
+    },
+    "250": {
+        "name": "MessageSubscribe",
+        "comments": "微信消息订阅登陆下发",
+        "protocol": "S_GET_LOGIN_MESSAGE_SUBSCRIBE",
+        "method": "CityMsg.MessageSubscribeInfo"
+    },
+    "251": {
+        "name": "MessageSubscribe",
+        "comments": "设置订阅消息",
+        "protocol": "S_SET_MESSAGE_SUBSCRIBE",
+        "method": "CityMsg.SetMessageSubscribeDataRspMsg"
+    },
+    "252": {
+        "name": "PlayerData",
+        "comments": "微信头像授权",
+        "protocol": "S_AUTHORIZE_WECHAT_HEAD_URL",
+        "method": "CityMsg.AuthorizePlayerHeadResp"
+    },
+    "301": {
+        "name": "Bag",
+        "comments": "同步背包数据",
+        "protocol": "S_BAG_DATA_SYNC_MSG",
+        "method": "CityMsg.SyncBagMsg"
+    },
+    "302": {
+        "name": "Bag",
+        "comments": "使用道具",
+        "protocol": "S_BAG_USE_PROP",
+        "method": "CityMsg.UsePropResp"
+    },
+    "303": {
+        "name": "Bag",
+        "comments": "合成道具",
+        "protocol": "S_BAG_COMPOUND_PROP",
+        "method": "CityMsg.CompoundPropResp"
+    },
+    "401": {
+        "name": "Battle",
+        "comments": "测试战斗",
+        "protocol": "S_BATTLE_TEST",
+        "method": "CityMsg.BattleRecordMsg"
+    },
+    "402": {
+        "name": "Stage",
+        "comments": "关卡挑战",
+        "protocol": "S_STAGE_CHALLENGE",
+        "method": "CityMsg.ChallengeRspMsg"
+    },
+    "403": {
+        "name": "Stage",
+        "comments": "关卡数据同步",
+        "protocol": "S_STAGE_DATA_SYNC",
+        "method": "CityMsg.PlayerStageData"
+    },
+    "404": {
+        "name": "Tower",
+        "comments": "查看关卡怪物信息",
+        "protocol": "S_STAGE_VIEW_MONSTER_ATTR",
+        "method": "CityMsg.ViewMonsterAttrResp"
+    },
+    "405": {
+        "name": "Battle",
+        "comments": "测试组队战斗",
+        "protocol": "S_TEAM_BATTLE_TEST",
+        "method": "CityMsg.TeamBattleRecordMsg"
+    },
+    "410": {
+        "name": "RankBattle",
+        "comments": "获取对战列表",
+        "protocol": "S_RANK_BATTLE_GET_BATTLE_LIST",
+        "method": "CityMsg.GetBattleListResp"
+    },
+    "411": {
+        "name": "RankBattle",
+        "comments": "刷新对战列表",
+        "protocol": "S_RANK_BATTLE_REFRESH_BATTLE_LIST",
+        "method": "CityMsg.RefreshBattleListResp"
+    },
+    "412": {
+        "name": "RankBattle",
+        "comments": "挑战请求",
+        "protocol": "S_RANK_BATTLE_CHALLENGE",
+        "method": "CityMsg.RankBattleChallengeResp"
+    },
+    "413": {
+        "name": "RankBattle",
+        "comments": "获取妖榜日志",
+        "protocol": "S_RANK_BATTLE_GET_LOG",
+        "method": "CityMsg.GetRankBattleLogResp"
+    },
+    "414": {
+        "name": "RankBattle",
+        "comments": "妖榜复仇请求",
+        "protocol": "S_RANK_BATTLE_REVENGE",
+        "method": "CityMsg.RankBattleRevengeResp"
+    },
+    "415": {
+        "name": "RankBattle",
+        "comments": "斗法登录同步",
+        "protocol": "S_RANK_BATTLE_LOGIN_SYNC",
+        "method": "CityMsg.RankBattleSync"
+    },
+    "501": {
+        "name": "Task",
+        "comments": "玩家登录任务数据下发",
+        "protocol": "S_TASK_DATA_SEND",
+        "method": "CityMsg.TaskDataListMsg"
+    },
+    "502": {
+        "name": "Task",
+        "comments": "玩家任务数据同步",
+        "protocol": "S_TASK_DATA_SYNC",
+        "method": "CityMsg.TaskDataListMsg"
+    },
+    "503": {
+        "name": "Task",
+        "comments": "领取任务奖励响应",
+        "protocol": "S_TASK_GET_REWARD",
+        "method": "CityMsg.TaskGetRewardRespMsg"
+    },
+    "551": {
+        "name": "Mail",
+        "comments": "邮件列表数据同步",
+        "protocol": "S_MAIL_LIST",
+        "method": "CityMsg.MailListMsg"
+    },
+    "552": {
+        "name": "Mail",
+        "comments": "邮件数据同步",
+        "protocol": "S_MAIL_SYNC",
+        "method": "CityMsg.MailListMsg"
+    },
+    "553": {
+        "name": "Mail",
+        "comments": "一键删除邮件",
+        "protocol": "S_MAIL_DELETE_ALL_MAIL",
+        "method": "CityMsg.MailDeleteAllResp"
+    },
+    "554": {
+        "name": "Mail",
+        "comments": "删除邮件",
+        "protocol": "S_MAIL_DELETE_MAIL",
+        "method": "CityMsg.MailDeleteResp"
+    },
+    "555": {
+        "name": "Mail",
+        "comments": "一键领取邮件",
+        "protocol": "S_MAIL_GET_ALL_REWARD",
+        "method": "CityMsg.MailGetAllRewardResp"
+    },
+    "556": {
+        "name": "Mail",
+        "comments": "领取邮件",
+        "protocol": "S_MAIL_GET_REWARD",
+        "method": "CityMsg.MailGetRewardResp"
+    },
+    "557": {
+        "name": "Mail",
+        "comments": "读取邮件",
+        "protocol": "S_MAIL_READ_MAIL",
+        "method": "CityMsg.MailReadResp"
+    },
+    "601": {
+        "name": "Mall",
+        "comments": "购买商品",
+        "protocol": "S_MALL_BUY_GOODS",
+        "method": "CityMsg.BuyGoodsResp"
+    },
+    "602": {
+        "name": "Mall",
+        "comments": "商品购买数量集合",
+        "protocol": "S_MALL_BUY_COUNT_SYNC",
+        "method": "CityMsg.MallBuyCountListMsg"
+    },
+    "603": {
+        "name": "Mall",
+        "comments": "商店列表",
+        "protocol": "S_MALL_RANDOM_GOODS",
+        "method": "CityMsg.MallRandomGoodsRespMsg"
+    },
+    "604": {
+        "name": "Recharge",
+        "comments": "通宝购买请求",
+        "protocol": "S_MALL_CHANCE_BUY",
+        "method": "CityMsg.MallChanceUseRespMsg"
+    },
+    "621": {
+        "name": "Talent",
+        "comments": "同步神通数据",
+        "protocol": "S_TALENT_SYNC_DATA",
+        "method": "CityMsg.TalentPlayerDataMsg"
+    },
+    "622": {
+        "name": "Talent",
+        "comments": "炼化",
+        "protocol": "S_TALENT_RANDOM_TALENT",
+        "method": "CityMsg.RandomTalentResp"
+    },
+    "623": {
+        "name": "Talent",
+        "comments": "处理神通",
+        "protocol": "S_TALENT_DEAL_TALENT",
+        "method": "CityMsg.DealTalentResp"
+    },
+    "624": {
+        "name": "Talent",
+        "comments": "阅读妖书",
+        "protocol": "S_TALENT_READ_BOOK",
+        "method": "CityMsg.ReadBookResp"
+    },
+    "625": {
+        "name": "Talent",
+        "comments": "获取未处理神通数据",
+        "protocol": "S_TALENT_GET_UNDEAL_TALENT_MSG",
+        "method": "CityMsg.GetUnDealTalentMsgResp"
+    },
+    "651": {
+        "name": "Destiny",
+        "comments": "数据同步",
+        "protocol": "S_DESTINY_DATA_SYNC",
+        "method": "CityMsg.DestinyData"
+    },
+    "652": {
+        "name": "Destiny",
+        "comments": "赠礼",
+        "protocol": "S_DESTINY_GIFT",
+        "method": "CityMsg.RspDestinyGift"
+    },
+    "653": {
+        "name": "Destiny",
+        "comments": "游历",
+        "protocol": "S_DESTINY_TRAVEL",
+        "method": "CityMsg.RspDestinyTravel"
+    },
+    "654": {
+        "name": "Destiny",
+        "comments": "切磋",
+        "protocol": "S_DESTINY_CHALLENGE",
+        "method": "CityMsg.RspDestinyChallenge"
+    },
+    "655": {
+        "name": "Destiny",
+        "comments": "解锁道具仙友",
+        "protocol": "S_DESTINY_UNLOCK",
+        "method": "CityMsg.RspUnlockDestinyByItem"
+    },
+    "657": {
+        "name": "Destiny",
+        "comments": "皮肤解锁",
+        "protocol": "S_DESTINY_SKIN_UNLOCK",
+        "method": "CityMsg.RspUnlockDestinySkinByItem"
+    },
+    "658": {
+        "name": "Destiny",
+        "comments": "强化皮肤",
+        "protocol": "S_DESTINY_SKIN_ENHANCE",
+        "method": "CityMsg.RspEnhanceDestinySkin"
+    },
+    "659": {
+        "name": "Destiny",
+        "comments": "穿戴皮肤",
+        "protocol": "S_DESTINY_SKIN_WEAR",
+        "method": "CityMsg.RspWearDestinySkin"
+    },
+    "660": {
+        "name": "Destiny",
+        "comments": "切换挚友联动形象",
+        "protocol": "S_DESTINY_SWITCH_LINKAGE_SKIN",
+        "method": "CityMsg.DestinySwitchLinkageSkinResp"
+    },
+    "711": {
+        "name": "Cloud",
+        "comments": "筋斗云数据同步",
+        "protocol": "S_CLOUD_PLAYER_DATA_SYNC",
+        "method": "CityMsg.PlayerCloudDataMsg"
+    },
+    "712": {
+        "name": "Cloud",
+        "comments": "解锁筋斗云请求",
+        "protocol": "S_CLOUD_UNLOCK",
+        "method": "CityMsg.UnlockCloudResp"
+    },
+    "713": {
+        "name": "Cloud",
+        "comments": "筋斗云升级请求",
+        "protocol": "S_CLOUD_LV_UP",
+        "method": "CityMsg.CloudLvUpResp"
+    },
+    "714": {
+        "name": "Cloud",
+        "comments": "筋斗云升阶请求",
+        "protocol": "S_CLOUD_STAGE_UP",
+        "method": "CityMsg.CloudStageUpResp"
+    },
+    "715": {
+        "name": "Cloud",
+        "comments": "筋斗云穿戴请求",
+        "protocol": "S_CLOUD_EQUIP",
+        "method": "CityMsg.CloudEquipResp"
+    },
+    "716": {
+        "name": "Cloud",
+        "comments": "筋斗云皮肤穿戴请求",
+        "protocol": "S_CLOUD_EQUIP_SKIN",
+        "method": "CityMsg.CloudEquipSkinResp"
+    },
+    "717": {
+        "name": "Cloud",
+        "comments": "筋斗云皮肤升级 0->1 为激活",
+        "protocol": "S_CLOUD_SKIN_LV_UP",
+        "method": "CityMsg.CloudSkinLvUpResp"
+    },
+    "731": {
+        "name": "WildBoss",
+        "comments": "同步宝地",
+        "protocol": "S_WILDBOSS_SYNC",
+        "method": "CityMsg.WildBossDataSync"
+    },
+    "732": {
+        "name": "WildBoss",
+        "comments": "请求宝地挑战",
+        "protocol": "S_WILDBOSS_CHALLENGE",
+        "method": "CityMsg.WildBossChallengeResp"
+    },
+    "733": {
+        "name": "WildBoss",
+        "comments": "请求宝地扫荡",
+        "protocol": "S_WILDBOSS_REPEAT",
+        "method": "CityMsg.WildBossRepeatResp"
+    },
+    "740": {
+        "name": "Pet",
+        "comments": "同步玩家灵兽数据",
+        "protocol": "S_PET_DATA_SYNC",
+        "method": "CityMsg.PlayerPetDataSync"
+    },
+    "741": {
+        "name": "Pet",
+        "comments": "捕捉灵兽请求",
+        "protocol": "S_PET_CATCH",
+        "method": "CityMsg.CatchPetResp"
+    },
+    "742": {
+        "name": "Pet",
+        "comments": "刷新灵兽池子请求",
+        "protocol": "S_PET_REFRESH_POOL",
+        "method": "CityMsg.RefreshPetPoolResp"
+    },
+    "743": {
+        "name": "Pet",
+        "comments": "开启灵兽背包格子请求",
+        "protocol": "S_PET_ADD_BAG_COUNT",
+        "method": "CityMsg.AddPetBagCountResp"
+    },
+    "744": {
+        "name": "Pet",
+        "comments": "灵兽放生请求",
+        "protocol": "S_PET_RELEASE",
+        "method": "CityMsg.ReleasePetResp"
+    },
+    "745": {
+        "name": "Pet",
+        "comments": "灵兽升级请求",
+        "protocol": "S_PET_LEVEL_UP",
+        "method": "CityMsg.PetLevelUpResp"
+    },
+    "746": {
+        "name": "Pet",
+        "comments": "灵兽吞噬请求",
+        "protocol": "S_PET_GOBBLE_UP",
+        "method": "CityMsg.PetGobbleUpResp"
+    },
+    "747": {
+        "name": "Pet",
+        "comments": "携带灵兽请求",
+        "protocol": "S_PET_EQUIP",
+        "method": "CityMsg.EquipPetResp"
+    },
+    "748": {
+        "name": "Pet",
+        "comments": "携带灵兽请求",
+        "protocol": "S_PET_RESET",
+        "method": "CityMsg.PetResetResp"
+    },
+    "749": {
+        "name": "Pet",
+        "comments": "灵兽心愿选择",
+        "protocol": "S_CHOOSE_WISH_PET",
+        "method": "CityMsg.ChooseWishPetResp"
+    },
+    "750": {
+        "name": "Pet",
+        "comments": "灵兽协助",
+        "protocol": "S_PET_ASSISTANT",
+        "method": "CityMsg.PetAssistantResp"
+    },
+    "751": {
+        "name": "Pet",
+        "comments": "灵兽塑魂",
+        "protocol": "S_PET_SOUL_SHAPE",
+        "method": "CityMsg.PetSoulShapeResp"
+    },
+    "752": {
+        "name": "Pet",
+        "comments": "灵兽塑魂技能选择",
+        "protocol": "S_PET_SELECT_SKILL",
+        "method": "CityMsg.SelectSoulShapeSkillResp"
+    },
+    "753": {
+        "name": "Pet",
+        "comments": "灵兽洗练界面",
+        "protocol": "S_PET_REFLESH_SKILL_VIEW",
+        "method": "CityMsg.PetSkillRefreshViewResp"
+    },
+    "754": {
+        "name": "Pet",
+        "comments": "灵兽 洗练",
+        "protocol": "S_PET_REFLESH_SKILL",
+        "method": "CityMsg.PetSkillRefreshResp"
+    },
+    "755": {
+        "name": "Pet",
+        "comments": "灵兽洗练结果处理",
+        "protocol": "S_PET_REFLESH_SKILL_RESULT",
+        "method": "CityMsg.PetSkillRefreshResultResp"
+    },
+    "756": {
+        "name": "Pet",
+        "comments": "灵兽加锁",
+        "protocol": "S_PET_LOCK_STATE_CHANGE",
+        "method": "CityMsg.PetLockStateResp"
+    },
+    "757": {
+        "name": "Pet",
+        "comments": "切换灵兽联动形象",
+        "protocol": "S_PET_SWITCH_LINKAGE_SKIN",
+        "method": "CityMsg.PetSwitchLinkageSkinResp"
+    },
+    "758": {
+        "name": "Pet",
+        "comments": "灵兽新版上锁（需要密码解锁）",
+        "protocol": "S_PET_LOCK_NEED_PASSWORD",
+        "method": "CityMsg.PetLockResp"
+    },
+    "761": {
+        "name": "Tower",
+        "comments": "同步数据",
+        "protocol": "S_TOWER_SYNC_DATA",
+        "method": "CityMsg.TowerDataMsg"
+    },
+    "762": {
+        "name": "Tower",
+        "comments": "挑战",
+        "protocol": "S_TOWER_CHALLENGE",
+        "method": "CityMsg.TowerChallengeResp"
+    },
+    "763": {
+        "name": "Tower",
+        "comments": "快速挑战",
+        "protocol": "S_TOWER_QUICK_CHANLLENGE",
+        "method": "CityMsg.QuickChallengeResp"
+    },
+    "764": {
+        "name": "Tower",
+        "comments": "选择加成请求",
+        "protocol": "S_TOWER_SELECT_BUFF",
+        "method": "CityMsg.SelectBuffResp"
+    },
+    "765": {
+        "name": "Tower",
+        "comments": "查看怪物属性",
+        "protocol": "S_TOWER_VIEW_MONSTER_ATTR",
+        "method": "CityMsg.ViewMonsterAttrResp"
+    },
+    "766": {
+        "name": "Tower",
+        "comments": "获取选择选项",
+        "protocol": "S_TOWER_VIEW_GET_SELECT",
+        "method": "CityMsg.GetSelectOptionResp"
+    },
+    "767": {
+        "name": "Tower",
+        "comments": "保存选择选项",
+        "protocol": "S_TOWER_VIEW_SAVE_SELECT",
+        "method": "CityMsg.SaveSelectOptionResp"
+    },
+    "801": {
+        "name": "Rank",
+        "comments": "获取排行列表",
+        "protocol": "S_RANK_GET_LIST",
+        "method": "CityMsg.GetRankListResp"
+    },
+    "802": {
+        "name": "FirstRechargeActivity",
+        "comments": "首充领取奖励",
+        "protocol": "S_FIRST_RECHARGE_GET_REWARD",
+        "method": "CityMsg.GetMallRewardResp"
+    },
+    "803": {
+        "name": "Rank",
+        "comments": "查看联盟积分",
+        "protocol": "S_RANK_GET_UNION_MEMBER_SCORE",
+        "method": "CityMsg.GetUnionMemberScoreRsp"
+    },
+    "821": {
+        "name": "Spirit",
+        "comments": "同步玩家精怪数据",
+        "protocol": "S_SPIRIT_SYNC_DATA",
+        "method": "CityMsg.SpiritPlayerDataMsg"
+    },
+    "822": {
+        "name": "Spirit",
+        "comments": "精怪抽取请求",
+        "protocol": "S_SPIRIT_DRAW",
+        "method": "CityMsg.SpiritDrawResp"
+    },
+    "823": {
+        "name": "Spirit",
+        "comments": "精怪解锁请求",
+        "protocol": "S_SPIRIT_UNLOCK",
+        "method": "CityMsg.SpiritUnlockResp"
+    },
+    "824": {
+        "name": "Spirit",
+        "comments": "精怪升级请求",
+        "protocol": "S_SPIRIT_LV_UP",
+        "method": "CityMsg.SpiritLvUpResp"
+    },
+    "825": {
+        "name": "Spirit",
+        "comments": "切换出战队伍请求",
+        "protocol": "S_SPIRIT_SWITCH_BATTLE_TEAM",
+        "method": "CityMsg.SwitchBattleTeamResp"
+    },
+    "826": {
+        "name": "Spirit",
+        "comments": "精怪上下阵请求",
+        "protocol": "S_SPIRIT_BATTLE",
+        "method": "CityMsg.SpiritBattleResp"
+    },
+    "827": {
+        "name": "Spirit",
+        "comments": "精怪共鸣等级提升",
+        "protocol": "S_SPIRIT_COMBINE_LV_UP",
+        "method": "CityMsg.SpiritCombineLvUpResp"
+    },
+    "828": {
+        "name": "Spirit",
+        "comments": "切换精怪联动形象",
+        "protocol": "S_SPIRIT_SWITCH_LINKAGE_SKIN",
+        "method": "CityMsg.SpiritSwitchLinkageSkinResp"
+    },
+    "1001": {
+        "name": "ActivityBase",
+        "comments": "活动通用数据同步",
+        "protocol": "S_ACTIVITY_SYNC_MAIN_CONFIG_LIST",
+        "method": "CityMsg.PushActivityList"
+    },
+    "1002": {
+        "name": "ActivityBase",
+        "comments": "同步活动详细配置",
+        "protocol": "S_ACTIVITY_SYNC_DETAIL_CONFIG",
+        "method": "CityMsg.ActivityCommonDataListSync"
+    },
+    "1003": {
+        "name": "ActivityBase",
+        "comments": "请求活动通用数据",
+        "protocol": "S_ACTIVITY_GET_DATA",
+        "method": "CityMsg.RspGetActivityDetail"
+    },
+    "1004": {
+        "name": "ActivityBase",
+        "comments": "领取活动任务条件奖励",
+        "protocol": "S_ACTIVITY_GET_CONDITION_REWARD",
+        "method": "CityMsg.RspGetActivityConditionReward"
+    },
+    "1005": {
+        "name": "ActivityBase",
+        "comments": "购买活动商品",
+        "protocol": "S_ACTIVITY_BUY_MALL_GOODS",
+        "method": "CityMsg.RspBuyActivityGoods"
+    },
+    "1006": {
+        "name": "ActivityBase",
+        "comments": "领取活动排行奖励",
+        "protocol": "S_ACTIVITY_GET_RANK_REWARD",
+        "method": "CityMsg.RespGetActivityRankReward"
+    },
+    "1007": {
+        "name": "ActivityBase",
+        "comments": "同 步活动任务条件数据 增量",
+        "protocol": "S_ACTIVITY_SYNC_CONDITION_LIST",
+        "method": "CityMsg.ActivityConditionDataListSync"
+    },
+    "1008": {
+        "name": "ActivityBase",
+        "comments": "同步活动商品购买次数列表 增量",
+        "protocol": "S_ACTIVITY_SYNC_MALL_BUY_COUNT_LIST",
+        "method": "CityMsg.ActivityMallBuyCountDataListSync"
+    },
+    "1009": {
+        "name": "ActivityBase",
+        "comments": "同步活动用户数据",
+        "protocol": "S_ACTIVITY_SYNC_ACTIVITY_DATA",
+        "method": "CityMsg.ActivityPlayerDataSync"
+    },
+    "1010": {
+        "name": "FundsActivity",
+        "comments": "领取基金活动任务条件奖励",
+        "protocol": "S_ACTIVITY_FUNDS_GET_REWARD",
+        "method": "CityMsg.RspGetFundsConditionReward"
+    },
+    "1013": {
+        "name": "LuckyDrawActivity",
+        "comments": "运势抽奖请求",
+        "protocol": "S_ACTIVITY_LUCKY_DRAW",
+        "method": "CityMsg.LuckyDrawResp"
+    },
+    "1014": {
+        "name": "OptionalGiftActivity",
+        "comments": "自选礼包选择道具",
+        "protocol": "S_ACTIVITY_OPTIONAL_GIFT_SELECT",
+        "method": "CityMsg.SelectItemsResp"
+    },
+    "1015": {
+        "name": "ActivityBase",
+        "comments": "同步活动积分数据",
+        "protocol": "S_ACTIVITY_SYNC_ACTIVITY_SCORE_LIST",
+        "method": "CityMsg.ActivityScoreDataMsgSync"
+    },
+    "1016": {
+        "name": "ActivityBase",
+        "comments": "活动分享任务完成请求",
+        "protocol": "S_ACTIVITY_SHARE",
+        "method": "CityMsg.RespShareTaskDone"
+    },
+    "1017": {
+        "name": "ActivityBase",
+        "comments": "请求榜单状态",
+        "protocol": "S_ACTIVITY_GET_RANK_STATE",
+        "method": "CityMsg.RespGetActivityRankState"
+    },
+    "1022": {
+        "name": "ActivityBase",
+        "comments": "通过数组一次性领取活动任务条件奖励",
+        "protocol": "S_ACTIVITY_GET_CONDITION_REWARD_BY_ARR",
+        "method": "CityMsg.RspGetActivityConditionReward"
+    },
+    "1023": {
+        "name": "SeekTreasure",
+        "comments": "妖市觅宝抽奖",
+        "protocol": "S_ACTIVITY_SEEKTREASURE_DRAW",
+        "method": "CityMsg.SeekTreasureDrawResp"
+    },
+    "1024": {
+        "name": "SeekTreasure",
+        "comments": "妖市觅宝界面",
+        "protocol": "S_ACTIVITY_SEEKTREASURE_VIEW",
+        "method": "CityMsg.SeekTreasureViewResp"
+    },
+    "1025": {
+        "name": "SeekTreasure",
+        "comments": "选择稀有奖励",
+        "protocol": "S_ACTIVITY_SEEKTREASURE_RARE_REWARD",
+        "method": "CityMsg.SeekTreasureChooseRareRewardResp"
+    },
+    "1026": {
+        "name": "SeekTreasure",
+        "comments": "同步妖市觅宝抽奖公告",
+        "protocol": "S_ACTIVITY_SEEKTREASURE_DRAW_NOTICE_SYNC",
+        "method": "CityMsg.SeekTreasureNoticeSyncInfo"
+    },
+    "1027": {
+        "name": "ActivityBase",
+        "comments": "活动商买自选商品列表同步",
+        "protocol": "S_ACTIVITY_SELECT_DATA_LIST_SYNC",
+        "method": "CityMsg.ActivityMallSelectDataListSync"
+    },
+    "1030": {
+        "name": "ActivityBase",
+        "comments": "论坛分享",
+        "protocol": "S_ACTIVITY_BBS",
+        "method": "CityMsg.RespShareTaskDone"
+    },
+    "1031": {
+        "name": "ActivityBase",
+        "comments": "游戏圈分享",
+        "protocol": "S_ACTIVITY_GAME_CIRCLE",
+        "method": "CityMsg.RespShareTaskDone"
+    },
+    "1032": {
+        "name": "ActivityBase",
+        "comments": "自选商品选中协议",
+        "protocol": "S_ACTIVITY_SELECT_MALL_GOODS",
+        "method": "CityMsg.SelectActivityGoodsResp"
+    },
+    "1033": {
+        "name": "ActivityBase",
+        "comments": "领取活动战令任务奖励",
+        "protocol": "S_ACTIVITY_GET_BATTLE_PASS_CONDITION_REWARD",
+        "method": "CityMsg.RspGetActivityConditionReward"
+    },
+    "1040": {
+        "name": "ActivityBase",
+        "comments": "请求竞猜数据",
+        "protocol": "S_ACTIVITY_GUESS_INFO_LOAD",
+        "method": "CityMsg.RespGuessInfoLoadMsg"
+    },
+    "1041": {
+        "name": "ActivityBase",
+        "comments": "竞猜押注",
+        "protocol": "S_ACTIVITY_GUESS",
+        "method": "CityMsg.RespGuessMsg"
+    },
+    "1042": {
+        "name": "ActivityBase",
+        "comments": "领取竞猜奖励",
+        "protocol": "S_ACTIVITY_GUESS_REWARD",
+        "method": "CityMsg.RespGuessRewardMsg"
+    },
+    "1043": {
+        "name": "ActivityBase",
+        "comments": "查看竞猜奖励名单",
+        "protocol": "S_ACTIVITY_GUESS_RESULT_DETAIL",
+        "method": "CityMsg.RespGuessResultDetailMsg"
+    },
+    "1044": {
+        "name": "ActivitysShield",
+        "comments": "活动屏蔽同步",
+        "protocol": "S_ACTIVITY_SHIELD_SYNC",
+        "method": "CityMsg.ActivityShieldSync"
+    },
+    "1045": {
+        "name": "ActivityBase",
+        "comments": "领取跨服获得内置的 妖盟充值活动的奖励",
+        "protocol": "S_ACTIVITY_RECEIVE_CROSS_UNION_RECHARGE",
+        "method": "CityMsg.ReceiveCrossUnionRechargeRewardResp"
+    },
+    "1046": {
+        "name": "ActivityBase",
+        "comments": "查看自己所属妖盟的参与名单",
+        "protocol": "S_ACTIVITY_GET_JOIN_MEMBER_LIST_REQ",
+        "method": "CityMsg.ActivityGetJoinMemberListRsp"
+    },
+    "1051": {
+        "name": "Homeland",
+        "comments": "同步信息",
+        "protocol": "S_HOMELAND_SYNC_MSG",
+        "method": "CityMsg.SyncHomelandMsg"
+    },
+    "1052": {
+        "name": "Homeland",
+        "comments": "进入福地",
+        "protocol": "S_HOMELAND_ENTER",
+        "method": "CityMsg.HomelandEnterResp"
+    },
+    "1053": {
+        "name": "Homeland",
+        "comments": "福地管理界面",
+        "protocol": "S_HOMELAND_MANAGE",
+        "method": "CityMsg.HomelandManageResp"
+    },
+    "1054": {
+        "name": "Homeland",
+        "comments": "福地升级",
+        "protocol": "S_HOMELAND_LEVEL_UP",
+        "method": "CityMsg.HomelandLevelUpResp"
+    },
+    "1055": {
+        "name": "Homeland",
+        "comments": "福地刷新资源",
+        "protocol": "S_HOMELAND_REFRESH_RESOURCE",
+        "method": "CityMsg.HomelandRefreshResp"
+    },
+    "1056": {
+        "name": "Homeland",
+        "comments": "福地购买鼠宝",
+        "protocol": "S_HOMELAND_BUY_WORKER",
+        "method": "CityMsg.HomelandBuyWorkerResp"
+    },
+    "1057": {
+        "name": "Homeland",
+        "comments": "福地日志",
+        "protocol": "S_HOMELAND_RECORD",
+        "method": "CityMsg.HomelandGetRecordResp"
+    },
+    "1058": {
+        "name": "Homeland",
+        "comments": "福地探寻",
+        "protocol": "S_HOMELAND_EXPLORE",
+        "method": "CityMsg.HomelandExploreResp"
+    },
+    "1059": {
+        "name": "Homeland",
+        "comments": "福地探寻刷新",
+        "protocol": "S_HOMELAND_EXPLORE_REFRESH",
+        "method": "CityMsg.HomelandRefreshExploreResp"
+    },
+    "1060": {
+        "name": "Homeland",
+        "comments": "福地派遣鼠宝",
+        "protocol": "S_HOMELAND_DISPATCH_WORKER",
+        "method": "CityMsg.HomelandDispatchWorkerResp"
+    },
+    "1061": {
+        "name": "Homeland",
+        "comments": "福地派遣鼠宝预览",
+        "protocol": "S_HOMELAND_DISPATCH_WORKER_PREVIEW",
+        "method": "CityMsg.HomelandDispatchPreviewResp"
+    },
+    "1062": {
+        "name": "Homeland",
+        "comments": "同步有奖励消息",
+        "protocol": "S_HOMELAND_SYNC_HAS_REWARD",
+        "method": "CityMsg.SyncHomelandHasRewardMsg"
+    },
+    "1063": {
+        "name": "Homeland",
+        "comments": "离开福地",
+        "protocol": "S_HOMELAND_LEAVE",
+        "method": "CityMsg.HomelandLeaveResp"
+    },
+    "1064": {
+        "name": "Homeland",
+        "comments": "同步福地数据",
+        "protocol": "S_HOMELAND_SYNC_HOMELAND_DATA",
+        "method": "CityMsg.SyncPlayerHomelandChangeMsg"
+    },
+    "1065": {
+        "name": "Homeland",
+        "comments": "福地获取奖励",
+        "protocol": "S_HOMELAND_GET_REWARD",
+        "method": "CityMsg.HomelandGetRewardResp"
+    },
+    "1066": {
+        "name": "Homeland",
+        "comments": "福地聚宝盆数据同步",
+        "protocol": "S_HOMELAND_SYNC_CORNUCOPIA",
+        "method": "CityMsg.SyncPlayerCornucopiaChangeMsg"
+    },
+    "1067": {
+        "name": "Homeland",
+        "comments": "福地聚宝盆领奖",
+        "protocol": "S_HOMELAND_CORNUCOPIA_GET_REWARD",
+        "method": "CityMsg.CornucopiaGetRewardRsp"
+    },
+    "1068": {
+        "name": "Homeland",
+        "comments": "福地鼠鼠自动采集",
+        "protocol": "S_HOMELAND_MANAGER_BATTLE",
+        "method": "CityMsg.HomelandAutoDispatchWorkerRsp"
+    },
+    "1069": {
+        "name": "Homeland",
+        "comments": "福地鼠宝总管试用",
+        "protocol": "S_HOMELAND_MANAGER_FREE_USE",
+        "method": "CityMsg.HomelandUseFreeMouseManagerRsp"
+    },
+    "1070": {
+        "name": "Homeland",
+        "comments": "鼠鼠总管保存设置",
+        "protocol": "S_HOMELAND_MANAGER_SAVE_SETTINGS",
+        "method": "CityMsg.HomelandSaveSettingsRsp"
+    },
+    "1071": {
+        "name": "Homeland",
+        "comments": "桃源一键召回小妖",
+        "protocol": "S_HOMELAND_DISPATCH_ALL_WORKER",
+        "method": "CityMsg.HomelandDispatchAllWorkerResp"
+    },
+    "1101": {
+        "name": "BallGVG",
+        "comments": "请求报名",
+        "protocol": "S_BALLGVG_APPLICATION",
+        "method": "CityMsg.BallGVGApplicationRespMsg"
+    },
+    "1102": {
+        "name": "BallGVG",
+        "comments": "请求报名期战力排名",
+        "protocol": "S_BALLGVG_RANK_NUM",
+        "method": "CityMsg.BallGVGAbilityRankNumRespMsg"
+    },
+    "1103": {
+        "name": "BallGVG",
+        "comments": "进入pvp活动请求协议",
+        "protocol": "S_BALLGVG_ENTER_ACT",
+        "method": "CityMsg.BallGVGEnterActivityRespMsg"
+    },
+    "1104": {
+        "name": "BallGVG",
+        "comments": "进入宝地(房间)请求协议",
+        "protocol": "S_BALLGVG_ENTER_ROOM",
+        "method": "CityMsg.BallGVGEnterPlaceRespMsg"
+    },
+    "1105": {
+        "name": "BallGVG",
+        "comments": "离开当前房间请求协议",
+        "protocol": "S_BALLGVG_LEAVE_ROOM",
+        "method": "CityMsg.BallGVGLeavePlaceRespMsg"
+    },
+    "1106": {
+        "name": "BallGVG",
+        "comments": "移动协议",
+        "protocol": "S_BALLGVG_MOVE",
+        "method": "CityMsg.BallGVGMoveRespMsg"
+    },
+    "1107": {
+        "name": "BallGVG",
+        "comments": "攻击协议",
+        "protocol": "S_BALLGVG_ATTACK",
+        "method": "CityMsg.BallGVGAttackRespMsg"
+    },
+    "1108": {
+        "name": "BallGVG",
+        "comments": "任命宗主权限",
+        "protocol": "S_BALLGVG_APPOINT",
+        "method": "CityMsg.BallGVGAppointMajorUserRespMsg"
+    },
+    "1109": {
+        "name": "BallGVG",
+        "comments": "标记地点(重复标记视为取消标记)",
+        "protocol": "S_BALLGVG_MARK",
+        "method": "CityMsg.BallGVGMarkPlaceRespMsg"
+    },
+    "1110": {
+        "name": "BallGVG",
+        "comments": "离开pvp活动请求协议",
+        "protocol": "S_BALLGVG_LEAVE_ACT",
+        "method": ""
+    },
+    "1111": {
+        "name": "BallGVG",
+        "comments": "获取所有房间数据",
+        "protocol": "S_BALLGVG_GET_PLACE",
+        "method": "CityMsg.BallGVGGetPlaceInfoRespMsg"
+    },
+    "1113": {
+        "name": "BallGVG",
+        "comments": "请求宗门玩家列表",
+        "protocol": "S_BALLGVG_REQ_USER_LIST",
+        "method": "CityMsg.BallGVGGetUserRankRespMsg"
+    },
+    "1116": {
+        "name": "BallGVG",
+        "comments": "被打同步（有人被打即时同步）",
+        "protocol": "S_BALLGVG_SYNC_ATTACKED",
+        "method": "CityMsg.BallGVGAttackedSyncMsg"
+    },
+    "1117": {
+        "name": "BallGVG",
+        "comments": "积分 同步",
+        "protocol": "S_BALLGVG_SYNC_SCORE",
+        "method": "CityMsg.BallGVGCampScoreSyncMsg"
+    },
+    "1118": {
+        "name": "BallGVG",
+        "comments": "宝地信息同步（位置同步）",
+        "protocol": "S_BALLGVG_SYNC_PLACE",
+        "method": "CityMsg.BallGVGPlaceSyncMsg"
+    },
+    "1119": {
+        "name": "BallGVG",
+        "comments": "公告推送",
+        "protocol": "S_BALLGVG_SYNC_NOTICE",
+        "method": "CityMsg.BallGVGNoticeSyncMsg"
+    },
+    "1120": {
+        "name": "BallGVG",
+        "comments": "同步宗门信息（任命、标记）",
+        "protocol": "S_BALLGVG_SYNC_CAMP",
+        "method": "CityMsg.BallGVGCampSyncMsg"
+    },
+    "1121": {
+        "name": "BallGVG",
+        "comments": "被打同步最新用户信息(通知被打人)",
+        "protocol": "S_BALLGVG_SYNC_BEATC",
+        "method": "CityMsg.BallGVGAttackedUserSyncMsg"
+    },
+    "1122": {
+        "name": "BallGVG",
+        "comments": "房间抢占信息同步(人数变动，进房间，出房间  成功占领)",
+        "protocol": "S_BALLGVG_SYNC_SEIZE",
+        "method": "CityMsg.BallGVGPlaceSeizeSyncMsg"
+    },
+    "1123": {
+        "name": "BallGVG",
+        "comments": "进房间同步信息（有人进房间及时同步）",
+        "protocol": "S_BALLGVG_SYNC_ENTER_ROOM",
+        "method": "CityMsg.BallGVGEnterPlaceSync"
+    },
+    "1124": {
+        "name": "BallGVG",
+        "comments": "出房间同步信息（有人出房间及时同步）",
+        "protocol": "S_BALLGVG_SYNC_LEAVE_ROOM",
+        "method": "CityMsg.BallGVGLeavePlaceSync"
+    },
+    "1126": {
+        "name": "BallGVG",
+        "comments": "请求报名期妖盟战力排行",
+        "protocol": "S_BALLGVG_RANK",
+        "method": "CityMsg.BallGVGAbilityRankRespMsg"
+    },
+    "1127": {
+        "name": "BallGVG",
+        "comments": "战斗结算同步",
+        "protocol": "S_BALLGVG_RESULT_SYNC",
+        "method": "CityMsg.BallGVGEndDataSyncMsg"
+    },
+    "1128": {
+        "name": "BallGVG",
+        "comments": "获取参与妖盟的名字",
+        "protocol": "S_BALLGVG_UNION_NAME_LIST",
+        "method": "CityMsg.BallGVGUnionNameListRespMsg"
+    },
+    "1129": {
+        "name": "BallGVG",
+        "comments": "获取上古遗迹妖盟成员信息",
+        "protocol": "S_BALLGVG_GET_UNION_USER_LIST",
+        "method": "CityMsg.BallGVGGetUnionUserListRespMsg"
+    },
+    "1201": {
+        "name": "Emoticon",
+        "comments": "同步表情包数据",
+        "protocol": "S_EMOTICON_DATA_SYNC",
+        "method": "CityMsg.PlayerEmoticonDataSync"
+    },
+    "1401": {
+        "name": "Invade",
+        "comments": "异兽入侵挑战",
+        "protocol": "S_INVADE_CHALLENGE",
+        "method": "CityMsg.InvadeChallengeResp"
+    },
+    "1402": {
+        "name": "Invade",
+        "comments": "异兽入侵数据同步",
+        "protocol": "S_INVADE_DATA_SYNC",
+        "method": "CityMsg.InvadeDataMsg"
+    },
+    "1421": {
+        "name": "WeekCardActivity",
+        "comments": "仙缘进度领奖",
+        "protocol": "S_WEEK_CARD_ROUND_REWARD",
+        "method": "CityMsg.XyFundGetRewardResp"
+    },
+    "1501": {
+        "name": "Union",
+        "comments": "获取商会同名姓名列表",
+        "protocol": "S_UNION_SAME_NAME_ACTIVITY_NAME_LIST",
+        "method": "CityMsg.RspUnionSameNameListMsg"
+    },
+    "1511": {
+        "name": "Union",
+        "comments": "获取商 会充值列表",
+        "protocol": "S_GET_UNION_RECHARGE_ACTIVITY_RECHARGE_DATA",
+        "method": "CityMsg.UnionRechargeUserRspMsg"
+    },
+    "1512": {
+        "name": "Union",
+        "comments": "商会充值活动数据同步",
+        "protocol": "S_UNION_RECHARGE_ACTIVITY_RECHARGE_DATA_SYNC",
+        "method": "CityMsg.UnionRechargeDataSync"
+    },
+    "2101": {
+        "name": "Union",
+        "comments": "创建妖盟",
+        "protocol": "S_UNION_CREATE",
+        "method": "CityMsg.RspUnionCreate"
+    },
+    "2102": {
+        "name": "Union",
+        "comments": "进入妖盟",
+        "protocol": "S_UNION_ENTER",
+        "method": "CityMsg.RspUnionEnter"
+    },
+    "2103": {
+        "name": "Union",
+        "comments": "获取妖盟列表",
+        "protocol": "S_UNION_LIST",
+        "method": "CityMsg.RspUnionList"
+    },
+    "2104": {
+        "name": "Union",
+        "comments": "加入妖盟",
+        "protocol": "S_UNION_JOIN",
+        "method": "CityMsg.RspUnionJoin"
+    },
+    "2105": {
+        "name": "Union",
+        "comments": "随机加入妖盟",
+        "protocol": "S_UNION_RANDOMJOIN",
+        "method": "CityMsg.RspUnionRandomJoin"
+    },
+    "2106": {
+        "name": "Union",
+        "comments": "妖盟详情",
+        "protocol": "S_UNION_DETAIL",
+        "method": "CityMsg.RspUnionDetail"
+    },
+    "2107": {
+        "name": "Union",
+        "comments": "职位变更",
+        "protocol": "S_UNION_POSITION",
+        "method": "CityMsg.RspUnionPosition"
+    },
+    "2108": {
+        "name": "Union",
+        "comments": "获取申请加入妖盟的玩家列表",
+        "protocol": "S_UNION_APPLYPLAYERLIST",
+        "method": "CityMsg.RspUnionApplyPlayerList"
+    },
+    "2109": {
+        "name": "Union",
+        "comments": "设置随机加入状态",
+        "protocol": "S_UNION_RANDOMSTATE",
+        "method": "CityMsg.RspUnionRandomState"
+    },
+    "2110": {
+        "name": "Union",
+        "comments": "设置入盟限制等级",
+        "protocol": "S_UNION_LIMITREALMSID",
+        "method": "CityMsg.RspUnionLimitRealmsId"
+    },
+    "2111": {
+        "name": "Union",
+        "comments": "清理所有申请玩家",
+        "protocol": "S_UNION_CLEARAPPLY",
+        "method": "CityMsg.RspUnionClearApply"
+    },
+    "2112": {
+        "name": "Union",
+        "comments": "通过新玩家的申请",
+        "protocol": "S_UNION_PASSAPPLY",
+        "method": "CityMsg.RspUnionPassApply"
+    },
+    "2113": {
+        "name": "Union",
+        "comments": " 解散妖盟",
+        "protocol": "S_UNION_REMOVE",
+        "method": "CityMsg.RspUnionRemove"
+    },
+    "2114": {
+        "name": "Union",
+        "comments": "退出妖盟",
+        "protocol": "S_UNION_EXIT",
+        "method": "CityMsg.RspUnionExit"
+    },
+    "2115": {
+        "name": "Union",
+        "comments": "获取妖盟动态",
+        "protocol": "S_UNION_TRENDS",
+        "method": "CityMsg.RspUnionTrends"
+    },
+    "2116": {
+        "name": "Union",
+        "comments": "妖盟信息修改",
+        "protocol": "S_UNION_MODIFY",
+        "method": "CityMsg.RspUnionModify"
+    },
+    "2117": {
+        "name": "Union",
+        "comments": "获取每日任务列表",
+        "protocol": "S_UNION_DAILYTASK",
+        "method": "CityMsg.RspUnionDailyTask"
+    },
+    "2118": {
+        "name": "Union",
+        "comments": "领取每日任务奖励",
+        "protocol": "S_UNION_GETDAILYTASK",
+        "method": "CityMsg.RspUnionGetDailyTask"
+    },
+    "2119": {
+        "name": "Union",
+        "comments": "推送被踢出妖盟广播",
+        "protocol": "S_UNION_PUSHEVICTION",
+        "method": "CityMsg.PushUnionEvictionMsg"
+    },
+    "2120": {
+        "name": "Union",
+        "comments": "每日任务捐献",
+        "protocol": "S_UNION_DONATEDAILYTASK",
+        "method": "CityMsg.RspUnionDailyDonate"
+    },
+    "2121": {
+        "name": "Union",
+        "comments": "获取每日任务成员完成进度",
+        "protocol": "S_UNION_DAILYTASKPROGRESS",
+        "method": "CityMsg.RspUnionDailyProgress"
+    },
+    "2122": {
+        "name": "Union",
+        "comments": "逐出妖盟",
+        "protocol": "S_UNION_EVICTION",
+        "method": "CityMsg.RspUnionEviction"
+    },
+    "2123": {
+        "name": "Union",
+        "comments": "加入的妖盟列表(我没有妖盟时的列表)",
+        "protocol": "S_UNION_JOINLIST",
+        "method": "CityMsg.RspUnionJoinList"
+    },
+    "2124": {
+        "name": "Union",
+        "comments": "推送我的妖盟数据更新",
+        "protocol": "S_UNION_PUSHMYDATA",
+        "method": "CityMsg.MyUnionData"
+    },
+    "2125": {
+        "name": "Union",
+        "comments": "获取妖盟协助列表",
+        "protocol": "S_GET_UNION_HELP_DATA_LIST",
+        "method": "CityMsg.GetUnionHelpDataListResp"
+    },
+    "2126": {
+        "name": "Union",
+        "comments": "请求妖盟协助",
+        "protocol": "S_REQUEST_UNION_HELP",
+        "method": "CityMsg.RequestUnionHelpResp"
+    },
+    "2127": {
+        "name": "Union",
+        "comments": "执行妖盟 协助",
+        "protocol": "S_UNION_HELP",
+        "method": "CityMsg.UnionHelpResp"
+    },
+    "2128": {
+        "name": "Union",
+        "comments": "获取妖盟协助状态",
+        "protocol": "S_GET_UNION_HELP_STATE",
+        "method": "CityMsg.GetUnionHelpStateResp"
+    },
+    "2129": {
+        "name": "Union",
+        "comments": "查看妖盟的红点",
+        "protocol": "S_UNION_WATCH_REDDOT",
+        "method": "CityMsg.RspUnionWatchRedDot"
+    },
+    "2165": {
+        "name": "CutPrice",
+        "comments": "砍价数据同步",
+        "protocol": "S_CUT_PRICE_SYNC",
+        "method": "CityMsg.CutPriceDataMsg"
+    },
+    "2166": {
+        "name": "CutPrice",
+        "comments": "砍价",
+        "protocol": "S_CUT_PRICE_BARGAIN",
+        "method": "CityMsg.CutPriceBargainRespMsg"
+    },
+    "2167": {
+        "name": "CutPrice",
+        "comments": "砍价购买",
+        "protocol": "S_CUT_PRICE_BUY",
+        "method": "CityMsg.CutPriceBuyRespMsg"
+    },
+    "2168": {
+        "name": "Union",
+        "comments": "妖盟时间同步",
+        "protocol": "S_UNION_TIME_SYNC",
+        "method": "CityMsg.UnionTimeMsg"
+    },
+    "2401": {
+        "name": "InviteFriends",
+        "comments": "绑定邀请码",
+        "protocol": "S_BIND_INVITE_CODE",
+        "method": "CityMsg.RspBindInviteCode"
+    },
+    "2402": {
+        "name": "InviteFriends",
+        "comments": "获取绑定他人的邀请码",
+        "protocol": "S_GET_BIND_INVITE_CODE",
+        "method": "CityMsg.RspGetBindInviteCode"
+    },
+    "3700": {
+        "name": "HeroRank",
+        "comments": "进入群英榜",
+        "protocol": "S_HERORANK_ENTER",
+        "method": "CityMsg.RspHeroRankEnter"
+    },
+    "3701": {
+        "name": "HeroRank",
+        "comments": "同步群英榜玩家信息",
+        "protocol": "S_HERORANK_SYNC_PLAYERDATA",
+        "method": "CityMsg.SynHeroRankPlayerInfo"
+    },
+    "3702": {
+        "name": "HeroRank",
+        "comments": "请求挑战者列表",
+        "protocol": "S_HERORANK_GET_FIGHT_LIST",
+        "method": "CityMsg.RspHeroRankFightPlayerList"
+    },
+    "3703": {
+        "name": "HeroRank",
+        "comments": "请求挑战玩家",
+        "protocol": "S_HERORANK_FIGHT",
+        "method": "CityMsg.RspHeroRankFight"
+    },
+    "3704": {
+        "name": "HeroRank",
+        "comments": "请求扫荡玩家",
+        "protocol": "S_HERORANK_CLEAR",
+        "method": "CityMsg.RspHeroRankClear"
+    },
+    "3705": {
+        "name": "HeroRank",
+        "comments": "请求日志数据",
+        "protocol": "S_HERORANK_GET_RECORD",
+        "method": "CityMsg.RspHeroRankRecord"
+    },
+    "3706": {
+        "name": "HeroRank",
+        "comments": "请求领取成就奖励",
+        "protocol": "S_HERORANK_GET_ACHIEVE_REWARD",
+        "method": "CityMsg.RspHeroRankGetAchieve"
+    },
+    "3707": {
+        "name": "HeroRank",
+        "comments": "请求购买体力",
+        "protocol": "S_HERORANK_BUY_ENERGY",
+        "method": "CityMsg.RspHeroRankBuyEnergy"
+    },
+    "4101": {
+        "name": "PetDreamLandActivityProto",
+        "comments": "抽奖",
+        "protocol": "S_PET_DREAMLAND_DRAW",
+        "method": "CityMsg.RspPetDreamLandDraw"
+    },
+    "4102": {
+        "name": "PetDreamLandActivityProto",
+        "comments": "区域解锁",
+        "protocol": "S_PET_DREAMLAND_PLACE_UNLOCK",
+        "method": "CityMsg.RspPetDreamLandAdventurePlaceUnlock"
+    },
+    "4103": {
+        "name": "PetDreamLandActivityProto",
+        "comments": "坑位解锁",
+        "protocol": "S_PET_DREAMLAND_SLOT_UNLOCK",
+        "method": "CityMsg.RspPetDreamLandAdventurePlaceSlot"
+    },
+    "4104": {
+        "name": "PetDreamLandActivityProto",
+        "comments": "灵兽派遣",
+        "protocol": "S_PET_DREAMLAND_DISPATCH",
+        "method": "CityMsg.RspPetDreamLandAdventureDispatch"
+    },
+    "4105": {
+        "name": "PetDreamLandActivityProto",
+        "comments": "领取收益",
+        "protocol": "S_PET_DREAMLAND_GET_PROFIT",
+        "method": "CityMsg.RspPetDreamLandAdventureGetAward"
+    },
+    "4201": {
+        "name": "SpiritTrialActivity",
+        "comments": "刷新邪祟",
+        "protocol": "S_SPIRIT_TRIAL_REFRESH_EVIL",
+        "method": "CityMsg.RefreshEvilThingResp"
+    },
+    "4202": {
+        "name": "SpiritTrialActivity",
+        "comments": "镇压邪祟",
+        "protocol": "S_SPIRIT_TRIAL_BATTLE_EVIL",
+        "method": "CityMsg.BattleEvilThingResp"
+    },
+    "4400": {
+        "name": "Magic",
+        "comments": "神通数据同步",
+        "protocol": "S_MAGIC_PLAYER_DATA_SYNC",
+        "method": "CityMsg.PlayerMagicDataMsg"
+    },
+    "4401": {
+        "name": "Magic",
+        "comments": "装备神通",
+        "protocol": "S_MAGIC_EQUIP",
+        "method": "CityMsg.MagicEquipResp"
+    },
+    "4402": {
+        "name": "Magic",
+        "comments": "重置神通",
+        "protocol": "S_MAGIC_RESET",
+        "method": "CityMsg.MagicResetResp"
+    },
+    "4403": {
+        "name": "Magic",
+        "comments": "进阶神通",
+        "protocol": "S_MAGIC_STAGE_UP",
+        "method": "CityMsg.MagicStageUpResp"
+    },
+    "4404": {
+        "name": "Magic",
+        "comments": "升级神通",
+        "protocol": "S_MAGIC_LEVEL_UP",
+        "method": "CityMsg.MagicLvUpResp"
+    },
+    "4405": {
+        "name": "Magic",
+        "comments": "装备印记",
+        "protocol": "S_MAGIC_EQUIP_MARK",
+        "method": "CityMsg.MagicEquipMarkResp"
+    },
+    "4406": {
+        "name": "Magic",
+        "comments": "卸下印记",
+        "protocol": "S_MAGIC_UNSNATCH_MARK",
+        "method": "CityMsg.MagicUnsnatchMarkResp"
+    },
+    "4407": {
+        "name": "Magic",
+        "comments": "融合神通印记",
+        "protocol": "S_MAGIC_FUSION_MARK",
+        "method": "CityMsg.MagicFusionMarkResp"
+    },
+    "4408": {
+        "name": "Magic",
+        "comments": "衍化",
+        "protocol": "S_MAGIC_DERIVATION",
+        "method": "CityMsg.MagicDerivationResp"
+    },
+    "4409": {
+        "name": "Magic",
+        "comments": "升级组合",
+        "protocol": "S_MAGIC_COMBINE_LEVEL_UP",
+        "method": "CityMsg.MagicCombineLvUpResp"
+    },
+    "4410": {
+        "name": "Magic",
+        "comments": "切换预设",
+        "protocol": "S_MAGIC_SWITCH_PRESETS_REQ",
+        "method": "CityMsg.MagicSwitchPresetsResp"
+    },
+    "4411": {
+        "name": "Magic",
+        "comments": "一键突破神通",
+        "protocol": "S_MAGIC_STAGE_UP_ALL",
+        "method": "CityMsg.MagicStageUpResp"
+    },
+    "4501": {
+        "name": "PlayerData",
+        "comments": "添加储存数据",
+        "protocol": "S_CLIENT_STORAGE_DATA",
+        "method": "CityMsg.SaveToServiceRsp"
+    },
+    "4502": {
+        "name": "PlayerData",
+        "comments": "全量同步储存数据",
+        "protocol": "S_CLIENT_STORAGE_SYNC",
+        "method": "CityMsg.AllClientDataSync"
+    },
+    "4801": {
+        "name": "Palace",
+        "comments": "仙宫数据同步",
+        "protocol": "S_PALACE_SYNC",
+        "method": "CityMsg.PalaceSyncMsg"
+    },
+    "4802": {
+        "name": "Palace",
+        "comments": "仙宫点赞同步",
+        "protocol": "S_PALACE_WORSHIP",
+        "method": "CityMsg.PalaceWorshipRsp"
+    },
+    "4803": {
+        "name": "Palace",
+        "comments": "仙宫外部数据请求",
+        "protocol": "S_PALACE_ENTER_OUTER",
+        "method": "CityMsg.EnterPalaceRsp"
+    },
+    "4804": {
+        "name": "Palace",
+        "comments": "仙宫内部数据请求",
+        "protocol": "S_PALACE_ENTER_INNER",
+        "method": "CityMsg.EnterPalaceInnerRsp"
+    },
+    "4805": {
+        "name": "Palace",
+        "comments": "仙名录数据请求",
+        "protocol": "S_PALACE_BOOK",
+        "method": "CityMsg.PalaceInnerBookRsp"
+    },
+    "4806": {
+        "name": "Palace",
+        "comments": "执行 仙宫送福",
+        "protocol": "S_PALACE_SEND_GIFT",
+        "method": "CityMsg.SendGiftRsp"
+    },
+    "4807": {
+        "name": "Palace",
+        "comments": "仙宫送福领奖",
+        "protocol": "S_PALACE_SEND_GIFT_GET_REWARD",
+        "method": "CityMsg.GetSendGiftRewardRsp"
+    },
+    "4808": {
+        "name": "Palace",
+        "comments": "仙宫送福数据同步",
+        "protocol": "S_PALACE_SEND_GIFT_SYNC_DATA",
+        "method": "CityMsg.SendGiftSyncMsg"
+    },
+    "4809": {
+        "name": "Palace",
+        "comments": "仙宫神迹同步",
+        "protocol": "S_PALACE_WORSHIP_MIRACLE_SYNC_DATA",
+        "method": "CityMsg.PalaceMiracleDataMsg"
+    },
+    "4810": {
+        "name": "Palace",
+        "comments": "获得当前已开启 的天宫称号id",
+        "protocol": "S_PALACE_GET_TITLE_ID_LIST",
+        "method": "CityMsg.GetTitleIdListRsp"
+    },
+    "4857": {
+        "name": "Palace",
+        "comments": "仙宫获得成就奖励",
+        "protocol": "S_PALACE_ACHIEVE_GET_REWARD",
+        "method": "CityMsg.PalaceAchievementGetRewardRsp"
+    },
+    "5001": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 进入活动页",
+        "protocol": "S_ACTIVITY_WILD_ZONE_ENTER_PANEL",
+        "method": "CityMsg.ManHuangEnterPanelRespMsg"
+    },
+    "5002": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 创建队 伍",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_CREATE",
+        "method": "CityMsg.ManHuangCreateTeamRespMsg"
+    },
+    "5003": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 获取队伍列表",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_LIST",
+        "method": "CityMsg.ManHuangGetTeamListRespMsg"
+    },
+    "5004": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 查看队伍数据",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_INFO",
+        "method": "CityMsg.ManHuangGetTeamInfoRespMsg"
+    },
+    "5005": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 加入队伍",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_APPLY_DO",
+        "method": "CityMsg.ManHuangJoinTeamRespMsg"
+    },
+    "5006": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 取消申请队伍",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_APPLY_CANCEL",
+        "method": "CityMsg.ManHuangCancelTeamApplyRespMsg"
+    },
+    "5007": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 解散/退出队伍",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_OUT",
+        "method": "CityMsg.ManHuangQuitTeamRespMsg"
+    },
+    "5008": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 退 出活动",
+        "protocol": "S_ACTIVITY_WILD_ZONE_LEAVE_PANEL",
+        "method": "CityMsg.ManHuangLeavePanelRespMsg"
+    },
+    "5009": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 玩家申请入队同意",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_APPLY_AGREE",
+        "method": "CityMsg.ManHuangApplyJoinTeamAgreeRespMsg"
+    },
+    "5010": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 玩家申请入队一键拒绝",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_APPLY_REFUSED",
+        "method": "CityMsg.ManHuangApplyJoinTeamRefusedRespMsg"
+    },
+    "5011": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 踢出队伍",
+        "protocol": "S_ACTIVITY_WILD_ZONE_TEAM_KICK_OUT",
+        "method": "CityMsg.ManHuangKickOutTeamRespMsg"
+    },
+    "5012": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 进入区域",
+        "protocol": "S_ACTIVITY_WILD_ENTER_REGION",
+        "method": "CityMsg.ManHuangEnterRegionRespMsg"
+    },
+    "5013": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 探索",
+        "protocol": "S_ACTIVITY_WILD_PLAYER_EXPLORE",
+        "method": "CityMsg.ManHuangExploreRespMsg"
+    },
+    "5014": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 执行探索事件 ",
+        "protocol": "S_ACTIVITY_WILD_PLAYER_EXECUTE_EXPLORE",
+        "method": "CityMsg.ManHuangEventHandleRespMsg"
+    },
+    "5015": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 action探索事件(标记，绕过) ",
+        "protocol": "S_ACTIVITY_WILD_PLAYER_ACTION_EXPLORE",
+        "method": "CityMsg.ManHuangEventActionRespMsg"
+    },
+    "5016": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 日志-队友互助 ",
+        "protocol": "S_ACTIVITY_WILD_LOG_MEMBER_HELP",
+        "method": "CityMsg.ManHuangLogHelpRespMsg"
+    },
+    "5017": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 日志-战场日志 ",
+        "protocol": "S_ACTIVITY_WILD_LOG_BATTLEGROUND",
+        "method": "CityMsg.ManHuangLogBattlegroundRespMsg"
+    },
+    "5018": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 日志-个人日志 ",
+        "protocol": "S_ACTIVITY_WILD_LOG_PERSON",
+        "method": "CityMsg.ManHuangLogPersonRespMsg"
+    },
+    "5019": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 排行-个人 ",
+        "protocol": "S_ACTIVITY_WILD_RANK_PERSON",
+        "method": "CityMsg.ManHuangRankPersonRespMsg"
+    },
+    "5020": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 排行-队伍 ",
+        "protocol": "S_ACTIVITY_WILD_RANK_TEAM",
+        "method": "CityMsg.ManHuangRankTeamRespMsg"
+    },
+    "5022": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 广播-仇人信息",
+        "protocol": "S_ACTIVITY_WILD_SYNC_ENEMY_INFO",
+        "method": "CityMsg.ManHuangEnemyNotify"
+    },
+    "5023": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 广播-队长收到的广播",
+        "protocol": "S_ACTIVITY_WILD_SYNC_TEAM_LEADER",
+        "method": "CityMsg.ManHuangTeamLeaderNotify"
+    },
+    "5024": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 广播-队员接收到的广播",
+        "protocol": "S_ACTIVITY_WILD_SYNC_TEAM_MEMBER",
+        "method": "CityMsg.ManHuangTeamMemberNotify"
+    },
+    "5025": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 恢复体力",
+        "protocol": "S_ACTIVITY_WILD_PLAYER_RECOVER_ENERGY",
+        "method": "CityMsg.ManHuangRecoverEnergyRespMsg"
+    },
+    "5026": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 执行协助",
+        "protocol": "S_ACTIVITY_WILD_PLAYER_DO_HELP",
+        "method": "CityMsg.ManHuangHelpActionAttRespMsg"
+    },
+    "5027": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 开宝箱",
+        "protocol": "S_ACTIVITY_WILD_OPEN_BOX",
+        "method": "CityMsg.ManHuangOpenBoxRespMsg"
+    },
+    "5028": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 领取协助奖励",
+        "protocol": "S_ACTIVITY_WILD_PLAYER_DO_HELP_REWARD",
+        "method": "CityMsg.ManHuangHelpActionRewardRespMsg"
+    },
+    "5029": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 事件广播",
+        "protocol": "S_ACTIVITY_WILD_SYNC_EVENT_INFO",
+        "method": "CityMsg.ManHuangEventInfoNotify"
+    },
+    "5030": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 发送同步玩家信息协议",
+        "protocol": "S_ACTIVITY_WILD_SEND_SYNC_USER_DATA",
+        "method": "CityMsg.ManHuangGetUserDataRespMsg"
+    },
+    "5031": {
+        "name": "WildZoneActivityProto",
+        "comments": "蛮荒 击杀广播",
+        "protocol": "S_ACTIVITY_WILD_SYNC_MARQUEE",
+        "method": "CityMsg.ManHuangMarqueeNotify"
+    },
+    "5501": {
+        "name": "EquipmentAdvance",
+        "comments": "精炼",
+        "protocol": "S_EQUIPMENT_REFINE",
+        "method": "CityMsg.RespEquipmentRefine"
+    },
+    "5502": {
+        "name": "EquipmentAdvance",
+        "comments": "进阶",
+        "protocol": "S_EQUIPMENT_ADVANCE",
+        "method": "CityMsg.RespEquipmentAdvance"
+    },
+    "5503": {
+        "name": "EquipmentAdvance",
+        "comments": "技能解锁",
+        "protocol": "S_EQUIPMENT_SKILL_UNLOCK",
+        "method": "CityMsg.RespEquipmentActivate"
+    },
+    "5504": {
+        "name": "EquipmentAdvance",
+        "comments": "数据同步",
+        "protocol": "S_EQUIPMENT_ADVANCE_DATA_SYNC",
+        "method": "CityMsg.EquipmentAdvanceDataMsg"
+    },
+    "5601": {
+        "name": "SecretTower",
+        "comments": "进入秘境",
+        "protocol": "S_SECRETTOWER_ENTER",
+        "method": "CityMsg.SecretTowerEnterRsp"
+    },
+    "5602": {
+        "name": "SecretTower",
+        "comments": "挑战怪物",
+        "protocol": "S_SECRETTOWER_FIGHT",
+        "method": "CityMsg.SecretTowerFightResp"
+    },
+    "5603": {
+        "name": "SecretTower",
+        "comments": "领取阶段奖励",
+        "protocol": "S_SECRETTOWER_GETSTAGE",
+        "method": "CityMsg.SecretTowerGetStageRewardRsp"
+    },
+    "5604": {
+        "name": "SecretTower",
+        "comments": "查看怪物属性",
+        "protocol": "S_SECRETTOWER_VIEWMONSTER",
+        "method": "CityMsg.SecretTowerViewMonsterAttrResp"
+    },
+    "5605": {
+        "name": "SecretTower",
+        "comments": "秘境数据同步",
+        "protocol": "S_SECRETTOWER_SYNC",
+        "method": "CityMsg.SynSecretTowerInfo"
+    },
+    "5606": {
+        "name": "SecretTower",
+        "comments": "查看秘境成就",
+        "protocol": "S_SECRETTOWER_VIEWACHI",
+        "method": "CityMsg.SecretTowerAchievementRsp"
+    },
+    "5607": {
+        "name": "SecretTower",
+        "comments": "领取成就奖励",
+        "protocol": "S_SECRETTOWER_GETACHI",
+        "method": "CityMsg.SecretTowerGetAchiRewardRsp"
+    },
+    "5801": {
+        "name": "UnionBoss",
+        "comments": "进入妖邪讨伐",
+        "protocol": "S_UNION_BOSS_ENTER",
+        "method": "CityMsg.UnionBossInfoRespMsg"
+    },
+    "5802": {
+        "name": "UnionBoss",
+        "comments": "布阵",
+        "protocol": "S_UNION_BOSS_ARRAYING",
+        "method": "CityMsg.UnionBossBuffRespMsg"
+    },
+    "5803": {
+        "name": "UnionBoss",
+        "comments": "查看讨伐奖励",
+        "protocol": "S_UNION_BOSS_GET_REWARD_INFO",
+        "method": "CityMsg.UnionBossRewardRespMsg"
+    },
+    "5804": {
+        "name": "UnionBoss",
+        "comments": "领取讨伐奖励",
+        "protocol": "S_UNION_BOSS_RECEIVE_REWARD",
+        "method": "CityMsg.UnionBossRewardReceiveRespMsg"
+    },
+    "5805": {
+        "name": "UnionBoss",
+        "comments": "挑战",
+        "protocol": "S_UNION_BOSS_BATTLE",
+        "method": "CityMsg.UnionBossBattleRespMsg"
+    },
+    "5806": {
+        "name": "UnionBoss",
+        "comments": " 领取讨伐成就奖励",
+        "protocol": "S_UNION_BOSS_RECEIVE_ACHIEVE_REWARD",
+        "method": "CityMsg.UnionBossAchieveRewardRespMsg"
+    },
+    "5807": {
+        "name": "UnionBoss",
+        "comments": "同步boss信息",
+        "protocol": "S_UNION_BOSS_BOSS_INFO_MSG_SYNC",
+        "method": "CityMsg.UnionBossMsg"
+    },
+    "5808": {
+        "name": "UnionBoss",
+        "comments": "同步阵法信息",
+        "protocol": "S_UNION_BOSS_MSG_BUFF_INFO_SYNC",
+        "method": "CityMsg.UnionBossBuff"
+    },
+    "5809": {
+        "name": "UnionBoss",
+        "comments": "请求已布阵玩家信息",
+        "protocol": "S_UNION_BOSS_GET_ADD_BUFF_PLAYER",
+        "method": "CityMsg.UnionBossAddBuffPlayerRespMsg"
+    },
+    "6301": {
+        "name": "MagicTreasure",
+        "comments": "玩家法宝数据",
+        "protocol": "S_MAGIC_TREASURE_PLAYER_DATA_MSG",
+        "method": "CityMsg.MagicTreasurePlayerDataMsg"
+    },
+    "6302": {
+        "name": "MagicTreasure",
+        "comments": "法宝抽取",
+        "protocol": "S_MAGIC_TREASURE_DRAW_REQ",
+        "method": "CityMsg.MagicTreasureDrawRsp"
+    },
+    "6303": {
+        "name": "MagicTreasure",
+        "comments": "法宝升级",
+        "protocol": "S_MAGIC_TREASURE_LV_UP_REQ",
+        "method": "CityMsg.MagicTreasureLvUpRsp"
+    },
+    "6304": {
+        "name": "MagicTreasure",
+        "comments": "法宝激活",
+        "protocol": "S_MAGIC_TREASURE_ACTIVE_REQ",
+        "method": "CityMsg.MagicTreasureActiveRsp"
+    },
+    "6305": {
+        "name": "MagicTreasure",
+        "comments": "法宝升星",
+        "protocol": "S_MAGIC_TREASURE_STAR_UP_REQ",
+        "method": "CityMsg.MagicTreasureStarUpRsp"
+    },
+    "6306": {
+        "name": "MagicTreasure",
+        "comments": " 同步法宝列表数据",
+        "protocol": "S_MAGIC_TREASURE_SYNC_DATA_MSG",
+        "method": "CityMsg.SyncMagicTreasureDataMsg"
+    },
+    "21": {
+        "name": "MiniGames",
+        "comments": "小游戏领奖",
+        "protocol": "S_MINI_GAMES_REWARD",
+        "method": "CityMsg.ReceiveMiniGamesRewardResp"
+    },
+    "22": {
+        "name": "MiniGames",
+        "comments": "秘境挑战",
+        "protocol": "S_MINI_GAMES_STAGE_MAP_CHALLENGE",
+        "method": "CityMsg.StageMapChallengeRsp"
+    },
+    "23": {
+        "name": "ForbiddenTrials",
+        "comments": "禁地试炼领奖",
+        "protocol": "S_PLAYER_FORBIDDEN_TRAILS_GET_REWARD",
+        "method": "CityMsg.ForbiddenTrailsGetRewardResp"
+    },
+    "1604": {
+        "name": "Union",
+        "comments": "查看本分组妖盟详情",
+        "protocol": "S_UNION_DETAIL_IN_GROUP",
+        "method": "CityMsg.RspUnionDetail"
+    },
+    "1630": {
+        "name": "Union",
+        "comments": "获取分组评级排 行",
+        "protocol": "S_UNION_PLAYER_STRENGTH_RANK",
+        "method": "CityMsg.UnionPlayerGradeRankRespMsg"
+    },
+    "1650": {
+        "name": "Union",
+        "comments": "评级人数分配设置",
+        "protocol": "S_UNION_SET_RECRUIT_INFO",
+        "method": "CityMsg.UnionMemberGradeSettingResp"
+    },
+    "1651": {
+        "name": "Union",
+        "comments": "获取妖盟跨服信息",
+        "protocol": "S_UNION_GET_CROSS_SERVER",
+        "method": "CityMsg.GetCrossUnionGroupServersResp"
+    },
+    "1654": {
+        "name": "Union",
+        "comments": "发布招募信息",
+        "protocol": "S_UNION_PUBLISH_RECRUIT",
+        "method": "CityMsg.UnionPublishRecruitRespMsg"
+    },
+    "1655": {
+        "name": "Union",
+        "comments": "同步招募次数",
+        "protocol": "S_UNION_PUBLISH_RECRUIT_SYNC",
+        "method": "CityMsg.NotifyUnionRecruitCountMsg"
+    },
+    "1656": {
+        "name": "Union",
+        "comments": "登录或者评级变化时 同步玩家的评级数据",
+        "protocol": "S_UNION_PLAYER_RATE_SYNC",
+        "method": "CityMsg.NotifyPlayerGradeMsg"
+    },
+    "3205": {
+        "name": "WorldMessage",
+        "comments": "移除黑名单",
+        "protocol": "S_WORLD_MESSAGE_REMOVE_BLACK",
+        "method": "CityMsg.RemoveBlackRespMsg"
+    },
+    "3206": {
+        "name": "WorldMessage",
+        "comments": "获取黑名单列表",
+        "protocol": "S_WORLD_MESSAGE_GET_BLACK_LIST",
+        "method": "CityMsg.GetBlackPlayerListRespMsg"
+    },
+    "3207": {
+        "name": "WorldMessage",
+        "comments": "黑名单列表同步",
+        "protocol": "S_WORLD_MESSAGE_SYNC_BLACK_LIST",
+        "method": "CityMsg.SyncBlackPlayerIdListMsg"
+    },
+    "3208": {
+        "name": "WorldMessage",
+        "comments": "检测消息是否有效",
+        "protocol": "S_WORLD_MESSAGE_CHECK_EFFECTIVE_REQ",
+        "method": "CityMsg.WorldMessageCheckEffectiveRsp"
+    },
+    "5301": {
+        "name": "UnionBattle",
+        "comments": "进入妖盟乱斗",
+        "protocol": "S_UNION_BATTLE_ENTER",
+        "method": "CityMsg.UnionBattleEnterRsp"
+    },
+    "5302": {
+        "name": "UnionBattle",
+        "comments": "查看自己所属联盟的参与名单",
+        "protocol": "S_UNION_BATTLE_GET_JOIN_MEMBER_LIST",
+        "method": "CityMsg.UnionBattleGetJoinMemberListRsp"
+    },
+    "5303": {
+        "name": "UnionBattle",
+        "comments": "匹配",
+        "protocol": "S_UNION_BATTLE_MATCH",
+        "method": "CityMsg.UnionBattleMatchRsp"
+    },
+    "5304": {
+        "name": "UnionBattle",
+        "comments": "挑战",
+        "protocol": "S_UNION_BATTLE_CHALLENGE",
+        "method": "CityMsg.UnionBattleChallengeRsp"
+    },
+    "5306": {
+        "name": "UnionBattle",
+        "comments": "查看战报信息",
+        "protocol": "S_UNION_BATTLE_GET_REPORT",
+        "method": "CityMsg.UnionBattleGetReportRsp"
+    },
+    "5307": {
+        "name": "UnionBattle",
+        "comments": "购买buff",
+        "protocol": "S_UNION_BATTLE_BUY_BUFF",
+        "method": "CityMsg.UnionBattleBuyOpenBuffRsp"
+    },
+    "5308": {
+        "name": "UnionBattle",
+        "comments": "选择buff",
+        "protocol": "S_UNION_BATTLE_SELECT_BUFF",
+        "method": "CityMsg.UnionBattleSelectBuffRsp"
+    },
+    "5309": {
+        "name": "UnionBattle",
+        "comments": "获取本次挑战的回放列表",
+        "protocol": "S_UNION_BATTLE_GET_PLAY_BACK_LIST",
+        "method": "CityMsg.UnionBattleGetPlayBackListRsp"
+    },
+    "5310": {
+        "name": "UnionBattle",
+        "comments": "领取联盟成就奖励",
+        "protocol": "S_UNION_BATTLE_RECEIVE_UNION_ACHIEVE_REWARD",
+        "method": "CityMsg.UnionBattleReceiveUnionAchieveRewardRsp"
+    },
+    "5311": {
+        "name": "UnionBattle",
+        "comments": "同步玩家用户信息",
+        "protocol": "S_UnionBattlePb_SynPlayerInfo",
+        "method": "CityMsg.SynPlayerInfo"
+    },
+    "5312": {
+        "name": "UnionBattle",
+        "comments": "查看联盟积分",
+        "protocol": "S_UNION_BATTLE_GET_UNION_MEMBER_SCORE",
+        "method": "CityMsg.UnionBattleGetUnionMemberScoreRsp"
+    },
+    "5935": {
+        "name": "PackagesBase",
+        "comments": "领奖期 冠军弹窗",
+        "protocol": "S_ASKDING_CHAMPION_INFO",
+        "method": "CityMsg.AskDingGetChampionInfoResp"
+    },
+    "5938": {
+        "name": "PackagesBase",
+        "comments": "玩家参赛后 同步玩家参赛资格",
+        "protocol": "S_ASKDING_PLAYER_JOIN_SYNC",
+        "method": "CityMsg.AskDingSyncPlayerJoinMsg"
+    },
+    "6001": {
+        "name": "UnionAreaWar",
+        "comments": "查询据点战基础信息",
+        "protocol": "S_UNION_AREA_WAR_BASE_INFO",
+        "method": "CityMsg.UnionAreaWarRespMsg"
+    },
+    "6003": {
+        "name": "UnionAreaWar",
+        "comments": "请求查看分组",
+        "protocol": "S_UNION_AREA_WAR_BASE_GROUP",
+        "method": "CityMsg.UnionAreaWarGroupRespMsg"
+    },
+    "6004": {
+        "name": "UnionAreaWar",
+        "comments": "请求防守人列表",
+        "protocol": "S_UNION_AREA_WAR_DEFENDERS",
+        "method": "CityMsg.UnionAreaWarDefendersRespMsg"
+    },
+    "6005": {
+        "name": "UnionAreaWar",
+        "comments": "刷新防守人列表",
+        "protocol": "S_UNION_AREA_WAR_DEFENDERS_UPDATE",
+        "method": "CityMsg.UnionAreaWarDefendersUpdateRespMsg"
+    },
+    "6006": {
+        "name": "UnionAreaWar",
+        "comments": "获取据点列表",
+        "protocol": "S_UNION_AREA_WAR_AREA_LIST",
+        "method": "CityMsg.UnionAreaWarListRespMsg"
+    },
+    "6007": {
+        "name": "UnionAreaWar",
+        "comments": "刷新据点列表",
+        "protocol": "S_UNION_AREA_WAR_AREA_LIST_UPDATE",
+        "method": "CityMsg.UnionAreaWarListUpdateRespMsg"
+    },
+    "6009": {
+        "name": "UnionAreaWar",
+        "comments": "请求战斗场景攻击",
+        "protocol": "S_UNION_AREA_WAR_ATTACK",
+        "method": "CityMsg.UnionAreaWarAttackRespMsg"
+    },
+    "6011": {
+        "name": "UnionAreaWar",
+        "comments": "建设(捐献)",
+        "protocol": "S_UNION_AREA_WAR_DEVELOP",
+        "method": "CityMsg.UnionAreaWarDevelopRespMsg"
+    },
+    "6013": {
+        "name": "UnionAreaWar",
+        "comments": "加载宝库信息",
+        "protocol": "S_UNION_AREA_WAR_TREASURE_INFO",
+        "method": "CityMsg.UnionAreaWarTreasuryRespMsg"
+    },
+    "6014": {
+        "name": "UnionAreaWar",
+        "comments": "宝库抽奖",
+        "protocol": "S_UNION_AREA_WAR_TREASURE_DRAW",
+        "method": "CityMsg.UnionAreaWarTreasuryDrawRespMsg"
+    },
+    "6015": {
+        "name": "UnionAreaWar",
+        "comments": "请求召唤神龙",
+        "protocol": "S_UNION_AREA_WAR_SUMMON_DRAGON",
+        "method": "CityMsg.UnionAreaWarSummonDragonRespMsg"
+    },
+    "6016": {
+        "name": "UnionAreaWar",
+        "comments": "查询据点战膜拜",
+        "protocol": "S_UNION_AREA_WAR_BASE_WORSHIP",
+        "method": "CityMsg.UnionAreaWarWorshipRsp"
+    },
+    "6019": {
+        "name": "UnionAreaWar",
+        "comments": "请求战斗场景数据",
+        "protocol": "S_UNION_AREA_WAR_FIGHT_SCENE",
+        "method": "CityMsg.UnionAreaWarFightSceneRespMsg"
+    },
+    "6020": {
+        "name": "UnionAreaWar",
+        "comments": "请求捐献建设数据",
+        "protocol": "S_UNION_AREA_WAR_CONSTRUCT_DATA",
+        "method": "CityMsg.UnionAreaWarConstructRespMsg"
+    },
+    "6021": {
+        "name": "UnionAreaWar",
+        "comments": "请求战报数据",
+        "protocol": "S_UNION_AREA_WAR_REPORT_DATA",
+        "method": "CityMsg.UnionAreaWarReportRespMsg"
+    },
+    "6022": {
+        "name": "UnionAreaWar",
+        "comments": "请求战报伤害详情数据",
+        "protocol": "S_UNION_AREA_WAR_REPORT_DETAIL",
+        "method": "CityMsg.UnionAreaWarReportDetailRespMsg"
+    },
+    "6023": {
+        "name": "UnionAreaWar",
+        "comments": "请求联盟伤害数据",
+        "protocol": "S_UNION_AREA_WAR_UNION_DAMAGE_INFO",
+        "method": "CityMsg.UnionAreaWarUnionDamageRespMsg"
+    },
+    "6024": {
+        "name": "UnionAreaWar",
+        "comments": "请求竞猜界面数据",
+        "protocol": "S_UNION_AREA_WAR_UNION_BET_DATA",
+        "method": "CityMsg.UnionAreaWarBetDataRespMsg"
+    },
+    "6025": {
+        "name": "UnionAreaWar",
+        "comments": "请求竞猜选择",
+        "protocol": "S_UNION_AREA_WAR_UNION_BET_SELECT",
+        "method": "CityMsg.UnionAreaWarBetSelectRespMsg"
+    },
+    "6026": {
+        "name": "UnionAreaWar",
+        "comments": "请求竞猜奖励",
+        "protocol": "S_UNION_AREA_WAR_UNION_BET_REWARD",
+        "method": "CityMsg.UnionAreaWarBetRewardRespMsg"
+    },
+    "6027": {
+        "name": "UnionAreaWar",
+        "comments": "查看自己所属联 盟的参与名单",
+        "protocol": "S_UNION_AREA_WAR_UNION_GET_MEMBER_LIST",
+        "method": "CityMsg.UnionAreaWarGetJoinMemberListRsp"
+    },
+    "6028": {
+        "name": "UnionAreaWar",
+        "comments": "神龙战场攻击推送",
+        "protocol": "S_UNION_AREA_WAR_DRAGON_ATTACK_SYNC",
+        "method": "CityMsg.SyncUnionAreaWarDragonAttackMsg"
+    },
+    "6029": {
+        "name": "UnionAreaWar",
+        "comments": "请求查看联盟分段位伤害信息",
+        "protocol": "S_UNION_AREA_WAR_UNION_GROUP_DAMAGE_INFO",
+        "method": "CityMsg.UnionAreaWarUnionGroupDamageRespMsg"
+    },
+    "6030": {
+        "name": "UnionAreaWar",
+        "comments": "请求红点信息",
+        "protocol": "S_UNION_AREA_WAR_UNION_RED_DOT_DATA",
+        "method": "CityMsg.UnionAreaWarRedDotRespMsg"
+    },
+    "6031": {
+        "name": "UnionAreaWar",
+        "comments": "请求查看竞猜结果的获奖玩家列表",
+        "protocol": "S_UNION_AREA_WAR_GUESS_PLAYER_LIST",
+        "method": "CityMsg.UnionAreaWarGuessPlayersRespMsg"
+    },
+    "6032": {
+        "name": "UnionAreaWar",
+        "comments": "查看所有段位的分组数量",
+        "protocol": "S_UNION_AREA_WAR_DAN_GROUP_COUNT",
+        "method": "CityMsg.UnionAreaWarDanGroupCountResp"
+    },
+    "6101": {
+        "name": "AskWay",
+        "comments": "进入活动",
+        "protocol": "S_ASKWAY_ENTER",
+        "method": "CityMsg.AskWayEnterRsp"
+    },
+    "6102": {
+        "name": "AskWay",
+        "comments": "斗法匹配",
+        "protocol": "S_ASKWAY_MATCH",
+        "method": "CityMsg.AskWayMatchRsp"
+    },
+    "6103": {
+        "name": "AskWay",
+        "comments": "斗法战斗",
+        "protocol": "S_ASKWAY_BATTLE",
+        "method": "CityMsg.AskWayBattleRsp"
+    },
+    "6104": {
+        "name": "AskWay",
+        "comments": "获取战报",
+        "protocol": "S_ASKWAY_GETREPORT",
+        "method": "CityMsg.AskWayGetReportRsp"
+    },
+    "6105": {
+        "name": "AskWay",
+        "comments": "斗法战斗回放",
+        "protocol": "S_ASKWAY_BATTLEREPLY",
+        "method": "CityMsg.AskWayBattleReplyRsp"
+    },
+    "6106": {
+        "name": "AskWay",
+        "comments": "领取段位奖励",
+        "protocol": "S_ASKWAY_RECEIVETIERREWAWARD",
+        "method": "CityMsg.AskWayReceiveTierRewardRsp"
+    },
+    "6107": {
+        "name": "AskWay",
+        "comments": "领取斗法榜单积分奖励",
+        "protocol": "S_ASKWAY_ReceiveScoreReward",
+        "method": "CityMsg.AskWayReceiveScoreRewardRsp"
+    },
+    "6108": {
+        "name": "AskWay",
+        "comments": "购买挑战令道具",
+        "protocol": "S_ASKWAY_BUYCHALLENGETIME",
+        "method": "CityMsg.AskWayBuyFightTicketRsp"
+    },
+    "6109": {
+        "name": "AskWay",
+        "comments": "查看玩家数据",
+        "protocol": "S_ASKWAY_GETPLAYERINFO",
+        "method": "CityMsg.AskWayGetPlayerDetailRsp"
+    },
+    "6110": {
+        "name": "AskWay",
+        "comments": "领取竞猜币",
+        "protocol": "S_ASKWAY_GetGuessCoin",
+        "method": "CityMsg.AskWayGetGuessCoinRsp"
+    },
+    "6111": {
+        "name": "AskWay",
+        "comments": "登天竞猜",
+        "protocol": "S_ASKWAY_ToSkyGuess",
+        "method": "CityMsg.AskWayToSkyGuessRsp"
+    },
+    "6112": {
+        "name": "AskWay",
+        "comments": "登天战斗回放",
+        "protocol": "S_ASKWAY_ToSkyBattleReply",
+        "method": "CityMsg.AskWayToSkyBattleReplyRsp"
+    },
+    "6113": {
+        "name": "AskWay",
+        "comments": "朝拜",
+        "protocol": "S_ASKWAY_Worship",
+        "method": "CityMsg.AskWayWorshipRsp"
+    },
+    "6114": {
+        "name": "AskWay",
+        "comments": "领取登天榜单奖励",
+        "protocol": "S_ASKWAY_ToSkyRankReward",
+        "method": "CityMsg.AskWayReceiveToSkyRankRewardRsp"
+    },
+    "6115": {
+        "name": "AskWay",
+        "comments": "往届妖神榜",
+        "protocol": "S_ASKWAY_ToSkyRoster",
+        "method": "CityMsg.AskWayToSkyRosterRsp"
+    },
+    "6116": {
+        "name": "AskWay",
+        "comments": "获取登天期组别数据",
+        "protocol": "S_ASKWAY_ToSkyGetGoupData",
+        "method": "CityMsg.AskWayToSkyGetBattleResultRsp"
+    },
+    "6117": {
+        "name": "AskWay",
+        "comments": "获取竞猜信息",
+        "protocol": "S_ASKWAY_GetToSkyGuessInfo",
+        "method": "CityMsg.AskWayGetGuessInfoRsp"
+    },
+    "6118": {
+        "name": "AskWay",
+        "comments": "获取登天战报数据",
+        "protocol": "S_ASKWAY_GetToSkyReport",
+        "method": "CityMsg.AskWayToSkyGetReportRsp"
+    },
+    "6132": {
+        "name": "AskWay",
+        "comments": "获取海报数据",
+        "protocol": "S_ASKWAY_GetCurStateInfo",
+        "method": "CityMsg.AskWayGetGetCurStateInfoRsp"
+    },
+    "6701": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战主界面",
+        "protocol": "S_UNION_FIGHT_MAIN",
+        "method": "CityMsg.UnionFightMainRsp"
+    },
+    "6702": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战报名",
+        "protocol": "S_UNION_FIGHT_APPLY",
+        "method": "CityMsg.UnionFightApplyRsp"
+    },
+    "6703": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战进入战斗界面",
+        "protocol": "S_UNION_FIGHT_ENTER",
+        "method": "CityMsg.UnionFightEnterRsp"
+    },
+    "6704": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战请战",
+        "protocol": "S_UNION_FIGHT_REQUEST",
+        "method": "CityMsg.UnionFightRequestRsp"
+    },
+    "6705": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战上阵",
+        "protocol": "S_UNION_FIGHT_UP",
+        "method": "CityMsg.UnionFightPositionRsp"
+    },
+    "6706": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战下阵",
+        "protocol": "S_UNION_FIGHT_DOWN",
+        "method": "CityMsg.UnionFightUnPositionRsp"
+    },
+    "6707": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战小组排行",
+        "protocol": "S_UNION_FIGHT_GROUP_RANK",
+        "method": "CityMsg.UnionFightGroupRankRsp"
+    },
+    "6708": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战离开",
+        "protocol": "S_UNION_FIGHT_LEAVE",
+        "method": ""
+    },
+    "6709": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战至尊榜",
+        "protocol": "S_UNION_FIGHT_SUPREMACY",
+        "method": "CityMsg.UnionFightSupremacyListRsp"
+    },
+    "6710": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战膜拜",
+        "protocol": "S_UNION_FIGHT_WORSHIP",
+        "method": "CityMsg.UnionFightWorshipRsp"
+    },
+    "6711": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战回放",
+        "protocol": "S_UNION_FIGHT_PLAY_BACK",
+        "method": "CityMsg.UnionFightFightPlaybackRsp"
+    },
+    "6712": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战对战记录",
+        "protocol": "S_UNION_FIGHT_RECORD",
+        "method": "CityMsg.UnionFightRecordRsp"
+    },
+    "6713": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战历史最高",
+        "protocol": "S_UNION_FIGHT_HISTORY",
+        "method": "CityMsg.UnionFightGetHistoryDataRsp"
+    },
+    "6714": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战获取锁定属性",
+        "protocol": "S_UNION_FIGHT_LOCKED_DETAIL",
+        "method": "CityMsg.UnionFightGetLockedDetailRsp"
+    },
+    "6715": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战设置锁定状态",
+        "protocol": "S_UNION_FIGHT_SET_LOCK",
+        "method": "CityMsg.UnionFightChangeLockStatusRsp"
+    },
+    "6716": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战今日详情",
+        "protocol": "S_UNION_FIGHT_TODAY_DETAIL",
+        "method": "CityMsg.UnionFightGetTodayResultRsp"
+    },
+    "6717": {
+        "name": "UnionFight",
+        "comments": "获取妖盟排行列表",
+        "protocol": "S_UNION_FIGHT_GET_UNION_RANK_LIST",
+        "method": "CityMsg.RspUnionList"
+    },
+    "6721": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战备战数据同步",
+        "protocol": "S_UNION_FIGHT_DATA_SYNC",
+        "method": "CityMsg.UnionFightPrepareDataSync"
+    },
+    "6730": {
+        "name": "UnionFight",
+        "comments": "妖盟夺位战登录数据",
+        "protocol": "S_UNION_FIGHT_LOGIN_SYNC",
+        "method": "CityMsg.UnionFightApplyDataSync"
+    },
+    "6801": {
+        "name": "GodIsland",
+        "comments": "基础信息",
+        "protocol": "S_GOD_ISLAND_BASE_INFO_LOAD",
+        "method": "CityMsg.GodIslandBaseInfoRespMsg"
+    },
+    "6802": {
+        "name": "GodIsland",
+        "comments": "查看分组",
+        "protocol": "S_GOD_ISLAND_GROUP",
+        "method": "CityMsg.GodIslandGroupRespMsg"
+    },
+    "6803": {
+        "name": "GodIsland",
+        "comments": "请求妖盟建筑战报",
+        "protocol": "S_GOD_ISLAND_REPORT_DATA",
+        "method": "CityMsg.GodIslandReportRespMsg"
+    },
+    "6804": {
+        "name": "GodIsland",
+        "comments": "请求妖盟建筑战报详情数据",
+        "protocol": "S_GOD_ISLAND_REPORT_DETAIL",
+        "method": "CityMsg.GodIslandReportDetailRespMsg"
+    },
+    "6805": {
+        "name": "GodIsland",
+        "comments": "请求联盟战功数据",
+        "protocol": "S_GOD_ISLAND_UNION_DAMAGE_INFO",
+        "method": "CityMsg.GodIslandUnionDamageRespMsg"
+    },
+    "6806": {
+        "name": "GodIsland",
+        "comments": "查看自己所属联盟的参与名单",
+        "protocol": "S_GOD_ISLAND_UNION_GET_MEMBER_LIST",
+        "method": "CityMsg.GodIslandGetJoinMemberListRsp"
+    },
+    "6807": {
+        "name": "GodIsland",
+        "comments": "妖盟分段位 伤害信息",
+        "protocol": "S_GOD_ISLAND_UNION_GROUP_DAMAGE_INFO",
+        "method": "CityMsg.GodIslandUnionGroupDamageRespMsg"
+    },
+    "6808": {
+        "name": "GodIsland",
+        "comments": "红点信息",
+        "protocol": "S_GOD_ISLAND_RED_DOT_DATA",
+        "method": "CityMsg.GodIslandRedDotRespMsg"
+    },
+    "6809": {
+        "name": "GodIsland",
+        "comments": "点赞",
+        "protocol": "S_GOD_ISLAND_WORSHIP",
+        "method": "CityMsg.GodIslandWorshipResp"
+    },
+    "6810": {
+        "name": "GodIsland",
+        "comments": "请求个人战报",
+        "protocol": "S_GOD_ISLAND_PLAYER_BATTLE_REPORT",
+        "method": "CityMsg.GodIslandPlayerReportRespMsg"
+    },
+    "6811": {
+        "name": "GodIsland",
+        "comments": "妖力转灵力",
+        "protocol": "S_GOD_ISLAND_UPDATE_POWER",
+        "method": "CityMsg.GodIslandUpdatePowerResp"
+    },
+    "6812": {
+        "name": "GodIsland",
+        "comments": "查看妖盟战功列表",
+        "protocol": "S_GOD_ISLAND_UNION_BATTLE_SCORE_LIST",
+        "method": "CityMsg.GodIslandUnionBattleScoreListResp"
+    },
+    "6813": {
+        "name": "GodIsland",
+        "comments": "灵液领取记录",
+        "protocol": "S_GOD_ISLAND_UNION_LIQUID_RECEIVE_RECORD",
+        "method": "CityMsg.GodIslandLiquidReceiveRecordResp"
+    },
+    "6814": {
+        "name": "GodIsland",
+        "comments": "妖盟成员战功统计",
+        "protocol": "S_GOD_ISLAND_UNION_MEMBER_SCORE_LIST",
+        "method": "CityMsg.GodIslandUnionMemberScoreListResp"
+    },
+    "6819": {
+        "name": "GodIsland",
+        "comments": "活动心跳",
+        "protocol": "S_GOD_ISLAND_HEART_BEAT",
+        "method": "CityMsg.GodIslandHeartBeatRespMsg"
+    },
+    "6820": {
+        "name": "GodIsland",
+        "comments": "游戏基础信息",
+        "protocol": "S_GOD_ISLAND_GAME_INFO_LOAD",
+        "method": "CityMsg.GodIslandGameInfoRespMsg"
+    },
+    "6822": {
+        "name": "GodIsland",
+        "comments": "游戏路线同步信息",
+        "protocol": "S_GOD_ISLAND_GAME_ROUTE_INFO_SYNC",
+        "method": "CityMsg.GodIslandGameRouteInfoSyncMsg"
+    },
+    "6823": {
+        "name": "GodIsland",
+        "comments": "游戏大地图城市信息(在滑动地图时候将视野内的城市id发送)",
+        "protocol": "S_GOD_ISLAND_GAME_MAP_CITY_INFO",
+        "method": "CityMsg.GodIslandGameCityInfoRespMsg"
+    },
+    "6824": {
+        "name": "GodIsland",
+        "comments": "npc事件选择",
+        "protocol": "S_GOD_ISLAND_GAME_EVENT",
+        "method": "CityMsg.GodIslandGameEventRespMsg"
+    },
+    "6825": {
+        "name": "GodIsland",
+        "comments": "城市buff同步",
+        "protocol": "S_GOD_ISLAND_GAME_CITY_BUFF_SYNC",
+        "method": "CityMsg.GodIslandGameCityBuffSync"
+    },
+    "6826": {
+        "name": "GodIsland",
+        "comments": "灵力球信息",
+        "protocol": "S_GOD_ISLAND_GAME_SPIRITUALBALL_INFO",
+        "method": "CityMsg.GodIslandGameSpiritualBallInfoRespMsg"
+    },
+    "6827": {
+        "name": "GodIsland",
+        "comments": "使用灵力球",
+        "protocol": "S_GOD_ISLAND_GAME_USE_SPIRITUALBALL",
+        "method": "CityMsg.GodIslandGameUseSpiritualBallRespMsg"
+    },
+    "6828": {
+        "name": "GodIsland",
+        "comments": "目标城市具体信息",
+        "protocol": "S_GOD_ISLAND_GAME_TARGET_CITY_INFO",
+        "method": "CityMsg.GodIslandGameTargetCityInfoRespMsg"
+    },
+    "6829": {
+        "name": "GodIsland",
+        "comments": "目标城市队列信息",
+        "protocol": "S_GOD_ISLAND_GAME_TARGET_CITY_LINE_INFO",
+        "method": "CityMsg.GodIslandGameTargetCityLineInfoRespMsg"
+    },
+    "6830": {
+        "name": "GodIsland",
+        "comments": "进攻",
+        "protocol": "S_GOD_ISLAND_GAME_ATTACK",
+        "method": "CityMsg.GodIslandGameAttackRespMsg"
+    },
+    "6831": {
+        "name": "GodIsland",
+        "comments": "自动操作 托管",
+        "protocol": "S_GOD_ISLAND_GAME_AUTO_ATTACK",
+        "method": "CityMsg.GodIslandGameAutoAttackRespMsg"
+    },
+    "6832": {
+        "name": "GodIsland",
+        "comments": "行军移动",
+        "protocol": "S_GOD_ISLAND_GAME_MOVE",
+        "method": "CityMsg.GodIslandGameMoveRespMsg"
+    },
+    "6833": {
+        "name": "GodIsland",
+        "comments": "npc事件同步",
+        "protocol": "S_GOD_ISLAND_GAME_EVENT_SYNC",
+        "method": "CityMsg.GodIslandGameEventSyncMsg"
+    },
+    "6834": {
+        "name": "GodIsland",
+        "comments": "小地图信息",
+        "protocol": "S_GOD_ISLAND_GAME_MINIMAP_INFO",
+        "method": "CityMsg.GodIslandGameMiniMapInfoRespMsg"
+    },
+    "6835": {
+        "name": "GodIsland",
+        "comments": "设置联盟类型",
+        "protocol": "S_GOD_ISLAND_GAME_SET_UNION_TYPE",
+        "method": "CityMsg.GodIslandGameSetUnionTypeRespMsg"
+    },
+    "6836": {
+        "name": "GodIsland",
+        "comments": "联盟种草信息",
+        "protocol": "S_GOD_ISLAND_GAME_PLANT_INFO",
+        "method": "CityMsg.GodIslandGamePlantInfoRespMsg"
+    },
+    "6837": {
+        "name": "GodIsland",
+        "comments": "使用仙果 补充灵力球的灵力",
+        "protocol": "S_GOD_ISLAND_GAME_USE_FRUIT",
+        "method": "CityMsg.GodIslandUseFruitResp"
+    },
+    "6838": {
+        "name": "GodIsland",
+        "comments": "联盟种草领取果实",
+        "protocol": "S_GOD_ISLAND_GAME_PLANT_RECEIVE_FRUITS",
+        "method": "CityMsg.GodIslandGamePlantReceiveFruitsRespMsg"
+    },
+    "6839": {
+        "name": "GodIsland",
+        "comments": "联盟种草浇水",
+        "protocol": "S_GOD_ISLAND_GAME_PLANT_WATER",
+        "method": "CityMsg.GodIslandGamePlantWaterRespMsg"
+    },
+    "6840": {
+        "name": "GodIsland",
+        "comments": "灵晶数据加载",
+        "protocol": "S_GOD_ISLAND_CRYSTAL_INFO",
+        "method": "CityMsg.GodIslandCrystalInfoRespMsg"
+    },
+    "6841": {
+        "name": "GodIsland",
+        "comments": "领取灵晶",
+        "protocol": "S_GOD_ISLAND_CRYSTAL_RECEIVE",
+        "method": "CityMsg.GodIslandCrystalReceiveRespMsg"
+    },
+    "6842": {
+        "name": "GodIsland",
+        "comments": "联盟指挥信息",
+        "protocol": "S_GOD_ISLAND_GAME_STRATEGY_INFO",
+        "method": "CityMsg.GodIslandGameStrategyInfoRespMsg"
+    },
+    "6843": {
+        "name": "GodIsland",
+        "comments": "联盟指挥设置",
+        "protocol": "S_GOD_ISLAND_GAME_COMMANDER_SET",
+        "method": "CityMsg.GodIslandGameCommanderSetRespMsg"
+    },
+    "6844": {
+        "name": "GodIsland",
+        "comments": "联盟指挥设置目标",
+        "protocol": "S_GOD_ISLAND_GAME_SET_UNION_TARGET",
+        "method": "CityMsg.GodIslandGameSetUnionTargetRespMsg"
+    },
+    "6845": {
+        "name": "GodIsland",
+        "comments": "联盟指挥请求支援",
+        "protocol": "S_GOD_ISLAND_GAME_FOR_HELP",
+        "method": "CityMsg.GodIslandGameForHelpRespMsg"
+    },
+    "6846": {
+        "name": "GodIsland",
+        "comments": "城市变化同步",
+        "protocol": "S_GOD_ISLAND_GAME_CITY_CHANGE_SYNC",
+        "method": "CityMsg.GodIslandGameCityChangeSyncMsg"
+    },
+    "6847": {
+        "name": "GodIsland",
+        "comments": "连胜消息同步",
+        "protocol": "S_GOD_ISLAND_GAME_PLAYER_WIN_SYNC",
+        "method": "CityMsg.GodIslandGamePlayerWinSyncMsg"
+    },
+    "6848": {
+        "name": "GodIsland",
+        "comments": "队列消息同步(大地图，城市队列，具体队列信息都通过这条去同步刷新)",
+        "protocol": "S_GOD_ISLAND_GAME_LINE_INFO_SYNC",
+        "method": "CityMsg.GodIslandGameLineInfoSyncMsg"
+    },
+    "6849": {
+        "name": "GodIsland",
+        "comments": "加速行军",
+        "protocol": "S_GOD_ISLAND_GAME_ACCELERATE_MOVE",
+        "method": "CityMsg.GodIslandGameAcclerateMoveRespMsg"
+    },
+    "6850": {
+        "name": "GodIsland",
+        "comments": "我的游戏信息同步",
+        "protocol": "S_GOD_ISLAND_GAME_MYGAMEINFO_SYNC",
+        "method": "CityMsg.GodIslandGameMyGameInfoSyncMsg"
+    },
+    "6851": {
+        "name": "GodIsland",
+        "comments": "联盟发送灵液",
+        "protocol": "S_GOD_ISLAND_GAME_PLANT_SEND_LIQUID",
+        "method": "CityMsg.GodIslandGameSendLiquidRespMsg"
+    },
+    "6852": {
+        "name": "GodIsland",
+        "comments": "联盟灵液发送记录",
+        "protocol": "S_GOD_ISLAND_GAME_PLANT_SEND_LIQUID_RECORD",
+        "method": "CityMsg.GodIslandGameSendLiquidRecordRespMsg"
+    },
+    "6853": {
+        "name": "GodIsland",
+        "comments": "跑马灯消息同步",
+        "protocol": "S_GOD_ISLAND_GAME_HORSE_LAMP_SYNC",
+        "method": "CityMsg.GodIslandGameHorseLampSyncMsg"
+    },
+    "6854": {
+        "name": "GodIsland",
+        "comments": "玩家的所向披靡同步",
+        "protocol": "S_GOD_ISLAND_SUPPRESS_BUFF_SYNC",
+        "method": "CityMsg.GodIslandSuppressBuffSyncMsg"
+    },
+    "6855": {
+        "name": "GodIsland",
+        "comments": "请求城市界面buff信息",
+        "protocol": "S_GOD_ISLAND_GAME_CITY_BUFF_INFO",
+        "method": "CityMsg.GodIslandGameCityBuffInfoRespMsg"
+    },
+    "6856": {
+        "name": "GodIsland",
+        "comments": "阵亡之后 补兵完成之后从场外回大本营",
+        "protocol": "S_GOD_ISLAND_GAME_BACK_HOME",
+        "method": "CityMsg.GodIslandBackHomeResp"
+    },
+    "6857": {
+        "name": "GodIsland",
+        "comments": "场内有妖盟被淘汰 同步下来",
+        "protocol": "S_GOD_ISLAND_GAME_LEFT_OUT_SYNC",
+        "method": "CityMsg.GodIslandLeftOutSyncInfo"
+    },
+    "6858": {
+        "name": "GodIsland",
+        "comments": "修改盟友",
+        "protocol": "S_GOD_ISLAND_GAME_SET_FRIEND_UNION",
+        "method": "CityMsg.GodIslandSetFriendUnionResp"
+    },
+    "6859": {
+        "name": "GodIsland",
+        "comments": "盟友同步",
+        "protocol": "S_GOD_ISLAND_GAME_FRIEND_UNION_SYNC",
+        "method": "CityMsg.GodIslandSyncFriendUnionMsg"
+    },
+    "6860": {
+        "name": "GodIsland",
+        "comments": "指挥权变化同步",
+        "protocol": "S_GOD_ISLAND_GAME_COMMANDER_CHANGE_SYNC",
+        "method": "CityMsg.GodIslandCommanderChangeSyncMsg"
+    },
+    "6861": {
+        "name": "GodIsland",
+        "comments": "被击杀后同步",
+        "protocol": "S_GOD_ISLAND_BEEN_KILL_SYNC",
+        "method": "CityMsg.GodIslandBeenKillSyncMsg"
+    },
+    "6862": {
+        "name": "GodIsland",
+        "comments": "城市战斗状态",
+        "protocol": "S_GOD_ISLAND_GAME_CITY_BATTLE",
+        "method": "CityMsg.GodIslandGameCityBattleSyncMsg"
+    },
+    "6863": {
+        "name": "GodIsland",
+        "comments": "托管操作 结束后同步给客户端",
+        "protocol": "S_GOD_ISLAND_AUTO_BATTLE_STOP_SYNC",
+        "method": "CityMsg.GodIslandAutoBattleStopSyncMsg"
+    },
+    "6864": {
+        "name": "GodIsland",
+        "comments": "修罗城解锁同步",
+        "protocol": "S_GOD_ISLAND_GHOST_CITY_UNLOCK_SYNC",
+        "method": "CityMsg.GodIslandGhostCityUnlockSyncMsg"
+    },
+    "6901": {
+        "name": "StarTrial",
+        "comments": "星宿试炼数据同步",
+        "protocol": "S_STARTRIAL_DATA_SYNC",
+        "method": "CityMsg.StarTrialDataMsg"
+    },
+    "6902": {
+        "name": "StarTrial",
+        "comments": "星宿试炼战斗",
+        "protocol": "S_STARTRIAL_Fight",
+        "method": "CityMsg.StarTrialChallengeResp"
+    },
+    "6903": {
+        "name": "StarTrial",
+        "comments": "获取日志信息",
+        "protocol": "S_STARTRIAL_GetRecord",
+        "method": "CityMsg.StarTrialRecordResp"
+    },
+    "6904": {
+        "name": "StarTrial",
+        "comments": "战斗回放",
+        "protocol": "S_STARTRIAL_BattleReply",
+        "method": "CityMsg.StarTrialBattleReplyResp"
+    },
+    "6905": {
+        "name": "StarTrial",
+        "comments": "进入星空图鉴信息",
+        "protocol": "S_STARTRIAL_CodexEnter",
+        "method": "CityMsg.EnterStarTrialCodexMsgResp"
+    },
+    "6906": {
+        "name": "StarTrial",
+        "comments": "获取详细图鉴击败信息",
+        "protocol": "S_STARTRIAL_GetCodexMsg",
+        "method": "CityMsg.RspPlayerStarTrialCodexMsg"
+    },
+    "6907": {
+        "name": "StarTrial",
+        "comments": "获取Boss属性信息",
+        "protocol": "S_STARTRIAL_GetBossAttrMsg",
+        "method": "CityMsg.GetBossDetailDataResp"
+    },
+    "6908": {
+        "name": "StarTrial",
+        "comments": "每日领奖",
+        "protocol": "S_STARTRIAL_GetDailyFightReward",
+        "method": "CityMsg.GetDailyFightRewardResp"
+    },
+    "6909": {
+        "name": "StarTrial",
+        "comments": "获取分组信息",
+        "protocol": "S_STARTRIAL_GetGroupInfo",
+        "method": "CityMsg.GetStarTrialGroupInfoResp"
+    },
+    "6910": {
+        "name": "StarTrial",
+        "comments": "查看玩家详情",
+        "protocol": "S_STARTRIAL_GetPlayerDetailInfo",
+        "method": "CityMsg.StarTrialGetPlayerDetailResp"
+    },
+    "6911": {
+        "name": "StarTrial",
+        "comments": "进入星宿试炼",
+        "protocol": "S_STARTRIAL_EnterMainPanel",
+        "method": "CityMsg.StarTrialEnterMainPanelResp"
+    },
+    "7001": {
+        "name": "GatherEnergy",
+        "comments": "进入聚灵阵",
+        "protocol": "S_GATHER_ENERGY_ENTER_NEW",
+        "method": "CityMsg.GatherEnergyEnterNewResp"
+    },
+    "7002": {
+        "name": "GatherEnergy",
+        "comments": "同步聚灵阵数据",
+        "protocol": "S_SYNC_GATHER_ENERGY_MSG",
+        "method": "CityMsg.SyncGatherEnergyMsg"
+    },
+    "7003": {
+        "name": "GatherEnergy",
+        "comments": "开启灵阵界面",
+        "protocol": "S_GATHER_ENERGY_OPEN_VIEW",
+        "method": "CityMsg.GatherEnergyOpenViewResp"
+    },
+    "7004": {
+        "name": "GatherEnergy",
+        "comments": "开启某个灵阵",
+        "protocol": "S_GATHER_ENERGY_OPEN",
+        "method": "CityMsg.GatherEnergyOpenResp"
+    },
+    "7007": {
+        "name": "GatherEnergy",
+        "comments": "挑战某人",
+        "protocol": "S_GATHER_ENERGY_FIGHT",
+        "method": "CityMsg.GatherEnergyFightResp"
+    },
+    "7010": {
+        "name": "GatherEnergy",
+        "comments": "聚灵阵奖励推送",
+        "protocol": "S_GATHER_ENERGY_REWARD_SHOW",
+        "method": "CityMsg.GatherEnergyRewardShowResp"
+    },
+    "7011": {
+        "name": "GatherEnergy",
+        "comments": "聚灵阵奖励领取",
+        "protocol": "S_GATHER_ENERGY_GET_REWARD",
+        "method": "CityMsg.GatherEnergyRewardResp"
+    },
+    "7012": {
+        "name": "GatherEnergy",
+        "comments": "聚灵阵排行榜点赞",
+        "protocol": "S_GATHER_ENERGY_LIKE",
+        "method": "CityMsg.GatherEnergyLikeResp"
+    },
+    "7015": {
+        "name": "GatherEnergy",
+        "comments": "灵气转换",
+        "protocol": "S_GATHER_ENERGY_TRANSFORM",
+        "method": "CityMsg.GatherEnergyTransformResp"
+    },
+    "7017": {
+        "name": "GatherEnergy",
+        "comments": "离开聚灵阵",
+        "protocol": "S_GATHER_ENERGY_LEAVE",
+        "method": "CityMsg.GatherEnergyLeaveResp"
+    },
+    "7018": {
+        "name": "GatherEnergy",
+        "comments": "聚灵阵公告",
+        "protocol": "S_GATHER_ENERGY_NOTICE",
+        "method": "CityMsg.GatherEnergyNoticeResp"
+    },
+    "7019": {
+        "name": "GatherEnergy",
+        "comments": " 聚灵阵获取广告奖励",
+        "protocol": "S_GATHER_ENERGY_GET_AD_AWARD",
+        "method": "CityMsg.GatherEnergyGetADAwardResp"
+    },
+    "7020": {
+        "name": "GatherEnergy",
+        "comments": "打开聚灵阵一级列表界面（参与人数）",
+        "protocol": "S_GATHER_ENERGY_FIRST_LIST_VIEW",
+        "method": "CityMsg.GatherEnergyFirstListViewResp"
+    },
+    "7021": {
+        "name": "GatherEnergy",
+        "comments": "打开聚灵阵二级列表界面（参与名字）",
+        "protocol": "S_GATHER_ENERGY_SECOND_LIST_VIEW",
+        "method": "CityMsg.GatherEnergySecondListViewResp"
+    },
+    "7022": {
+        "name": "GatherEnergy",
+        "comments": "打开某个聚灵阵内部",
+        "protocol": "S_GATHER_ENERGY_INSIDE_VIEW_NEW",
+        "method": "CityMsg.GatherEnergyInsideViewNewResp"
+    },
+    "7023": {
+        "name": "GatherEnergy",
+        "comments": "打开战报界面",
+        "protocol": "S_GATHER_ENERGY_FIGHT_REPORT_NEW",
+        "method": "CityMsg.GatherEnergyFightReportNewResp"
+    },
+    "7024": {
+        "name": "GatherEnergy",
+        "comments": "查询某人参与的阵法",
+        "protocol": "S_GATHER_ENERGY_SEARCH_NEW",
+        "method": "CityMsg.GatherEnergySearchNewResp"
+    },
+    "7025": {
+        "name": "GatherEnergy",
+        "comments": "加入聚灵阵",
+        "protocol": "S_GATHER_ENERGY_ATTEND_NEW",
+        "method": "CityMsg.GatherEnergyAttendNewResp"
+    },
+    "7201": {
+        "name": "SdkReward",
+        "comments": "同步sdk奖励数据",
+        "protocol": "S_RECEIVE_SDK_REWARD_SYN",
+        "method": "CityMsg.ReceiveSdkRewardSyn"
+    },
+    "7202": {
+        "name": "SdkReward",
+        "comments": "领取sdk奖励",
+        "protocol": "S_RECEIVE_SDK_REWARD",
+        "method": "CityMsg.ReceiveSdkRewardRsp"
+    },
+    "7203": {
+        "name": "SdkReward",
+        "comments": "领取qq卡券奖励",
+        "protocol": "S_QQCARD_GET_REWARD",
+        "method": "CityMsg.QQCardGetRewardRsp"
+    },
+    "7204": {
+        "name": "SdkReward",
+        "comments": "支付宝启动参数",
+        "protocol": "S_ALIPAY_SET_START_PARAM",
+        "method": "CityMsg.AlipayStartParamRsp"
+    },
+    "7205": {
+        "name": "SdkReward",
+        "comments": "Sdk七日登录奖励领取",
+        "protocol": "S_RECEIVE_SDK_DAILY_REWARD",
+        "method": "CityMsg.ReceiveSdkDailyRewardRsp"
+    },
+    "8414": {
+        "name": "PackagesBase",
+        "comments": "征战诸天数据登录 同步，阶段变化同步1",
+        "protocol": "S_SKY_WAR_DATA_LOGIN_SYNC",
+        "method": "CityMsg.SkyWarDataLoginSync"
+    },
+    "8501": {
+        "name": "PackagesBase",
+        "comments": "妖盟对决-同步妖盟对决数据",
+        "protocol": "SYNC_UNION_DUEL_MSG",
+        "method": "CityMsg.SyncUnionDuelMsg"
+    },
+    "8502": {
+        "name": "PackagesBase",
+        "comments": "妖盟对决-开启主界面",
+        "protocol": "S_UNION_DUEL_OPEN_VIEW",
+        "method": "CityMsg.UnionDuelOpenViewResp"
+    },
+    "8511": {
+        "name": "PackagesBase",
+        "comments": "妖盟对决-妖盟对决同步数据",
+        "protocol": "S_UNION_DUEL_SYNC_DATA",
+        "method": "CityMsg.UnionDuelSyncDataResp"
+    },
+    "8601": {
+        "name": "Mark",
+        "comments": "同步评分状态",
+        "protocol": "S_SYNC_MARK_STATE_MSG",
+        "method": "CityMsg.SyncMarkStateMsg"
+    },
+    "8602": {
+        "name": "Mark",
+        "comments": "评分完成",
+        "protocol": "S_MARK_FINISH",
+        "method": "CityMsg.MarkFinishResp"
+    },
+    "9001": {
+        "name": "WorldRule",
+        "comments": "法则感悟",
+        "protocol": "S_WORLD_RULE_PERCEPTION_REQ",
+        "method": "CityMsg.WorldRulePerceptionResp"
+    },
+    "9002": {
+        "name": "WorldRule",
+        "comments": "法则感悟 替换",
+        "protocol": "S_WORLD_RULE_PERCEPTION_REPLACE_REQ",
+        "method": "CityMsg.WorldRulePerceptionReplaceResp"
+    },
+    "9003": {
+        "name": "WorldRule",
+        "comments": "获取法则感悟记录",
+        "protocol": "S_WORLD_RULE_GET_PERCEPTION_LOG_REQ",
+        "method": "CityMsg.WorldRuleGetPerceptionLogResp"
+    },
+    "9004": {
+        "name": "WorldRule",
+        "comments": "切换法则方案",
+        "protocol": "S_WORLD_RULE_SWITCH_PROGRAMME_REQ",
+        "method": "CityMsg.WorldRuleSwitchProgrammeResp"
+    },
+    "9005": {
+        "name": "WorldRule",
+        "comments": "天地法则玩家数据同步",
+        "protocol": "S_WORLD_RULE_PLAYER_DATA_SYNC",
+        "method": "CityMsg.WorldRulePlayerDataMsg"
+    },
+    "9104": {
+        "name": "PackagesBase",
+        "comments": "同步法则试炼Boss妖力",
+        "protocol": "U_RULE_TRIAL_SYNC_BOSS_CONFIG",
+        "method": "CityMsg.RuleTrialBossConfigSyncMsg"
+    },
+    "9105": {
+        "name": "PackagesBase",
+        "comments": "同步法则试炼",
+        "protocol": "U_RULE_TRIAL_PLAYER_DATA_SYNC",
+        "method": "CityMsg.RuleTrialDataSync"
+    },
+    "9201": {
+        "name": "ADTimeActivity",
+        "comments": "缩时香礼包",
+        "protocol": "S_WELFARE_GIFT_KR",
+        "method": ""
+    },
+    "9202": {
+        "name": "ADTimeActivity",
+        "comments": "使用缩时香",
+        "protocol": "S_KILLTIME_GIFT_KR",
+        "method": ""
+    },
+    "9570": {
+        "name": "PackagesBase",
+        "comments": "九幽争霸数据登录同步",
+        "protocol": "S_HOLY_LAND_BATTLE_APPLY_DATA_SYNC",
+        "method": "CityMsg.HolyLandBattleApplyDataSync"
+    },
+    "9575": {
+        "name": "PackagesBase",
+        "comments": "九幽争霸赛事时间戳数据登录前同步",
+        "protocol": "S_HOLY_LAND_BATTLE_TIME_STAMPS",
+        "method": "CityMsg.HolyLandBattleTimeStampsDataSync"
+    },
+    "9601": {
+        "name": "SignInFundActivity",
+        "comments": "补签接口",
+        "protocol": "S_SIGN_FUND_REPAIR",
+        "method": "CityMsg.RspSignInFundRepair"
+    },
+    "9707": {
+        "name": "PackagesBase",
+        "comments": "加入队伍",
+        "protocol": "S_MOUNTAIN_SEA_JOIN_TEAM",
+        "method": "CityMsg.MountainSeaJoinTeamRsp"
+    },
+    "9721": {
+        "name": "PackagesBase",
+        "comments": "请求挑战次数",
+        "protocol": "S_MOUNTAIN_SEA_CHALLENGE_TIME",
+        "method": "CityMsg.MountainSeaChallengeTimeRsp"
+    },
+    "9750": {
+        "name": "MountainSea",
+        "comments": "进入布阵界面",
+        "protocol": "S_MOUNTAIN_SEA_ENTER_BATTLE",
+        "method": "CityMsg.MountainSeaEnterBattleResp"
+    },
+    "9752": {
+        "name": "MountainSea",
+        "comments": "进入切换分身界面",
+        "protocol": "S_MOUNTAIN_SEA_ENTER_SWITCH_SEPARATION",
+        "method": "CityMsg.MountainSeaEnterSwitchSeparationRsp"
+    },
+    "9753": {
+        "name": "MountainSea",
+        "comments": "切换上阵的分身",
+        "protocol": "S_MOUNTAIN_SEA_SWITCH_SEPARATION",
+        "method": "CityMsg.MountainSeaSwitchSeparationRsp"
+    },
+    "9754": {
+        "name": "MountainSea",
+        "comments": "查看分身详细数据",
+        "protocol": "S_MOUNTAIN_SEA_SEPARATION_DETAIL",
+        "method": "CityMsg.MountainSeaSeparationDetailRsp"
+    },
+    "9755": {
+        "name": "MountainSea",
+        "comments": "改变参战对象位置",
+        "protocol": "S_MOUNTAIN_SEA_CHANGE_POS",
+        "method": "CityMsg.MountainSeaChangePosRsp"
+    },
+    "9756": {
+        "name": "MountainSea",
+        "comments": "改变装配的队伍技能",
+        "protocol": "S_MOUNTAIN_SEA_CHANGE_TEAM_SKILL",
+        "method": "CityMsg.MountainSeaChangeTeamSkillRsp"
+    },
+    "9757": {
+        "name": "MountainSea",
+        "comments": "进行战斗",
+        "protocol": "S_MOUNTAIN_SEA_DO_BATTLE",
+        "method": "CityMsg.MountainSeaDoBattleRsp"
+    },
+    "9770": {
+        "name": "MountainSea",
+        "comments": "广播进入布阵界面",
+        "protocol": "S_MOUNTAIN_SEA_ENTER_BATTLE_NOTIFY",
+        "method": "CityMsg.MountainSeaEnterBattleNotify"
+    },
+    "9771": {
+        "name": "MountainSea",
+        "comments": "切换上阵分身广播",
+        "protocol": "S_MOUNTAIN_SEA_SWITCH_SEPARATION_NOTIFY",
+        "method": "CityMsg.MountainSeaSwitchSeparationNotify"
+    },
+    "9772": {
+        "name": "MountainSea",
+        "comments": "装配的队伍技能变更广播",
+        "protocol": "S_MOUNTAIN_SEA_CHANGE_TEAM_SKILL_NOTIFY",
+        "method": "CityMsg.MountainSeaChangeTeamSkillNotify"
+    },
+    "9773": {
+        "name": "MountainSea",
+        "comments": "广播战斗数据",
+        "protocol": "S_MOUNTAIN_SEA_DO_BATTLE_NOTIFY",
+        "method": "CityMsg.MountainSeaDoBattleNotify"
+    },
+    "9774": {
+        "name": "MountainSea",
+        "comments": "参战对象位置变更广播",
+        "protocol": "S_MOUNTAIN_SEA_CHANGE_POS_NOTIFY",
+        "method": "CityMsg.MountainSeaChangePosNotify"
+    },
+    "9801": {
+        "name": "PackagesBase",
+        "comments": "琼浆玉液数据同步",
+        "protocol": "S_SOUL_LIQUID_DATA_MSG",
+        "method": "CityMsg.PlayerSoulLiQuidDataMsg"
+    },
+    "9910": {
+        "name": "PackagesBase",
+        "comments": "天道馈赠数据同步",
+        "protocol": "S_SKY_PRESENT_DATA_SYNC",
+        "method": "CityMsg.SkyPresentDataSync"
+    },
+    "10601": {
+        "name": "UnionBlessing",
+        "comments": "妖盟赐福",
+        "protocol": "S_UNION_BLESSING_SEND_GIFT",
+        "method": "CityMsg.UnionBlessingSendGiftResp"
+    },
+    "10602": {
+        "name": "UnionBlessing",
+        "comments": "领取赐福奖励",
+        "protocol": "S_UNION_BLESSING_RECEIVE_GIFT",
+        "method": "CityMsg.UnionBlessingRewardRespMsg"
+    },
+    "10603": {
+        "name": "UnionBlessing",
+        "comments": "同步妖盟散财数据",
+        "protocol": "S_UNION_BLESSING_SYNC_GIFT",
+        "method": "CityMsg.UnionBlessingGiftSyncList"
+    },
+    "10604": {
+        "name": "UnionBlessing",
+        "comments": "同步自己妖盟的散财的旗帜和时间",
+        "protocol": "S_UNION_BLESSING_SYNC_BLESSING_COUNT",
+        "method": "CityMsg.UnionBlessingCountSyncList"
+    },
+    "10701": {
+        "name": "GoodFortuneActivity",
+        "comments": "获取签到奖励",
+        "protocol": "S_GOOD_FORTUNE_GET_REWARD_REQ",
+        "method": "CityMsg.GoodFortuneGetRewardRsp"
+    },
+    "10901": {
+        "name": "WestTravel",
+        "comments": "通关请求",
+        "protocol": "S_WEST_TRAVEL_PASS_GAME",
+        "method": "CityMsg.WestTravelPassGameResp"
+    },
+    "11000": {
+        "name": "FestivalCelebrations",
+        "comments": "庆典玩家数据同步",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_PLAYER_INFO_MSG",
+        "method": "CityMsg.FestivalCelebrationsPlayerInfoMsg"
+    },
+    "11001": {
+        "name": "FestivalCelebrations",
+        "comments": "使用宴会道具",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_USE_BANQUET_ITEM_REQ",
+        "method": "CityMsg.FestivalCelebrationsUseBanquetItemRsp"
+    },
+    "11002": {
+        "name": "FestivalCelebrations",
+        "comments": "领取宴会奖励",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_DRAW_BANQUET_REWARD_REQ",
+        "method": "CityMsg.FestivalCelebrationsDrawBanquetRewardRsp"
+    },
+    "11003": {
+        "name": "FestivalCelebrations",
+        "comments": "获取积分详情",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_GET_BANQUET_SCORE_DETAIL_REQ",
+        "method": "CityMsg.FestivalCelebrationsGetBanquetScoreDetailRsp"
+    },
+    "11004": {
+        "name": "FestivalCelebrations",
+        "comments": "使用福缘道具",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_USE_LUCKY_FATE_ITEM_REQ",
+        "method": "CityMsg.FestivalCelebrationsUseLuckyFateItemRsp"
+    },
+    "11005": {
+        "name": "FestivalCelebrations",
+        "comments": "获取签到奖励",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_GET_SIGN_REWARD_REQ",
+        "method": "CityMsg.FestivalCelebrationsGetSignRewardRsp"
+    },
+    "11006": {
+        "name": "FestivalCelebrations",
+        "comments": "请求合成",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_COLLECT_SYNTHESIS_REQ",
+        "method": "CityMsg.FestivalCelebrationsCollectSynthesisRsp"
+    },
+    "11007": {
+        "name": "FestivalCelebrations",
+        "comments": "请求填充",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_COLLECT_FILL_REQ",
+        "method": "CityMsg.FestivalCelebrationsCollectFillRsp"
+    },
+    "11008": {
+        "name": "FestivalCelebrations",
+        "comments": "领取大奖",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_COLLECT_DRAW_BIG_REWARD_REQ",
+        "method": "CityMsg.FestivalCelebrationsCollectDrawBigRewardRsp"
+    },
+    "11009": {
+        "name": "FestivalCelebrations",
+        "comments": "获取领取名单",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_COLLECT_GET_CLAIM_LIST_REQ",
+        "method": "CityMsg.FestivalCelebrationsCollectGetClaimListRsp"
+    },
+    "11010": {
+        "name": "FestivalCelebrations",
+        "comments": "搜索玩家",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_COLLECT_SEARCH_PLAYER_REQ",
+        "method": "CityMsg.FestivalCelebrationsCollectSearchPlayerRsp"
+    },
+    "11011": {
+        "name": "FestivalCelebrations",
+        "comments": "赠送道具",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_COLLECT_GIVE_REQ",
+        "method": "CityMsg.FestivalCelebrationsCollectGiveRsp"
+    },
+    "11012": {
+        "name": "FestivalCelebrations",
+        "comments": "索要道具",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_COLLECT_ASK_FOR_REQ",
+        "method": "CityMsg.FestivalCelebrationsCollectAskForRsp"
+    },
+    "11013": {
+        "name": "FestivalCelebrations",
+        "comments": "领取彩蛋奖励",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_EASTER_EGG_GET_REWARD_REQ",
+        "method": "CityMsg.FestivalCelebrationsEasterEggGetRewardRsp"
+    },
+    "11014": {
+        "name": "FestivalCelebrations",
+        "comments": "领取赠送五福",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_COLLECT_GET_GIVEN_REQ",
+        "method": "CityMsg.FestivalCelebrationsCollectGetGivenResp"
+    },
+    "11015": {
+        "name": "FestivalCelebrations",
+        "comments": "领取福源奖励",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_GET_LUCKY_FATE_REWARD_REQ",
+        "method": "CityMsg.FestivalCelebrationsFuYuanGetRewardResp"
+    },
+    "11016": {
+        "name": "FestivalCelebrations",
+        "comments": "获取绑定妖盟成员列表",
+        "protocol": "S_FESTIVAL_CELEBRATIONS_GET_BIND_UNION_MEMBER_DATA_LIST_REQ",
+        "method": "CityMsg.FestivalCelebrationsGetBindUnionMemberDataListRsp"
+    },
+    "11106": {
+        "name": "PackagesBase",
+        "comments": "指定邀请",
+        "protocol": "S_DOUBLE_DEMONS_APPOINT_INVITE",
+        "method": "CityMsg.DoubleDemonsAppointInviteResp"
+    },
+    "11111": {
+        "name": "PackagesBase",
+        "comments": "双妖成行登录同步数据",
+        "protocol": "S_DOUBLE_DEMONS_DATA_LOGIN_SYNC",
+        "method": "CityMsg.DoubleDemonsDataLoginSync"
+    },
+    "11112": {
+        "name": "PackagesBase",
+        "comments": "同意邀请/结为伴侣",
+        "protocol": "S_DOUBLE_DEMONS_AGREE",
+        "method": "CityMsg.DoubleDemonsAgreeResp"
+    },
+    "11113": {
+        "name": "PackagesBase",
+        "comments": "一键拒绝",
+        "protocol": "S_DOUBLE_DEMONS_REFUSE",
+        "method": "CityMsg.DoubleDemonsRefuseResp"
+    },
+    "11114": {
+        "name": "PackagesBase",
+        "comments": "领取赠送奖励",
+        "protocol": "S_DOUBLE_DEMONS_RECEIVE_PRESENT",
+        "method": "CityMsg.DoubleDemonsReceivePresentResp"
+    },
+    "11500": {
+        "name": "NewYearRedBag",
+        "comments": "新春红包 登录数据下发",
+        "protocol": "NewYearRedBagPb_PlayerData",
+        "method": "CityMsg.NewYearRedBagPlayerData"
+    },
+    "11501": {
+        "name": "NewYearRedBag",
+        "comments": "新春红包 进入系统",
+        "protocol": "NewYearRedBagPb_Enter",
+        "method": "CityMsg.NewYearRedBagEnterRespMsg"
+    },
+    "11502": {
+        "name": "NewYearRedBag",
+        "comments": "新春红包 退出系统",
+        "protocol": "NewYearRedBagPb_Exit",
+        "method": "CityMsg.NewYearRedBagExitRespMsg"
+    },
+    "11503": {
+        "name": "NewYearRedBag",
+        "comments": "新春红包 打开红包",
+        "protocol": "NewYearRedBagPb_OPEN",
+        "method": "CityMsg.NewYearRedBagOpenRespMsg"
+    },
+    "11504": {
+        "name": "NewYearRedBag",
+        "comments": "新春红包 同步公告",
+        "protocol": "NewYearRedBagPb_SYNC_NOTICE",
+        "method": "CityMsg.NewYearSyncNoticeRespMsg"
+    },
+    "11702": {
+        "name": "PetKernel",
+        "comments": "穿戴内丹",
+        "protocol": "S_PET_KERNEL_CARRY",
+        "method": "CityMsg.PetKerneCarryResp"
+    },
+    "11703": {
+        "name": "PetKernel",
+        "comments": "内丹升级",
+        "protocol": "S_PET_KERNEL_UP_LEVEL",
+        "method": "CityMsg.PetKerneUpLevelResp"
+    },
+    "11704": {
+        "name": "PetKernel",
+        "comments": "内丹升星",
+        "protocol": "S_PET_KERNEL_UP_GRADE",
+        "method": "CityMsg.PetKerneUpStarResp"
+    },
+    "11705": {
+        "name": "PetKernel",
+        "comments": "内丹激活",
+        "protocol": "S_PET_KERNEL_ACTIVE",
+        "method": "CityMsg.PetKerneActiveResp"
+    },
+    "11706": {
+        "name": "PetKernel",
+        "comments": "抽取灵兽内丹",
+        "protocol": "S_PET_KERNEL_DRAW",
+        "method": "CityMsg.PetKernelDrawResp"
+    },
+    "11707": {
+        "name": "PetKernel",
+        "comments": "内丹共鸣升级或激活",
+        "protocol": "S_PET_KERNEL_COMBINE_UPGRADE",
+        "method": "CityMsg.PetKerneCombineUpLevelResp"
+    },
+    "11811": {
+        "name": "WatchPlayer",
+        "comments": "搜索玩家",
+        "protocol": "S_SEARCH_PLAYER",
+        "method": "CityMsg.SearchPlayerResp"
+    },
+    "11813": {
+        "name": "PackagesBase",
+        "comments": "门徒系统登录同步",
+        "protocol": "S_PUPIL_LOGIN_SYNC",
+        "method": "CityMsg.PupilSystemLoginSync"
+    },
+    "11853": {
+        "name": "PackagesBase",
+        "comments": "结义记录数据同步",
+        "protocol": "S_PUPIL_MARRIAGE_RECORD_SYNC",
+        "method": "CityMsg.MarriageRecordTempSync"
+    },
+    "11865": {
+        "name": "PackagesBase",
+        "comments": "同步其他玩家发起的结义请求时间",
+        "protocol": "S_PUPIL_MARRIAGE_GET_APPOINT_APPLY_TIMES_LIST",
+        "method": "CityMsg.MarriageGetAppointApplyTimeSync"
+    },
+    "12201": {
+        "name": "Pet",
+        "comments": "洪荒灵兽灵根升级请求",
+        "protocol": "S_PET_ROOTUP",
+        "method": "CityMsg.PetRootUpResp"
+    },
+    "12202": {
+        "name": "Pet",
+        "comments": "洪荒灵兽觉醒请求",
+        "protocol": "S_PET_AWAKE",
+        "method": "CityMsg.PetAwakeResp"
+    },
+    "12203": {
+        "name": "Pet",
+        "comments": "洪荒灵兽缘分升级请求",
+        "protocol": "S_PET_FATEUP",
+        "method": "CityMsg.PetFateUpResp"
+    },
+    "12601": {
+        "name": "SdkReward",
+        "comments": "获取微信排行榜白名单",
+        "protocol": "S_GET_WECHAT_RANK_WHITE_LIST",
+        "method": "CityMsg.GetWechatRankWhiteListRsp"
+    },
+    "12900": {
+        "name": "CloudRefine",
+        "comments": "筋斗云注灵数据同步",
+        "protocol": "S_CLOUD_REFINE_PLAYER_DATA_SYNC",
+        "method": "CityMsg.CloudRefinePlayerDataMsg"
+    },
+    "12901": {
+        "name": "CloudRefine",
+        "comments": "筋斗云注灵请求",
+        "protocol": "S_CLOUD_REFINE_CHARGE",
+        "method": "CityMsg.CloudRefineResp"
+    },
+    "12902": {
+        "name": "CloudRefine",
+        "comments": "筋斗云注灵渡劫请求",
+        "protocol": "S_CLOUD_REFINE_STARLVUP",
+        "method": "CityMsg.CloudRefineStarLvUpResp"
+    },
+    "13250": {
+        "name": "PackagesBase",
+        "comments": "镇魔登录同步",
+        "protocol": "S_SUPPRESSDEMON_LOGIN_SYNC",
+        "method": "CityMsg.TownDemonApplyDataSync"
+    },
+    "13251": {
+        "name": "PackagesBase",
+        "comments": "镇魔登录时间戳同步",
+        "protocol": "S_SUPPRESSDEMON_TIME_SYNC",
+        "method": "CityMsg.TownDemonTimeStampsDataSync"
+    },
+    "13510": {
+        "name": "PackagesBase",
+        "comments": "宴会开启同步(类仙宫送福)",
+        "protocol": "S_PEACH_BANQUET_OPEN_SYNC",
+        "method": "CityMsg.PeachBanquetOpenSync"
+    },
+    "13515": {
+        "name": "PackagesBase",
+        "comments": "蟠桃宴登录同步",
+        "protocol": "S_PEACH_BANQUET_LOGIN_SYNC",
+        "method": "CityMsg.PeachBanquetLoginSync"
+    },
+    "13519": {
+        "name": "PackagesBase",
+        "comments": "蟠桃宴道具同步",
+        "protocol": "S_PEACH_BANQUET_ITEM_SYNC",
+        "method": "CityMsg.PeachBanquetItemSync"
+    },
+    "13520": {
+        "name": "PackagesBase",
+        "comments": "宴会道具使用",
+        "protocol": "S_PEACH_BANQUET_ITEM_USE",
+        "method": "CityMsg.UsePeachBanquetItemResp"
+    },
+    "13617": {
+        "name": "UnionBounty",
+        "comments": " 妖盟悬赏-是否有正在押镖",
+        "protocol": "S_UNION_BOUNTY_HAVE_ESCORT",
+        "method": "CityMsg.UnionBountyHaveEscortResp"
+    },
+    "14120": {
+        "name": "WorldMessage",
+        "comments": "好友消息列表",
+        "protocol": "S_FRIEND_MESSAGE_LIST",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "14130": {
+        "name": "PackagesBase",
+        "comments": "同步世交信息列表",
+        "protocol": "S_FRIEND_SYNC",
+        "method": "CityMsg.SyncFriendList"
+    },
+    "14131": {
+        "name": "WorldMessage",
+        "comments": "好友消息同步",
+        "protocol": "S_FRIEND_MESSAGE_SYNC",
+        "method": "CityMsg.WorldMessageListMsg"
+    },
+    "14132": {
+        "name": "PackagesBase",
+        "comments": "同步世交信息",
+        "protocol": "S_FRIEND_SYNC_MODIFY",
+        "method": "CityMsg.SyncFriendInfo"
+    }
+}

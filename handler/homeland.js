@@ -9,7 +9,7 @@ class Homeland {
     }
 
     static ExploreMyself(playerId, interval = 0) {
-        return new RepeatedTask("ExploreMyself", 21052, { playerId: playerId }, interval);
+        return new RepeatedTask("HomelandExploreMyself", 21052, { playerId: playerId }, interval);
     }
 
     static ExploreEnter(playerId) {
@@ -37,7 +37,7 @@ class Homeland {
     }
 
     static Manage(interval) {
-        return new RepeatedTask("HomelandManage", 21053, {}, interval);
+        return new RepeatedTask("DoHomelandManage", 21053, {}, interval); // Add do in the name to prevent being killed by stopAllTasks
     }
 }
 
@@ -150,20 +150,14 @@ class HomelandManager {
         const playerId = global.playerId.toString();
         const ongoing = [];
     
-        // 在22:00-22:01之间 & 任务完成超过2小时, 撤回并重新派遣
         const currentTime = new Date();
-        const startWindow = new Date(currentTime);
-        startWindow.setHours(22, 0, 0, 0);
-        const endWindow = new Date(currentTime);
-        endWindow.setHours(22, 1, 0, 0);
     
         body.reward.forEach((i) => {
             const finishTime = new Date(parseInt(i.finishTime));
     
-            const isInTimeWindow = currentTime >= startWindow && currentTime <= endWindow;
             const isOverTwoHours = (currentTime - finishTime) > 2 * 60 * 60 * 1000;
     
-            if (isInTimeWindow && isOverTwoHours) {
+            if ((this.tempData.worker.energy > 30) && isOverTwoHours) { // 体力超过30且 & 任务完成超过2小时, 撤回并重新派遣
                 logger.info(`[福地] ${i.playerId.toString()}位置${i.pos}的任务已完成或超过2小时, 撤回并重新派遣!`);
                 TaskManager.instance.add(Homeland.Reset(i.playerId, i.pos));
                 TaskManager.instance.add(Homeland.Steal(i.playerId, i.pos, 1));

@@ -1,8 +1,8 @@
 import logger from "../utils/logger.js";
-import { TaskManager, ImmediateTask } from "../modules/tasks.js";
+import { TaskManager, RepeatedTask } from "../modules/tasks.js";
 
 function Destiny() {
-    return new ImmediateTask("Destiny", 20653, { isOneKey: true }) // 仙友游历
+    return new RepeatedTask("Destiny", 20653, { isOneKey: true }, 60 * 1000 * 30) // 30分钟来一次仙友游历
 }
 
 function handlerDestiny(body) {
