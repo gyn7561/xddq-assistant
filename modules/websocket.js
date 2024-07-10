@@ -36,6 +36,9 @@ class WebSocketManager {
             1064, // 同步福地数据
             1065, // 福地获取奖励
             4808, // 自动收获礼物
+            402, // 关卡挑战结果
+            403, // 关卡挑战初始信息
+            5602,//真火
         ];
         this.headers = {
             Connection: "Upgrade",

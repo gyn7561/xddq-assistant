@@ -5,6 +5,7 @@ import { handlerDestiny } from "./destiny.js";
 import { AttributeManager } from "./attribute.js";
 import logger from "../utils/logger.js";
 import account from "../account.js";
+// import battle from "./battle.js";
 
 function handleServerMessage(msgId, body) {
     switch (msgId) {
@@ -58,6 +59,15 @@ function handleServerMessage(msgId, body) {
             return;
         case 4808: // 自动收获礼物
             handlerGift(body);
+            return;
+        case 402:
+            logger.info(`[Server] [关卡挑战结果] ${body.challengeSuccess} 当前层数:${account.passStageId}`);
+            return;
+        case 403:
+            account.passStageId = body.passStageId;
+            return;
+        case 5602:
+            logger.info(`[Server] [真火挑战结果] ${body.allBattleRecord.isWin} ${body.info.floor}层`);
             return;
         default:
             return;
