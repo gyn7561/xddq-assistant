@@ -1,6 +1,6 @@
 //简单进程守护 
 import { spawn } from 'child_process';
-import account from './account';
+import account from './account.js';
 
 async function sleep(ms) {
     return new Promise((resolve) => {
