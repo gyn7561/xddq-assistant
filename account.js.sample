@@ -35,6 +35,8 @@ const account = {
             ]
         },
     },
+    
+    reconnectInterval: 60000 * 30, // 重连间隔
 }
 
 export default account;
