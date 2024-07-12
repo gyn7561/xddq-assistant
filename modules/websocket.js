@@ -110,6 +110,11 @@ class WebSocketManager {
 
     handleClose() {
         logger.info("WebSocket connection closed");
+        if (process.env["XDDQ-ASSISTANT-USE-FOREVER"] === "true") { //如果是通过重启进程方式重连
+            logger.info("Exiting process...");
+            process.exit(0);
+        }
+
         this.reconnectAttempts++;
         setTimeout(() => {
             logger.info(`Reconnecting... (attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts})`);
