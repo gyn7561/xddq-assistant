@@ -116,25 +116,6 @@ class AttributeManager {
         }
         return this._instance;
     }
-
-    restart() {
-        this.separation = false;
-        this.equipmentData = { 0: [], 1: [], 2: [] };
-        this.talentData = { 0: [], 1: [], 2: [] };
-        this.fightValueData = { 0: [], 1: [], 2: [] };
-        this.bagData = [];
-        this.treeLevel = 1;
-        this.chopTimes = 1;
-        this.talentCreateLevel = 1;
-        this.talentCreateTimes = 1;
-        this.isMonthCardVip = false;
-        this.isYearCardVip = false;
-        this.talentReqJob = null;
-        this.previousFlowerNum = 0;
-        this.chopTreeJob = null;
-        this.previousPeachNum = 0;
-        this.status = "idle";
-    }
     
     handlerPlayerAttribute(body) {
         this.playerLevel = Number(body.realmsId); // 等级
@@ -283,7 +264,7 @@ class AttributeManager {
                 if (
                     quality >= rule.quality && 
                     (
-                        (fightValue >= this.fightValueData[index] * (1 - rule.fightValueOffset) && parseFloat(attributeList.attack.value) >= parseFloat(existingAttributeList.attack.value)) || 
+                        (fightValue >= this.fightValueData[index] * (1 - rule.fightValueOffset)) ||
                         (!rule.condition[index].includes(existingAttributeList.attack.type)) || 
                         (parseFloat(attributeList.attack.value) >= parseFloat(existingAttributeList.attack.value) * (1 + rule.probOffset))
                     )

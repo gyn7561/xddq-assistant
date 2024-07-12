@@ -4,6 +4,7 @@ import { create } from "./messages.js";
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import account from "../account.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const resolvePath = (...segments) => path.resolve(__dirname, ...segments);
@@ -145,16 +146,9 @@ class TaskManager {
         }
     }
 
-    restart() {
-        for (const task of this.tasks) {
-            clearTimeout(this.taskHandlers[task.name]);
-            delete this.taskHandlers[task.name];
-        }
-        this.tasks = [];
-    }
-
     async init(ws) {
         this.ws = ws;
+        const { count: c_count, interval: c_interval } = account.challenge;
         const initialTasks = [
             new ImmediateTask("Login", 20001, { token: global.token, language: "zh_cn" }), // 立即执行
             new RepeatedTask("Heartbeat", 20003, {}, 5000), // 每5秒发送一次心跳
@@ -162,9 +156,9 @@ class TaskManager {
             new RepeatedTask("S_ENTER_PUPIL_SYSTEM", 211801, {}, 600000*3), // 每30分钟重复执行
             new ImmediateTask("Separation", 20215, {}),   // 立即执行
             new ImmediateTask("CheckEmail", 20555, {}),   // 立即执行
-            new RepeatedTask("关卡挑战", 20402, {}, 1000 * 30), // 每10秒执行一次
-            new RepeatedTask("真火秘境", 25602, { "type": 1 }, 1000 * 30), // 每10秒执行一次
-            new RepeatedTask("镇妖塔挑战", 20762, {index: 0, isOneKey: true}, 1000 * 30), // 每10秒执行一次
+            new CountedTask("关卡挑战", 20402, {}, 1000 * c_interval, c_count), // 每10秒执行一次
+            new CountedTask("真火秘境", 25602, { "type": 1 }, 1000 * c_interval, c_count), // 每10秒执行一次
+            new CountedTask("镇妖塔挑战", 20762, {index: 0, isOneKey: true}, 1000 * c_interval, c_count), // 每10秒执行一次
         ];
 
         const today = new Date().toISOString().slice(0, 10).replace(/-/g, '_');

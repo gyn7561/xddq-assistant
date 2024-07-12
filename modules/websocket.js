@@ -7,7 +7,6 @@ import { TaskManager } from "./tasks.js";
 import { ProtobufMgr } from './protobufMgr.js';
 import { DBMgr } from './dbMgr.js';
 import agenda from "../handler/agenda.js";
-import { Attribute } from "../handler/attribute.js";
 
 class WebSocketManager {
     constructor() {
@@ -73,9 +72,6 @@ class WebSocketManager {
         await dbMgr.initialize();
 
         this.connect();
-
-        // Schedule the daily restart task
-        this.scheduleDailyRestart();
     }
 
     connect() {
@@ -130,27 +126,6 @@ class WebSocketManager {
 
     handleError(err) {
         logger.error(`WebSocket error: ${err}`);
-    }
-
-    async restartConnection() {
-        logger.info("Restarting WebSocket connection as scheduled...");
-        if (this.ws) {
-            this.ws.close(); // 关闭现有连接
-            TaskManager.instance.restart(); // 重置任务
-            Attribute.instance.restart(); // 重置属性
-        }
-        this.connect(); // 重新连接
-    }
-
-    scheduleDailyRestart() {
-        const now = new Date();
-        const nextRestart = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 30);
-        const timeUntilNextRestart = nextRestart - now;
-
-        setTimeout(() => {
-            this.restartConnection();
-            this.scheduleDailyRestart(); // Schedule the next restart
-        }, timeUntilNextRestart);
     }
 }
 
