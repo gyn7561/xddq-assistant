@@ -2,6 +2,10 @@ const account = {
     serverId: "<serverId>",
     username: "<username>",
     password: "<password>",
+    challenge: {      // 冒险/真火/镇妖塔
+        count: 50,    // 挑战次数
+        interval: 10, // 挑战间隔 单位为秒
+    },
     rules: [
         { ItemId: 100004, minItemLv: 3, isCheck: true, description: "仙桃" },
         { ItemId: 100025, minItemLv: 5, isCheck: false, description: "净瓶水" },
@@ -15,7 +19,6 @@ const account = {
         homeland: true,  // 福地自动总开关
         chopTree: true,  // 自动砍树
         talent: false,   // 自动灵脉 TODO
-        tower: false,    // 自动打镇妖塔 TODO
         herorank: false, // 光速群英榜 
     },
     chopTree: {
@@ -24,9 +27,9 @@ const account = {
             level: 375,   // 玩家等级等于该数 设置为渡劫等级
         },
         separation: {
-            quality: 11,           // 最低品质
-            fightValueOffset: 0,   // 能接受妖力略低于该百分比 比如当前妖力为 100,0000 设置为0.02 那么降低100,0000 - 100,0000 x ( 1 - 0.02 ) = 20,000 也能接受
-            probOffset: 0.05,      // 能接受概率略低于该百分比 比如当前是 16% 的概率 设置为0.1 那么大于16% x ( 1 - 0.1 ) = 14.4% 也能接受
+            quality: 11,          // 最低品质
+            fightValueOffset: 0,  // 妖力偏移值 能接受妖力低于该百分比 新装备妖力 >= 当前装备妖力 * ( 1 - fightValueOffset )
+            probOffset: 0.2,      // 概率偏移值 概率大于该百分比直接穿上 比如当前是 16% 的概率 设置为0.1 那么大于16% x ( 1 + 0.2 ) = 19.2%
             condition:[
                 [5],              // 元体 反击
                 [6, 7],           // 阳神 连爆
