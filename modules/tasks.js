@@ -159,10 +159,12 @@ class TaskManager {
             new ImmediateTask("Login", 20001, { token: global.token, language: "zh_cn" }), // 立即执行
             new RepeatedTask("Heartbeat", 20003, {}, 5000), // 每5秒发送一次心跳
             new RepeatedTask("TrainPupil", 211802, { isOneKey: 1 }, 600000), // 每10分钟重复执行
+            new RepeatedTask("S_ENTER_PUPIL_SYSTEM", 211801, {}, 600000*3), // 每30分钟重复执行
             new ImmediateTask("Separation", 20215, {}),   // 立即执行
             new ImmediateTask("CheckEmail", 20555, {}),   // 立即执行
-            new RepeatedTask("关卡挑战", 20402, {}, 60000 * 5),
-            new RepeatedTask("真火秘境", 25602, { "type": 1 }, 60000 * 5), // 每5分钟进行一次真火秘境挑战
+            new RepeatedTask("关卡挑战", 20402, {}, 1000 * 30), // 每10秒执行一次
+            new RepeatedTask("真火秘境", 25602, { "type": 1 }, 1000 * 30), // 每10秒执行一次
+            new RepeatedTask("镇妖塔挑战", 20762, {index: 0, isOneKey: true}, 1000 * 30), // 每10秒执行一次
         ];
 
         const today = new Date().toISOString().slice(0, 10).replace(/-/g, '_');
@@ -182,6 +184,7 @@ class TaskManager {
                 new ImmediateTask("灵兽运势游戏圈奖励", 21031, { activityId: 0, conditionId: 0 }),
                 new ImmediateTask("镇妖塔选择偏好", 20767, {markPreference: [{priority: 1,skillType: 1017},{priority: 2,skillType: 1018},{priority: 3,skillType: 1023},{priority: 4,skillType: 1024},{priority: 5,skillType: 1022}]}),
                 new ImmediateTask("镇妖塔快速挑战", 20763, {}),
+                new ImmediateTask("镇妖塔一键选择", 20764, {index: 0, isOneKey: true}),
                 new ImmediateTask("妖盟砍价", 22166, { bussinessId: 2178 }),
                 new ImmediateTask("妖盟广告1", 20019, { activityId: 0, conditionId: 120006, isUseADTime: false }),
                 new ImmediateTask("妖盟广告2", 20503, { taskId: [120006] }),
@@ -190,6 +193,7 @@ class TaskManager {
                 new ImmediateTask("妖盟买桃2", 20601, { mallId: 230000002, count: 1, activityId: 0 }),
                 new ImmediateTask("妖盟买腾蛇信物", 20601, { mallId: 230000012, count: 3, activityId: 0 }),
                 new ImmediateTask("妖盟领取每日任务奖励", 22118, { actIndex: 4 }),
+                new ImmediateTask("群英榜商店买桃", 20601, {mallId: 250000001, count: 1, activityId: 0}),
             ];
 
             // 如果是周一到周五，添加额外的任务

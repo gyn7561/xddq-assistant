@@ -3,9 +3,11 @@ import { handlerFrog } from "./frog.js";
 import { handlerGift } from "./gift.js";
 import { handlerDestiny } from "./destiny.js";
 import { AttributeManager } from "./attribute.js";
+import { HerorankManager } from "./herorank.js";
+import { handlerPupil } from "./pupil.js";
 import logger from "../utils/logger.js";
 import account from "../account.js";
-// import battle from "./battle.js";
+import { TaskManager, ImmediateTask } from "../modules/tasks.js";
 
 function handleServerMessage(msgId, body) {
     switch (msgId) {
@@ -39,9 +41,24 @@ function handleServerMessage(msgId, body) {
             logger.debug(`[Server] [背包数据]`);
             AttributeManager.instance.handlerBag(body);
             return;
+        case 621:
+            logger.debug(`[Server] [灵脉]`);
+            AttributeManager.instance.handlerTalentInit(body);
+        case 625:
+            logger.debug(`[Server] [灵脉]`);
+            AttributeManager.instance.handlerTalent(body);
+            return;
         case 651:
             logger.debug(`[Server] [游历]`);
             handlerDestiny(body);
+            return;
+        case 762: // 镇妖塔战斗结果
+            if (body.ret === 0) {
+                const currentStage = body.towerDataSync.curPassId % 10 === 0 ? 10 : body.towerDataSync.curPassId % 10;
+                logger.info(`[Server] [镇妖塔挑战结果] ${body.allBattleRecord.isWin} ${Math.ceil(body.towerDataSync.curPassId / 10)}层${currentStage}关`);
+            } else {
+                TaskManager.instance.add(new ImmediateTask("镇妖塔一键选择", 20764, {index: 0, isOneKey: true}));
+            }
             return;
         case 1051: // 福地 有空闲老鼠 服务器会主动推送
             if (account.switch.homeland) {
@@ -57,6 +74,12 @@ function handleServerMessage(msgId, body) {
         case 1058: // 福地 福地探寻
             HomelandManager.instance.doExplore(body);
             return;
+        case 3702: // 获得群英镑列表
+            HerorankManager.instance.handlerFightList(body);
+            return;
+        case 3703: // 攻击敌人
+            HerorankManager.instance.handlerFight(body);
+            return;
         case 4808: // 自动收获礼物
             handlerGift(body);
             return;
@@ -68,6 +91,10 @@ function handleServerMessage(msgId, body) {
             return;
         case 5602:
             logger.info(`[Server] [真火挑战结果] ${body.allBattleRecord.isWin} ${body.info.floor}层`);
+            return;
+        case 11801:
+            logger.debug(`[Server] [宗门信息]`);
+            handlerPupil(body);
             return;
         default:
             return;
