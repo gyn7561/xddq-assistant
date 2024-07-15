@@ -154,13 +154,13 @@ class HomelandManager {
     
         body.reward.forEach((i) => {
             const finishTime = new Date(parseInt(i.finishTime));
-    
-            const isOverTwoHours = (currentTime - finishTime) > 2 * 60 * 60 * 1000;
-    
+            const isOverTwoHours = (finishTime - currentTime) > 2 * 60 * 60 * 1000;
             if ((this.tempData.worker.energy > 30) && isOverTwoHours) { // 体力超过30且 & 任务完成超过2小时, 撤回并重新派遣
                 logger.info(`[福地] ${i.playerId.toString()}位置${i.pos}的任务已完成或超过2小时, 撤回并重新派遣!`);
                 TaskManager.instance.add(Homeland.Reset(i.playerId, i.pos));
-                TaskManager.instance.add(Homeland.Steal(i.playerId, i.pos, 1));
+                new Promise((resolve) => setTimeout(resolve, 1000)).then(() => {
+                    TaskManager.instance.add(Homeland.Steal(i.playerId, i.pos, 1));
+                });
             } else if (i.enemy && i.enemy.playerId.toString() == playerId) {
                 if (!i.enemy.isWinner) {
                     logger.info(`[福地] ${i.playerId.toString()}位置${i.pos}的老鼠必赢, 撤走自己的老鼠!`);

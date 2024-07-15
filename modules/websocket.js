@@ -27,6 +27,7 @@ class WebSocketManager {
             // 625, // 灵脉
             651, // 仙友自动游历
             762, // 镇妖塔战斗结果
+            1003, // 活动通用数据
             1051, // 福地数据同步
             1052, // 别人福地数据
             1053, // 福地管理
@@ -37,6 +38,7 @@ class WebSocketManager {
             1062, // 同步有奖励消息
             1064, // 同步福地数据
             1065, // 福地获取奖励
+            2165, // 妖盟砍价 
             4808, // 自动收获礼物
             402, // 关卡挑战结果
             403, // 关卡挑战初始信息
@@ -45,14 +47,6 @@ class WebSocketManager {
             3703, // 群英镑战斗
             11801, // 宗门信息
         ];
-        this.headers = {
-            Connection: "Upgrade",
-            Upgrade: "websocket",
-            Origin: "https://proxy-xddq.hdnd01.com",
-        };
-        this.reconnectInterval = 60 * 1000; // 默认重连时间为60秒
-        this.maxReconnectAttempts = 3;      // 最大重连次数
-        this.reconnectAttempts = 0;         // 当前重连次数
         this.uri = null;
     }
 
@@ -75,12 +69,7 @@ class WebSocketManager {
     }
 
     connect() {
-        if (this.reconnectAttempts >= this.maxReconnectAttempts) {
-            logger.error(`Reached maximum reconnect attempts (${this.maxReconnectAttempts}). No longer attempting to reconnect.`);
-            return;
-        }
-
-        this.ws = new WebSocket(this.uri, { headers: this.headers });
+        this.ws = new WebSocket(this.uri);
         this.ws.on("open", this.handleOpen.bind(this));
         this.ws.on("message", this.handleMessage.bind(this));
         this.ws.on("close", this.handleClose.bind(this));
@@ -112,16 +101,7 @@ class WebSocketManager {
 
     handleClose() {
         logger.info("WebSocket connection closed");
-        if (process.env["XDDQ-ASSISTANT-USE-FOREVER"] === "true") { //如果是通过重启进程方式重连
-            logger.info("Exiting process...");
-            process.exit(0);
-        }
-
-        this.reconnectAttempts++;
-        setTimeout(() => {
-            logger.info(`Reconnecting... (attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts})`);
-            this.connect();
-        }, this.reconnectInterval);
+        process.exit(0);
     }
 
     handleError(err) {

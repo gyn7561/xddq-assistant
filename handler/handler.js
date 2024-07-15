@@ -4,6 +4,7 @@ import { handlerGift } from "./gift.js";
 import { handlerDestiny } from "./destiny.js";
 import { AttributeManager } from "./attribute.js";
 import { HerorankManager } from "./herorank.js";
+import { RewardManager } from "./reward.js";
 import { handlerPupil } from "./pupil.js";
 import logger from "../utils/logger.js";
 import account from "../account.js";
@@ -60,6 +61,10 @@ function handleServerMessage(msgId, body) {
                 TaskManager.instance.add(new ImmediateTask("镇妖塔一键选择", 20764, {index: 0, isOneKey: true}));
             }
             return;
+        case 1003: // 处理通用活动数据
+            logger.info(`[Server] [通用活动]`);
+            RewardManager.instance.handlerReward(body);
+            return;
         case 1051: // 福地 有空闲老鼠 服务器会主动推送
             if (account.switch.homeland) {
                 HomelandManager.instance.doInit(body);
@@ -95,6 +100,10 @@ function handleServerMessage(msgId, body) {
         case 11801:
             logger.debug(`[Server] [宗门信息]`);
             handlerPupil(body);
+            return;
+        case 2165:
+            logger.debug(`[Server] [妖盟砍价]`);
+            TaskManager.instance.add(new ImmediateTask("妖盟砍价", 22166, { bussinessId: body.bussinessId }));
             return;
         default:
             return;
