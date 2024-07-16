@@ -34,8 +34,12 @@ function getNextRestartDelay() {
                 },
             });
 
-            childProcess.on("exit", (code, signal) => {
+            childProcess.on("exit", async (code, signal) => {
                 logger.warn(`[守护] 子进程以code ${code} 和 signal ${signal} 退出`);
+                if (!isRestarting) { // 确保在非计划重启时重新启动
+                    await sleep(account.reconnectInterval); // 确保子进程重启前有足够的时间间隔
+                    restartProcess();
+                }
                 resolve(code);
             });
 
@@ -46,23 +50,13 @@ function getNextRestartDelay() {
         });
     }
 
-    async function startProcess() {
-        try {
-            await runCmd();
-        } catch (error) {
-            logger.error("[守护] 正在自动重新启动...", error);
-            await sleep(account.reconnectInterval); // 确保子进程重启前有足够的时间间隔
-            startProcess();
-        }
-    }
-
     async function restartProcess() {
         isRestarting = true;
         if (childProcess) {
             childProcess.kill(); // 杀死当前子进程
         }
         await sleep(1000); // 等待子进程完全退出
-        await startProcess();
+        await runCmd();
         isRestarting = false;
     }
 
@@ -77,8 +71,6 @@ function getNextRestartDelay() {
     }
 
     // 开始运行子进程和设置每日重启定时器
-    if (!isRestarting) {
-        startProcess();
-    }
+    runCmd();
     scheduleDailyRestart();
 })();
