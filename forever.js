@@ -1,5 +1,6 @@
 import { spawn } from "child_process";
 import account from "./account.js";
+import logger from "./utils/logger.js";
 
 async function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
@@ -18,41 +19,51 @@ function getNextRestartDelay() {
 }
 
 (async () => {
+    let childProcess;
+    let restartTimeout;
+    let isRestarting = false; // 标志变量
+
     async function runCmd() {
         return new Promise((resolve, reject) => {
-            const childProcess = spawn("node", ["app.js"], {
+            childProcess = spawn("node", ["app.js"], {
                 cwd: process.cwd(),
                 shell: true,
                 stdio: "inherit",
                 env: {
                     ...process.env,
-                    "XDDQ-ASSISTANT-USE-FOREVER": "true",
                 },
             });
 
             childProcess.on("exit", (code, signal) => {
-                console.log(`子进程以code ${code} 和 signal ${signal} 退出`);
+                logger.warn(`[守护] 子进程以code ${code} 和 signal ${signal} 退出`);
                 resolve(code);
             });
 
             childProcess.on("error", (err) => {
-                console.error("子进程出错", err);
+                logger.error("[守护] 子进程出错", err);
                 reject(err);
             });
         });
     }
 
-    let childProcess;
-    let restartTimeout;
-
     async function startProcess() {
         try {
             await runCmd();
         } catch (error) {
-            console.error("运行子进程出错，准备重新启动", error);
+            logger.error("[守护] 正在自动重新启动...", error);
+            await sleep(account.reconnectInterval); // 确保子进程重启前有足够的时间间隔
+            startProcess();
         }
-        await sleep(account.reconnectInterval); // 确保子进程重启前有足够的时间间隔
-        startProcess();
+    }
+
+    async function restartProcess() {
+        isRestarting = true;
+        if (childProcess) {
+            childProcess.kill(); // 杀死当前子进程
+        }
+        await sleep(1000); // 等待子进程完全退出
+        await startProcess();
+        isRestarting = false;
     }
 
     function scheduleDailyRestart() {
@@ -60,14 +71,14 @@ function getNextRestartDelay() {
 
         const delay = getNextRestartDelay();
         restartTimeout = setTimeout(() => {
-            console.log("执行每日重启");
-            childProcess.kill(); // 杀死当前子进程
-            startProcess(); // 重启子进程
-            scheduleDailyRestart(); // 重新设置下一次重启
+            logger.info("[守护] 执行每日重启");
+            restartProcess().then(scheduleDailyRestart); // 重启子进程后重新设置下一次重启
         }, delay);
     }
 
     // 开始运行子进程和设置每日重启定时器
-    startProcess();
+    if (!isRestarting) {
+        startProcess();
+    }
     scheduleDailyRestart();
 })();
