@@ -12,7 +12,7 @@ function agenda() {
     if (account.switch.herorank) {
         // 光速抢镑任务在周一0:05分开始执行
         const delay = getMillisecondsUntilNextMonday();
-        console.log(`[群英镑] 距离周一还有 ${delay / 1000} 秒`);
+        logger.info(`[群英镑] 距离周一还有 ${delay / 1000} 秒`);
         setTimeout(() => {
             logger.info("[群英镑] 光速抢榜一");
             TaskManager.instance.add(Herorank.S_HERORANK_BUY_ENERGY());
