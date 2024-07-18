@@ -62,23 +62,22 @@ class Attribute {
 
     // 灵脉!!!!!!!!!!
     static RandomTalentReq(times) {
-        return new ImmediateTask("RandomTalentReq", 20622, {randomTimes: times });
+        return new ImmediateTask("RandomTalentReq", 20622, { randomTimes: times });
     }
 
     // 装备
     static DealTalentEnum_Equip() {
-        return new ImmediateTask("DealTalentEnum_Equip", 20623, {dealData: [{index: 0,type: 0}]});
+        return new ImmediateTask("DealTalentEnum_Equip", 20623, { dealData: [{ index: 0, type: 0 }] });
     }
 
     // 粉碎神通
     static DealTalentEnum_Resolve() {
-        return new ImmediateTask("DealTalentEnum_Resolve", 20623, {dealData: [{index: 0,type: 1}]});
-    
+        return new ImmediateTask("DealTalentEnum_Resolve", 20623, { dealData: [{ index: 0, type: 1 }] });
     }
 
     // 装备并分解老的
     static DealTalentEnum_EquipAndResolveOld() {
-        return new ImmediateTask("DealTalentEnum_EquipAndResolveOld", 20623, {dealData: [{index: 0,type: 2}]});
+        return new ImmediateTask("DealTalentEnum_EquipAndResolveOld", 20623, { dealData: [{ index: 0, type: 2 }] });
     }
 }
 
@@ -116,7 +115,7 @@ class AttributeManager {
         }
         return this._instance;
     }
-    
+
     handlerPlayerAttribute(body) {
         this.playerLevel = Number(body.realmsId); // 等级
         this.playerFightValue = Number(body.fightValue); // 妖力
@@ -169,10 +168,10 @@ class AttributeManager {
                 1: null,
                 2: null,
                 3: null,
-                4: null
+                4: null,
             },
             attack: null,
-            defense: null
+            defense: null,
         };
 
         for (const attr of attributeList) {
@@ -207,12 +206,12 @@ class AttributeManager {
         if (result1.result) {
             return result1;
         }
-        
+
         let result2 = this.checkCondition(input2, condition);
         if (result2.result) {
             return result2;
         }
-        
+
         return { result: false, index: -1 };
     }
 
@@ -222,10 +221,10 @@ class AttributeManager {
                 logger.debug(`[Server] 忙碌中，跳过处理`);
                 return;
             }
-    
+
             this.status = "busy"; // 锁定状态
             const items = body.undDealEquipmentDataMsg;
-    
+
             for (let i = 0; i < items.length; i++) {
                 const equipment = items[i];
                 const fightValue = equipment.fightValue; // 该装备的妖力
@@ -237,9 +236,9 @@ class AttributeManager {
                 const equipmentData = this.dbMgr.getEquipment(equipmentId);
                 const equipmentName = equipmentData.name;
                 const equipmentType = equipmentData.type - 1;
-    
+
                 let processed = await this.processEquipment(quality, fightValue, attributeList, equipmentType, id, equipmentId);
-    
+
                 if (!processed) {
                     logger.debug(`[装备] 分解 ${id} ${this.dbMgr.getEquipmentQuality(quality)} ${equipmentName}`);
                     TaskManager.instance.add(Attribute.DealEquipmentEnum_Resolve(id));
@@ -248,33 +247,55 @@ class AttributeManager {
             this.status = "idle"; // 解锁状态
         }
     }
-    
+
     async processEquipment(quality, fightValue, attributeList, equipmentType, id, equipmentId) {
         if (this.separation) {
             const rule = account.chopTree.separation;
             const attackType = attributeList.attack.type;
             const defenseType = attributeList.defense.type;
-    
+
             const { result, index } = this.checkMultipleConditions(attackType, [attackType, defenseType], rule.condition);
-    
+
             if (result) {
-                const existingAttributeList = this.processAttributes(this.equipmentData[index][equipmentType].attributeList);
-    
                 let betterAttributes = false;
+                let existingAttributeList = null;
+                let existingExist = true;
+                if (!this.equipmentData[index][equipmentType]) {
+                    betterAttributes = true;
+                    existingExist = false;
+                } else {
+                    existingAttributeList = this.processAttributes(this.equipmentData[index][equipmentType].attributeList);
+                }
+
                 if (
-                    quality >= rule.quality && 
-                    (
-                        (fightValue >= this.fightValueData[index] * (1 - rule.fightValueOffset)) ||
-                        (!rule.condition[index].includes(existingAttributeList.attack.type)) || 
-                        (parseFloat(attributeList.attack.value) >= parseFloat(existingAttributeList.attack.value) * (1 + rule.probOffset))
-                    )
+                    !betterAttributes &&
+                    quality >= rule.quality &&
+                    (fightValue >= this.fightValueData[index] * (1 - rule.fightValueOffset) ||
+                        !rule.condition[index].includes(existingAttributeList.attack.type) ||
+                        parseFloat(attributeList.attack.value) >= parseFloat(existingAttributeList.attack.value) * (1 + rule.probOffset))
                 ) {
                     betterAttributes = true;
                 }
-    
+
                 if (betterAttributes) {
-                    logger.info(`[装备] 分身${index} 原装备 ${this.dbMgr.getEquipmentQuality(this.equipmentData[index][equipmentType].quality)} ${this.dbMgr.getEquipmentName(this.equipmentData[index][equipmentType].equipmentId)} ${this.dbMgr.getAttribute(existingAttributeList.attack.type)}:${existingAttributeList.attack.value / 10} ${this.dbMgr.getAttribute(existingAttributeList.defense.type)}:${existingAttributeList.defense.value / 10}`);
-                    logger.info(`[装备] 分身${index} 新装备 ${this.dbMgr.getEquipmentQuality(quality)} ${this.dbMgr.getEquipmentName(equipmentId)} ${this.dbMgr.getAttribute(attributeList.attack.type)}:${attributeList.attack.value / 10} ${this.dbMgr.getAttribute(attributeList.defense.type)}:${attributeList.defense.value / 10}`);
+                    if (existingExist) {
+                        logger.info(
+                            `[装备] 分身${index} 原装备 ${this.dbMgr.getEquipmentQuality(
+                                this.equipmentData[index][equipmentType].quality
+                            )} ${this.dbMgr.getEquipmentName(this.equipmentData[index][equipmentType].equipmentId)} ${this.dbMgr.getAttribute(
+                                existingAttributeList.attack.type
+                            )}:${existingAttributeList.attack.value / 10} ${this.dbMgr.getAttribute(existingAttributeList.defense.type)}:${
+                                existingAttributeList.defense.value / 10
+                            }`
+                        );
+                    }
+                    logger.info(
+                        `[装备] 分身${index} 新装备 ${this.dbMgr.getEquipmentQuality(quality)} ${this.dbMgr.getEquipmentName(
+                            equipmentId
+                        )} ${this.dbMgr.getAttribute(attributeList.attack.type)}:${attributeList.attack.value / 10} ${this.dbMgr.getAttribute(
+                            attributeList.defense.type
+                        )}:${attributeList.defense.value / 10}`
+                    );
                     TaskManager.instance.add(Attribute.SwitchSeparation(index));
                     TaskManager.instance.add(Attribute.DealEquipmentEnum_EquipAndResolveOld(id));
                     TaskManager.instance.add(Attribute.FetchSeparation());
@@ -291,22 +312,22 @@ class AttributeManager {
                 logger.debug(`[Server] 忙碌中，跳过处理`);
                 return;
             }
-    
+
             this.status = "busy"; // 锁定状态
             const items = body.unDealTalentDataMsg;
-    
+
             for (let i = 0; i < items.length; i++) {
                 const talent = items[i];
 
-                const fightValue = talent.fightValue;    // 该装备的妖力
-                const quality = talent.quality;          // 该装备的品质
-                const level = talent.level;              // 该装备的等级
-                const talentId = talent.id;              // 该装备的talentId 没啥用 用于日志
-                const talentType = talent.type - 1;      // 灵脉的孔位
+                const fightValue = talent.fightValue; // 该装备的妖力
+                const quality = talent.quality; // 该装备的品质
+                const level = talent.level; // 该装备的等级
+                const talentId = talent.id; // 该装备的talentId 没啥用 用于日志
+                const talentType = talent.type - 1; // 灵脉的孔位
                 const attributeList = this.processTalentAttributes(talent.attributeData); // 使用转换后的属性列表
-    
+
                 // let processed = await this.processEquipment(quality, fightValue, attributeList, equipmentType, id, equipmentId);
-    
+
                 if (!processed) {
                     logger.debug(`[装备] 分解 ${this.dbMgr.getEquipmentQuality(quality)} ${this.dbMgr.getEquipmentName(`Talent_Name-${talentId}`)}`);
                     TaskManager.instance.add(Attribute.DealTalentEnum_Resolve());
@@ -358,16 +379,16 @@ class AttributeManager {
 
         if (remainingTimes > 0) {
             logger.debug(`[Server] [树自动加速] [剩余次数: ${remainingTimes}]`);
-        
+
             let jobTime;
-        
-            // 如果距离上次加速时间超过30分钟，则立即加速
-            if (now - freeSpeedUpCdEndTime >= intervalInMinutes) {
+
+            // 如果距离上次加速时间超过30分钟，则立即加速 或者 为当天第一次加速
+            if (now - freeSpeedUpCdEndTime >= intervalInMinutes || freeSpeedUpTimes === 0) {
                 jobTime = 0; // 立即执行
             } else {
-                jobTime = (freeSpeedUpCdEndTime + intervalInMinutes) - now;
+                jobTime = freeSpeedUpCdEndTime + intervalInMinutes - now;
             }
-        
+
             setTimeout(async () => {
                 logger.debug(`[Server] [树自动加速] [启动自动加速任务，剩余次数: ${remainingTimes}]`);
                 await TaskManager.instance.add(Attribute.SpeedUpTreeUpgradeReq(intervalInMinutes, remainingTimes));
@@ -398,7 +419,7 @@ class AttributeManager {
                 setTimeout(chopTreeTask, 1000); // 每秒钟执行一次
             }
         };
-    
+
         if (account.switch.chopTree) {
             if (this.chopTreeJob) {
                 clearTimeout(this.chopTreeJob);
@@ -433,7 +454,7 @@ class AttributeManager {
                 setTimeout(talentReqTask, 1000); // 每秒钟执行一次
             }
         };
-    
+
         if (account.switch.talent) {
             if (this.talentReqJob) {
                 clearTimeout(this.talentReqJob);

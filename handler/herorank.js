@@ -46,6 +46,7 @@ class HerorankManager {
     }
 
     handlerFightList(body) {
+        logger.debug(`[群英镑] 收到群英镑列表${JSON.stringify(body, null, 2)}`);
         if (body.ret === 0) {
             if (body.rank === 1) {
                 logger.info("[群英镑] 当前排名第一, 不需要再打了");
@@ -53,17 +54,21 @@ class HerorankManager {
             }
             // 找到第一个玩家 打败他
             const player = this.findFirstHeroRankPlayer(body);
+            if (player) logger.info(`[群英镑] 找到玩家 ${player.showInfo.nickName} 准备攻击...`);
             TaskManager.instance.add(Herorank.S_HERORANK_FIGHT(player.rank, player.masterId, player.masterLv, player.showInfo.appearanceId, player.showInfo.equipCloudId));
         }
     }
 
     // 处理群英镑战斗 赢了就接着打
     handlerFight(body) {
+        logger.info(`[群英镑] 收到群英镑战斗结果${JSON.stringify(body, null, 2)}`);
         if (body.ret === 0) {
             this.energy = body.playerInfo.energy;
             if (body.allBattleRecord.isWin) {
                 logger.info("[群英镑] 战斗胜利, 再次请求列表...");
-                TaskManager.instance.add(Herorank.S_HERORANK_GET_FIGHT_LIST());
+                new Promise((resolve) => setTimeout(resolve, 2000)).then(() => {
+                    TaskManager.instance.add(Herorank.S_HERORANK_GET_FIGHT_LIST());
+                });
             }
         }
     }

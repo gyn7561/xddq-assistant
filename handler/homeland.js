@@ -39,6 +39,10 @@ class Homeland {
     static Manage(interval) {
         return new RepeatedTask("DoHomelandManage", 21053, {}, interval); // Add do in the name to prevent being killed by stopAllTasks
     }
+
+    static ADReward() {
+        return new ImmediateTask("HomelandADReward", 21055, { type: 1, position: -1, itemId: 0, isUseADTime: false });
+    }
 }
 
 class HomelandManager {
@@ -154,13 +158,13 @@ class HomelandManager {
     
         body.reward.forEach((i) => {
             const finishTime = new Date(parseInt(i.finishTime));
-    
-            const isOverTwoHours = (currentTime - finishTime) > 2 * 60 * 60 * 1000;
-    
+            const isOverTwoHours = (finishTime - currentTime) > 2 * 60 * 60 * 1000;
             if ((this.tempData.worker.energy > 30) && isOverTwoHours) { // 体力超过30且 & 任务完成超过2小时, 撤回并重新派遣
                 logger.info(`[福地] ${i.playerId.toString()}位置${i.pos}的任务已完成或超过2小时, 撤回并重新派遣!`);
                 TaskManager.instance.add(Homeland.Reset(i.playerId, i.pos));
-                TaskManager.instance.add(Homeland.Steal(i.playerId, i.pos, 1));
+                new Promise((resolve) => setTimeout(resolve, 1000)).then(() => {
+                    TaskManager.instance.add(Homeland.Steal(i.playerId, i.pos, 1));
+                });
             } else if (i.enemy && i.enemy.playerId.toString() == playerId) {
                 if (!i.enemy.isWinner) {
                     logger.info(`[福地] ${i.playerId.toString()}位置${i.pos}的老鼠必赢, 撤走自己的老鼠!`);
@@ -214,6 +218,15 @@ class HomelandManager {
             if (result.length > 0) {
                 this.tempData.itemsMyself = result;
                 this.doCheckAndSteal(true);
+            } else {
+                const freeRefreshCount = body.homeland.freeRefreshCount;
+                if (freeRefreshCount < 2) {
+                    logger.info(`[福地] [自己] 可以刷新 ${2 - freeRefreshCount} 次`);
+                    if (this.tempData.worker.energy >= 30 && this.tempData.worker.free > 0) {
+                        logger.info(`[福地] [自己] 广告刷新福地!`);
+                        TaskManager.instance.add(Homeland.ADReward());
+                    }
+                }
             }
         } else {
             if (this.tempData.player.near.includes(enter.id.toString())) {
@@ -313,17 +326,21 @@ class HomelandManager {
         return { near, enemy };
     }
 
-    isIllegal(reward) {
-        return reward.reward.indexOf("=") == -1 || reward.reward == -1 || reward.owner || reward.enemy || reward.isOnlyOwnerPull;
+    isIllegal(reward, playerId) {
+        if (playerId === global.playerId.toString()) {
+            return reward.reward.indexOf("=") == -1 || reward.reward == -1 || reward.owner || reward.enemy;
+        } else {
+            return reward.reward.indexOf("=") == -1 || reward.reward == -1 || reward.owner || reward.enemy || reward.isOnlyOwnerPull;
+        }
     }
-
+    
     convertEnterData(data) {
         const playerId = data.homeland.owner.playerId.toString();
         const nickName = data.homeland.owner.nickName;
         const rewards = data.homeland.reward;
         const result = { id: playerId, name: nickName, items: [] };
         rewards.forEach((reward) => {
-            if (this.isIllegal(reward)) {
+            if (this.isIllegal(reward, playerId)) {
                 result.items.push(null);
             } else {
                 const id = reward.reward.split("=")[0];
