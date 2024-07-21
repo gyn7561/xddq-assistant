@@ -1,0 +1,362 @@
+package com.yq.msg.CityMsg;
+import "WatchPlayer";
+import "Rank";
+import "Union";        
+import "WatchPlayer";
+message BallGVGActivityDataTemp {
+  required int32 activityId = 1;                  
+  required int32 campId = 2;                      
+  required int32 state = 3;                      
+  optional int32 endNum = 4;       
+  optional int32 position = 5;     
+}
+message BallGVGUserDataTemp {
+  required int32 activityId = 1;                  
+  required BallGVGUserPropertyTemp property = 2;  
+  required int32 campId = 3;                      
+  required int32 placeId = 4;                     
+  required int64 transferTime = 5;                
+  required int64 attackTime = 6;                  
+  required int64 reviveTime = 7;                  
+}
+message BallGVGOtherUserTemp {
+  required int32 campId = 1;                      
+  required PlayerCharacterImageMsg playerData = 2;    
+  required BallGVGUserPropertyTemp property = 3;  
+  required int32 placeId = 4;                     
+  required BallGVGPositionTemp position = 5;   
+  required int64 reviveTime = 6;                  
+}
+message BallGVGUserDetailTemp {
+  required PlayerCharacterImageMsg user = 1;    
+  required int64 playerId = 2;                      
+  required BallGVGUserPropertyTemp property = 3;  
+}
+message BallGVGSimpleUserTemp {
+  required int64 playerId = 1;                 
+  required BallGVGPositionTemp position = 2;   
+}
+message BallGVGUserPropertyTemp {
+  required int64 totalHp = 1;           
+  required int64 hp = 2;                
+  required int64 fightValue = 3;        
+  required int32 realmsId = 4;          
+  required int32 attackSpeed = 5;       
+}
+message BallGVGAttrInfoTemp {
+  required int32 attrId = 1;            
+  required int64 attrValue = 2;         
+}
+message BallGVGCampTemp {
+  required int32 campId = 1;            
+  optional BallGVGUserDetailTemp majorUser = 2;    
+  optional int32 majorPlaceId = 4;      
+  optional int64 majorMarkTime = 6;          
+  optional int64 appointTime = 8;          
+}
+message BallGVGPositionTemp {
+  required string x = 1;                 
+  required string y = 2;                 
+  required string dirX = 3;              
+  required string dirY = 4;              
+  required int64 time = 5;               
+}
+message BallGVGPlaceDataTemp {
+  required int32 placeId = 1;                     
+  repeated BallGVGOtherUserTemp user = 2;      
+  required int64 seizeTime = 3;                   
+  required int32 campId = 4;                      
+}
+message BallGVGPlaceSeizeInfoTemp {
+  required int32 campId = 1;                      
+  required int32 seizeTime = 2;                   
+  required int32 num = 3;                         
+}
+message BallGVGCampScoreTemp {
+  required int32 campId = 1;                      
+  required int64 score = 2;                       
+  required int32 rank = 3;                       
+  required int64 totalScore = 4;                  
+  required int32 totalRank = 5;                  
+}
+message BallGVGCampScoreSyncTemp {
+  required int32 campId = 1;                      
+  required int64 score = 2;                       
+}
+message BallGVGPlaceConfigTemp {
+  required int32 activityId = 1;            
+  required int32 id = 2;                    
+  required int32 type = 3;                  
+  required string name = 4;                 
+  required int32 level = 5;                 
+  required int32 radius = 6;                
+  required int32 seizeScore = 7;            
+  required int32 seizeProduce = 8;          
+}
+message BallGVGPlaceSimpleTemp {
+  required int32 placeId = 1;        
+  required int32 seizeCampId = 2;   
+  repeated BallGVGPlaceCampMemberTemp campMember = 3;
+}
+message BallGVGPlaceCampMemberTemp {
+  required int32 campId = 1;      
+  required int32 num = 2;         
+}
+message BallGVGBestPerformanceTemp {
+  optional BallGVGBattleScoreUserTemp kill = 1;    
+  optional BallGVGBattleScoreUserTemp seize = 2;   
+}
+message BallGVGBattleScoreUserTemp {
+  required int64 playerId = 1;                      
+  required PlayerCharacterImageMsg user = 2;            
+  required BallGVGBattleScoreTemp score = 3;   
+  required int32 campId = 4;                      
+}
+message BallGVGBattleScoreTemp {
+  required int32 kill = 1;      
+  required int64 killScore = 2; 
+  required int32 seize = 3;     
+  required int64 seizeScore = 4;
+}
+message BallGVGEndDataTemp {
+  required BallGVGBattleScoreTemp battleScore = 1;               
+  repeated BallGVGCampScoreTemp campScore = 2;                      
+  required BallGVGBestPerformanceTemp bestPerformance = 3;       
+  required BallGVGBestPerformanceTemp campBestPerformance = 4;   
+  required int64 score = 5;             
+  required int32 rank = 6;              
+}
+message BallGVGUnionNameListReqMsg {
+  required int32 activityId = 1;                  
+}
+message BallGVGUnionNameListRespMsg {
+  required int32 ret = 1;
+  repeated string unionName = 2;
+}
+message BallGVGApplicationReqMsg {
+  required int32 activityId = 1;                  
+}
+message BallGVGApplicationRespMsg {
+  required int32 ret = 1;
+}
+message BallGVGAbilityRankNumReqMsg {
+  required int32 activityId = 1;                  
+}
+message BallGVGAbilityRankNumRespMsg {
+  required int32 ret = 1;
+  optional int32 myRank = 2;    
+}
+message BallGVGEnterActivityReqMsg {
+  required int32 activityId = 1;
+}
+message BallGVGEnterActivityRespMsg {
+  required int32 ret = 1;
+  optional BallGVGUserDataTemp userData = 2;          
+  optional BallGVGCampTemp camp = 3;                  
+  optional BallGVGPlaceDataTemp placeData = 4;        
+  repeated BallGVGCampScoreSyncTemp score = 5;            
+  optional BallGVGNoticeListMsg noticeList = 6;       
+  optional int32 minLv = 7;                           
+  optional int32 maxLv = 8;                           
+}
+message BallGVGEnterPlaceReqMsg {
+  required int32 activityId = 1;                          
+  required int32 placeId = 2;                             
+}
+message BallGVGEnterPlaceRespMsg {
+  required int32 ret = 1;
+  optional BallGVGPlaceDataTemp placeData = 2;    
+  optional int32 placeId = 3;                     
+  optional int64 transferTime = 4;                
+}
+message BallGVGLeavePlaceReqMsg {
+  required int32 activityId = 1;                          
+}
+message BallGVGLeavePlaceRespMsg {
+  required int32 ret = 1;
+}
+message BallGVGMoveReqMsg {
+  required int32 activityId = 1;                         
+  required BallGVGPositionTemp position = 2;             
+}
+message BallGVGMoveRespMsg {
+  required int32 ret = 1;
+}
+message BallGVGAttackReqMsg {
+  required int32 activityId = 1;                  
+  required int64 attackPlayerId = 2;              
+}
+message BallGVGAttackRespMsg {
+  required int32 ret = 1;
+  optional int64 attackTime = 2;                            
+  optional BallGVGAttackedTemp attack = 3;                  
+  optional int64 attackScore = 4;                           
+  optional BallGVGUserDataTemp userData = 5;                
+  optional BallGVGBattleScoreResultTemp scoreResult = 6;    
+}
+message BallGVGAppointMajorUserReqMsg {
+  required int32 activityId = 1;                  
+  required int64 majorPlayerId = 2;               
+}
+message BallGVGAppointMajorUserRespMsg {
+  required int32 ret = 1;
+  optional int64 majorPlayerId = 2;      
+}
+message BallGVGMarkPlaceReqMsg {
+  required int32 activityId = 1;                  
+  required int32 placeId = 2;                     
+}
+message BallGVGMarkPlaceRespMsg {
+  required int32 ret = 1;
+}
+message BallGVGLeaveActivityReqMsg {
+  required int32 activityId = 1;                  
+}
+message BallGVGLeaveActivityRespMsg {
+  required int32 ret = 1;
+}
+message BallGVGGetPlaceInfoReqMsg {
+  required int32 activityId = 1;                  
+}
+message BallGVGGetPlaceInfoRespMsg {
+  required int32 ret = 1;
+  repeated BallGVGPlaceSimpleTemp place = 2; 
+}
+message BallGVGGetUserRankReqMsg {
+  required int32 activityId = 1;                  
+  required int32 campId = 2;                      
+}
+message BallGVGGetUserRankRespMsg {
+  required int32 ret = 1;
+  repeated BallGVGUserRankMsg rank = 2;                   
+  required int64 myFightValue = 3;
+  optional int64 myValue = 4;
+  optional int64 myRank = 5;                              
+}
+message BallGVGUserRankList {
+  repeated BallGVGUserRankMsg rankTemp = 1;
+}
+message BallGVGUserRankMsg {
+  required int64 playerId = 1;
+  required PlayerCharacterImageMsg playerBaseData = 2;
+  required int64 value = 3;       
+  required int32 campId = 4;
+  required int64 fightValue = 5;
+}
+message BallGVGUnionRankList {
+  repeated BallGVGUnionRankMsg rankTemp = 1;
+}
+message BallGVGUnionRankMsg {
+  optional OtherUnionData baseData = 1;            
+  required int64 value = 2;   
+  optional int32 campId = 3;
+}
+message BallGVGCampRankList {
+  repeated BallGVGCampRankMsg rankTemp = 1;
+}
+message BallGVGCampRankMsg {
+  required int32 campId = 1;
+  required int64 value = 2;
+}
+message BallGVGGetUnionUserListReqMsg {
+  required int32 activityId = 1;                
+  required int64 serverId = 2;                  
+  required int64 unionId = 3;                   
+}
+message BallGVGGetUnionUserListRespMsg {
+  required int32 ret = 1;
+  repeated BallGVGUnionMemberScore unionMemberScoreList = 2;
+}
+message BallGVGUnionMemberScore{
+  optional int64 playerId = 1;
+  optional string memberName = 2;
+  optional int32 score = 3;
+}
+message BallGVGConfigSyncMsg {
+  repeated BallGVGPlaceConfigTemp placeConfig = 1;     
+}
+message BallGVGAttackedSyncMsg {
+  repeated BallGVGAttackedTemp attack = 1;
+}
+message BallGVGAttackedTemp {
+  optional int64 attackPlayerId = 1;                        
+  optional int64 attackedPlayerId = 2;                      
+  optional bool isShun = 3;                               
+  optional int64 attackHp = 4;                            
+  optional int64 attackedHp = 5;                          
+  repeated BallGVGOneAttackedTemp atkTempList = 6;        
+}
+message BallGVGOneAttackedTemp{
+  optional int64 damage = 1;                              
+  optional int64 suckHp = 2;                              
+  optional bool isDodge = 3;                              
+  optional bool isCrit = 4;                               
+  optional int64 backDamge = 5;                           
+}
+message BallGVGCampScoreSyncMsg {
+  repeated BallGVGCampScoreSyncTemp campScore = 1;            
+}
+message BallGVGPlaceSyncMsg {
+  repeated BallGVGSimpleUserTemp user = 1;
+}
+message BallGVGNoticeListMsg {
+  repeated BallGVGNoticeTemp notice = 1;      
+  repeated BallGVGNoticeTemp campNotice = 2;  
+}
+message BallGVGNoticeTemp {
+  optional BallGVGNoticeUserTemp user1 = 1;   
+  optional BallGVGNoticeUserTemp user2 = 2;   
+  optional int32 campId = 3;                  
+  optional int32 noticeType = 4;              
+  optional string content = 5;                
+  optional int64 noticeTime = 6;              
+  optional int32 isRoll = 7;                  
+}
+message BallGVGNoticeUserTemp {
+  optional string nickName = 1;               
+  optional int32 realmsId  = 2;               
+  optional PlayerHeadDataMsg headInfo = 3;             
+}
+message BallGVGNoticeSyncMsg {
+  optional BallGVGNoticeTemp notice = 1;      
+  optional BallGVGNoticeTemp campNotice = 2;  
+}
+message BallGVGCampSyncMsg {
+  required BallGVGCampTemp camp = 1;      
+}
+message BallGVGAttackedUserSyncMsg {
+  required BallGVGOtherUserTemp attackUserData = 1;    
+  optional BallGVGAttackedTemp attack = 2;                
+  optional int64 attackTime = 3;                          
+  required BallGVGUserDataTemp userData = 4;        
+  optional BallGVGBattleScoreResultTemp scoreResult = 5;  
+}
+message BallGVGBattleScoreResultTemp {
+  optional BallGVGBattleScoreTemp battleScore = 1;     
+  optional BallGVGBattleScoreTemp TotalBattleScore = 2;
+}
+message BallGVGPlaceSeizeSyncMsg {
+  required int32 placeId = 1;                     
+  repeated BallGVGPlaceSeizeInfoTemp seize = 2;
+  required int64 beginTime = 3;                   
+  required int32 seizeCampId = 4;                 
+  required int64 seizeTime = 5;                   
+  required int32 campId = 6;                      
+}
+message BallGVGEnterPlaceSync {
+  required BallGVGOtherUserTemp user = 1;  
+}
+message BallGVGLeavePlaceSync {
+  required int64 playerId = 1;  
+  required int32 type = 2;  
+}
+message BallGVGAbilityRankReqMsg {
+  required int32 activityId = 1;                  
+}
+message BallGVGAbilityRankRespMsg {
+  required int32 ret = 1;
+  optional RankMsg rankMsg = 2;
+}
+message BallGVGEndDataSyncMsg {
+  required BallGVGEndDataTemp endData = 1;
+}

@@ -1,0 +1,244 @@
+package com.yq.msg.CityMsg; 
+import "Union";
+import "Battle";
+import "WatchPlayer";
+enum UnionFightPb{
+    UnionFightPb_Null = 0;
+    UnionFightPb_Main = 206701;                        
+    UnionFightPb_Apply = 206702;                       
+    UnionFightPb_Enter = 206703;                       
+    UnionFightPb_Request = 206704;                     
+    UnionFightPb_Position = 206705;                    
+    UnionFightPb_UnPosition = 206706;                  
+    UnionFightPb_Group_Rank = 206707;                  
+    UnionFightPb_Leave = 206708;                       
+    UnionFightPb_Supremacy_List = 206709;              
+    UnionFightPb_Worship = 206710;                     
+    UnionFightPb_Play_Back = 206711;                   
+    UnionFightPb_Battle_Record = 206712;               
+    UnionFightPb_History_Data = 206713;                
+    UnionFightPb_Get_Locked_Detail = 206714;           
+    UnionFightPb_Change_Lock_Status = 206715;          
+    UnionFightPb_Get_ToDay_Result = 206716;            
+    UnionFightPb_Get_Union_Rank_List = 206717;         
+    UnionFightPb_CrossToGame_Apply = 206720;                      
+    UnionFightPb_CrossToGame_Prepare_Data_Sync = 206721;          
+    UnionFightPb_CrossToGame_Send_Reward = 206722;                
+    UnionFightPb_CrossToGame_Login_Sync_Data = 206723;            
+    UnionFightPb_CrossToGame_Dan_Sync_Data = 206724;              
+    UnionFightPb_CrossToGame_Get_Union_List = 206725;             
+    UnionFightPb_CrossToGame_Worship = 206726;                    
+    UnionFightPb_CrossToGame_Sync_Union_Data = 206727;              
+    UnionFightPb_Login_Sync = 206730;                  
+}
+message UnionFightMainReq {
+    required int64 unionId = 1;
+}
+message UnionFightMainRsp {
+    required int32 ret = 1;
+    optional int32 lastWeekActive = 2; 
+    optional int32 unionRank = 3; 
+}
+message UnionFightApplyReq {
+    required int64 unionId = 1;
+}
+message UnionFightApplyRsp {
+    required int32 ret = 1;
+}
+message UnionFightApplyDataSync {
+    optional bool isApply = 1; 
+    optional bool hasQuality = 2; 
+    optional bool isRequest = 3; 
+    optional int32 lastWeekDan = 4;
+    optional int32 lastWeekStar = 5;
+    optional int32 lastWeekRank = 6;
+    optional bool needRedPoint = 7; 
+    optional int32 energy = 8; 
+    optional bool  isOpen = 9; 
+    optional bool  needShow = 10; 
+    optional bool  canWorship = 11; 
+}
+message UnionFightEnterReq {
+    required int64 unionId = 1;
+    required int32 type = 2;
+}
+message UnionFightEnterRsp {
+    required int32 ret = 1;
+    optional int32 rank = 2; 
+    optional int64 integral = 3; 
+    optional OtherUnionData otherUnionData = 4; 
+    optional OtherUnionData  myUnionData = 5; 
+    repeated UnionFightMemberData myMemberListData = 6; 
+    repeated UnionFightMemberData otherMemberListData = 7; 
+    optional int32 isSuccess = 8; 
+    optional int32 lastWeekDan = 9;
+}
+message UnionFightLeaveReq {
+}
+message UnionFightRequestReq {
+    required int64 unionId = 1;
+}
+message UnionFightRequestRsp {
+    required int32 ret = 1;
+}
+message UnionFightPositionReq {
+    required int32 position = 1; 
+    required int64 playerId = 2; 
+    required int64 unionId = 3;
+}
+message UnionFightPositionRsp {
+    required int32 ret = 1;
+}
+message UnionFightUnPositionReq {
+    required int64 unionId = 1;
+    required int64 playerId = 2; 
+    required int32 position = 3; 
+}
+message UnionFightUnPositionRsp {
+    required int32 ret = 1;
+}
+message UnionFightGroupRankReq {
+    required int64 unionId = 1;
+}
+message UnionFightGroupRankRsp {
+    required int32 ret = 1;
+    repeated UnionFightGroupData unionDataList = 2; 
+    optional UnionFightGroupData myUnionData = 3; 
+}
+message UnionFightPrepareDataSync {
+    repeated UnionFightMemberData myMemberListData = 1; 
+    repeated UnionFightMemberData otherMemberListData = 2; 
+}
+message UnionFightMemberData {
+    required int32 position = 1; 
+    optional int32 energy = 2; 
+    optional PlayerBaseDataMsg playerData = 3;      
+    optional int32 outcome = 4; 
+    optional bool isRequest = 5; 
+}
+message UnionFightGroupData {
+    optional OtherUnionData UnionData = 1; 
+    optional int64 integral = 2; 
+    optional int32 rank = 3; 
+    optional int32 relegation = 4; 
+}
+message UnionFightFightPlaybackReq {
+    required int32 position = 1; 
+    optional int32 SessionId = 2; 
+    optional int64 unionId = 3;
+}
+message UnionFightFightPlaybackRsp {
+    required int32 ret = 1;
+    repeated BattleRecordMsg battleRecordMsg = 2; 
+    optional bool isLeft = 3;
+}
+message UnionFightSupremacyListReq {
+    required int64 unionId = 1;
+}
+message UnionFightSupremacyListRsp {
+    required int32 ret = 1;
+    repeated UnionFightSupremacyData unionDataList = 2; 
+    optional UnionFightSupremacyData myUnionData = 3; 
+    optional bool worship = 4; 
+    optional int32 firstNum = 5; 
+}
+message UnionFightSupremacyData {
+    optional OtherUnionData UnionData = 1; 
+    optional int64 integral = 2; 
+    optional int32 rank = 3; 
+}
+message UnionFightWorshipReq {
+    required int64 unionId = 1;
+}
+message UnionFightWorshipRsp {
+    required int32 ret = 1;
+    optional string reward = 2; 
+    optional UnionFightWorshipShowMsg playerShowData = 3;
+    optional UnionFightSupremacyData playerUnionData = 4; 
+    optional int32 firstNum = 5; 
+}
+message UnionFightWorshipShowMsg{
+    required int64 playerId = 1;
+    required int64 serverId = 2;
+    required string nickName = 3;
+    repeated int32 pet = 4;
+    repeated int32 spirit = 5;
+    optional int32 appearanceId = 6; 
+    optional int32 equipCloudId = 7; 
+    optional int32 realmsId = 8;  
+    optional int64 time = 9;
+    optional int32 rank = 10;
+    optional int32 headIcon = 11; 
+    optional string wxHeadUrl = 12; 
+    optional PlayerHeadDataMsg headInfo = 13;
+    repeated int32 petSoulShapeList = 14; 
+    optional int32 titleId = 15; 
+    repeated int32 petLinkageId = 16; 
+    repeated int32 spiritLinkageId = 17; 
+}
+message UnionFightRecordReq {
+    required int32 sessionId = 1; 
+    required int64 unionId = 2;
+}
+message UnionFightRecordRsp {
+    required int32 ret = 1;
+    repeated UnionFightRecordData recordData = 2; 
+}
+message UnionFightRecordData {
+    optional OtherUnionData leftUnionData = 1; 
+    optional OtherUnionData rightUnionData = 2; 
+    repeated UnionFightMemberData leftMemberListData = 3; 
+    repeated UnionFightMemberData rightMemberListData = 4; 
+    optional int32 isSuccess = 5; 
+    optional UnionFightDanMsg leftDanData = 6;
+    optional UnionFightDanMsg rightDanData = 7;
+    optional bool needShow = 8;
+}
+message UnionFightDanMsg {
+    optional int32 lastWeekDan = 1;
+    optional int32 lastWeekStar = 2;
+}
+message UnionFightGetHistoryDataReq {
+    optional int64 unionId = 1;
+}
+message UnionFightGetHistoryDataRsp {
+    optional int32 historyMaxDan = 1;
+    optional int32 historyMaxStar = 2;
+    optional int32 ret = 3;
+}
+enum UnionFightLockType{
+    UnionFightLockType_Lock = 1;
+    UnionFightLockType_UnLock = 2;
+}
+message UnionFightChangeLockStatusReq {
+    optional UnionFightLockType type = 1;
+}
+message UnionFightChangeLockStatusRsp {
+    required int32 ret = 1;
+}
+message UnionFightGetLockedDetailReq {
+    optional int32 justGetLock = 1;
+}
+message UnionFightGetLockedDetailRsp {
+    optional int32 ret = 1;
+    optional bool isLock = 2;
+    optional PlayerDetailDataMsg playerDetail = 3;
+}
+message UnionFightGetTodayResultReq {
+}
+message UnionFightGetTodayResultRsp {
+    optional int32 ret = 1;
+    optional OtherUnionData myUnionData = 2; 
+    optional OtherUnionData otherUnionData = 3; 
+    optional int32 myWinScore = 4;
+    optional int32 otherWinScore = 5;
+    optional int32 dan = 6;
+}
+message UnionFightGetUnionRankListReq {
+    required int64 unionId = 1;
+}
+message UnionFightGetUnionRankListRsp {
+    required int32 ret = 1;
+    repeated UnionFightGroupData unionDataList = 2; 
+    optional UnionFightGroupData myUnionData = 3; 
+}

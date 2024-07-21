@@ -1,0 +1,28 @@
+package com.yq.msg.CityMsg;
+message EquipmentAdvanceDataMsg {
+    repeated int32 refineLvList = 1;     
+    optional int32 curType = 2;          
+    optional int32 unlockSkillRange = 3; 
+    optional int32 advanceLv = 4;        
+}
+message ReqEquipmentRefine{
+    optional bool isOneKey = 1; 
+}
+message RespEquipmentRefine{
+    required int32 ret = 1;
+    optional int32 curType = 2;
+    repeated int32 refineLvList = 3;
+}
+message ReqEquipmentAdvance{
+}
+message RespEquipmentAdvance{
+    required int32 ret = 1;
+    optional int32 curType = 2;
+    optional int32 advanceLv = 3;
+}
+message ReqEquipmentActivate{
+}
+message RespEquipmentActivate{
+    required int32 ret = 1;
+    optional int32 unlockSkillRange = 2;
+}

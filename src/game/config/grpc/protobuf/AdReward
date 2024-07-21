@@ -1,0 +1,12 @@
+package com.yq.msg.CityMsg;        
+message PlayerAdRewardDataMsg {
+    optional int64 lastAdRewardTime = 1;
+    optional int32 getAdRewardTimes = 2;
+}
+message GetAdRewardReq {
+    optional bool isUseADTime = 4;
+}
+message GetAdRewardResp {
+    required int32 ret = 1;
+    optional string reward = 2;
+}

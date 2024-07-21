@@ -1,0 +1,56 @@
+package com.yq.msg.CityMsg;
+import "Attribute";      
+    message TalentPlayerDataMsg {
+        repeated TalentDataMsg talentData = 1; 
+        required int32 talentCreateLevel = 2; 
+        required int32 exp = 3; 
+        repeated UnDealTalentDataMsg unDealTalentData = 4; 
+        required int32 readBookTimes = 5; 
+    }
+    message TalentDataMsg {
+        required int32 type = 1; 
+        required int32 talentId = 2; 
+        required int32 level = 3; 
+        required int32 quality = 4; 
+        repeated AttributeDataMsg attributeData = 5; 
+        optional int32 skillId = 6; 
+    }
+    message UnDealTalentDataMsg {
+        required TalentDataMsg talentData = 1; 
+        repeated AttributeDataMsg playerAttributeData = 2; 
+        required int64 fightValue = 3; 
+    }
+    message DealTalentReq {
+        optional int32 index = 1; 
+        optional int32 type = 2; 
+        repeated DealTalentData dealData = 3;
+    }
+    message DealTalentData {
+        required int32 index = 1; 
+        required int32 type = 2; 
+    }
+    message DealTalentResp {
+        optional int32 ret = 1;
+        optional string reward = 2; 
+        optional TalentPlayerDataMsg talentPlayerData = 3; 
+    }
+    message ReadBookReq {
+        required int32 readTimes = 1; 
+    }
+    message ReadBookResp {
+        required int32 ret = 1;
+        required int32 readBookTimes = 2; 
+    }
+    message RandomTalentReq {
+        required int32 randomTimes = 1;
+    }
+    message RandomTalentResp {
+        required int32 ret = 1;
+        repeated UnDealTalentDataMsg unDealTalentData = 2;
+    }
+    message GetUnDealTalentMsgReq {
+    }
+    message GetUnDealTalentMsgResp {
+        required int32 ret = 1;
+        repeated UnDealTalentDataMsg unDealTalentDataMsg = 2;
+    }

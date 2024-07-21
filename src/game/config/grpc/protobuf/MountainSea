@@ -1,0 +1,441 @@
+package com.yq.msg.CityMsg;    
+import "WatchPlayer";
+import "Palace";
+import "Battle";
+enum MountainSeaPb {
+    MOUNTAIN_SEA_NULL = 0;
+    MOUNTAIN_SEA_ENTER = 209701;                    
+    MOUNTAIN_SEA_ENTER_TEAM = 209702;               
+    MOUNTAIN_SEA_TEAM_START = 209703;               
+    MOUNTAIN_SEA_CREATE_TEAM = 209704;              
+    MOUNTAIN_SEA_GET_TEAM_LIST = 209705;            
+    MOUNTAIN_SEA_GET_TEAM_INFO = 209706;            
+    MOUNTAIN_SEA_CANCEL_TEAM_APPLY = 209708;        
+    MOUNTAIN_SEA_APPLY_JOIN_TEAM_AGREE = 209709;    
+    MOUNTAIN_SEA_APPLY_JOIN_TEAM_REFUSED = 209710;  
+    MOUNTAIN_SEA_QUIT_TEAM = 209711;                
+    MOUNTAIN_SEA_KICK_OUT_TEAM = 209712;            
+    MOUNTAIN_SEA_CHANGE_LEADER = 209713;            
+    MOUNTAIN_SEA_TEAM_PREPARE = 209714;             
+    MOUNTAIN_SEA_MATCH_MEMBER = 209715;             
+    MOUNTAIN_SEA_START_BATTLE = 209716;             
+    MOUNTAIN_SEA_RANK_PLAYER_INFO = 209717;                
+    MOUNTAIN_SEA_WORSHIP = 209718;                  
+    MOUNTAIN_SEA_GET_BATTLE_REPLAY = 209719;        
+    MOUNTAIN_SEA_GET_BOSS_INFO = 209720;            
+    MOUNTAIN_SEA_START_MATCH = 209722;              
+    MOUNTAIN_SEA_INVITE = 209723;                   
+    MOUNTAIN_SEA_LEAVE = 209724;                    
+    MOUNTAIN_SEA_GET_BOSS_POWER = 209725;                    
+    MOUNTAIN_SEA_TEAM_LEADER_NOTIFY = 209731;       
+    MOUNTAIN_SEA_TEAM_MEMBER_NOTIFY = 209732;       
+    MOUNTAIN_SEA_WORSHIP_CROSS = 209733;            
+    MOUNTAIN_SEA_INVITE_CROSS = 209734;             
+    MOUNTAIN_SEA_MATCH_MEMBER_CROSS = 209735;       
+    MOUNTAIN_SEA_ENTER_BATTLE = 209750;             
+    MOUNTAIN_SEA_ENTER_SWITCH_SEPARATION = 209752;  
+    MOUNTAIN_SEA_SWITCH_SEPARATION = 209753;        
+    MOUNTAIN_SEA_SEPARATION_DETAIL = 209754;        
+    MOUNTAIN_SEA_CHANGE_POS = 209755;        		
+    MOUNTAIN_SEA_CHANGE_TEAM_SKILL = 209756;        
+    MOUNTAIN_SEA_DO_BATTLE = 209757;                
+    MOUNTAIN_SEA_ENTER_SWITCH_SEPARATION_CROSS = 209762;    
+    MOUNTAIN_SEA_CHANGE_TEAM_SKILL_CROSS = 209763;    
+    MOUNTAIN_SEA_CHANGE_POS_CROSS = 209764;    
+    MOUNTAIN_SEA_DO_BATTLE_CROSS = 209765;    
+    MOUNTAIN_SEA_SWITCH_SEPARATION_CROSS = 209766;    
+    MOUNTAIN_SEA_ENTER_BATTLE_NOTIFY = 209770;      
+    MOUNTAIN_SEA_SWITCH_SEPARATION_NOTIFY = 209771; 
+    MOUNTAIN_SEA_CHANGE_TEAM_SKILL_NOTIFY = 209772; 
+    MOUNTAIN_SEA_DO_BATTLE_NOTIFY = 209773;         
+    MOUNTAIN_SEA_CHANGE_POS_NOTIFY = 209774;         
+    MOUNTAIN_SEA_ENTER_BATTLE_CROSS = 209780;        
+    MOUNTAIN_SEA_START_BATTLE_LOCK_CROSS = 209781;   
+    MOUNTAIN_SEA_START_BATTLE_CROSS = 209782;        
+    MOUNTAIN_SEA_INVITE_LIST = 209783;              
+    MOUNTAIN_SEA_RED_INFO = 209784;                 
+    MOUNTAIN_SEA_INVITE_REFUSE = 209785;            
+    MOUNTAIN_SEA_SEARCH_SET_APPOINT = 209786;       
+    MOUNTAIN_SEA_INVITE_JOIN_TEAM = 209787;         
+}
+message EnterMountainSeaReq{
+    optional int32 realmsId = 1;
+}
+message EnterMountainSeaRsp{
+    required int32 ret = 1;
+    optional int64 userId = 2;
+    optional int64 teamId = 3;
+    optional int32 memberNum = 4;
+    optional int32 challengeTimes = 5;
+    optional int32 assistanceTimes = 6;
+    optional int32 realmsId = 7; 
+    optional int32 maxBossId = 8; 
+    optional int32 myRealmsId = 9; 
+    optional int32 myMaxBossId = 10; 
+    optional bool canWorship = 11;
+    optional MountainSeaTeamMemberNotify teamMemberNotify = 12;        
+    optional bool redPoint = 13;           
+    optional int32 teamState = 14;          
+    repeated int64 serverId = 15; 
+    optional bool inviteRedPoint = 16;           
+}
+message LeaveMountainSeaReq{
+}
+message LeaveMountainSeaRsp{
+    required int32 ret = 1;
+}
+message EnterMountainSeaTeamReq{
+}
+message EnterMountainSeaTeamRsp{
+    required int32 ret = 1;
+    optional MountainSeaInnerTeamEntity teamInfo = 2;
+}
+message MountainSeaTeamStartReq{
+}
+message MountainSeaTeamStartRsp{
+    required int32 ret = 1;
+    optional int64 lastLeaveTeam = 2;               
+    repeated int64 applyJoinTeamIdList = 3;         
+}
+message MountainSeaOutterTeamEntity{
+    optional int64 teamId = 1;              
+    optional string teamName = 2;           
+    optional int64 leaderId = 3;         
+    optional string leaderName = 4;         
+    optional int64 leaderServerId = 5;      
+    optional int64 fightValue = 6; 
+    optional int64 createTime = 7; 
+    repeated MountainSeaOutterMemberEntity members = 8; 
+}
+message MountainSeaOutterMemberEntity{
+    optional PlayerHeadAndNameMsg memberInfo = 1; 
+    optional int64 fightValue = 2; 
+}
+message MountainSeaInnerTeamEntity {
+    optional int64 teamId = 1;              
+    optional string teamName = 2;           
+    optional int64 leaderId = 3;            
+    optional int64 leaderServerId = 4;      
+    optional string leaderName = 5;         
+    repeated MountainSeaMemberEntity members = 6; 
+    optional int64 createTime = 7;              
+    repeated MountainSeaApplyUserEntity applyList = 8; 
+    optional int32 state = 9; 
+    optional int32 realmsId = 10;   
+}
+message MountainSeaMemberEntity {
+    optional PlayerAppearanceDataMsg memberInfo = 1; 
+    optional int32 state = 2;       
+    optional int32 assistanceTimes = 3;
+}
+message MountainSeaApplyUserEntity {
+    optional PlayerHeadAndNameMsg playerInfo = 1;   
+    optional int64 applyTime = 2;               
+    optional int64 fightValue = 3; 
+}
+message MountainSeaCreateTeamReq {
+    required string teamName = 1;
+}
+message MountainSeaCreateTeamRsp {
+    required int32 ret = 1;
+    optional MountainSeaInnerTeamEntity teamInfo = 2;
+}
+message MountainSeaGetTeamListReq {
+    required int32 type = 1; 
+    required int32 page = 2; 
+}
+message MountainSeaGetTeamListRsp {
+    required int32 ret = 1;
+    repeated MountainSeaOutterTeamEntity teamList = 2; 
+}
+message MountainSeaGetTeamInfoReq {
+    required int64 teamId = 1;
+}
+message MountainSeaGetTeamInfoRsp {
+    required int32 ret = 1;
+    optional MountainSeaOutterTeamEntity teamInfo = 2; 
+}
+message MountainSeaCancelTeamApplyReq {
+    required int64 teamId = 1;
+}
+message MountainSeaCancelTeamApplyRsp {
+    required int32 ret = 1;
+}
+message MountainSeaApplyJoinTeamAgreeReq {
+    required int64 playerId = 1; 
+}
+message MountainSeaApplyJoinTeamAgreeRsp {
+    required int32 ret = 1;
+    optional MountainSeaInnerTeamEntity teamInfo = 2;              
+}
+message MountainSeaApplyJoinTeamRefusedReq {
+}
+message MountainSeaApplyJoinTeamRefusedRsp {
+    required int32 ret = 1;
+    optional MountainSeaInnerTeamEntity teamInfo = 2;              
+}
+message MountainSeaQuitTeamReq {
+}
+message MountainSeaQuitTeamRsp {
+    required int32 ret = 1;
+}
+message MountainSeaKickOutTeamReq {
+    required int64 playerId = 1; 
+}
+message MountainSeaKickOutTeamRsp {
+    required int32 ret = 1;
+}
+message MountainSeaChangeLeaderReq {
+    required int64 playerId = 1; 
+}
+message MountainSeaChangeLeaderRsp {
+    required int32 ret = 1;
+    optional int32 realmsId = 2;
+}
+message MountainSeaTeamLeaderNotify {
+    required int32 type = 1;
+    optional MountainSeaApplyUserEntity userData = 2;
+}
+message MountainSeaTeamMemberNotify {
+    required int32 type = 1;
+    optional MountainSeaInnerTeamEntity teamInfo = 2; 
+}
+message MountainSeaTeamPrepareReq {
+    required int32 type = 1; 
+}
+message MountainSeaTeamPrepareRsp {
+    required int32 ret = 1;
+}
+message MountainSeaStartMatchReq {
+    required int32 type = 1; 
+}
+message MountainSeaStartMatchRsp {
+    required int32 ret = 1;
+}
+message MountainSeaMatchMemberReq{
+}
+message MountainSeaMatchMemberRsp{
+    required int32 ret = 1;
+    optional int32 matchNum = 2;
+    optional int64 memberId = 3;
+}
+message MatchResultMsg {
+    repeated int64 playerId = 1; 
+}
+message MountainSeaStartBattleReq {
+}
+message MountainSeaStartBattleRsp {
+    required int32 ret = 1;
+}
+message MountainSeaInviteReq {
+    required int32 type = 1;    
+    optional int64 targetPlayerId = 2;
+}
+message MountainSeaInviteRsp {
+    required int32 ret = 1;
+}
+message MountainSeaRankTeamEntity {
+    required int64 id = 1;
+    optional string teamName = 2;           
+    optional int64 leaderServerId = 3;      
+    repeated PlayerCharacterImageMsg members = 4; 
+    optional int64 battleTime = 5;         
+    optional int64 fightValue = 6;
+    repeated int64 battleId = 7; 
+}
+message MountainSeaRankTeamList{
+    repeated MountainSeaRankTeamEntity curTeam = 1;
+}
+message MountainSeaWorshipReq {
+    required int64 playerId = 1; 
+}
+message MountainSeaWorshipRsp {
+    required int32 ret = 1;
+    optional string reward = 2; 
+    optional PalacePlayerShowMsg playerShowData = 3;
+}
+message MountainSeaGetBattleVideoReq {
+    required int64 battleId = 1; 
+}
+message MountainSeaGetBattleVideoRsp {
+    required int32 ret = 1;
+    optional BattleRecordMsg battleRecordMsg = 2; 
+}
+message MountainSeaGetBossInfoReq {
+    required int32 bossId = 1;
+}
+message MountainSeaGetBossInfoRsp {
+    required int32 ret = 1;
+    optional PlayerDetailDataMsg bossInfo = 2;
+}
+message MountainSeaGetBossPowerReq {
+    required int32 bossId = 1;
+}
+message MountainSeaGetBossPowerRsp{
+    required int32 ret = 1;
+    optional int64 power = 2;
+}
+message MountainSeaGetPlayerInfoReq {
+    required int64 playerId = 1;
+    required int64 teamId = 2;  
+    required int32 type = 3;    
+    optional int64 leaderId = 4; 
+}
+message MountainSeaGetPlayerInfoRsp {
+    required int32 ret = 1;
+    optional PlayerDetailDataMsg playerInfo = 2;
+}
+message MountainSeaEnterBattleReq{}
+message MountainSeaEnterBattleResp{
+    required int32 ret = 1;
+    optional MountainSeaEnterBattleData data = 2; 
+}
+message MountainSeaEnterBattleNotify{
+    required MountainSeaEnterBattleData data = 1; 
+}
+message MountainSeaEnterBattleData{
+    repeated BattleMain datas = 1; 
+    optional int32 teamSkillId = 2; 
+}
+message MountainSeaEnterSwitchSeparationReq{}
+message MountainSeaEnterSwitchSeparationRsp{
+    required int32 ret = 1;
+    repeated MountainSeaSeparationSimpleData datas = 2;
+}
+message MountainSeaSeparationSimpleData{
+    required PlayerHeadAndNameMsg data = 1;	
+    optional int32 select = 2;				
+    repeated int64 powers = 3;				
+    optional bool isRobot = 4;				
+}
+message MountainSeaSwitchSeparationReq{
+    required int64 targetId = 1;	
+    required int32 separationId = 2;	
+    required bool isRobot = 3;		
+    required int64 teamId = 4;		
+    repeated BattleMain battleMain = 5; 
+}
+message MountainSeaSwitchSeparationRsp{
+    required int32 ret = 1;
+    optional MountainSeaSwitchSeparationNotify notify = 2;
+}
+message MountainSeaSwitchSeparationNotify{
+    repeated BattleMain battleMain = 1;		
+    optional int64 targetId = 2;	
+    optional int32 separationId = 3;	
+    optional int64 teamId = 4;		
+}
+message MountainSeaSeparationDetailReq{
+    required int64 targetPlayerId = 1;  
+    required int64 teamId = 2;  
+}
+message MountainSeaSeparationDetailRsp{
+    required int32 ret = 1;
+    optional GodBodyDetailDataMsg datas = 2;
+    optional int32 appearanceId = 3; 	
+}
+message MountainSeaChangePosReq{
+    required int64 resPlayerId = 1;     
+    required int64 tarPlayerId = 2;     
+    required int32 tarPos = 3;          
+    required int64 teamId = 4;          
+}
+message MountainSeaChangePosRsp{
+    required int32 ret = 1;
+}
+message MountainSeaChangePosNotify{
+    repeated MountainSeaChangePosData datas = 1;
+}
+message MountainSeaChangePosData{
+    required int64 playerId = 1;	
+    required int32 pos = 2;		
+}
+message MountainSeaChangeTeamSkillReq{
+    required int32 skillId = 1;  
+}
+message MountainSeaChangeTeamSkillRsp{
+    required int32 ret = 1;
+    optional int32 skillId = 2;  
+    optional int64 teamId = 3;   
+}
+message MountainSeaChangeTeamSkillNotify{
+    required int32 selectId = 1;
+}
+message MountainSeaDoBattleReq{
+    required int64 teamId = 1;
+    required int32 bossId = 2;
+    required int32 realmsId = 3;     
+    optional BattleRecordMsg allBattleRecord = 4; 
+    repeated GodBodyDetailDataMsg godBodyDetailData = 5;
+    repeated int64 teamHp = 6; 
+    repeated bytes battleReport = 7; 
+    repeated string battleMainData = 8; 
+}
+message MountainSeaDoBattleRsp{
+    required int32 ret = 1;
+    optional MountainSeaDoBattleNotify notifyData = 2;
+}
+message MountainSeaDoBattleNotify{
+    required BattleRecordMsg allBattleRecord = 1; 	
+    optional string rewards = 2;					          
+    optional BattleMain bossData = 3;               
+    optional bool isLastStar = 4;                   
+    repeated int64 hps = 5;                         
+    optional int64 teamId = 6;                      
+    optional int32 bigType = 7;                     
+    optional bytes battleReport = 8;                
+}
+enum GetTeamListTypeEnum {
+    ALL = 0; 
+    PLAYER = 1; 
+}
+enum TeamLeaderNotifyTypeEnum {
+    APPLY_JOIN_TEAM = 1; 
+    CANCEL_JOIN_TEAM = 2; 
+    MEMBER_LEAVE_TEAM = 3; 
+}
+enum TeamMemberNotifyTypeEnum {
+    KICK_OUT_TEAM = 1; 
+    TEAM_DISMISS = 2; 
+    JOIN_TEAM_SUCCESS = 3; 
+    TEAM_MEMBER_NUM_CHANGE = 4; 
+    TEAM_PREPARE = 5; 
+    TEAM_MATCH = 6; 
+    CANCEL_PREPARE = 7; 
+    CANCEL_MATCH = 8; 
+    MATCH_SUCCESS = 9; 
+    START_BATTLE = 10; 
+}
+enum TeamPrepareTypeEnum {
+    PREPARE = 1; 
+    CANCEL = 2; 
+}
+message MountainSeaInviteListReq{
+}
+message MountainSeaInviteListResp{
+    required int32 ret = 1;
+    repeated MountainSeaOutterTeamEntity teamList = 2; 
+    optional bool isAccept = 3; 
+}
+message MountainSeaRedPointResp{
+    optional bool inviteRedPoint = 1;  
+}
+message MountainSeaApplyJoinTeamReq {
+    required int64 teamId = 1; 
+}
+message MountainSeaApplyJoinTeamRsp {
+    required int32 ret = 1;
+    optional MountainSeaInnerTeamEntity teamInfo = 2;              
+}
+message MountainSeaInviteRefuseReq{
+    optional int64 playerId = 1;
+}
+message MountainSeaInviteRefuseResp{
+    required int32 ret = 1;
+}
+message MountainSeaSetAppointReq{
+    required bool isAcceptAppoint = 1;
+}
+message MountainSeaSetAppointResp{
+    required int32 ret = 1;                       
+}

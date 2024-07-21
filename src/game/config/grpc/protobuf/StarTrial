@@ -1,0 +1,114 @@
+package com.yq.msg.CityMsg;
+import "Common";
+import "WatchPlayer";
+import "Battle";
+message StarTrialDataMsg {
+  required int32 bossId = 1;   
+  optional int32 challengeTimes = 2; 
+  repeated PlayerHeadAndNameMsg playerHeadAndNameMsg=3; 
+  optional int32 prevBossId =4; 
+  repeated int64 powerList = 5; 
+  optional int32 rewardState = 6; 
+}
+message GetDailyFightRewardReq {
+}
+message GetDailyFightRewardResp {
+ required int32 ret = 1;
+ optional string rewards = 2; 
+ optional int32 rewardState = 3; 
+}
+message GetBossDetailDataReq {
+  required int32 bossId = 1; 
+}
+message GetBossDetailDataResp {
+  optional int32 ret = 1;
+  optional PlayerDetailDataMsg playerDetailDataMsg = 2;
+}
+message StarTrialChallengeReq {
+  required int32 BossId = 1;   
+}
+message StarTrialChallengeResp {
+  required int32 ret = 1;
+  optional string rewards = 2; 
+  optional BattleRecordMsg allBattleRecord = 3; 
+}
+message RspRankData{
+required int32 ret = 1;
+repeated StarTrialRankData starTrialRankData = 2; 
+optional int32 rank =3; 
+optional int32 star =4; 
+}
+message StarTrialRankData{
+ optional PlayerRankDataMsg playerRankDataMsg = 1;
+ optional int32 rank =2; 
+ optional int32 star =3; 
+}
+message StarTrialRecordReq {
+  required int32 bossId = 1;      
+}
+message StarTrialRecordResp {
+  required int32 ret = 1;                             
+  repeated StarTrialRecordDataMsg recordList = 2;      
+  optional int32 bossID = 3;                           
+}
+message StarTrialRecordDataMsg {
+  optional PlayerHeadAndNameMsg playerHeadAndNameMsg=1; 
+  optional int64 time = 2; 
+  optional int32 titleId =3; 
+  optional int32 recordId = 4; 
+}
+message StarTrialBattleReplyReq{
+  required int32 recordId = 1;               
+  optional int32 bossId =2;                  
+}
+message StarTrialBattleReplyResp{
+  required int32 ret = 1;
+  optional BattleRecordMsg allBattleRecord = 2;    
+  optional PlayerHeadAndNameMsg leftPlayerInfo = 3;     
+  optional int32 BossID=4;
+}
+message EnterStarTrialCodexMsgReq{
+}
+message EnterStarTrialCodexMsgResp {
+required int32 ret = 1;                             
+repeated StarTrialCodexData starTrialCodexData =2;
+}
+message StarTrialCodexData{
+  optional int32 bossID = 1;        
+  optional int32 star = 2;          
+}
+message PlayerStarTrialCodexMsgReq {
+ optional int32 bossType = 1;        
+}
+message RspPlayerStarTrialCodexMsg {
+ optional int32 ret = 1;                             
+ repeated PlayerStarTrialCodexMsg playerStarTrialCodexMsgList =2; 
+ optional int32 curStar = 3; 
+}
+message PlayerStarTrialCodexMsg{
+ optional int64 firstTime=1; 
+ optional int32 bossID =2;   
+}
+message GetStarTrialGroupInfoReq {
+}
+message GetStarTrialGroupInfoResp {
+ optional int32 ret = 1;                             
+ repeated int64 serverList = 2;                      
+}
+message StarTrialGetPlayerDetailReq {
+  required int32 bossId = 1;   
+  required int64 playerId = 2; 
+  required int64 serverId = 3; 
+}
+message StarTrialGetPlayerDetailResp {
+  optional int32 ret = 1;
+  optional PlayerDetailDataMsg playerDetailDataMsg = 2;
+}
+message StarTrialEnterMainPanelReq {
+}
+message StarTrialEnterMainPanelResp {
+  optional int32 ret = 1;
+  repeated PlayerHeadAndNameMsg playerHeadAndNameMsg=2; 
+  optional StarTrialDataMsg dataMsg=3;
+  optional int64 consumeScore = 4;
+}

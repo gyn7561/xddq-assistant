@@ -1,0 +1,525 @@
+package com.yq.msg.CityMsg;
+import "Common";
+import "WatchPlayer";
+import "Battle";
+import "Union";
+import "Spirit";
+enum GodDemonBattleProtocols{
+    god_demon_battle_base_info = 214501; 
+    god_demon_battle_receive_camp_reward = 214502; 
+    god_demon_battle_get_camp_playerNum = 214503; 
+    god_demon_battle_get_separation_info = 214505; 
+    god_demon_battle_set_separation_info = 214506; 
+    god_demon_battle_enter_room_info = 214507; 
+    god_demon_battle_set_prepare = 214508; 
+    god_demon_battle_get_buff_info = 214510; 
+    god_demon_battle_choose_buff = 214511; 
+    god_demon_battle_get_player_buff = 214512; 
+    god_demon_battle_get_god_demon_rank_info = 214513; 
+    god_demon_battle_various_wars_info = 214514; 
+    god_demon_battle_various_wars_promote_info = 214515; 
+    god_demon_battle_duel_player_info = 214516; 
+    god_demon_battle_set_battle_order = 214517; 
+    god_demon_battle_duel_video_info = 214518; 
+    god_demon_battle_send_barrage = 214520; 
+    god_demon_battle_bet_info = 214521; 
+    god_demon_battle_receive_bet_coin = 214522; 
+    god_demon_battle_set_bet = 214523; 
+    god_demon_battle_log_info = 214524; 
+    god_demon_battle_red = 214525; 
+    god_demon_battle_previous_editions_info = 214526; 
+    god_demon_battle_get_player_settlement = 214527; 
+    god_demon_battle_get_camp_settlement = 214528; 
+    god_demon_battle_heartBeat = 214529; 
+    god_demon_battle_worship = 214531; 
+    god_demon_battle_report = 214532; 
+    god_demon_battle_getSuppressedData = 214534; 
+    god_demon_look_battle_video = 214538; 
+    god_demon_send_guess_reward = 214540; 
+    god_demon_qualifier_game_reward_sync = 214541; 
+    god_demon_battle_room_player_prepare_sync = 214550;
+    god_demon_battle_room_battle_sync = 214551;  
+    god_demon_battle_room_round_sync = 214552; 
+    god_demon_player_room_status_sync = 214553; 
+    god_demon_player_room_battle_end_sync = 214554; 
+    god_demon_battle_apply = 214570; 
+    god_demon_auto_lock_attr = 214571; 
+}
+enum GodDemonBattleRedPointEnum {
+    redNone = 0;
+    redGuess = 1; 
+    redQualifierReward = 2; 
+    redPromotionReward = 3; 
+    redCampReward = 4; 
+    redWorship = 5; 
+}
+message GodDemonBattleConfig{
+    repeated GodDemonBattleBuffConfig buffConfig = 1; 
+    repeated GodDemonBattleMatchConfig matChConfig = 2;
+    repeated GodDemonBattleTimeConfig timeConfig = 3;
+    repeated GodDemonBattleSettleConfigMsg settleConfig = 4; 
+}
+message GodDemonBattleSettleConfigMsg {
+    required int32 activityId = 1;                   
+    required int32 id = 2;                          
+    required int32 minScore = 3;
+    required string reward = 4;
+}
+message GodDemonBattleBuffConfig{
+    required int32 activityId = 1;                   
+    required int32 id = 2;                          
+    required int32 skillId = 3;                      
+    required int32 turn = 4;                         
+    required int32 weight = 5;                       
+}
+message GodDemonBattleMatchConfig{
+    required int32 activityId = 1;                   
+    required int32 id = 2;                           
+    required string name = 3;                        
+    required int32 minLevel = 4;                     
+    required int32 maxLevel = 5;                     
+    required int32 standardLevel = 6;                
+    required string minNum = 7;                       
+    required string groupNum = 8;                    
+    required string protectNum = 9;                  
+    required int32 timeOffset = 10;                  
+}
+message GodDemonBattleTimeConfig{
+    required int32 activityId = 1;                   
+    required int32 timeId = 2;                       
+    required int32 type = 3;                         
+    required int32 session = 4;                      
+    required int32 beginDay = 5;                     
+    required int32 beginTime = 6;                    
+    required int32 durTime = 7;                      
+    required string param = 8;                       
+}
+message GodDemonCommonReq{
+    required int32 activityId = 1; 
+}
+message GodDemonRankList {
+    repeated GodDemonBattleRankMsg rankList = 1;
+}
+message GodDemonBattleRankMsg {
+    optional int64 playerId = 1;
+    optional PlayerCharacterImageMsg playerBaseData = 2;
+    optional int32 value = 3;                                
+    optional int32 rank = 4;                                  
+}
+message GodDemonBattleBaseInfoResp{
+    required int32 ret = 1;
+    repeated GodDemonPlayerCountMsg campPlayerNum = 2; 
+    optional bool suppressed = 3; 
+    repeated int64 serverIdArray = 4; 
+    optional GodDemonBattlePlayerInfo playerInfo = 5; 
+    repeated GodDemonRankData godRankData = 6;
+    repeated GodDemonRankData DemonrankData = 7;
+    optional int32 session = 8; 
+    optional bool inRoomBattle = 9; 
+    repeated GodDemonRealsMatchMsg realsMatchList = 10; 
+    optional int32 winCamp = 11; 
+    optional bool canReceiveCampReward = 12; 
+}
+message GodDemonPlayerCountMsg {
+    optional int32 zoneId = 1;
+    optional int32 godCount  = 2;
+    optional int32 demonCount = 3;
+}
+message GodDemonRealsMatchMsg {
+    required int32 id = 1; 
+    required int32 minLv = 2;
+    required int32 maxLv = 3;
+}
+message GodDemonBattlePlayerInfo{
+    optional int32 camp = 1; 
+    optional int32 zoneId = 2; 
+    optional int32 promotionSession = 3; 
+    optional int32 promotionRank = 4; 
+    optional int32 preselectionRank = 5; 
+}
+message GodDemonBattleSuppressAttribute{
+    repeated EquipmentDataMsg equipList = 1;
+    optional int32 preRealms = 2;
+    optional int32 afterRealms = 3;
+    repeated AttributeDataMsg preAttribute = 4;                
+    repeated AttributeDataMsg afterAttribute = 5;                
+}
+message GodDemonBattleReceiveCampRewardResp{
+    required int32 ret = 1;
+    optional string reward = 2;
+}
+message GodDemonBattleGetCampPlayerNumResp{
+    required int32 ret = 1;
+    repeated int32 campPlayerNum = 2; 
+}
+message GodDemonBattleGetSeparationInfoReq {
+    required int32 activityId = 1;
+    required int64 playerId = 2;
+}
+message GodDemonBattleGetSeparationInfoResp{
+    required int32 ret = 1;
+    optional PlayerDetailDataMsg playerDetail = 2;
+}
+message GodDemonBattleEnterRoomReq {
+    required int32 activityId = 1; 
+    optional int64 roomId = 2; 
+    optional int32 zoneId = 3;
+}
+message GodDemonBattleEnterRoomResp {
+    optional int32 ret = 1;
+    optional int64 roomId = 2; 
+    repeated GodDemonRoomPlayerInfoMsg playerInfo = 3; 
+    optional int64 roundBeginTime = 4; 
+    optional int32 round = 5; 
+    optional int32 hadRefreshNum = 6;
+    optional int64 currentEnemyId = 7; 
+    optional int32 timeId = 8; 
+    repeated int32 chooseBuffVec = 9; 
+}
+message GodDemonRoomPlayerInfoMsg {
+    optional PlayerCharacterImageMsg playerData = 1;
+    optional int32 life = 2; 
+    repeated int32 buffVec = 3; 
+    optional bool hadPrepare = 4; 
+    optional int32 winCount = 5; 
+    optional string fightValue = 6; 
+    optional int32 rank = 7; 
+}
+message GodDemonBattleSetPrepareResp{
+    required int32 ret = 1;
+}
+message GodDemonBattleGetBuffInfoResp{
+    required int32 ret = 1;
+    repeated int32 buffVec = 2;
+    optional int32 hadRefreshNum = 3;
+}
+message GodDemonBattleChooseBuffReq{
+    required int32 activityId = 1; 
+    required int32 buffId = 2;
+}
+message GodDemonBattleChooseBuffResp{
+    required int32 ret = 1;
+    optional int32 buffId = 2;
+}
+message GodDemonBattleGetPlayerBuffReq{
+    required int32 activityId = 1; 
+    required int64 playerId = 2;
+}
+message GodDemonBattleGetPlayerBuffResp{
+    required int32 ret = 1;
+    repeated int32 buffVec = 2;
+}
+message GodDemonBattleGetGodDemonRankInfoReq{
+    required int32 activityId = 1; 
+    required int32 zoneId = 2; 
+}
+message GodDemonBattleGetGodDemonRankInfoResp{
+    required int32 ret = 1;
+    repeated GodDemonRankData rankData = 2;
+    optional int32 myRank = 3;
+}
+message GodDemonRankData{
+    optional PlayerCharacterImageMsg playerAppearance = 1;
+    optional int32 rank = 2; 
+    optional int32 score = 3; 
+    optional int32 winNum = 4; 
+}
+message GodDemonBattleVariousWarsInfoReq {
+    required int32 activityId = 1;
+    required int32 zoneId = 2;
+    optional int32 groupId = 3; 
+    optional int32 variousWarsType = 4; 
+    optional int32 camp = 5; 
+}
+message GodDemonBattleVariousWarsInfoResp {
+    optional int32 ret = 1;
+    optional int32 totalGroupNum = 2;                        
+    optional int32 myGroupId = 3;
+    repeated GodDemonBattleSessionRooms roomInfo = 4; 
+}
+message GodDemonBattleSessionRooms {
+    optional int32 session = 1;                             
+    repeated GodDemonBattleSessionRoom roomList = 2;      
+}
+message GodDemonBattleSessionRoom {
+    optional int64 roomId = 1;                    
+    optional bool isMySubGroup = 2;                 
+    optional bool isFinished = 3;                   
+}
+message GodDemonBattleVariousFinalsPlayerData{
+    optional string name = 1;
+    optional string fightValue = 2;
+    optional int32 life = 3; 
+    optional PlayerHeadDataMsg headData = 4;
+    optional int32 rank = 5;
+}
+message GodDemonBattleVariousWarsPromoteInfoReq{
+    required int32 activityId = 1;
+    required int32 zoneId = 2;
+    optional int32 groupId = 3; 
+    optional int32 variousWarsType = 4; 
+}
+message GodDemonBattleVariousWarsPromoteInfoResp{
+    optional int32 ret = 1;
+    repeated PlayerCharacterImageMsg playerInfoList = 2; 
+}
+message GodDemonBattleDuelPlayerInfoReq{
+    required int32 activityId = 1;
+    required int32 lookType = 2; 
+}
+message GodDemonBattleDuelPlayerInfoResp{
+    required int32 ret = 1;
+    repeated PlayerCharacterImageMsg godData = 2;
+    repeated PlayerCharacterImageMsg demonData = 3;
+}
+message GodDemonBattleSetBattleOrderReq{
+    required int32 activityId = 1; 
+    repeated int64 setOrderData = 2;
+}
+message GodDemonBattleSetBattleOrderResp{
+    required int32 ret = 1;
+    repeated int64 setOrderData = 2;
+}
+message GodDemonBattleDuelVideoInfoReq{
+    required int32 activityId = 1;
+    optional int32 battleIdx = 2; 
+}
+message GodDemonBattleDuelVideoInfoResp{
+    required int32 ret = 1;
+    optional int32 allBattleNum = 2; 
+    optional GodDemonBattleGetVideoMsg videoData = 3;    
+    optional int32 curBattleIdx = 4; 
+}
+message GodDemonBattleDuelVideoPlayerData{
+    optional PlayerHeadAndNameMsg headInfo = 1;
+    optional int64 fightValue = 2;
+    optional bool isEnd = 3; 
+    optional int32 curPower = 4; 
+}
+message GodDemonBattleGetVideoMsg {
+    optional BattleRecordMsg allBattleRecord = 1;    
+    repeated int32 barrageData = 2; 
+    repeated GodDemonBattleDuelVideoPlayerData godData = 3;
+    repeated GodDemonBattleDuelVideoPlayerData demonData = 4;
+}
+message GodDemonBattleSendBarrageReq{
+    required int32 activityId = 1;
+    optional int32 barrageId = 2;
+    optional int64 battleId = 3;
+}
+message GodDemonBattleSendBarrageResp{
+    required int32 ret = 1;
+    optional int64 lastSendTime = 2;
+}
+message GodDemonBattleGetRedResp{
+    required int32 ret = 1;
+    optional string data = 2;
+}
+message GodDemonBattlePreviousEditionsInfoReq{
+    required int32 activityId = 1; 
+    required int32 zoneId = 2; 
+    optional int32 sessionNum = 3; 
+}
+message GodDemonBattlePreviousEditionsInfoResp{
+    optional int32 ret = 1;
+    repeated GodDemonBattlePreviousPlayerData winCampData = 2;   
+    optional GodDemonBattlePreviousPlayerData godBestPlayerData = 3;
+    optional GodDemonBattlePreviousPlayerData demonBestPlayerData = 4;
+    optional int32 winCamp = 5; 
+    optional int32 allSessionNum = 6; 
+    optional bool canWorship = 7; 
+    repeated int32 allZoneId = 8; 
+    optional int32 zoneId = 9; 
+}
+message GodDemonBattlePreviousPlayerData{
+    optional int64 playerId = 1;
+    optional int64 serverId = 2;
+    optional string nickName = 3;
+    repeated int32 pet = 4;
+    repeated int32 spirit = 5;
+    optional int32 appearanceId = 6; 
+    optional int32 equipCloudId = 7; 
+    optional int32 realmsId = 8;  
+    optional int32 headIcon = 11; 
+    optional int32 winCount = 12; 
+    repeated int32 petSoulShapeList = 13; 
+    optional int64 fightValue = 14; 
+    optional int32 titleId = 15;        
+    repeated int32 petLinkageId = 16; 
+    repeated int32 spiritLinkageId = 17; 
+}
+message GodDemonBattleGetPlayerSettlementReq {
+    optional int32 activityId = 1;
+    optional int32 timeId = 2;
+}
+message GodDemonBattleGetPlayerSettlementResp {
+    optional int32 ret = 1;
+    optional int32 timeId = 2;
+    optional int32 state = 3;  
+    optional PlayerSettlementData playerData = 4;
+}
+message PlayerSettlementData{
+    optional PlayerCharacterImageMsg playerAppearance = 1;
+    optional int32 rank = 2; 
+    optional int32 winNum = 3; 
+}
+message GodDemonBattleGetCampSettlementReq{
+    required int32 activityId = 1; 
+    required int32 zoneId = 2; 
+    optional int32 sessionNum = 3; 
+}
+message GodDemonBattleGetCampSettlementResp{
+    required int32 ret = 1;
+    repeated PlayerSettlementData playerData = 2;
+    optional int32 winCamp = 3; 
+}
+message GodDemonBattleHeartBeatResp{
+    required int32 ret = 1;
+}
+message GodDemonBattleWorshipResp{
+    required int32 ret = 1;
+    optional string reward = 2; 
+}
+message GodDemonBattlePlayerPrepareSync{
+    optional int64 roomId = 1; 
+    optional int64 playerId = 2; 
+}
+message GodDemonReportReq {
+    required int32 activityId = 1;
+}
+message GodDemonReportRsp {
+  required int32 ret = 1;
+  repeated GodDemonReportData logData = 2; 
+}
+message GodDemonReportData {
+  required GodDemonPlayerInfoMsg playerData = 1; 
+  required GodDemonPlayerInfoMsg enemyData = 2; 
+  required bool isWin = 3; 
+  required int64 battleId = 4; 
+  optional int32 timeId = 5;  
+  optional int32 battleIndex = 6;
+}
+message GodDemonPlayerInfoMsg{
+    required PlayerHeadAndNameMsg headInfo = 1;
+    required int64 fightValue = 2;
+    required int32 life = 3; 
+}
+message GodDemonBattleReplyReq{
+  required int32 activityId = 1;
+  required int32 recordId = 2;               
+}
+message GodDemonBattleReplyRsp{
+  required int32 ret = 1;
+  optional BattleRecordMsg allBattleRecord = 2;    
+}
+message GodDemonPlayerGuessInfoMsg{
+  optional GodDemonPlayerGuessItem playerInfo = 1;
+  optional int32 guessCoin = 2;
+  optional int32 odds = 3; 
+  optional int32 battleResult = 4; 
+  optional int32 groupId = 5;
+  optional int32 roundId = 6;
+}
+message GodDemonPlayerGuessItem{
+  optional PlayerHeadAndNameMsg playerInfo = 1;  
+  optional int64 heatValue = 2;                  
+  optional int64 fightValue = 3;                 
+}
+message GodDemonGetGuessInfoReq{
+  required int32 activityId = 1;
+  optional int32 roundId = 2; 
+  optional int32 competitionId = 3; 
+  optional int32 groupId = 4; 
+}
+message GodDemonGetGuessInfoRsp{
+  required int32 ret = 1;
+  optional int32 guessCoin = 2;             
+  repeated GodDemonPlayerGuessInfoMsg playerGuessInfoArr = 3;
+  optional int32 curGroup = 4;      
+  optional int32 maxGroup = 5;      
+  optional bool HasGetGuessCoin = 6;
+}
+message GodDemonGetGuessCoinReq{
+    required int32 activityId = 1;
+    required int32 timeId = 2; 
+}
+message GodDemonGetGuessCoinRsp{
+  required int32 ret = 1;
+  optional int32 guessCoin = 2;             
+}
+message GodDemonBeginGuessReq{
+  required int32 activityId = 1;
+  required int64 playerId = 2;
+  required int32 guessCoinCost = 3;         
+  required int32 roundId = 4;
+}
+message GodDemonBeginGuessRsp{
+  required int32 ret = 1;
+  optional int32 guessCoin = 2;     
+  optional GodDemonPlayerGuessInfoMsg playerGuessInfoArr = 3;
+}
+message GodDemonRoomBattleSync {
+    optional int64 roomId = 1; 
+    optional bool bye = 2; 
+    optional BattleRecordMsg battleRecord = 3;    
+    repeated GodDemonRoomPlayerSyncMsg playerSyncList = 4; 
+    optional int64 winPlayerId = 5; 
+}
+message GodDemonRoomUpdateSync {
+    optional int64 roomId = 1; 
+    optional int64 roundBeginTime = 2; 
+    optional int32 round = 3; 
+    optional int64 timeId = 4; 
+    repeated int32 chooseBuffVec = 5; 
+    repeated GodDemonRoomPlayerSyncMsg playerSyncList = 6; 
+    optional bool end = 7; 
+}
+message GodDemonRoomPlayerSyncMsg {
+    optional int64 playerId = 1;
+    optional int32 life = 2; 
+    optional int32 winCount = 3; 
+    repeated int32 buffVec = 4; 
+    optional int32 rank = 5; 
+}
+message GodDemonPlayerRoomStatusSync {
+    optional int32 activityId = 1;
+    optional bool inRoomBattle = 2; 
+}
+message GodDemonRoomBattleFinishSync {
+    optional int32 activityId = 1;
+    optional int64 roomId = 2; 
+    optional int32 timeId = 3; 
+    repeated GodDemonRoomBattleFinishRoundMsg msg = 4; 
+}
+message GodDemonRoomBattleFinishRoundMsg {
+    optional int32 round = 1;
+    repeated GodDemonRoomPlayerSyncMsg playerSyncList = 2; 
+    optional int64 winPlayerId = 3; 
+}
+message GodDemonSuppressedReq{
+    required int32 activityId = 1;
+}
+message GodDemonSuppressedRespMsg {
+    required int32 ret = 1;
+    optional GodDemonBattleSuppressAttribute suppressAttr = 2; 
+}
+message GodDemonSendGuessRewardMsg {
+    optional int32 activityId = 1;
+    optional string reward = 2; 
+    repeated GodDemonPlayerGuessInfoMsg guessResult = 3; 
+}
+message GodDemonQualifierGameRewardSync {
+    optional int32 activityId = 1;
+    optional int32 timeId = 2; 
+    optional int32 rank = 3; 
+    optional string reward = 4; 
+    optional int64 roomId = 5; 
+}
+message GodDemonLookBattleVideoReq {
+    optional int32 activityId = 1;
+    optional int64 battleId = 2;
+}
+message GodDemonLookBattleVideoResp {
+    optional int32 ret = 1;
+    optional BattleRecordMsg battleRecord = 2;    
+}

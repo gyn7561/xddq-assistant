@@ -1,0 +1,85 @@
+package com.yq.msg.CityMsg;        
+message PlayerCharaDataMsg {
+    optional int32 equipHeadIcon = 1; 
+    optional int32 equipAppearanceId = 2; 
+    repeated PlayerHaveCharaMsg haveSpecialChara = 3; 
+    optional int32 titleId = 4;
+    optional int32 equipHeadIconFrame = 5; 
+    optional int32 equipChatBubble = 6; 
+    optional int32 equipAtkEffect = 7; 
+    optional int32 medalId = 8; 
+    repeated AppearanceCollect appearanceCollect = 9; 
+}
+enum CharaType {
+    CharaType_Appearance = 1; 
+    CharaType_HeadIcon = 2; 
+    CharaType_HeadIconFrame = 3; 
+    CharaType_ChatBubble = 4; 
+    CharaType_AtkEffect = 5; 
+    CharaType_Medal = 6; 
+}
+message GetPlayerCharaListResp {
+    required int32 ret = 1;
+    optional PlayerCharaDataMsg data = 2; 
+}
+message PlayerHaveCharaMsg {
+    required int32 charaId = 1;
+    required int64 expireTime = 2; 
+    optional int32 lv = 3; 
+}
+message ChangePlayerCharaReq {
+    required CharaType type = 1;
+    required int32 charaId = 2;
+}
+message ChangePlayerCharaResp {
+    required int32 ret = 1;
+    optional int32 equipHeadIcon = 2; 
+    optional int32 equipAppearanceId = 3; 
+    optional int32 equipHeadIconFrame = 4; 
+    optional int32 equipChatBubble = 5; 
+    optional int32 equipAtkEffect = 6; 
+}
+message UseTitleReq{
+    required int32 titleId = 1;
+}
+message UseTitleRsp{
+    required int32 ret = 1;
+}
+message TitleSyncMsg{
+    repeated TitleDataMsg data = 1;
+}
+message TitleDataMsg{
+    required int32 titleId = 1;
+    required int64 expiredTime = 2;
+}
+message UseMedalReq{
+    required int32 medalId = 1;
+}
+message UseMedalRsp{
+    required int32 ret = 1;
+}
+message MedalSyncMsg{
+    repeated MedalDataMsg data = 1;
+}
+message MedalDataMsg{
+    required int32 medalId = 1;
+    required int64 expiredTime = 2;
+}
+message AppearanceCollect{
+    required int32 type = 1;
+    required int32 id = 2;
+}
+message CollectPlayerCharaReq {
+    required int32 type = 1;
+}
+message CollectPlayerCharaResp {
+    required int32 ret = 1;
+    optional AppearanceCollect appearanceCollect = 2; 
+}
+message UpgradePlayerCharaReq {
+    required int32 charaId = 1;
+}
+message UpgradePlayerCharaResp {
+    required int32 ret = 1;
+    optional PlayerHaveCharaMsg layerHaveCharaMsg = 2; 
+}

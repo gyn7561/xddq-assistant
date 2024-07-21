@@ -1,0 +1,58 @@
+package com.yq.msg.CityMsg;
+message SeekTreasureConfigsSync{
+    repeated SeekTreasureDrawConfig drawConfig = 1; 
+}
+message SeekTreasureDrawConfig{
+  required int32 activityId = 1; 
+  required int32 id = 2; 
+  required string reward = 3; 
+  required int32 weight = 4; 
+  required int32 lv = 5; 
+  required int32 isNotice = 6; 
+}
+message SeekTreasureDrawReq{
+  required int32 activityId = 1;
+  required int32 times = 2; 
+}
+message SeekTreasureDrawResp{
+  required int32 ret = 1;
+  repeated SeekTreasureDrawResult drawResult= 2; 
+}
+message SeekTreasureDrawResult {
+  required int32 id = 1; 
+  optional string reward = 2;
+}
+message SeekTreasureViewReq{
+  required int32 activityId = 1;
+}
+message SeekTreasureViewResp{
+  required int32 ret = 1;
+  optional SeekTreasureActivityData activityData = 2;
+  optional SeekTreasureNoticeMsg drawNoticeMsg = 3;
+}
+message SeekTreasureActivityData{
+  optional int32 luckyValue = 1; 
+  repeated SeekTreasureRewardData rewardInfo = 2; 
+  optional int32 rareIndex = 3; 
+  optional int32 point = 4; 
+  optional int32 todayPoint = 5; 
+}
+message SeekTreasureRewardData{
+  optional int32 rareIndex = 1; 
+  optional int32 times = 2; 
+}
+message SeekTreasureChooseRareRewardReq{
+  required int32 activityId = 1;
+  required int32 rareIndex = 2; 
+}
+message SeekTreasureChooseRareRewardResp{
+  required int32 ret = 1;
+}
+message SeekTreasureNoticeMsg{
+  repeated SeekTreasureNoticeSyncInfo noticeInfo = 1;
+}
+message SeekTreasureNoticeSyncInfo{
+  optional string nickName = 1;
+  optional int64 times = 2;
+  optional string reward = 3;
+}

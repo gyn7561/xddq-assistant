@@ -1,0 +1,312 @@
+package com.yq.msg.CityMsg;
+import "Mall";
+    message ActivityMainConfig {
+        optional int32 activityId = 1; 
+        optional int32 type = 2; 
+        optional int32 childType = 3; 
+        optional int64 beginShowTime = 4; 
+        optional int64 endShowTime = 5; 
+        optional int64 beginTime = 6; 
+        optional int64 endTime = 7; 
+        repeated int64 serverId = 8; 
+    }
+    message ActivityConditionConfig {
+        optional int32 activityId = 1; 
+        optional int32 conditionId = 2; 
+        optional string title = 3; 
+        optional string desc = 4; 
+        optional int32 type = 5; 
+        optional string rewards = 6; 
+        optional string masterRewards = 7; 
+        repeated string param = 8; 
+        optional string extendParam = 9; 
+        optional string jumpId = 10; 
+        optional int32 refresh = 11; 
+    }
+    message ActivityMallConfig {
+        optional int32 activityId = 1; 
+        optional MallTempMsg mallTempMsg = 2; 
+        optional int32 buyUnlockType = 3; 
+        optional int32 buyUnlock = 4; 
+        optional string fundParam = 5; 
+    }
+    message ActivityRankConfig {
+        optional int32 activityId = 1; 
+        optional int32 id = 2; 
+        optional string title = 3;
+        optional string desc = 4;
+        optional int32 type = 5; 
+        optional string rewards = 6;
+        optional string masterRewards = 7;
+        optional string params = 8; 
+    }
+    message ActivityParamConfig {
+        optional int32 activityId = 1; 
+        optional string param = 2; 
+        optional string value = 3; 
+    }
+    message ActivityCommonConfig {
+        optional ActivityMainConfig mainConfig = 1;
+        repeated ActivityConditionConfig conditionConfig = 2;
+        repeated ActivityMallConfig mallConfig = 3;
+        repeated ActivityParamConfig paramConfig = 4;
+        repeated ActivityRankConfig rankConfig = 5;
+    }
+    message PushActivityList {
+        repeated ActivityMainConfig mainConfig = 1;
+        repeated ActivityPosterConfig posterConfig= 2;
+        repeated ActivityParamConfig paramConfig = 3;
+    }
+    message ActivityScoreDataMsgSync {
+        repeated ActivityScoreDataList activityScoreData = 1;
+    }
+    message ActivityScoreDataList {
+        optional int32 activityId = 1;
+        repeated ActivityScoreDataMsg activityScoreDataMsg = 2;
+    }
+    message ActivityDetailConfig {
+        optional ActivityCommonConfig commonConfig = 1; 
+        optional bytes uniqueConfig = 2; 
+    }
+    message ActivityConditionData {
+        optional int32 conditionId = 1; 
+        optional string value = 2; 
+        optional bool isGetReward = 3; 
+        optional bool isGetMasterRewards = 4; 
+        repeated ActivityMultiReward multiReward = 5; 
+        optional int32 infinites = 6; 
+        optional int32 triggerDropTimes = 7; 
+        optional int64 completeTime = 8;
+    }
+    message ActivityMultiReward {
+        optional int32 index = 1; 
+        optional bool isGetReward = 2; 
+    }
+    message ActivityMallBuyCountData {
+        optional int32 mallId = 1; 
+        optional int64 count = 2; 
+    }
+    message ReqGetActivityDetail {
+        optional int32 activityId = 1; 
+    }
+    message RspGetActivityDetail {
+        optional int32 ret = 1;
+        optional ActivityCommonData activity = 2; 
+    }
+    message ActivityCommonData {
+        optional int32 activityId = 1;
+        repeated ActivityConditionData conditionDataList = 2; 
+        repeated ActivityMallBuyCountData mallBuyCountList = 3;
+        optional ActivityDetailConfig detailConfig = 4; 
+        optional bytes playerData = 5;
+        repeated ActivityScoreDataMsg activityScoreDataMsg = 6; 
+    }
+    message ActivityScoreDataMsg {
+        optional int32 scorePropId = 1; 
+        optional int64 todayCount = 2; 
+        optional int64 totalCount = 3; 
+    }
+    message ActivityCommonDataListSync {
+        repeated ActivityCommonData activityDataList = 1; 
+    }
+    message ActivityPlayerDataSync {
+        optional int32 activityId = 1;
+        optional bytes playerData = 2;
+    }
+    message ReqGetActivityConditionReward {
+        optional int32 activityId = 1; 
+        optional int32 conditionId = 2; 
+    }
+    message AcitivityConditionDataArr {
+        optional int32 activityId = 1; 
+        optional int32 conditionId = 2; 
+    }
+    message ReqGetActivityConditionRewardByArr {
+        repeated AcitivityConditionDataArr activityDataList = 1; 
+    }
+    message RspGetActivityConditionReward {
+        optional int32 ret = 1;
+        optional string rewards = 2;
+    }
+    message ReqBuyActivityGoods {
+        optional int32 activityId = 1; 
+        optional int32 mallId = 2; 
+        optional int64 count = 3; 
+        optional bool isUseADTime = 4;
+    }
+    message RspBuyActivityGoods {
+        optional int32 ret = 1;
+        optional string rewards = 2;
+    }
+    message ActivityConditionDataListSync {
+        repeated ActivityConditionDataList activityConditionDataList = 1;
+    }
+    message ActivityConditionDataList {
+        optional int32 activityId = 1; 
+        repeated ActivityConditionData conditionDataList = 2; 
+    }
+    message ActivityMallBuyCountDataList {
+        optional int32 activityId = 1;
+        repeated ActivityMallBuyCountData mallBuyCountList = 2;
+    }
+    message ActivityMallBuyCountDataListSync {
+        repeated ActivityMallBuyCountDataList activityMallBuyCountDataList = 1;
+    }
+     message ReqShareTaskDone{
+        required int32 activityId = 1;
+        required int32 conditionId = 2;
+    }
+    message RespShareTaskDone {
+        required int32 ret = 1;
+    }
+    message ReqGetActivityRankReward {
+        optional int32 activityId = 1; 
+        optional int32 rankType = 2; 
+    }
+    message RespGetActivityRankReward {
+        optional int32 ret = 1;
+        optional string rewards = 2;
+    }
+    message ReqGetActivityRankState {
+        optional int32 activityId = 1; 
+        optional int32 rankType = 2; 
+    }
+    message RespGetActivityRankState {
+        optional int32 ret = 1;
+        optional int32 myRank = 2;
+        optional string myValue = 3;
+        optional string param = 4;
+        optional bool reward = 5;       
+    }
+    message ActivityPosterConfig {
+        required int32 activityId = 1;
+        required int32 postId = 2;
+        required string showReward = 3;
+        required string activityJump = 4;
+        optional string param = 5;
+    }
+    message GameToCrossGetActivityCommonDataMsg {
+        required int32 activityId = 1;
+    }
+    message CrossToGameGetActivityCommonDataMsg {
+        required int32 activityId = 1;
+        optional bytes playerData = 2;  
+    }
+    message CrossToGameNotifyActivityConditionMsg {
+        required int32 conditionType = 1;       
+        required string value = 2;              
+    }
+    message ReqGuessInfoLoadMsg {
+        required int32 activityId = 1;
+        repeated string extraParams = 2; 
+    }
+    message RespGuessInfoLoadMsg {
+        optional int32 ret = 1;
+        optional bytes guessList = 2; 
+        repeated int64 myGuessInfo = 3; 
+        optional int32 rewardParam = 4; 
+        optional bool isReceive = 5; 
+        repeated GuessTotalResulMsg totalSettleResult = 6; 
+    }
+    message GuessTotalResulMsg {
+        optional int32 param = 1; 
+        optional int32 count = 2;  
+        optional int32 guessType = 3; 
+    }
+    message ReqGuessMsg {
+        required int32 activityId = 1;
+        repeated int64 myGuessInfo = 2; 
+    }
+    message RespGuessMsg {
+        optional int32 ret = 1;
+        optional string cost = 2;
+        repeated int64 myGuessInfo = 3; 
+    }
+    message ReqGuessRewardMsg {
+        required int32 activityId = 1;
+        repeated string extraParams = 2; 
+    }
+    message RespGuessRewardMsg {
+        optional int32 ret = 1;
+        optional string reward = 2;
+    }
+    message ReqGuessResultDetailMsg {
+        required int32 activityId = 1;
+        required int32 param = 2; 
+        repeated string extraParams = 3; 
+    }
+    message RespGuessResultDetailMsg {
+        required int32 ret = 1;
+        optional int32 param = 2;
+        repeated GuessPlayerInfo playerList = 3; 
+    }
+    message GuessPlayerInfo {
+        optional int64 playerId = 1;
+        optional string nickName = 2;
+        optional int32 serverId = 3; 
+    }
+    message ActivityPeakHoldTimeConfig {
+        required int32 activityId = 1; 
+        required int32 timeId = 2; 
+        required int32 type = 3; 
+        required int32 beginTime = 4; 
+        required int32 durationTime = 5; 
+        required string param = 6; 
+    }
+    message ReceiveCrossUnionRechargeRewardReq {
+        optional int32 activityId = 1; 
+        optional int32 conditionId = 2; 
+    }
+    message ReceiveCrossUnionRechargeRewardResp {
+        optional int32 ret = 1;
+        optional string rewards = 2;
+    }
+    message ActivityGetJoinMemberListReq{
+        required int32 activityId = 1;
+    }
+    message ActivityGetJoinMemberListRsp{
+        optional int32 ret = 1;
+        repeated string joinMemberNameList = 2;
+        optional int64 unionExp = 3;
+    }
+    message ActivityMallSelectData {
+        optional int32 mallId = 1; 
+        optional int32 index = 2; 
+    }
+    message ActivityMallSelectDataList {
+        optional int32 activityId = 1;
+        repeated ActivityMallSelectData mallSelectList = 2;
+    }
+    message ActivityMallSelectDataListSync {
+        repeated ActivityMallSelectDataList activityMallSelectDataList = 1;
+    }
+    message SelectActivityGoodsReq {
+        required int32 activityId = 1;
+        required int32 mallId = 2;
+        required int32 index = 3;
+    }
+    message SelectActivityGoodsResp {
+        required int32 ret = 1;
+    }
+    message SelectActivityConditionGoodsReq {
+        required int32 activityId = 1; 
+        repeated SelectConditionRewardMsg rewardMsg = 2; 
+    }
+    message SelectActivityConditionGoodsResp {
+        required int32 ret = 1;
+    }
+    message SelectItemMsg {
+        required int32 index = 1;   
+        required int32 selectIndex = 2; 
+    }
+    message ActivityConditionSelectDataList {
+        optional int32 activityId = 1;
+        repeated SelectConditionRewardMsg selectData = 2;
+    }
+    message ActivityConditionSelectDataListSync {
+        repeated ActivityConditionSelectDataList activitySelectData = 1;
+    }
+    message SelectConditionRewardMsg {
+        required int32 conditionId = 1; 
+        repeated SelectItemMsg selectItem = 2; 
+    }

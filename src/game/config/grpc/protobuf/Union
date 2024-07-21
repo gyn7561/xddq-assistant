@@ -1,0 +1,384 @@
+package com.yq.msg.CityMsg;
+import "WatchPlayer";
+import "RedPoint";        
+message MyUnionData {
+    optional UnionBaseData baseData = 1;            
+    optional string notice = 2;                     
+    optional string slogan = 3;                     
+    repeated UnionMemberData memberList = 4;        
+    repeated UnionFlagData unionFlagData = 5;       
+    optional string WCcode = 6;                     
+    repeated UnionGradeData gradeList = 7;         
+    optional int32 recruitCount = 8;                
+}
+message UnionFlagData {
+    optional int32 unionFlagId = 1;
+    optional int64 expireTime = 2;
+}
+message UnionTimeMsg {
+    optional int64 nextCanJoinUnionTime = 1;        
+    optional int64 nextCanCutPriceTime = 2;         
+}
+message OtherUnionData {
+    optional UnionBaseData baseData = 1;            
+    optional string leaderName = 2;                 
+    optional int32 amount = 3;                      
+    optional int64 fightValue = 4;                  
+    repeated UnionGradeData gradeList = 5;         
+}
+message UnionBaseData {
+    optional int64 unionId = 1;                     
+    optional int64 exp = 2;                         
+    optional int32 flag = 3;                        
+    optional string name = 4;                       
+    optional bool isFreedom = 5;                    
+    optional int32 limitRealmsId = 6;               
+    optional int64 serverId = 7;                    
+    optional int32 memberNum = 8;                   
+    optional int32 dan = 9;                       
+    optional int32 danStar = 10;                    
+    optional bool cross = 11;                       
+}
+message UnionMemberData {
+    optional PlayerBaseDataMsg playerData = 1;      
+    optional int64 lastEnterTime = 2;               
+    optional int64 allContribute = 3;               
+    optional int64 contribute = 4;                  
+    optional UnionPositionEnum position = 5;        
+    optional int64 lastQuitTime = 6;                
+    optional int64 joinTime = 7;                    
+    optional PlayerGradeEnum rate = 8;                
+}
+message UnionTrendsData {
+    optional int64 time = 1;                        
+    optional UnionTrendsEnum type = 2;              
+    optional string promoterName = 3;               
+    optional string receiverName = 4;               
+    optional int32 level = 5;                       
+    optional UnionPositionEnum position = 6;        
+}
+message UnionPositionData {
+    optional int64 playerId = 1;                    
+    optional UnionPositionEnum position = 2;        
+}
+message UnionDailyTaskData {
+    optional int32 taskId = 1;                      
+    optional UnionDailyTaskEnum type = 2;           
+}
+message UnionApplyData {
+    optional PlayerBaseDataMsg player = 1;          
+    optional int64 time = 2;                        
+    optional PlayerGradeEnum rate = 3;                
+}
+message UnionDailyProgressData {
+    optional string name = 1;                       
+    optional int64 playerId = 2;                    
+    optional int32 progress = 3;                    
+}
+message UnionHelpDataMsg {
+    optional UnionMemberData memberData = 1;        
+    repeated int64 helperList = 2;                  
+    optional int32 helpTimes = 3;                   
+    optional int64 createTime = 4;                  
+    optional int32 dreamLv = 5;                     
+}
+message UnionPlayerMsg {
+    required int64 playerId = 1;                    
+    optional string name = 2;                       
+}
+message UnionRechargeUserMsg {
+    required UnionPlayerMsg player = 1;             
+    required int64 recharge = 2;                    
+    required int64 rechargeTime = 3;                
+}
+message UnionRechargeGetRewardDataMsg {
+    required int32 conditionId = 1;
+    repeated UnionPlayerMsg playerList = 2;
+}
+message UnionSimpleData{
+    optional int64 unionId = 1;                      
+    optional int32 flag = 2;                         
+    optional string name = 3;                        
+    optional int64 serverId = 4;                     
+}
+message UnionGradeData{
+    optional PlayerGradeEnum rate = 1;                 
+    optional int32 num = 2;                          
+    optional int32 maxNum = 3;                       
+}
+enum UnionPositionEnum {
+    UnionPositionEnum_Leader = 0;                   
+    UnionPositionEnum_Deputy = 1;                   
+    UnionPositionEnum_Elite = 2;                    
+    UnionPositionEnum_Member = 3;                   
+}
+enum UnionInfoEnum {
+    UnionInfoEnum_Name = 0;                         
+    UnionInfoEnum_Slogan = 1;                       
+    UnionInfoEnum_Notice = 2;                       
+    UnionInfoEnum_Flag = 3;                         
+    UnionInfoEnum_WCCode = 4;                       
+}
+enum UnionDailyTaskEnum {
+    UnionDailyTaskEnum_None = 0;                    
+    UnionDailyTaskEnum_Get = 1;                     
+    UnionDailyTaskEnum_Finish = 2;                  
+}
+enum UnionTrendsEnum {
+    UnionTrendsEnum_Create = 0;                     
+    UnionTrendsEnum_Join = 1;                       
+    UnionTrendsEnum_Exit = 2;                       
+    UnionTrendsEnum_Eviction = 3;                   
+    UnionTrendsEnum_Upgrade = 4;                    
+    UnionTrendsEnum_Remove = 5;                     
+    UnionTrendsEnum_Position = 6;                   
+    UnionTrendsEnum_Donate = 7;                     
+    UnionTrendsEnum_Modify = 8;                     
+}
+enum UnionRedDotEnum {
+    UnionRedDotEnum_JoinNew = 0;                    
+    UnionRedDotEnum_Clear = 1;                      
+    UnionRedDotEnum_Notice = 2;                     
+    UnionRedDotEnum_Task = 3;                       
+}
+enum PlayerGradeEnum{
+    D = 0; 
+    C = 1;
+    B = 2;
+    A = 3;
+    S = 4;
+}
+message ReqUnionCreate {
+    optional string name = 1;                       
+    optional int32 flag = 2;                        
+    optional bool isFreedom = 3;                    
+    optional string slogan = 4;                     
+    optional string notice = 5;                     
+}
+message RspUnionCreate {
+    optional int32 ret = 1;
+    optional int64 time = 2;                        
+}
+message ReqUnionEnter { }
+message RspUnionEnter {
+    optional int32 ret = 1;
+    optional MyUnionData myUnionData = 2;           
+}
+message ReqUnionList { }
+message RspUnionList {
+    optional int32 ret = 1;
+    repeated OtherUnionData unionList = 2;          
+    repeated int64 unionIdList = 3;                 
+    optional int32 myRank = 4;                      
+    optional string leaderName = 5;                 
+}
+message ReqUnionJoin {
+    optional int64 unionId = 1;                     
+}
+message RspUnionJoin {
+    optional int32 ret = 1;
+    repeated int64 unionIdList = 2;                 
+    optional int64 time = 3;                        
+}
+message ReqUnionRandomJoin { }
+message RspUnionRandomJoin {
+    optional int32 ret = 1;
+    optional int64 time = 2;                        
+    optional string name = 3;                       
+}
+message ReqUnionDetail {
+    optional int64 unionId = 1;                     
+    optional int64 serverId = 2;                    
+}
+message RspUnionDetail {
+    optional int32 ret = 1;
+    optional OtherUnionData otherUnionData = 2;     
+    repeated UnionMemberData memberList = 3;        
+    optional string slogan = 4;                     
+}
+message ReqUnionPosition {
+    optional int64 playerId = 1;                    
+    optional UnionPositionEnum position = 2;        
+}
+message RspUnionPosition {
+    optional int32 ret = 1;
+    repeated UnionPositionData positionList = 2;    
+}
+message ReqUnionApplyPlayerList { }
+message RspUnionApplyPlayerList {
+    optional int32 ret = 1;
+    repeated UnionApplyData applyPlayerList = 2;    
+    optional int32 addCount = 3;                    
+}
+message ReqUnionRandomState {
+    optional bool isFreedom = 1;                    
+}
+message RspUnionRandomState {
+    optional int32 ret = 1;
+}
+message ReqUnionLimitRealmsId {
+    optional int32 limitRealmsId = 1;               
+}
+message RspUnionLimitRealmsId {
+    optional int32 ret = 1;
+}
+message ReqUnionClearApply { }
+message RspUnionClearApply {
+    optional int32 ret = 1;
+}
+message ReqUnionPassApply {
+    optional int64 playerId = 1;                    
+}
+message RspUnionPassApply {
+    optional int32 ret = 1;
+    repeated UnionMemberData memberList = 2;        
+}
+message ReqUnionRemove { }
+message RspUnionRemove {
+    optional int32 ret = 1;
+}
+message ReqUnionExit {}
+message RspUnionExit {
+    optional int32 ret = 1;
+}
+message ReqUnionTrends { }
+message RspUnionTrends {
+    optional int32 ret = 1;
+    repeated UnionTrendsData trendsList = 2;        
+}
+message ReqUnionModify {
+    optional UnionInfoEnum type = 1;                
+    optional string content = 2;                    
+}
+message RspUnionModify {
+    optional int32 ret = 1;
+}
+message ReqUnionDailyTask {}
+message RspUnionDailyTask {
+    optional int32 ret = 1;
+    optional int32 progress = 2;                    
+    repeated int32 taskList = 3;                    
+}
+message ReqUnionGetDailyTask {
+    optional int32 actIndex = 1;                    
+}
+message RspUnionGetDailyTask {
+    optional int32 ret = 1;
+    optional string reward = 2;                     
+}
+message ReqUnionDailyDonate {
+    optional int32 taskId = 1;                      
+}
+message RspUnionDailyDonate {
+    optional int32 ret = 1;
+    optional string reward = 2;                     
+}
+message ReqUnionDailyProgress { }
+message RspUnionDailyProgress {
+    optional int32 ret = 1;
+    repeated UnionDailyProgressData progressList = 2; 
+}
+message ReqUnionEviction {
+    optional int64 playerId = 1;                    
+}
+message RspUnionEviction {
+    optional int32 ret = 1;
+}
+message ReqUnionJoinList { }
+message RspUnionJoinList {
+    optional int32 ret = 1;
+    repeated OtherUnionData unionList = 2;          
+    repeated int64 unionIdList = 3;                 
+}
+message ReqUnionWatchRedDot {
+    optional SystemRedPointTypeEnum type = 1;       
+}
+message RspUnionWatchRedDot {
+    optional int32 ret = 1;
+}
+message GetUnionHelpDataListReq { }
+message GetUnionHelpDataListResp {
+  required int32 ret = 1;
+  repeated UnionHelpDataMsg unionHelpData = 2;
+  required int32 helpTimes = 3;                     
+}
+message RequestUnionHelpReq { }
+message RequestUnionHelpResp {
+  required int32 ret = 1;
+}
+message UnionHelpReq {
+  required int64 playerId = 1;
+}
+message UnionHelpResp {
+  required int32 ret = 1;
+  repeated UnionHelpDataMsg unionHelpData = 2;
+}
+message GetUnionHelpStateReq { }
+message GetUnionHelpStateResp {
+  required int32 ret = 1;
+  optional bool canRequest = 2;
+}
+message PushUnionEvictionMsg {
+    optional int64 outTime = 1;                     
+}
+message ReqUnionSameNameListMsg {
+    required int32 activityId = 1;
+}
+message RspUnionSameNameListMsg {
+    required int32 ret = 1;
+    repeated UnionPlayerMsg playerList = 2;
+}
+message UnionRechargeUserReqMsg {
+    required int32 activityId = 1;
+}
+message UnionRechargeUserRspMsg {
+    required int32 ret = 1;
+    optional int32 activityId = 2;
+    repeated UnionRechargeUserMsg rechargeUser = 3;
+    repeated UnionRechargeGetRewardDataMsg getRewardData = 4;
+}
+message UnionRechargeDataSync {
+    required int32 activityId = 1;
+    repeated UnionRechargeUserMsg rechargeUser = 2;
+    repeated UnionRechargeGetRewardDataMsg getRewardData = 3;
+}
+message UnionPublishRecruitReqMsg{
+    required string content = 1;                        
+}
+message UnionPublishRecruitRespMsg{
+    optional int32  ret = 1;
+    optional int32 recruitCount = 2;  
+}
+message NotifyUnionRecruitCountMsg {
+  optional int32 recruitCount = 1;  
+}
+message UnionMemberGradeSettingReq {
+  repeated UnionGradeSettingMsg settingData = 1;
+}
+message UnionMemberGradeSettingResp {
+  optional int32 ret = 1;
+  repeated UnionGradeSettingMsg settingData = 2;
+}
+message UnionGradeSettingMsg {
+  required PlayerGradeEnum grade = 1;
+  required int32 changeCount = 2; 
+}
+message GetCrossUnionGroupServersReq{}
+message GetCrossUnionGroupServersResp {
+  optional int32 ret = 1;
+  repeated int64 serverList = 2;
+}
+message UnionPlayerGradeRankReqMsg{}
+message UnionPlayerGradeRankRespMsg{
+  optional int32  ret = 1;
+  repeated UnionPlayerGradeRankData rankList = 2; 
+  optional int32 myRank = 3;                        
+  optional PlayerGradeEnum myGrade = 4;                
+}
+message UnionPlayerGradeRankData{
+    optional PlayerCharacterImageMsg playerBaseData = 1;
+    optional PlayerGradeEnum grade = 2;                
+}
+message NotifyPlayerGradeMsg {
+   optional PlayerGradeEnum myGrade = 1; 
+}

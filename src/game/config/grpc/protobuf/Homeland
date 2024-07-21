@@ -1,0 +1,218 @@
+package com.yq.msg.CityMsg;        
+import "WatchPlayer";
+message SyncHomelandMsg{
+required int32 totalWorkerNum = 2;
+required int32 freeWorkerNum = 1;
+required int32 energy = 3;
+required int32 lv = 4; 
+optional  HomelandSyncMouseManagerMsg mouseManager = 5;
+}
+message SyncHomelandHasRewardMsg{
+}
+message SyncPlayerHomelandChangeMsg{
+required HomelandMsg homeland = 1;
+}
+message HomelandMsg{
+required int32 lv = 1;   
+repeated HomelandRewardMsg reward = 2;
+required int64 nextFreshTime = 3;
+required HomelandPlayerInfoMsg owner = 4;
+optional int32 freeRefreshCount = 5;
+optional int64 lastFreeRefreshTime = 6;
+optional int32 itemRefreshCount = 7;
+required int32 superRefreshTimes = 8;
+}
+message HomelandPlayerInfoMsg{
+  required int64 playerId = 1; 
+  required string nickName = 2; 
+  required int32 headIcon = 3; 
+  optional int64 serverId = 4;
+  optional string wxHeadUrl = 5; 
+  optional PlayerHeadDataMsg headInfo = 6; 
+}
+message HomelandRewardMsg{
+required string reward = 1;
+required int32 rewardLv = 2;
+required int32 distance = 3;
+required int32 pos = 4;
+required int32 maxWorkerNum = 5;
+optional HomelandCompetitorMsg owner = 6; 
+optional HomelandCompetitorMsg enemy = 7; 
+optional int64 finishTime = 8;  
+required int64 playerId = 9; 
+optional bool isOnlyOwnerPull = 10; 
+optional int64 refreshTime = 11;
+}    
+message HomelandRefreshItemMsg{
+  required int32 itemId = 1;  
+  required int32 itemTimes = 2;
+}
+message HomelandWorkerMsg{
+repeated int32 worker = 1;  
+optional string targetReward = 2;
+optional int64 finishTime = 3;  
+optional HomelandCompetitorMsg enemy = 4; 
+}
+message HomelandCompetitorMsg{
+  required int64 playerId = 1; 
+  required string nickName = 2;
+  required int32 headIcon = 3; 
+  required int32 workerNum = 4; 
+  optional bool isWinner = 5;
+  optional string wxHeadUrl = 6; 
+  optional PlayerHeadDataMsg headInfo = 7; 
+}
+message HomelandRecordMsg{
+  required int64 time = 1;
+  required string reward = 2;
+  required int32 lv = 3; 
+  required int32 type = 4;
+  optional string nickName = 5;
+  optional int64 homelandPlayerId = 6; 
+  required int32 headIcon = 7; 
+  optional string wxHeadUrl = 8; 
+  optional int64 logPlayerId = 9; 
+  optional PlayerHeadDataMsg headInfo = 10; 
+}
+message HomelandExploreDataMsg{
+required HomelandPlayerInfoMsg playerInfo = 1;
+repeated int32 rewardId = 2;
+optional bool isInCollecting = 3;
+optional int32 enemyValue = 4; 
+}
+message HomelandRefreshReq{
+    required int32 type = 1;
+    optional int32 position = 2;
+    optional int32 itemId = 3; 
+    optional int64 otherPlayerID = 4; 
+    optional bool isUseADTime = 5;    
+}
+message HomelandRefreshResp{
+required int32 ret = 1;
+optional HomelandMsg homeland = 2;
+}
+message HomelandManageReq{
+}
+message HomelandManageResp{
+repeated HomelandRewardMsg reward = 1; 
+}
+message HomelandLevelUpReq{
+}
+message HomelandLevelUpResp{
+required int32 ret =1;
+optional HomelandMsg homeland = 2;
+}
+message HomelandBuyWorkerReq{
+}
+message HomelandBuyWorkerResp{
+required int32 ret = 1;
+}
+message HomelandGetRecordReq{
+}
+message HomelandGetRecordResp{
+repeated HomelandRecordMsg record = 1;
+}
+message HomelandExploreReq{
+}
+message HomelandExploreResp{
+  required int32 ret = 1;
+  optional HomelandExploreMsg exploreData = 2;
+}
+message HomelandExploreMsg{
+  repeated HomelandExploreDataMsg nearHomeland = 1;
+  repeated HomelandExploreDataMsg enemy = 2;
+  required int64 lastRefreshTime = 3;
+}
+message SyncLeaveHomeLand{
+  required int64 playerId = 1;
+}
+message HomelandRefreshExploreReq{
+}
+message HomelandRefreshExploreResp{
+  required int32 ret = 1;
+  optional HomelandExploreMsg exploreData = 2;
+}
+message HomelandEnterReq{
+    required int64 playerId = 1;
+}
+message HomelandEnterResp{
+optional HomelandMsg homeland = 1;
+}
+message HomelandDispatchWorkerReq{
+required int64 playerId = 1;
+required int32 pos = 2;
+required int32 workerNum = 3;
+}
+message HomelandDispatchWorkerResp{
+required int32 ret = 1;
+optional HomelandMsg homeland = 2;
+}
+message HomelandDispatchPreviewReq{
+required int64 playerId = 1;
+required int32 pos = 2;
+required int32 workerNum = 3;
+}
+message HomelandDispatchPreviewResp{
+required int32 ret = 1;
+optional int64 needTime = 2;
+}
+message HomelandDispatchAllWorkerReq{
+}
+message HomelandDispatchAllWorkerResp{
+  required int32 ret = 1;
+}
+message HomelandLeaveReq{
+}
+message HomelandLeaveResp{
+}
+message HomelandGetRewardReq{
+}
+message HomelandGetRewardResp{
+  optional string reward = 1;
+}
+message CornucopiaMsg{
+  required int32 scheduleNum = 1;   
+  required int32 rechargeSlot = 2;  
+  optional int64 rewardTime = 3;    
+  optional int32 moreTimes = 4;     
+}
+message SyncPlayerCornucopiaChangeMsg{
+  required CornucopiaMsg cornucopia = 1;
+}
+message CornucopiaGetRewardReq{
+}
+message CornucopiaGetRewardRsp{
+   required int32 ret = 1;
+   optional string reward = 2;
+}
+message HomelandSyncMouseManagerMsg{
+  optional int64 expireTime = 1; 
+  optional int32 freeTimes = 2;
+  repeated HomelandAutoCollectItem ItemSettings = 3;
+  optional int64 nextTime = 4;
+}
+message HomelandAutoDispatchWorkerReq{
+  repeated HomelandAutoCollectItem ItemSettings = 1;
+  optional bool first = 2;
+}
+message HomelandAutoDispatchWorkerRsp{
+  required int32 ret = 1;
+  optional bool needStop = 2;
+  optional int64 nextTime = 3;
+}
+message HomelandAutoCollectItem{
+  optional int32 ItemId = 1;
+  optional int32 minItemLv = 2;
+  optional bool isCheck = 3; 
+}
+message HomelandUseFreeMouseManagerReq{
+}
+message HomelandUseFreeMouseManagerRsp{
+  required int32 ret = 1;
+}
+message HomelandSaveSettingsReq{
+  repeated HomelandAutoCollectItem ItemSettings = 1;
+}
+message HomelandSaveSettingsRsp{
+  required int32 ret = 1;
+}

@@ -1,0 +1,164 @@
+package com.yq.msg.CityMsg;
+import "Common";
+import "WatchPlayer";
+    message WorldMessageTempMsg {
+        required int32   type =1;                             
+        required int64   sendTime =2;                         
+        optional string  content =3;                          
+        optional int64   playerId =4;                         
+        optional PlayerBaseDataMsg playerBaseData =5;		      
+        optional int32   activityId =6;                       
+        optional int32 contentType = 7;                       
+        optional string extraParams = 8;                      
+        optional bytes  extraData = 9;                        
+        optional string logId = 10;                           
+        optional bool  Reported = 11;                         
+        optional string ip = 12;                              
+        optional AtPlayerInfo atPlayerInfo = 13;              
+        optional int64 friendPlayerId = 14;                   
+    }
+    message AtPlayerInfo {
+        optional int64 playerId = 1; 
+        optional string nickName = 2; 
+    }
+    message WorldMessageListMsg {
+        repeated WorldMessageTempMsg dataList = 1;
+    }
+    message WorldChatReqMsg {
+        required int32  type =1;        
+        required string content =2;     
+        optional int32  activityId =3;  
+        optional int32 contentType = 4; 
+        optional AtPlayerInfo atPlayerInfo = 5;   
+        optional int64 friendPlayerId = 6; 
+    }
+    message WorldChatRespMsg {
+        required int32 ret =1;        
+        optional int64 forbiddenTime = 2; 
+    }
+    message FriendChatReqMsg {
+        optional int64 friendPlayerId = 1;  
+    }
+    message ActivityChatReqMsg {
+        optional int32  activityId =1;  
+    }
+    message HorseRaceLampMsgAdd {
+        optional string nickName = 1; 
+        optional int32 conditionId = 2; 
+        optional string param = 3; 
+    }
+    message ReportReq{
+        required int64 playerId =1;                         
+    }
+    message ReportResp{
+        required int32 ret = 1;
+    }
+    message SystemChatReqMsg {
+        optional int32  eMessageType =1;  
+    }
+    message WorldChatBlockReqMsg {
+        required int64 playerId = 1;
+        optional int64 serverId = 2;
+    }
+    message WorldChatBlockRespMsg {
+        required int32 ret = 1;
+    }
+    message WorldMessageExtraData {
+        repeated string words = 1;
+        optional int32 campId = 2; 
+    }
+    message RemoveBlackReqMsg {
+        repeated int64 playerId = 1;
+    }
+    message RemoveBlackRespMsg {
+        required int32 ret = 1;
+    }
+    message GetBlackPlayerListReqMsg {
+    }
+    message SyncBlackPlayerIdListMsg {
+        repeated int64 playerId = 1;
+    }
+    message GetBlackPlayerListRespMsg {
+        required int32 ret = 1;
+        repeated PlayerBaseDataMsg playerInfo = 2;
+    }
+    message WorldMessageCheckEffectiveReq{
+        optional int32 activityId = 1; 
+        optional string onlyId = 2; 
+    }
+    message WorldMessageCheckEffectiveRsp{
+        optional int32 ret = 1;
+        optional bool isEffective =2; 
+    }
+message ReportMessageReqMsg {
+    required int32  eMessageType = 1;  
+    required string logId = 2;      
+    optional int32  activityId = 3;  
+    optional int32 contentType = 4;  
+    optional string violationReason = 5;     
+    optional int32 violationType= 6;   
+    optional string targetPlayerId = 7; 
+}
+message ReportMessageRespMsg {
+    required int32 ret = 1;        
+}
+/* ******************** 聊天红包 ******************** */
+message RedPacketStateMsgSync{
+    required int32 activityId = 1;
+    repeated RedPacketSmallMsg stateList = 2;   
+    required int32 num = 3;      
+    required int32 limit = 4;    
+}
+message RedPacketSmallMsg {
+    required string id = 1;         
+    required int32 state = 2;       
+    optional string content = 3;     
+    optional string name = 4;       
+    optional int64 expiredTime = 5; 
+    optional int64 playerId = 6;    
+}
+message RedPacketMsg {
+    required string id = 1;                    
+    required int32 type = 2;                  
+    optional int32 total = 3;                 
+    optional PlayerBaseDataMsg sender = 4;    
+    repeated RedPacketReceived received = 5;  
+    optional int64 expiredTime = 6;           
+    optional int64 luckyPlayer = 7;           
+}
+message RedPacketReceived {
+    optional PlayerBaseDataMsg player = 1;    
+    optional string rewards = 2;              
+}
+message RedPacketExtraData {
+    optional string rewards = 1;       
+    optional int32 duration = 2;       
+}
+message RedPacketOpenReq {
+    required int32 activityId = 1;
+    required string id = 2;      
+}
+message RedPacketOpenResp {
+    required int32 ret = 1;
+    optional RedPacketMsg data = 2;
+}
+message RedPacketDrawReq {
+    required int32 activityId = 1;
+    required string id = 2;      
+}
+message RedPacketDrawResp {
+    required int32 ret = 1;
+    optional RedPacketMsg data = 2;
+    optional string rewards = 3;  
+}
+/* ******************** ******* ******************** */
+message PlayerEmoticonDataMsg{
+    repeated SingleEmoticonInfo emoticonList = 1;
+}
+message PlayerEmoticonDataSync{
+    optional PlayerEmoticonDataMsg syncData = 1;
+}
+message SingleEmoticonInfo{
+    optional int32 id = 1;
+    optional int64 endTime = 2;
+}

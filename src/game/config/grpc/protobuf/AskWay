@@ -1,0 +1,363 @@
+package com.yq.msg.CityMsg;  
+import "Common";
+import "WatchPlayer";
+import "Battle";
+import "Rank";
+message AskWayEnterReq{
+  required int32 activityId = 1;            
+}
+message AskWayEnterRsp{
+  required int32 ret = 1;
+  optional int32 activityId = 2;            
+  optional AskWayPlayerInfo playerData = 3; 
+  optional AskWayToSkyInfo toSkyInfo = 4;   
+  repeated competitionGroupInfo competitionGroup = 5;             
+  optional RankMsg rankMsgTop3 = 6;
+  optional ToSkyBattleResult toSkyBattleResult = 7;
+  optional RankMsg toSkyRankMsgTop1 = 8;     
+  optional bool fightQualification = 9;      
+  optional bool toSkyQualification = 10;     
+  optional int32 sessionNum = 11;             
+  repeated PlayerGuessInfoMsg playerGuessInfoArr = 12; 
+  optional PlayerRestrainInfoMsg restrainData = 13; 
+  optional bool ReportRedPoint = 14;          
+}
+message AskWayMatchReq{
+  required int32 activityId = 1;            
+  required int32 RefreshTimes = 2;          
+}
+message AskWayMatchRsp{
+  required int32 ret = 1;
+  optional AskWayPlayerInfo playerInfo = 2;
+  optional AwardInfoList cost = 3;
+}
+message AskWayBattleReq{
+  required int32 activityId = 1;
+  optional int64 playerId = 2;              
+  optional int32 competitionId = 3;         
+}
+message AskWayBattleRsp{
+  required int32 ret = 1;
+  optional AwardInfoList reward = 2;                
+  optional AskWayPlayerInfo playerInfo = 3;
+  optional AskWayBattleResultMsg battleResult = 4;  
+}
+message AskWayBuyFightTicketReq{
+  required int32 activityId = 1;
+  optional int32 buyCount = 2;               
+  optional int32 hadBuyCount = 3;            
+}
+message AskWayBuyFightTicketRsp{
+  required int32 ret = 1;
+  optional AskWayPlayerInfo playerInfo = 2;
+  optional AwardInfoList cost = 3;
+}
+message AskWayGetReportReq{
+  required int32 activityId = 1;
+}
+message AskWayGetReportRsp{
+  optional int32 ret = 1;
+  repeated AskWayBattleReportInfo reportList = 2;
+}
+message AskWayBattleReplyReq{
+  required int32 activityId = 1;
+  required int32 recordId = 2;               
+}
+message AskWayBattleReplyRsp{
+  required int32 ret = 1;
+  optional BattleRecordMsg allBattleRecord = 2;    
+}
+message AskWayReceiveTierRewardReq{
+  required int32 activityId = 1;
+  required int32 tier = 2;
+}
+message AskWayReceiveTierRewardRsp{
+  required int32 ret = 1;
+  optional AwardInfoList reward = 2;
+  optional AskWayPlayerInfo playerInfo = 3;
+}
+message AskWayReceiveScoreRewardReq{
+  required int32 activityId = 1;
+  required int32 scoreId = 2;
+}
+message AskWayReceiveScoreRewardRsp{
+  required int32 ret = 1;
+  optional AwardInfoList reward = 2;
+}
+message AskWayGetGuessInfoReq{
+  required int32 activityId = 1;
+  optional int32 roundId = 2; 
+  optional int32 competitionId = 3; 
+  optional int32 groupId = 4; 
+}
+message AskWayGetGuessInfoRsp{
+  required int32 ret = 1;
+  optional int32 guessCoin = 2;             
+  repeated PlayerGuessInfoMsg playerGuessInfoArr = 3;
+  optional int32 curGroup = 4;      
+  optional int32 maxGroup = 5;      
+}
+message AskWayGetGuessCoinReq{
+  required int32 activityId = 1;
+}
+message AskWayGetGuessCoinRsp{
+  required int32 ret = 1;
+  optional int32 guessCoin = 2;             
+}
+message AskWayToSkyGuessReq{
+  required int32 activityId = 1;
+  required int64 playerId = 2;
+  required int32 guessCoinCost = 3;         
+  required int32 roundId = 4;
+}
+message AskWayToSkyGuessRsp{
+  required int32 ret = 1;
+  optional int32 guessCoin = 2;     
+  optional PlayerGuessInfoMsg playerGuessInfoArr = 3;
+}
+message AskWaySyncGuessReward{
+  required int32 ret = 1;
+  optional int32 num = 2;
+}
+message AskWayToSkyBattleReplyReq{
+  required int32 activityId = 1;
+  required int32 battleId = 2;               
+}
+message AskWayToSkyBattleReplyRsp{
+  required int32 ret = 1;
+  optional BattleRecordMsg allBattleRecord = 2;    
+  optional PlayerHeadAndNameMsg leftPlayerInfo = 3;     
+  optional PlayerHeadAndNameMsg rightPlayerInfo = 4;     
+}
+message AskWayReceiveToSkyRankRewardReq{
+  required int32 activityId = 1;
+  required int32 rank = 2;
+}
+message AskWayReceiveToSkyRankRewardRsp{
+  required int32 ret = 1;
+  optional AwardInfoList reward = 2;
+}
+message AskWayWorshipReq{
+  required int32 activityId = 1;
+}
+message AskWayWorshipRsp{
+  required int32 ret = 1;
+  optional AwardInfoList reward = 2;
+}
+message AskWayToSkyRosterReq{
+  optional int32 activityId = 1;
+  optional int32 sessionNum = 2;                 
+}
+message AskWayToSkyRosterRsp{
+  required int32 ret = 1;
+  optional int32 sessionNum = 2;                 
+  repeated LockRoster toSkyPlayerNo1 = 3;
+}
+message AskWayGetPlayerDetailReq {
+  required int32 activityId = 1; 
+  required int64 playerId = 2; 
+  required int64 serverId = 3; 
+}
+message AskWayGetPlayerDetailRsp {
+  optional int32 ret = 1;
+  optional PlayerDetailDataMsg playerDetailDataMsg = 2;
+}
+message AskWayToSkyGetBattleResultReq{
+  required int32 activityId = 1;
+  required int32 competitionId = 2;               
+  required int32 roundId = 3;                     
+  required int32 groupId = 4;                     
+}
+message AskWayToSkyGetBattleResultRsp{
+  required int32 ret = 1;
+  optional ToSkyBattleResult battleResult = 2;  
+}
+message AskWayToSkyGetReportReq{
+  required int32 activityId = 1;
+  required int32 battleId = 2;
+}
+message AskWayToSkyGetReportRsp{
+  optional int32 ret = 1;
+  repeated BattleResult battleResult = 2;           
+}
+message AskWayGetPlayerRestrainDataReq{
+  required int32 activityId = 1;
+  optional int32 competitionId = 2;               
+  optional int32 realmsId = 3;                    
+}
+message AskWayGetGetCurStateInfoReq{
+  required int32 activityId = 1;
+}
+message AskWayGetGetCurStateInfoRsp{
+  optional int32 ret = 1;
+  optional AskWayPosterState state = 2;
+  optional int64 stateEndTime = 3;
+}
+message AskWayCancelReportRedPointReq{
+  required int32 activityId = 1;
+  required int32 recordId = 2;
+}
+message AskWayCancelReportRedPointRsp{
+  required int32 ret = 1;
+  optional AskWayBattleReportInfo reportInfo = 2;
+}
+message AskWayPlayerInfo{
+  optional int32 score = 1;                                   
+  optional int32 challengeTimes = 2;                          
+  optional int32 buyChallengeTimes = 3;                       
+  optional int32 RefreshTimes = 4;                            
+  optional AskWayPlayerChallengeInfo challengeInfo = 5;       
+  repeated int32 tierAwardInfoList = 6;                       
+  optional int32 tierAchievedMax = 7;                         
+  optional int32 competitionArea = 8;                         
+  optional int64 fightValue = 9;                              
+}
+message AskWayPlayerChallengeInfo{
+  repeated AskWayPlayerChallengePlayerInfo playerList = 1;    
+}
+message AskWayPlayerChallengePlayerInfo{
+  repeated AttributeDataMsg attributeData = 1;                
+  optional PlayerAppearanceDataMsg targetInfo = 2;        
+  optional int64 winScore = 3;                            
+}
+message competitionGroupInfo{
+  optional int32 competitionId = 1;                            
+  optional int32 minLevel = 2;                                 
+  optional int32 maxLevel = 3;                                 
+  optional int32 standardLevel = 4;                            
+  repeated int32 groupNum = 5;                    
+}
+message AskWayToSkyInfo{
+  optional int32 GuessScore = 1;                              
+  optional bool HasGetGuessCoin = 2;                         
+  optional bool IsWorship = 3;                               
+  optional int64 RefreshTime = 4;                             
+  optional int64 heatValue = 5;                               
+  repeated AskWayRoundGroupInfo roundGroupInfoList = 6;
+}
+message AskWayBattleResultMsg {
+  optional BattleRecordMsg allBattleRecord = 1;           
+  optional bool challengeSuccess = 2;                     
+  optional PlayerHeadAndNameMsg targetPlayerInfo = 3;     
+  optional int32 askWayScore = 4;                         
+  optional int32 targetScore = 5;                         
+  optional int32 targetScoreChange = 6;                   
+}
+message AskWayBattleReportInfo{
+  optional int32 recordId = 1;                                 
+  optional PlayerLogInfoMsg attacker = 2;                      
+  optional PlayerLogInfoMsg defender = 3;                      
+  optional int32 scoreChange = 4;                              
+  optional int64 time = 5;                                    
+  optional bool isWin = 6;                                     
+  optional bool isRead = 7;                                    
+}
+message PlayerLogInfoMsg{
+  optional PlayerHeadAndNameMsg headInfo = 1;
+  optional int32 realmsId = 2;              
+  optional int32 curScore = 3;              
+  optional int32 scoreChange = 4;           
+  optional bool isWin = 5;                  
+}
+message ToSkyBattleResult{
+  optional int32 groupNum = 1;                             
+  repeated RoundResult roundResult = 2;                    
+  optional int32 totalGroupNum = 3;                        
+}
+message RoundResult{
+  optional int32 round = 1;                             
+  repeated BattleResult battleResultList = 2;           
+}
+message BattleResult{
+  optional int32 battleId = 1;                    
+  optional ToSkyPlayerInfo leftPlayerInfo = 2;                    
+  optional ToSkyPlayerInfo rightPlayerInfo = 3;                   
+  optional bool isWin = 4;                        
+  optional bool isFinished = 5;                   
+}
+message ToSkyPlayerInfo{
+  optional PlayerHeadAndNameMsg playerInfo = 1;  
+  optional int64 heatValue = 2;                  
+  optional int64 fightValue = 3;                 
+}
+message LockRoster{
+  optional int32 competitionId = 1;
+  optional RosterShowMsg toSkyPlayerNo1 = 2;
+}
+message RosterShowMsg{
+  required int64 playerId = 1;
+  required int64 serverId = 2;
+  required string nickName = 3;
+  repeated int32 pet = 4;
+  repeated int32 spirit = 5;
+  optional int32 appearanceId = 6; 
+  optional int32 equipCloudId = 7; 
+  optional int32 realmsId = 8;  
+  optional int32 headIcon = 11; 
+  optional string wxHeadUrl = 12; 
+  optional PlayerHeadDataMsg headInfo = 13;
+  repeated int32 petSoulShapeList = 14; 
+}
+message PlayerGuessInfoMsg{
+  optional ToSkyPlayerInfo playerInfo = 1;
+  optional int32 guessCoin = 2;
+  optional int32 odds = 3; 
+  optional int32 battleResult = 4; 
+  optional int32 groupId = 5;
+  optional int32 roundId = 6;
+}
+message PlayerRestrainInfoMsg{
+  repeated EquipmentDataMsg equipList = 1;
+  optional int32 preRealms = 2;
+  optional int32 afterRealms = 3;
+  repeated AttributeDataMsg preAttribute = 4;                
+  repeated AttributeDataMsg afterAttribute = 5;                
+}
+message AskWayConfigSyncMsg {
+  repeated AskWayTimeConfigTemp timeConfig = 1;     
+  repeated AskWayMatchConfigTemp matchConfig = 2;   
+  repeated AskWayDivisionConfigTemp divisionConfig = 3;   
+  repeated AskWaySettlementConfigTemp settlementConfig = 4;   
+}
+message AskWayTimeConfigTemp {
+  required int32 activityId = 1;                   
+  required int32 timeId = 2;                       
+  required int32 type = 3;                         
+  required int32 session = 4;                      
+  required int32 beginDay = 5;                     
+  required int32 beginTime = 6;                    
+  required int32 durTime = 7;                      
+}
+message AskWayMatchConfigTemp{
+  required int32 activityId = 1;                   
+  required int32 id = 2;                           
+  required string name = 3;                        
+  required int32 minLevel = 4;                     
+  required int32 maxLevel = 5;                     
+  required int32 standardLevel = 6;                
+  required int32 minNum = 7;                       
+  required string groupNum = 8;                    
+}
+message AskWayDivisionConfigTemp{
+  required int32 activityId = 1;                   
+  required int32 divisionId = 2;                   
+  required string divisionName = 3;                
+  required int32 minScore = 4;                     
+  required string reward = 5;                      
+}
+message AskWaySettlementConfigTemp{
+  required int32 activityId = 1;                   
+  required int32 id = 2;                           
+  required int32 minScore = 3;                     
+  required string reward = 4;                      
+}
+message AskWayRoundGroupInfo{
+  optional int32 roundId = 1;               
+  optional int32 groupId = 2;               
+}
+enum AskWayPosterState{
+  AskWayPosterState_1 = 0;    
+  AskWayPosterState_2 = 1;    
+  AskWayPosterState_3 = 2;    
+  AskWayPosterState_4 = 3;    
+}

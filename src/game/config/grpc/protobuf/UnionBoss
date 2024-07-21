@@ -1,0 +1,77 @@
+package com.yq.msg.CityMsg;    
+import "Battle";
+import "Common";
+message UnionBossInfoReqMsg{}
+message UnionBossInfoRespMsg{
+  required int32 ret = 1;
+  optional int64 totalDamage = 2; 
+  repeated int32 received = 3; 
+  optional UnionBossMsg boss = 4; 
+  optional UnionBossBuff buff = 5; 
+  optional int32  battleCount = 6; 
+  optional int32 addBuffCount = 7; 
+}
+message UnionBossMsg {
+  optional int32 configId = 1;
+  optional int64 maxHp =2;
+  optional int64 leftHp = 3;
+}
+message UnionBossBuff {
+  repeated AttributeDataMsg attrs = 1; 
+  optional int32 overlay = 2; 
+  optional int64 expiredTime = 3; 
+}
+message UnionBossBuffReqMsg {}
+message UnionBossBuffRespMsg {
+  optional int32 ret = 1;
+  optional UnionBossBuff buff = 2; 
+  optional int32 addBuffCount = 3; 
+}
+message UnionBossRewardReqMsg {}
+message UnionBossRewardRespMsg {
+   optional int32 ret = 1;
+   repeated UnionBossBattleRecord records = 2; 
+   optional string rewards = 3;        
+}
+message UnionBossRewardReceiveReqMsg {}
+message UnionBossRewardReceiveRespMsg {
+  optional int32 ret = 1;
+  optional string rewards = 2; 
+}
+message UnionBossBattleReqMsg {}
+message UnionBossBattleRespMsg {
+  optional int32 ret = 1;
+  optional BattleRecordMsg allBattleRecord = 2; 
+  optional int64 damage = 3;
+  optional string rewards = 4; 
+  optional int32  battleCount = 5; 
+  optional uint64 totalDamage = 6; 
+  optional UnionBossMsg boss = 7; 
+}
+message UnionBossBattleRecord {
+  optional int64 playerId = 1; 
+  optional string playerName = 2;  
+  optional int32 monsterId =3; 
+  optional int32 type = 4; 
+  optional int32 rewardNum = 5; 
+  optional int64 damage = 6; 
+  optional int64 time = 7; 
+}
+message UnionBossAchieveRewardReqMsg {
+  required int32 taskId = 1; 
+}
+message UnionBossAchieveRewardRespMsg {
+  required int32 ret = 1;
+  optional int32 taskId = 2; 
+  optional string rewards = 3;        
+  repeated int32 received = 4; 
+}
+message UnionBossAddBuffPlayer{
+  optional int64 playerId = 1;
+  optional int64 addBuffTime = 2;
+}
+message UnionBossAddBuffPlayerReqMsg {}
+message UnionBossAddBuffPlayerRespMsg {
+  optional int32 ret = 1;
+  repeated UnionBossAddBuffPlayer players = 2;
+}

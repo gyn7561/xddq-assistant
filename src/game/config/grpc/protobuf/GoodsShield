@@ -1,0 +1,7 @@
+package com.yq.msg.CityMsg;   
+message GoodsShieldSync{
+    repeated int32 shieldList = 1;
+}
+message ActivityPosterShieldSync{
+    repeated int32 posterId = 1;
+}

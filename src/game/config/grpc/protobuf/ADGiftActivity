@@ -1,0 +1,33 @@
+package com.yq.msg.CityMsg;  
+message ADGiftTriggerReq {
+  required int32 activityId = 1;
+}
+message ADGiftTriggerResp {
+}
+message ADGiftActivityPlayerDataSync {
+  optional ADGiftActivityPlayerDataMsg syncMsg = 1;
+  optional int32 dailyOnlineTime = 2;
+  optional bool isGetAdReward = 3;
+}
+message ADGiftActivityPlayerDataMsg {
+  required int32 activityId = 1;
+  repeated ADGiftTriggerGiftDataMsg triggerGiftDataMsg = 2;
+}
+message ADGiftTriggerGiftDataMsg {
+  required int32 conditionId = 1;
+  required int32 giftId = 2;
+  required int64 endTime = 3;
+  repeated int32 hasBeenBought = 4;
+  repeated int32 triggerMallId = 5;
+  optional string reward = 6;
+}
+message ADGiftGetRewardReq {
+  required int32 activityId = 1;
+  required int32 giftId = 2;
+  required int32 conditionId = 3;
+  required int32 mallId = 4;
+}
+message ADGiftGetRewardResp {
+  required int32 ret = 1;
+  optional string reward = 2;
+}

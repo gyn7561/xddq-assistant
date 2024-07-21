@@ -1,0 +1,4572 @@
+{
+    "Common": [],
+    "MountainSea": [
+        {
+            "key": "S_MOUNTAIN_SEA_ENTER_BATTLE",
+            "comment": "进入布阵界面",
+            "cmMethod": "MountainSeaEnterBattleReq",
+            "smMethod": "MountainSeaEnterBattleResp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_ENTER_SWITCH_SEPARATION",
+            "comment": "进入切换分身界面",
+            "cmMethod": "MountainSeaEnterSwitchSeparationReq",
+            "smMethod": "MountainSeaEnterSwitchSeparationRsp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_SWITCH_SEPARATION",
+            "comment": "切换上阵的分身",
+            "cmMethod": "MountainSeaSwitchSeparationReq",
+            "smMethod": "MountainSeaSwitchSeparationRsp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_SEPARATION_DETAIL",
+            "comment": "查看分身详细数据",
+            "cmMethod": "MountainSeaSeparationDetailReq",
+            "smMethod": "MountainSeaSeparationDetailRsp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_CHANGE_POS",
+            "comment": "改变参战对象位置",
+            "cmMethod": "MountainSeaChangePosReq",
+            "smMethod": "MountainSeaChangePosRsp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_CHANGE_TEAM_SKILL",
+            "comment": "改变装配的队伍技能",
+            "cmMethod": "MountainSeaChangeTeamSkillReq",
+            "smMethod": "MountainSeaChangeTeamSkillRsp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_DO_BATTLE",
+            "comment": "进行战斗",
+            "cmMethod": "MountainSeaDoBattleReq",
+            "smMethod": "MountainSeaDoBattleRsp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_ENTER_BATTLE_NOTIFY",
+            "comment": "广播进入布阵界面",
+            "cmMethod": "",
+            "smMethod": "MountainSeaEnterBattleNotify"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_SWITCH_SEPARATION_NOTIFY",
+            "comment": "切换上阵分身广播",
+            "cmMethod": "",
+            "smMethod": "MountainSeaSwitchSeparationNotify"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_CHANGE_TEAM_SKILL_NOTIFY",
+            "comment": "装配的队伍技能变更广播",
+            "cmMethod": "",
+            "smMethod": "MountainSeaChangeTeamSkillNotify"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_CHANGE_POS_NOTIFY",
+            "comment": "参战对象位置变更广播",
+            "cmMethod": "",
+            "smMethod": "MountainSeaChangePosNotify"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_DO_BATTLE_NOTIFY",
+            "comment": "广播战斗数据",
+            "cmMethod": "",
+            "smMethod": "MountainSeaDoBattleNotify"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_INVITE_LIST",
+            "comment": "邀请列表",
+            "cmMethod": "MountainSeaInviteListReq",
+            "smMethod": "MountainSeaInviteListResp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_INVITE_JOIN_TEAM",
+            "comment": "加入指定邀请队伍",
+            "cmMethod": "MountainSeaApplyJoinTeamReq",
+            "smMethod": "MountainSeaApplyJoinTeamRsp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_INVITE_REFUSE",
+            "comment": "一键拒绝邀请队伍",
+            "cmMethod": "MountainSeaInviteRefuseReq",
+            "smMethod": "MountainSeaInviteRefuseResp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_SEARCH_SET_APPOINT",
+            "comment": "设置接受指定邀请开关",
+            "cmMethod": "MountainSeaSetAppointReq",
+            "smMethod": "MountainSeaSetAppointResp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_RED_INFO",
+            "comment": "请求红点",
+            "cmMethod": "",
+            "smMethod": "MountainSeaRedPointResp"
+        }
+    ],
+    "WatchPlayer": [
+        {
+            "key": "S_GET_PLAYER_DETAIL_DATA",
+            "comment": "获取玩家详细数据",
+            "cmMethod": "getPlayerDetailDataReq",
+            "smMethod": "getPlayerDetailDataResp"
+        },
+        {
+            "key": "S_GET_TOP_PLAYER_INFO",
+            "comment": "获取仙树后面飘的玩家信息",
+            "cmMethod": "GetTopPlayerInfoReq",
+            "smMethod": "GetTopPlayerInfoResp"
+        },
+        {
+            "key": "S_GET_PLAYER_DETAIL_DATA_BY_SYSTEM",
+            "comment": "获取玩家(某个系统)锁定的详细数据-请求",
+            "cmMethod": "getLockedPlayerDetailDataReq",
+            "smMethod": "getLockedPlayerDetailDataResp"
+        },
+        {
+            "key": "S_SEARCH_PLAYER",
+            "comment": "搜索玩家",
+            "cmMethod": "SearchPlayerReq",
+            "smMethod": "SearchPlayerResp"
+        },
+        {
+            "key": "S_GET_PLAYER_PILOT_SHOW_DATA_MSG_LIST",
+            "comment": "请求飞行员列表数据-请求",
+            "cmMethod": "getPlayerPilotShowDataMsgListReq",
+            "smMethod": "getPlayerPilotShowDataMsgListResp"
+        },
+        {
+            "key": "S_PLAYER_COMMON_SEARCH_PLAYER",
+            "comment": "通用搜索玩家",
+            "cmMethod": "CommonSearchPlayerReq",
+            "smMethod": "CommonSearchPlayerResp"
+        }
+    ],
+    "Login": [
+        {
+            "key": "S_PLAYER_LOGIN",
+            "comment": "登陆消息",
+            "cmMethod": "ReqLoginMsg",
+            "smMethod": "RspLoginMsg"
+        },
+        {
+            "key": "S_LOGIN_SYNC_OVER",
+            "comment": "登录下发完成",
+            "smMethod": "LoginOverMsg"
+        },
+        {
+            "key": "S_PLAYER_PING",
+            "comment": "心跳",
+            "cmMethod": "ReqPingMsg",
+            "smMethod": "RspPingMsg"
+        },
+        {
+            "key": "S_OTHER_LOGIN_YOUR_ROLE",
+            "comment": "其他人登录你的账户",
+            "smMethod": "OtherLoginMsg"
+        },
+        {
+            "key": "S_SYN_BACKEND_CONFIG",
+            "comment": "同步后台配置",
+            "smMethod": "RspConfigMsg"
+        }
+    ],
+    "PlayerData": [
+        {
+            "key": "S_PLAYER_DATA_SYNC_MSG",
+            "comment": "用户信息同步",
+            "smMethod": "PlayerDataMsg"
+        },
+        {
+            "key": "S_CREATE_ROLE",
+            "comment": "创建角色请求",
+            "cmMethod": "CreateRoleReq",
+            "smMethod": "CreateRoleResp"
+        },
+        {
+            "key": "S_GET_RANDOM_NICKNAME",
+            "comment": "随机昵称回复",
+            "cmMethod": "",
+            "smMethod": "RandomNickNameResp"
+        },
+        {
+            "key": "S_CHANGE_NICK_NAME",
+            "comment": "改名",
+            "cmMethod": "ChangeNickNameReq",
+            "smMethod": "ChangeNickNameResp"
+        },
+        {
+            "key": "S_EXCHANGE_CODE",
+            "comment": "兑换码",
+            "cmMethod": "UseExchangeKeyReq",
+            "smMethod": "UseExchangeKeyResp"
+        },
+        {
+            "key": "S_GET_SERVER_CONFIG_VERSION",
+            "comment": "服务端配置",
+            "cmMethod": "",
+            "smMethod": "GetServerConfigVersionResp"
+        },
+        {
+            "key": "S_AUTHORIZE_WECHAT_HEAD_URL",
+            "comment": "微信头像授权",
+            "cmMethod": "AuthorizePlayerHeadReq",
+            "smMethod": "AuthorizePlayerHeadResp"
+        },
+        {
+            "key": "S_CLIENT_STORAGE_DATA",
+            "comment": "添加储存数据",
+            "cmMethod": "SaveToServiceReq",
+            "smMethod": "SaveToServiceRsp"
+        },
+        {
+            "key": "S_CLIENT_STORAGE_SYNC",
+            "comment": "全量同步储存数据",
+            "smMethod": "AllClientDataSync"
+        },
+        {
+            "key": "S_GET_POLICY_INFO_REQ",
+            "comment": "获取隐私注册协议",
+            "cmMethod": "GetPolicyInfoReq",
+            "smMethod": "GetPolicyInfoRsp"
+        },
+        {
+            "key": "S_BACK_INFO_SYNC",
+            "comment": "同步协议 回归玩家信息",
+            "smMethod": "SyncRecallPlayerMsg"
+        },
+        {
+            "key": "S_GET_BIND_STATUS_REQ",
+            "comment": "获取绑定状态",
+            "cmMethod": "GetBindStatusReq",
+            "smMethod": "GetBindStatusResp"
+        },
+        {
+            "key": "S_GET_BIND_CODE_REQ",
+            "comment": "生成绑定码",
+            "cmMethod": "GetBindCodeReq",
+            "smMethod": "GetBindCodeResp"
+        },
+        {
+            "key": "S_UNTIE_BIND_CODE_REQ",
+            "comment": "解绑",
+            "cmMethod": "UntieBindCodeReq",
+            "smMethod": "UntieBindCodeResp"
+        },
+        {
+            "key": "S_GET_BIND_CODE_INFO_REQ",
+            "comment": "获取绑定信息",
+            "cmMethod": "GetBindCodeInfoReq",
+            "smMethod": "GetBindCodeInfoResp"
+        },
+        {
+            "key": "S_DELETE_PLAYER",
+            "comment": "注销账号",
+            "cmMethod": "DeletePlayerReq",
+            "smMethod": "DeletePlayerResp"
+        }
+    ],
+    "PlayerSystem": [
+        {
+            "key": "S_SYSTEM_UNLOCK_SYNC_MSG",
+            "comment": "系统解锁同步",
+            "smMethod": "SystemUnlockSync"
+        },
+        {
+            "key": "S_SYSTEM_GET_REWARD_MSG",
+            "comment": "请求领取系统解锁奖励",
+            "cmMethod": "GetSysRewardReq",
+            "smMethod": "GetSysRewardResp"
+        }
+    ],
+    "SdkReward": [
+        {
+            "key": "S_RECEIVE_SDK_REWARD_SYN",
+            "comment": "同步sdk奖励数据",
+            "smMethod": "ReceiveSdkRewardSyn"
+        },
+        {
+            "key": "S_RECEIVE_SDK_REWARD",
+            "comment": "领取sdk奖励",
+            "cmMethod": "ReceiveSdkRewardReq",
+            "smMethod": "ReceiveSdkRewardRsp"
+        },
+        {
+            "key": "S_QQCARD_GET_REWARD",
+            "comment": "领取qq卡券奖励",
+            "cmMethod": "QQCardGetRewardReq",
+            "smMethod": "QQCardGetRewardRsp"
+        },
+        {
+            "key": "S_GET_WECHAT_RANK_WHITE_LIST",
+            "comment": "获取微信排行榜白名单",
+            "cmMethod": "GetWechatRankWhiteListReq",
+            "smMethod": "GetWechatRankWhiteListRsp"
+        },
+        {
+            "key": "S_ALIPAY_SET_START_PARAM",
+            "comment": "支付宝启动参数",
+            "cmMethod": "AlipayStartParamReq",
+            "smMethod": "AlipayStartParamRsp"
+        },
+        {
+            "key": "S_RECEIVE_SDK_DAILY_REWARD",
+            "comment": "Sdk七日登录奖励领取",
+            "cmMethod": "ReceiveSdkDailyRewardReq",
+            "smMethod": "ReceiveSdkDailyRewardRsp"
+        }
+    ],
+    "Attribute": [
+        {
+            "key": "S_ATTRIBUTE_DATA_SYNC_MSG",
+            "comment": "玩家属性信息同步",
+            "smMethod": "PlayerAttributeDataMsg"
+        },
+        {
+            "key": "S_DREAM_DATA_SYNC",
+            "comment": "做梦玩家数据",
+            "smMethod": "DreamDataMsg"
+        },
+        {
+            "key": "S_ATTRIBUTE_DREAM_MSG",
+            "comment": "做梦",
+            "cmMethod": "ReqDreamMsg",
+            "smMethod": "RspDreamMsg"
+        },
+        {
+            "key": "S_ATTRIBUTE_REALMS_LEVE_UP_MSG",
+            "comment": "境界升级",
+            "cmMethod": "ReqRealmsLeveUpMsg",
+            "smMethod": "RspRealmsLeveUpMsg"
+        },
+        {
+            "key": "S_ATTRIBUTE_DREAM_LV_UP",
+            "comment": "梦境升级",
+            "cmMethod": "DreamLvUpReq",
+            "smMethod": "DreamLvUpResp"
+        },
+        {
+            "key": "S_ATTRIBUTE_DREAM_LV_UP_SPEED_UP",
+            "comment": "梦境升级加速",
+            "cmMethod": "DreamLvUpSpeedUpReq",
+            "smMethod": "DreamLvUpSpeedUpResp"
+        },
+        {
+            "key": "S_ATTRIBUTE_EQUIPMENT_DEAL_MSG",
+            "comment": "处理装备",
+            "cmMethod": "ReqDealEquipmentMsg",
+            "smMethod": "RspDealEquipmentMsg"
+        },
+        {
+            "key": "S_ATTRIBUTE_GET_UNDEAL_EQUIPMENT_MSG",
+            "comment": "获取未处理装备数据",
+            "cmMethod": "GetUnDealEquipmentMsgReq",
+            "smMethod": "GetUnDealEquipmentMsgResp"
+        },
+        {
+            "key": "S_ATTRIBUTE_GET_TRIBULATION_SUCCESS_PRO",
+            "comment": "获取渡劫成功率",
+            "cmMethod": "GetTribulationSuccessProReq",
+            "smMethod": "GetTribulationSuccessProResp"
+        },
+        {
+            "key": "S_ATTRIBUTE_SOARING_REQ",
+            "comment": "斩道也调用这个接口",
+            "cmMethod": "SoaringReq",
+            "smMethod": "SoaringResp"
+        },
+        {
+            "key": "S_ATTRIBUTE_SET_SEPARATION_NAME_REQ",
+            "comment": "设置分身名字",
+            "cmMethod": "SetSeparationNameReq",
+            "smMethod": "SetSeparationNameResp"
+        },
+        {
+            "key": "S_ATTRIBUTE_SWITCH_SEPARATION_REQ",
+            "comment": "切换分身",
+            "cmMethod": "SwitchSeparationReq",
+            "smMethod": "SwitchSeparationResp"
+        },
+        {
+            "key": "S_ATTRIBUTE_GET_SEPARATION_DATAA_MSG_LIST_REQ",
+            "comment": "获取分身列表数据",
+            "cmMethod": "GetSeparationDataMsgListReq",
+            "smMethod": "GetSeparationDataMsgListResp"
+        }
+    ],
+    "Bag": [
+        {
+            "key": "S_BAG_DATA_SYNC_MSG",
+            "comment": "同步背包数据",
+            "smMethod": "SyncBagMsg"
+        },
+        {
+            "key": "S_BAG_USE_PROP",
+            "comment": "使用道具",
+            "cmMethod": "UsePropReq",
+            "smMethod": "UsePropResp"
+        },
+        {
+            "comment": "UseOptionalBoxParam解析",
+            "byteDecode": "UseOptionalBoxParam"
+        },
+        {
+            "key": "S_BAG_COMPOUND_PROP",
+            "comment": "合成道具",
+            "cmMethod": "CompoundPropReq",
+            "smMethod": "CompoundPropResp"
+        },
+        {
+            "key": "S_HOLD_PET_EGG_DATA_SYNC",
+            "comment": "同步灵兽蛋数据",
+            "smMethod": "HoldPetEggDataSync"
+        },
+        {
+            "key": "U_HOLD_SPECIAL_ITEM_DATA_SYNC",
+            "comment": "同步太初秘册数据",
+            "smMethod": "HoldNestedBoxDataSync"
+        },
+        {
+            "comment": "ChangeRoleParam解析",
+            "byteDecode": "ChangeRoleParam"
+        }
+    ],
+    "Battle": [
+        {
+            "key": "S_BATTLE_TEST",
+            "comment": "测试战斗",
+            "smMethod": "BattleRecordMsg"
+        },
+        {
+            "key": "S_TEAM_BATTLE_TEST",
+            "comment": "测试组队战斗",
+            "smMethod": "TeamBattleRecordMsg"
+        },
+        {
+            "comment": "精怪行动bytes解析",
+            "byteDecode": "SpiritAction"
+        },
+        {
+            "comment": "灵兽行动bytes解析",
+            "byteDecode": "PetAction"
+        },
+        {
+            "comment": "人物行动bytes解析",
+            "byteDecode": "MainAction"
+        },
+        {
+            "comment": "神通行动bytes解析",
+            "byteDecode": "MagicAction"
+        },
+        {
+            "comment": "组队技能行动bytes解析",
+            "byteDecode": "TeamSkillAction"
+        },
+        {
+            "comment": "boss回合技能行动bytes解析",
+            "byteDecode": "BossSkillAction"
+        },
+        {
+            "comment": "boss特殊技能行动bytes解析",
+            "byteDecode": "BossSpecialSkillAction"
+        }
+    ],
+    "Stage": [
+        {
+            "key": "S_STAGE_CHALLENGE",
+            "comment": "关卡挑战",
+            "smMethod": "ChallengeRspMsg"
+        },
+        {
+            "key": "S_STAGE_DATA_SYNC",
+            "comment": "关卡数据同步",
+            "smMethod": "PlayerStageData"
+        }
+    ],
+    "Invade": [
+        {
+            "key": "S_INVADE_CHALLENGE",
+            "comment": "异兽入侵挑战",
+            "smMethod": "InvadeChallengeResp"
+        },
+        {
+            "key": "S_INVADE_DATA_SYNC",
+            "comment": "异兽入侵数据同步",
+            "smMethod": "InvadeDataMsg"
+        }
+    ],
+    "Task": [
+        {
+            "key": "S_TASK_DATA_SEND",
+            "comment": "玩家登录任务数据下发",
+            "smMethod": "TaskDataListMsg"
+        },
+        {
+            "key": "S_TASK_DATA_SYNC",
+            "comment": "玩家任务数据同步",
+            "smMethod": "TaskDataListMsg"
+        },
+        {
+            "key": "S_TASK_GET_REWARD",
+            "comment": "领取任务奖励响应",
+            "cmMethod": "TaskGetRewardReqMsg",
+            "smMethod": "TaskGetRewardRespMsg"
+        },
+        {
+            "key": "S_WATCH_AD_TASK",
+            "comment": "观看视频广告任务",
+            "cmMethod": "WatchAdReq",
+            "smMethod": "WatchAdResp"
+        }
+    ],
+    "Mail": [
+        {
+            "key": "S_MAIL_LIST",
+            "comment": "邮件列表数据同步",
+            "smMethod": "MailListMsg"
+        },
+        {
+            "key": "S_MAIL_SYNC",
+            "comment": "邮件数据同步",
+            "smMethod": "MailListMsg"
+        },
+        {
+            "key": "S_MAIL_READ_MAIL",
+            "comment": "读取邮件",
+            "cmMethod": "MailReadReq",
+            "smMethod": "MailReadResp"
+        },
+        {
+            "key": "S_MAIL_GET_REWARD",
+            "comment": "领取邮件",
+            "cmMethod": "MailGetRewardReq",
+            "smMethod": "MailGetRewardResp"
+        },
+        {
+            "key": "S_MAIL_GET_ALL_REWARD",
+            "comment": "一键领取邮件",
+            "cmMethod": "MailGetAllRewardReq",
+            "smMethod": "MailGetAllRewardResp"
+        },
+        {
+            "key": "S_MAIL_DELETE_MAIL",
+            "comment": "删除邮件",
+            "cmMethod": "MailDeleteReq",
+            "smMethod": "MailDeleteResp"
+        },
+        {
+            "key": "S_MAIL_DELETE_ALL_MAIL",
+            "comment": "一键删除邮件",
+            "cmMethod": "MailDeleteAllReq",
+            "smMethod": "MailDeleteAllResp"
+        }
+    ],
+    "RedPoint": [
+        {
+            "key": "S_SYSTEM_RED_POINT_SYNC",
+            "comment": "系统红点同步",
+            "smMethod": "SystemRedPointSync"
+        },
+        {
+            "key": "S_ACTIVITY_RED_POINT_SYNC",
+            "comment": "活动红点同步",
+            "smMethod": "ActivityRedPointSync"
+        }
+    ],
+    "UnionBounty": [
+        {
+            "key": "S_UNION_BOUNTY_HAVE_ESCORT",
+            "comment": "妖盟悬赏-是否有正在押镖",
+            "cmMethod": "UnionBountyHaveEscortReq",
+            "smMethod": "UnionBountyHaveEscortResp"
+        }
+    ],
+    "Mall": [
+        {
+            "key": "S_MALL_BUY_COUNT_SYNC",
+            "comment": "商品购买数量集合",
+            "smMethod": "MallBuyCountListMsg"
+        },
+        {
+            "key": "S_MALL_BUY_GOODS",
+            "comment": "购买商品",
+            "cmMethod": "BuyGoodsReq",
+            "smMethod": "BuyGoodsResp"
+        },
+        {
+            "key": "S_MALL_RANDOM_GOODS",
+            "comment": "商店列表",
+            "cmMethod": "MallRandomGoodsReqMsg",
+            "smMethod": "MallRandomGoodsRespMsg"
+        }
+    ],
+    "Recharge": [
+        {
+            "key": "S_NOTIFY_RECHARGE_SUCCESS",
+            "comment": "通知充值到账",
+            "smMethod": "NotifyRechargeSuccess"
+        },
+        {
+            "key": "S_PRECHARGE",
+            "comment": "预购买",
+            "cmMethod": "PreChargeReq",
+            "smMethod": "PreChargeResp"
+        },
+        {
+            "key": "S_RECHARGE_MALL_TIMES_SYNC",
+            "comment": "充值商品次数同步",
+            "smMethod": "RechargeMallTimesSync"
+        },
+        {
+            "key": "S_MALL_CHANCE_BUY",
+            "comment": "通宝购买请求",
+            "cmMethod": "MallChanceUseReqMsg",
+            "smMethod": "MallChanceUseRespMsg"
+        },
+        {
+            "comment": "ExtraParam解析",
+            "byteDecode": "ExtraParam"
+        }
+    ],
+    "ActivityBase": [
+        {
+            "key": "S_ACTIVITY_SYNC_MAIN_CONFIG_LIST",
+            "comment": "活动通用数据同步",
+            "smMethod": "PushActivityList"
+        },
+        {
+            "key": "S_ACTIVITY_SYNC_DETAIL_CONFIG",
+            "comment": "同步活动详细配置",
+            "smMethod": "ActivityCommonDataListSync"
+        },
+        {
+            "key": "S_ACTIVITY_SYNC_CONDITION_LIST",
+            "comment": "同步活动任务条件数据 增量",
+            "smMethod": "ActivityConditionDataListSync"
+        },
+        {
+            "key": "S_ACTIVITY_SYNC_MALL_BUY_COUNT_LIST",
+            "comment": "同步活动商品购买次数列表 增量",
+            "smMethod": "ActivityMallBuyCountDataListSync"
+        },
+        {
+            "key": "S_ACTIVITY_GET_DATA",
+            "comment": "请求活动通用数据",
+            "cmMethod": "ReqGetActivityDetail",
+            "smMethod": "RspGetActivityDetail"
+        },
+        {
+            "key": "S_ACTIVITY_GET_CONDITION_REWARD",
+            "comment": "领取活动任务条件奖励",
+            "cmMethod": "ReqGetActivityConditionReward",
+            "smMethod": "RspGetActivityConditionReward"
+        },
+        {
+            "key": "S_ACTIVITY_GET_CONDITION_REWARD_BY_ARR",
+            "comment": "通过数组一次性领取活动任务条件奖励",
+            "cmMethod": "ReqGetActivityConditionRewardByArr",
+            "smMethod": "RspGetActivityConditionReward"
+        },
+        {
+            "key": "S_ACTIVITY_RECEIVE_CROSS_UNION_RECHARGE",
+            "comment": "领取跨服获得内置的 妖盟充值活动的奖励",
+            "cmMethod": "ReceiveCrossUnionRechargeRewardReq",
+            "smMethod": "ReceiveCrossUnionRechargeRewardResp"
+        },
+        {
+            "key": "S_ACTIVITY_GET_JOIN_MEMBER_LIST_REQ",
+            "comment": "查看自己所属妖盟的参与名单",
+            "cmMethod": "ActivityGetJoinMemberListReq",
+            "smMethod": "ActivityGetJoinMemberListRsp"
+        },
+        {
+            "key": "S_ACTIVITY_BUY_MALL_GOODS",
+            "comment": "购买活动商品",
+            "cmMethod": "ReqBuyActivityGoods",
+            "smMethod": "RspBuyActivityGoods"
+        },
+        {
+            "key": "S_ACTIVITY_SELECT_DATA_LIST_SYNC",
+            "comment": "活动商买自选商品列表同步",
+            "smMethod": "ActivityMallSelectDataListSync"
+        },
+        {
+            "key": "S_ACTIVITY_SYNC_ACTIVITY_DATA",
+            "comment": "同步活动用户数据",
+            "smMethod": "ActivityPlayerDataSync"
+        },
+        {
+            "key": "S_ACTIVITY_SYNC_ACTIVITY_SCORE_LIST",
+            "comment": "同步活动积分数据",
+            "smMethod": "ActivityScoreDataMsgSync"
+        },
+        {
+            "key": "S_ACTIVITY_SHARE",
+            "comment": "活动分享任务完成请求",
+            "cmMethod": "ReqShareTaskDone",
+            "smMethod": "RespShareTaskDone"
+        },
+        {
+            "key": "S_ACTIVITY_BBS",
+            "comment": "论坛分享",
+            "cmMethod": "ReqShareTaskDone",
+            "smMethod": "RespShareTaskDone"
+        },
+        {
+            "key": "S_ACTIVITY_GAME_CIRCLE",
+            "comment": "游戏圈分享",
+            "cmMethod": "ReqShareTaskDone",
+            "smMethod": "RespShareTaskDone"
+        },
+        {
+            "key": "S_ACTIVITY_GET_BATTLE_PASS_CONDITION_REWARD",
+            "comment": "领取活动战令任务奖励",
+            "cmMethod": "ReqGetActivityConditionReward",
+            "smMethod": "RspGetActivityConditionReward"
+        },
+        {
+            "key": "S_ACTIVITY_SELECT_MALL_GOODS",
+            "comment": "自选商品选中协议",
+            "cmMethod": "SelectActivityGoodsReq",
+            "smMethod": "SelectActivityGoodsResp"
+        },
+        {
+            "key": "S_ACTIVITY_GET_RANK_STATE",
+            "comment": "请求榜单状态",
+            "cmMethod": "ReqGetActivityRankState",
+            "smMethod": "RespGetActivityRankState"
+        },
+        {
+            "key": "S_ACTIVITY_GET_RANK_REWARD",
+            "comment": "领取活动排行奖励",
+            "cmMethod": "ReqGetActivityRankReward",
+            "smMethod": "RespGetActivityRankReward"
+        },
+        {
+            "key": "S_ACTIVITY_GUESS_INFO_LOAD",
+            "comment": "请求竞猜数据",
+            "cmMethod": "ReqGuessInfoLoadMsg",
+            "smMethod": "RespGuessInfoLoadMsg"
+        },
+        {
+            "key": "S_ACTIVITY_GUESS",
+            "comment": "竞猜押注",
+            "cmMethod": "ReqGuessMsg",
+            "smMethod": "RespGuessMsg"
+        },
+        {
+            "key": "S_ACTIVITY_GUESS_REWARD",
+            "comment": "领取竞猜奖励",
+            "cmMethod": "ReqGuessRewardMsg",
+            "smMethod": "RespGuessRewardMsg"
+        },
+        {
+            "key": "S_ACTIVITY_GUESS_RESULT_DETAIL",
+            "comment": "查看竞猜奖励名单",
+            "cmMethod": "ReqGuessResultDetailMsg",
+            "smMethod": "RespGuessResultDetailMsg"
+        },
+        {
+            "key": "S_ACTIVITY_CONDITION_SELECT_GOODS",
+            "comment": "活动任务自选商品",
+            "cmMethod": "SelectActivityConditionGoodsReq",
+            "smMethod": "SelectActivityConditionGoodsResp"
+        },
+        {
+            "key": "S_ACTIVITY_SYNC_CONDITION_SELECT_LIST",
+            "comment": "同步活动任务奖励自选记录",
+            "smMethod": "ActivityConditionSelectDataListSync"
+        }
+    ],
+    "Cloud": [
+        {
+            "key": "S_CLOUD_PLAYER_DATA_SYNC",
+            "comment": "筋斗云数据同步",
+            "smMethod": "PlayerCloudDataMsg"
+        },
+        {
+            "key": "S_CLOUD_UNLOCK",
+            "comment": "解锁筋斗云请求",
+            "cmMethod": "UnlockCloudReq",
+            "smMethod": "UnlockCloudResp"
+        },
+        {
+            "key": "S_CLOUD_LV_UP",
+            "comment": "筋斗云升级请求",
+            "cmMethod": "CloudLvUpReq",
+            "smMethod": "CloudLvUpResp"
+        },
+        {
+            "key": "S_CLOUD_STAGE_UP",
+            "comment": "筋斗云升阶请求",
+            "cmMethod": "CloudStageUpReq",
+            "smMethod": "CloudStageUpResp"
+        },
+        {
+            "key": "S_CLOUD_EQUIP",
+            "comment": "筋斗云穿戴请求",
+            "cmMethod": "CloudEquipReq",
+            "smMethod": "CloudEquipResp"
+        },
+        {
+            "key": "S_CLOUD_EQUIP_SKIN",
+            "comment": "筋斗云皮肤穿戴请求",
+            "cmMethod": "CloudEquipSkinReq",
+            "smMethod": "CloudEquipSkinResp"
+        },
+        {
+            "key": "S_CLOUD_SKIN_LV_UP",
+            "comment": "筋斗云皮肤升级 0->1 为激活",
+            "cmMethod": "CloudSkinLvUpReq",
+            "smMethod": "CloudSkinLvUpResp"
+        }
+    ],
+    "CloudRefine": [
+        {
+            "key": "S_CLOUD_REFINE_PLAYER_DATA_SYNC",
+            "comment": "筋斗云注灵数据同步",
+            "smMethod": "CloudRefinePlayerDataMsg"
+        },
+        {
+            "key": "S_CLOUD_REFINE_CHARGE",
+            "comment": "筋斗云注灵请求",
+            "cmMethod": "CloudRefineReq",
+            "smMethod": "CloudRefineResp"
+        },
+        {
+            "key": "S_CLOUD_REFINE_STARLVUP",
+            "comment": "筋斗云注灵渡劫请求",
+            "cmMethod": "CloudRefineStarLvUpReq",
+            "smMethod": "CloudRefineStarLvUpResp"
+        }
+    ],
+    "WildBoss": [
+        {
+            "key": "S_WILDBOSS_SYNC",
+            "comment": "同步宝地",
+            "smMethod": "WildBossDataSync"
+        },
+        {
+            "key": "S_WILDBOSS_CHALLENGE",
+            "comment": "请求宝地挑战",
+            "cmMethod": "WildBossChallengeReq",
+            "smMethod": "WildBossChallengeResp"
+        },
+        {
+            "key": "S_WILDBOSS_REPEAT",
+            "comment": "请求宝地扫荡",
+            "cmMethod": "WildBossRepeatReq",
+            "smMethod": "WildBossRepeatResp"
+        }
+    ],
+    "Pet": [
+        {
+            "key": "S_PET_DATA_SYNC",
+            "comment": "同步玩家灵兽数据",
+            "smMethod": "PlayerPetDataSync"
+        },
+        {
+            "key": "S_PET_CATCH",
+            "comment": "捕捉灵兽请求",
+            "cmMethod": "CatchPetReq",
+            "smMethod": "CatchPetResp"
+        },
+        {
+            "key": "S_PET_REFRESH_POOL",
+            "comment": "刷新灵兽池子请求",
+            "cmMethod": "RefreshPetPoolReq",
+            "smMethod": "RefreshPetPoolResp"
+        },
+        {
+            "key": "S_PET_ADD_BAG_COUNT",
+            "comment": "开启灵兽背包格子请求",
+            "cmMethod": "AddPetBagCountReq",
+            "smMethod": "AddPetBagCountResp"
+        },
+        {
+            "key": "S_PET_RELEASE",
+            "comment": "灵兽放生请求",
+            "cmMethod": "ReleasePetReq",
+            "smMethod": "ReleasePetResp"
+        },
+        {
+            "key": "S_PET_LEVEL_UP",
+            "comment": "灵兽升级请求",
+            "cmMethod": "PetLevelUpReq",
+            "smMethod": "PetLevelUpResp"
+        },
+        {
+            "key": "S_PET_GOBBLE_UP",
+            "comment": "灵兽吞噬请求",
+            "cmMethod": "PetGobbleUpReq",
+            "smMethod": "PetGobbleUpResp"
+        },
+        {
+            "key": "S_PET_EQUIP",
+            "comment": "携带灵兽请求",
+            "cmMethod": "EquipPetReq",
+            "smMethod": "EquipPetResp"
+        },
+        {
+            "key": "S_PET_RESET",
+            "comment": "携带灵兽请求",
+            "cmMethod": "PetResetReq",
+            "smMethod": "PetResetResp"
+        },
+        {
+            "key": "S_CHOOSE_WISH_PET",
+            "comment": "灵兽心愿选择",
+            "cmMethod": "ChooseWishPetReq",
+            "smMethod": "ChooseWishPetResp"
+        },
+        {
+            "key": "S_PET_ASSISTANT",
+            "comment": "灵兽协助",
+            "cmMethod": "PetAssistantReq",
+            "smMethod": "PetAssistantResp"
+        },
+        {
+            "key": "S_PET_SOUL_SHAPE",
+            "comment": "灵兽塑魂",
+            "cmMethod": "PetSoulShapeReq",
+            "smMethod": "PetSoulShapeResp"
+        },
+        {
+            "key": "S_PET_SELECT_SKILL",
+            "comment": "灵兽塑魂技能选择",
+            "cmMethod": "SelectSoulShapeSkillReq",
+            "smMethod": "SelectSoulShapeSkillResp"
+        },
+        {
+            "key": "S_PET_REFLESH_SKILL_VIEW",
+            "comment": "灵兽洗练界面",
+            "cmMethod": "PetSkillRefreshViewReq",
+            "smMethod": "PetSkillRefreshViewResp"
+        },
+        {
+            "key": "S_PET_REFLESH_SKILL",
+            "comment": "灵兽洗练",
+            "cmMethod": "PetSkillRefreshReq",
+            "smMethod": "PetSkillRefreshResp"
+        },
+        {
+            "key": "S_PET_REFLESH_SKILL_RESULT",
+            "comment": "灵兽洗练结果处理",
+            "cmMethod": "PetSkillRefreshResultReq",
+            "smMethod": "PetSkillRefreshResultResp"
+        },
+        {
+            "key": "S_PET_LOCK_STATE_CHANGE",
+            "comment": "灵兽加锁",
+            "cmMethod": "PetLockStateReq",
+            "smMethod": "PetLockStateResp"
+        },
+        {
+            "key": "S_PET_LOCK_NEED_PASSWORD",
+            "comment": "灵兽新版上锁（需要密码解锁）",
+            "cmMethod": "PetLockReq",
+            "smMethod": "PetLockResp"
+        },
+        {
+            "key": "S_PET_FATEUP",
+            "comment": "洪荒灵兽缘分升级请求",
+            "cmMethod": "PetFateUpReq",
+            "smMethod": "PetFateUpResp"
+        },
+        {
+            "key": "S_PET_ROOTUP",
+            "comment": "洪荒灵兽灵根升级请求",
+            "cmMethod": "PetRootUpReq",
+            "smMethod": "PetRootUpResp"
+        },
+        {
+            "key": "S_PET_AWAKE",
+            "comment": "洪荒灵兽觉醒请求",
+            "cmMethod": "PetAwakeReq",
+            "smMethod": "PetAwakeResp"
+        },
+        {
+            "key": "S_PET_SWITCH_LINKAGE_SKIN",
+            "comment": "切换灵兽联动形象",
+            "cmMethod": "PetSwitchLinkageSkinReq",
+            "smMethod": "PetSwitchLinkageSkinResp"
+        }
+    ],
+    "WorldMessage": [
+        {
+            "key": "S_WORLD_MESSAGE_LIST",
+            "comment": "世界消息列表，登录时下发",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_WORLD_MESSAGE_SYNC",
+            "comment": "世界消息同步",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_UNION_MESSAGE_LIST",
+            "comment": "妖盟消息列表，登录时下发",
+            "cmMethod": "",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_UNION_MESSAGE_SYNC",
+            "comment": "妖盟消息同步",
+            "cmMethod": "",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_ACTIVITY_MESSAGE_SYNC",
+            "comment": "活动消息同步",
+            "cmMethod": "",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_ACTIVITY_MESSAGE_LIST",
+            "comment": "请求活动消息列表",
+            "cmMethod": "ActivityChatReqMsg",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_WORLD_MESSAGE_CHAT",
+            "comment": "请求聊天",
+            "cmMethod": "WorldChatReqMsg",
+            "smMethod": "WorldChatRespMsg"
+        },
+        {
+            "key": "S_WORLD_MESSAGE_SYNC_BLACK_LIST",
+            "comment": "黑名单列表同步",
+            "smMethod": "SyncBlackPlayerIdListMsg"
+        },
+        {
+            "key": "S_WORLD_MESSAGE_REMOVE_BLACK",
+            "comment": "移除黑名单",
+            "cmMethod": "RemoveBlackReqMsg",
+            "smMethod": "RemoveBlackRespMsg"
+        },
+        {
+            "key": "S_WORLD_MESSAGE_GET_BLACK_LIST",
+            "comment": "获取黑名单列表",
+            "cmMethod": "GetBlackPlayerListReqMsg",
+            "smMethod": "GetBlackPlayerListRespMsg"
+        },
+        {
+            "key": "S_HORSE_RACE_LAMP_MSG_ADD",
+            "comment": "跑马灯广播通知",
+            "cmMethod": "",
+            "smMethod": "HorseRaceLampMsgAdd"
+        },
+        {
+            "key": "S_REPORT_PLAYER",
+            "comment": "举报玩家",
+            "cmMethod": "WorldChatBlockReqMsg",
+            "smMethod": "WorldChatBlockRespMsg"
+        },
+        {
+            "comment": "WorldMessageExtraData解析",
+            "byteDecode": "WorldMessageExtraData"
+        },
+        {
+            "key": "S_SYSTEM_MESSAGE_SYNC",
+            "comment": "系统聊天同步",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_SYSTEM_MESSAGE_LIST",
+            "comment": "系统聊天列表，请求下发",
+            "cmMethod": "SystemChatReqMsg",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_WORLD_MESSAGE_CHECK_EFFECTIVE_REQ",
+            "comment": "检测消息是否有效",
+            "cmMethod": "WorldMessageCheckEffectiveReq",
+            "smMethod": "WorldMessageCheckEffectiveRsp"
+        },
+        {
+            "key": "S_REPORT_MESSAGE",
+            "comment": "聊天举报",
+            "cmMethod": "ReportMessageReqMsg",
+            "smMethod": "ReportMessageRespMsg"
+        },
+        {
+            "key": "S_RED_PACKET_STATE_MSG_SYNC",
+            "comment": "红包状态同步",
+            "smMethod": "RedPacketStateMsgSync"
+        },
+        {
+            "key": "S_RED_PACKET_OPEN_REQ",
+            "comment": "获取红包信息",
+            "cmMethod": "RedPacketOpenReq",
+            "smMethod": "RedPacketOpenResp"
+        },
+        {
+            "key": "S_RED_PACKET_DRAW_RESULT",
+            "comment": "领取红包奖励",
+            "cmMethod": "RedPacketDrawReq",
+            "smMethod": "RedPacketDrawResp"
+        },
+        {
+            "key": "S_FRIEND_MESSAGE_SYNC",
+            "comment": "好友消息同步",
+            "cmMethod": "",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_FRIEND_MESSAGE_LIST",
+            "comment": "好友消息列表",
+            "cmMethod": "FriendChatReqMsg",
+            "smMethod": "WorldMessageListMsg"
+        },
+        {
+            "key": "S_EMOTICON_DATA_SYNC",
+            "comment": "同步表情包数据",
+            "smMethod": "PlayerEmoticonDataSync"
+        }
+    ],
+    "Tower": [
+        {
+            "key": "S_TOWER_SYNC_DATA",
+            "comment": "同步数据",
+            "smMethod": "TowerDataMsg"
+        },
+        {
+            "key": "S_TOWER_CHALLENGE",
+            "comment": "挑战",
+            "smMethod": "TowerChallengeResp"
+        },
+        {
+            "key": "S_TOWER_QUICK_CHANLLENGE",
+            "comment": "快速挑战",
+            "smMethod": "QuickChallengeResp"
+        },
+        {
+            "key": "S_TOWER_SELECT_BUFF",
+            "comment": "选择加成请求",
+            "cmMethod": "SelectBuffReq",
+            "smMethod": "SelectBuffResp"
+        },
+        {
+            "key": "S_TOWER_VIEW_MONSTER_ATTR",
+            "comment": "查看怪物属性",
+            "cmMethod": "",
+            "smMethod": "ViewMonsterAttrResp"
+        },
+        {
+            "key": "S_STAGE_VIEW_MONSTER_ATTR",
+            "comment": "查看关卡怪物信息",
+            "smMethod": "ViewMonsterAttrResp"
+        },
+        {
+            "key": "S_TOWER_VIEW_GET_SELECT",
+            "comment": "获取选择选项",
+            "cmMethod": "GetSelectOptionReq",
+            "smMethod": "GetSelectOptionResp"
+        },
+        {
+            "key": "S_TOWER_VIEW_SAVE_SELECT",
+            "comment": "保存选择选项",
+            "cmMethod": "SaveSelectOptionReq",
+            "smMethod": "SaveSelectOptionResp"
+        }
+    ],
+    "Rank": [
+        {
+            "key": "S_RANK_GET_LIST",
+            "comment": "获取排行列表",
+            "cmMethod": "GetRankListReq",
+            "smMethod": "GetRankListResp"
+        },
+        {
+            "comment": "排行榜bytes解析",
+            "byteDecode": "RankMsgList"
+        },
+        {
+            "comment": "排行榜bytes解析",
+            "byteDecode": "UnionMsgList"
+        },
+        {
+            "key": "S_RANK_GET_UNION_MEMBER_SCORE",
+            "comment": "查看联盟积分",
+            "cmMethod": "GetUnionMemberScoreReq",
+            "smMethod": "GetUnionMemberScoreRsp"
+        }
+    ],
+    "Talent": [
+        {
+            "key": "S_TALENT_SYNC_DATA",
+            "comment": "同步神通数据",
+            "smMethod": "TalentPlayerDataMsg"
+        },
+        {
+            "key": "S_TALENT_DEAL_TALENT",
+            "comment": "处理神通",
+            "cmMethod": "DealTalentReq",
+            "smMethod": "DealTalentResp"
+        },
+        {
+            "key": "S_TALENT_READ_BOOK",
+            "comment": "阅读妖书",
+            "cmMethod": "ReadBookReq",
+            "smMethod": "ReadBookResp"
+        },
+        {
+            "key": "S_TALENT_RANDOM_TALENT",
+            "comment": "炼化",
+            "cmMethod": "RandomTalentReq",
+            "smMethod": "RandomTalentResp"
+        },
+        {
+            "key": "S_TALENT_GET_UNDEAL_TALENT_MSG",
+            "comment": "获取未处理神通数据",
+            "cmMethod": "GetUnDealTalentMsgReq",
+            "smMethod": "GetUnDealTalentMsgResp"
+        }
+    ],
+    "Spirit": [
+        {
+            "key": "S_SPIRIT_SYNC_DATA",
+            "comment": "同步玩家精怪数据",
+            "smMethod": "SpiritPlayerDataMsg"
+        },
+        {
+            "key": "S_SPIRIT_DRAW",
+            "comment": "精怪抽取请求",
+            "cmMethod": "SpiritDrawReq",
+            "smMethod": "SpiritDrawResp"
+        },
+        {
+            "key": "S_SPIRIT_UNLOCK",
+            "comment": "精怪解锁请求",
+            "cmMethod": "SpiritUnlockReq",
+            "smMethod": "SpiritUnlockResp"
+        },
+        {
+            "key": "S_SPIRIT_LV_UP",
+            "comment": "精怪升级请求",
+            "cmMethod": "SpiritLvUpReq",
+            "smMethod": "SpiritLvUpResp"
+        },
+        {
+            "key": "S_SPIRIT_SWITCH_BATTLE_TEAM",
+            "comment": "切换出战队伍请求",
+            "cmMethod": "SwitchBattleTeamReq",
+            "smMethod": "SwitchBattleTeamResp"
+        },
+        {
+            "key": "S_SPIRIT_BATTLE",
+            "comment": "精怪上下阵请求",
+            "cmMethod": "SpiritBattleReq",
+            "smMethod": "SpiritBattleResp"
+        },
+        {
+            "key": "S_SPIRIT_COMBINE_LV_UP",
+            "comment": "精怪共鸣等级提升",
+            "cmMethod": "SpiritCombineLvUpReq",
+            "smMethod": "SpiritCombineLvUpResp"
+        },
+        {
+            "key": "S_SPIRIT_SWITCH_LINKAGE_SKIN",
+            "comment": "切换精怪联动形象",
+            "cmMethod": "SpiritSwitchLinkageSkinReq",
+            "smMethod": "SpiritSwitchLinkageSkinResp"
+        }
+    ],
+    "PrivilegeCard": [
+        {
+            "key": "S_PRIVILEGE_CARD_SYNC_DATA",
+            "comment": "同步特权卡数据",
+            "cmMethod": "",
+            "smMethod": "PrivilegeCardDataMsg"
+        },
+        {
+            "key": "S_PRIVILEGE_CARD_RECEIVE_REWARD",
+            "comment": "领取特权卡奖励",
+            "cmMethod": "PrivilegeCardReceiveRewardReq",
+            "smMethod": "PrivilegeCardReceiveRewardRsp"
+        }
+    ],
+    "BallGVG": [
+        {
+            "key": "S_BALLGVG_SYNC_ATTACKED",
+            "comment": "被打同步（有人被打即时同步）",
+            "cmMethod": "",
+            "smMethod": "BallGVGAttackedSyncMsg"
+        },
+        {
+            "key": "S_BALLGVG_SYNC_SCORE",
+            "comment": "积分同步",
+            "cmMethod": "",
+            "smMethod": "BallGVGCampScoreSyncMsg"
+        },
+        {
+            "key": "S_BALLGVG_SYNC_PLACE",
+            "comment": "宝地信息同步（位置同步）",
+            "cmMethod": "",
+            "smMethod": "BallGVGPlaceSyncMsg"
+        },
+        {
+            "key": "S_BALLGVG_SYNC_NOTICE",
+            "comment": "公告推送",
+            "cmMethod": "",
+            "smMethod": "BallGVGNoticeSyncMsg"
+        },
+        {
+            "key": "S_BALLGVG_SYNC_CAMP",
+            "comment": "同步宗门信息（任命、标记）",
+            "cmMethod": "",
+            "smMethod": "BallGVGCampSyncMsg"
+        },
+        {
+            "key": "S_BALLGVG_SYNC_BEATC",
+            "comment": "被打同步最新用户信息(通知被打人)",
+            "cmMethod": "",
+            "smMethod": "BallGVGAttackedUserSyncMsg"
+        },
+        {
+            "key": "S_BALLGVG_SYNC_SEIZE",
+            "comment": "房间抢占信息同步(人数变动，进房间，出房间  成功占领)",
+            "cmMethod": "",
+            "smMethod": "BallGVGPlaceSeizeSyncMsg"
+        },
+        {
+            "key": "S_BALLGVG_SYNC_ENTER_ROOM",
+            "comment": "进房间同步信息（有人进房间及时同步）",
+            "cmMethod": "",
+            "smMethod": "BallGVGEnterPlaceSync"
+        },
+        {
+            "key": "S_BALLGVG_SYNC_LEAVE_ROOM",
+            "comment": "出房间同步信息（有人出房间及时同步）",
+            "cmMethod": "",
+            "smMethod": "BallGVGLeavePlaceSync"
+        },
+        {
+            "key": "S_BALLGVG_RESULT_SYNC",
+            "comment": "战斗结算同步",
+            "cmMethod": "",
+            "smMethod": "BallGVGEndDataSyncMsg"
+        },
+        {
+            "key": "S_BALLGVG_RANK_NUM",
+            "comment": "请求报名期战力排名",
+            "cmMethod": "BallGVGAbilityRankNumReqMsg",
+            "smMethod": "BallGVGAbilityRankNumRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_APPLICATION",
+            "comment": "请求报名",
+            "cmMethod": "BallGVGApplicationReqMsg",
+            "smMethod": "BallGVGApplicationRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_ENTER_ACT",
+            "comment": "进入pvp活动请求协议",
+            "cmMethod": "BallGVGEnterActivityReqMsg",
+            "smMethod": "BallGVGEnterActivityRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_ENTER_ROOM",
+            "comment": "进入宝地(房间)请求协议",
+            "cmMethod": "BallGVGEnterPlaceReqMsg",
+            "smMethod": "BallGVGEnterPlaceRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_LEAVE_ROOM",
+            "comment": "离开当前房间请求协议",
+            "cmMethod": "BallGVGLeavePlaceReqMsg",
+            "smMethod": "BallGVGLeavePlaceRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_MOVE",
+            "comment": "移动协议",
+            "cmMethod": "BallGVGMoveReqMsg",
+            "smMethod": "BallGVGMoveRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_ATTACK",
+            "comment": "攻击协议",
+            "cmMethod": "BallGVGAttackReqMsg",
+            "smMethod": "BallGVGAttackRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_APPOINT",
+            "comment": "任命宗主权限",
+            "cmMethod": "BallGVGAppointMajorUserReqMsg",
+            "smMethod": "BallGVGAppointMajorUserRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_MARK",
+            "comment": "标记地点(重复标记视为取消标记)",
+            "cmMethod": "BallGVGMarkPlaceReqMsg",
+            "smMethod": "BallGVGMarkPlaceRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_LEAVE_ACT",
+            "comment": "离开pvp活动请求协议"
+        },
+        {
+            "key": "S_BALLGVG_GET_PLACE",
+            "comment": "获取所有房间数据",
+            "cmMethod": "BallGVGGetPlaceInfoReqMsg",
+            "smMethod": "BallGVGGetPlaceInfoRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_REQ_USER_LIST",
+            "comment": "请求宗门玩家列表",
+            "cmMethod": "BallGVGGetUserRankReqMsg",
+            "smMethod": "BallGVGGetUserRankRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_RANK",
+            "comment": "请求报名期妖盟战力排行",
+            "cmMethod": "BallGVGAbilityRankReqMsg",
+            "smMethod": "BallGVGAbilityRankRespMsg"
+        },
+        {
+            "comment": "BallGVGActivityDataTemp解析",
+            "byteDecode": "BallGVGActivityDataTemp"
+        },
+        {
+            "comment": "BallGVGConfigSyncMsg解析",
+            "byteDecode": "BallGVGConfigSyncMsg"
+        },
+        {
+            "comment": "BallGVGUserRankList解析",
+            "byteDecode": "BallGVGUserRankList"
+        },
+        {
+            "comment": "BallGVGUnionRankList解析",
+            "byteDecode": "BallGVGUnionRankList"
+        },
+        {
+            "comment": "BallGVGCampRankList解析",
+            "byteDecode": "BallGVGCampRankList"
+        },
+        {
+            "key": "S_BALLGVG_UNION_NAME_LIST",
+            "comment": "获取参与妖盟的名字",
+            "cmMethod": "BallGVGUnionNameListReqMsg",
+            "smMethod": "BallGVGUnionNameListRespMsg"
+        },
+        {
+            "key": "S_BALLGVG_GET_UNION_USER_LIST",
+            "comment": "获取上古遗迹妖盟成员信息",
+            "cmMethod": "BallGVGGetUnionUserListReqMsg",
+            "smMethod": "BallGVGGetUnionUserListRespMsg"
+        }
+    ],
+    "Homeland": [
+        {
+            "key": "S_HOMELAND_SYNC_MSG",
+            "comment": "同步信息",
+            "cmMethod": "",
+            "smMethod": "SyncHomelandMsg"
+        },
+        {
+            "key": "S_HOMELAND_SYNC_HAS_REWARD",
+            "comment": "同步有奖励消息",
+            "cmMethod": "",
+            "smMethod": "SyncHomelandHasRewardMsg"
+        },
+        {
+            "key": "S_HOMELAND_SYNC_HOMELAND_DATA",
+            "comment": "同步福地数据",
+            "cmMethod": "",
+            "smMethod": "SyncPlayerHomelandChangeMsg"
+        },
+        {
+            "key": "S_HOMELAND_ENTER",
+            "comment": "进入福地",
+            "cmMethod": "HomelandEnterReq",
+            "smMethod": "HomelandEnterResp"
+        },
+        {
+            "key": "S_HOMELAND_LEAVE",
+            "comment": "离开福地",
+            "cmMethod": "HomelandLeaveReq",
+            "smMethod": "HomelandLeaveResp"
+        },
+        {
+            "key": "S_HOMELAND_GET_REWARD",
+            "comment": "福地获取奖励",
+            "cmMethod": "HomelandGetRewardReq",
+            "smMethod": "HomelandGetRewardResp"
+        },
+        {
+            "key": "S_HOMELAND_MANAGE",
+            "comment": "福地管理界面",
+            "cmMethod": "HomelandManageReq",
+            "smMethod": "HomelandManageResp"
+        },
+        {
+            "key": "S_HOMELAND_LEVEL_UP",
+            "comment": "福地升级",
+            "cmMethod": "HomelandLevelUpReq",
+            "smMethod": "HomelandLevelUpResp"
+        },
+        {
+            "key": "S_HOMELAND_REFRESH_RESOURCE",
+            "comment": "福地刷新资源",
+            "cmMethod": "HomelandRefreshReq",
+            "smMethod": "HomelandRefreshResp"
+        },
+        {
+            "key": "S_HOMELAND_BUY_WORKER",
+            "comment": "福地购买鼠宝",
+            "cmMethod": "HomelandBuyWorkerReq",
+            "smMethod": "HomelandBuyWorkerResp"
+        },
+        {
+            "key": "S_HOMELAND_RECORD",
+            "comment": "福地日志",
+            "cmMethod": "HomelandGetRecordReq",
+            "smMethod": "HomelandGetRecordResp"
+        },
+        {
+            "key": "S_HOMELAND_EXPLORE",
+            "comment": "福地探寻",
+            "cmMethod": "HomelandExploreReq",
+            "smMethod": "HomelandExploreResp"
+        },
+        {
+            "key": "S_HOMELAND_EXPLORE_REFRESH",
+            "comment": "福地探寻刷新",
+            "cmMethod": "HomelandRefreshExploreReq",
+            "smMethod": "HomelandRefreshExploreResp"
+        },
+        {
+            "key": "S_HOMELAND_DISPATCH_WORKER",
+            "comment": "福地派遣鼠宝",
+            "cmMethod": "HomelandDispatchWorkerReq",
+            "smMethod": "HomelandDispatchWorkerResp"
+        },
+        {
+            "key": "S_HOMELAND_DISPATCH_WORKER_PREVIEW",
+            "comment": "福地派遣鼠宝预览",
+            "cmMethod": "HomelandDispatchPreviewReq",
+            "smMethod": "HomelandDispatchPreviewResp"
+        },
+        {
+            "key": "S_HOMELAND_SYNC_CORNUCOPIA",
+            "comment": "福地聚宝盆数据同步",
+            "cmMethod": "",
+            "smMethod": "SyncPlayerCornucopiaChangeMsg"
+        },
+        {
+            "key": "S_HOMELAND_CORNUCOPIA_GET_REWARD",
+            "comment": "福地聚宝盆领奖",
+            "cmMethod": "CornucopiaGetRewardReq",
+            "smMethod": "CornucopiaGetRewardRsp"
+        },
+        {
+            "key": "S_HOMELAND_MANAGER_BATTLE",
+            "comment": "福地鼠鼠自动采集",
+            "cmMethod": "HomelandAutoDispatchWorkerReq",
+            "smMethod": "HomelandAutoDispatchWorkerRsp"
+        },
+        {
+            "key": "S_HOMELAND_MANAGER_FREE_USE",
+            "comment": "福地鼠宝总管试用",
+            "cmMethod": "HomelandUseFreeMouseManagerReq",
+            "smMethod": "HomelandUseFreeMouseManagerRsp"
+        },
+        {
+            "key": "S_HOMELAND_MANAGER_SAVE_SETTINGS",
+            "comment": "鼠鼠总管保存设置",
+            "cmMethod": "HomelandSaveSettingsReq",
+            "smMethod": "HomelandSaveSettingsRsp"
+        },
+        {
+            "key": "S_HOMELAND_DISPATCH_ALL_WORKER",
+            "comment": "桃源一键召回小妖",
+            "cmMethod": "HomelandDispatchAllWorkerReq",
+            "smMethod": "HomelandDispatchAllWorkerResp"
+        },
+        {
+            "key": "S_HOMELAND_SYNC_NOTICE_LEAVE",
+            "comment": "福地通知玩家离开(只有偷其他玩家福地时才会通知)",
+            "cmMethod": "",
+            "smMethod": "SyncLeaveHomeLand"
+        }
+    ],
+    "PlayerChara": [
+        {
+            "key": "S_PLAYER_CHARA_DATA_SYNC",
+            "comment": "玩家形象同步",
+            "cmMethod": "",
+            "smMethod": "PlayerCharaDataMsg"
+        },
+        {
+            "key": "S_PLAYER_CHARA_CHANGE",
+            "comment": "切换形象请求",
+            "cmMethod": "ChangePlayerCharaReq",
+            "smMethod": "ChangePlayerCharaResp"
+        },
+        {
+            "key": "S_PLAYER_GET_CHARA_LIST",
+            "comment": "获取形象回复",
+            "cmMethod": "",
+            "smMethod": "GetPlayerCharaListResp"
+        },
+        {
+            "key": "S_USE_TITLE",
+            "comment": "穿戴称号",
+            "cmMethod": "UseTitleReq",
+            "smMethod": "UseTitleRsp"
+        },
+        {
+            "key": "S_SYNC_TITLE_MSG",
+            "comment": "玩家称号同步",
+            "cmMethod": "",
+            "smMethod": "TitleSyncMsg"
+        },
+        {
+            "key": "S_USE_MEDAL",
+            "comment": "穿戴称号",
+            "cmMethod": "UseMedalReq",
+            "smMethod": "UseMedalRsp"
+        },
+        {
+            "key": "S_SYNC_MEDAL_MSG",
+            "comment": "玩家勋章同步",
+            "cmMethod": "",
+            "smMethod": "MedalSyncMsg"
+        },
+        {
+            "key": "S_PLAYER_CHARA_COLLECT",
+            "comment": "皮肤羁绊任务领取",
+            "cmMethod": "CollectPlayerCharaReq",
+            "smMethod": "CollectPlayerCharaResp"
+        },
+        {
+            "key": "S_PLAYER_CHARA_UPGRADE",
+            "comment": "皮肤等级升级",
+            "cmMethod": "UpgradePlayerCharaReq",
+            "smMethod": "UpgradePlayerCharaResp"
+        }
+    ],
+    "Palace": [
+        {
+            "key": "S_PALACE_SYNC",
+            "comment": "仙宫数据同步",
+            "cmMethod": "",
+            "smMethod": "PalaceSyncMsg"
+        },
+        {
+            "key": "S_PALACE_WORSHIP",
+            "comment": "仙宫点赞同步",
+            "cmMethod": "PalaceWorshipReq",
+            "smMethod": "PalaceWorshipRsp"
+        },
+        {
+            "key": "S_PALACE_ENTER_OUTER",
+            "comment": "仙宫外部数据请求",
+            "cmMethod": "EnterPalaceReq",
+            "smMethod": "EnterPalaceRsp"
+        },
+        {
+            "key": "S_PALACE_ENTER_INNER",
+            "comment": "仙宫内部数据请求",
+            "cmMethod": "EnterPalaceInnerReq",
+            "smMethod": "EnterPalaceInnerRsp"
+        },
+        {
+            "key": "S_PALACE_BOOK",
+            "comment": "仙名录数据请求",
+            "cmMethod": "PalaceInnerBookReq",
+            "smMethod": "PalaceInnerBookRsp"
+        },
+        {
+            "key": "S_PALACE_SEND_GIFT_SYNC_DATA",
+            "comment": "仙宫送福数据同步",
+            "cmMethod": "",
+            "smMethod": "SendGiftSyncMsg"
+        },
+        {
+            "key": "S_PALACE_SEND_GIFT",
+            "comment": "执行仙宫送福",
+            "cmMethod": "SendGiftReq",
+            "smMethod": "SendGiftRsp"
+        },
+        {
+            "key": "S_PALACE_SEND_GIFT_GET_REWARD",
+            "comment": "仙宫送福领奖",
+            "cmMethod": "GetSendGiftRewardReq",
+            "smMethod": "GetSendGiftRewardRsp"
+        },
+        {
+            "key": "S_PALACE_WORSHIP_MIRACLE_SYNC_DATA",
+            "comment": "仙宫神迹同步",
+            "cmMethod": "",
+            "smMethod": "PalaceMiracleDataMsg"
+        },
+        {
+            "key": "S_PALACE_ACHIEVE_GET_REWARD",
+            "comment": "仙宫获得成就奖励",
+            "cmMethod": "PalaceAchievementGetRewardReq",
+            "smMethod": "PalaceAchievementGetRewardRsp"
+        },
+        {
+            "key": "S_PALACE_GET_TITLE_ID_LIST",
+            "comment": "获得当前已开启的天宫称号id",
+            "cmMethod": "GetTitleIdListReq",
+            "smMethod": "GetTitleIdListRsp"
+        }
+    ],
+    "RankBattle": [
+        {
+            "key": "S_RANK_BATTLE_CHALLENGE",
+            "comment": "挑战请求",
+            "cmMethod": "RankBattleChallengeReq",
+            "smMethod": "RankBattleChallengeResp"
+        },
+        {
+            "key": "S_RANK_BATTLE_GET_BATTLE_LIST",
+            "comment": "获取对战列表",
+            "cmMethod": "",
+            "smMethod": "GetBattleListResp"
+        },
+        {
+            "key": "S_RANK_BATTLE_GET_LOG",
+            "comment": "获取妖榜日志",
+            "cmMethod": "",
+            "smMethod": "GetRankBattleLogResp"
+        },
+        {
+            "key": "S_RANK_BATTLE_REFRESH_BATTLE_LIST",
+            "comment": "刷新对战列表",
+            "cmMethod": "",
+            "smMethod": "RefreshBattleListResp"
+        },
+        {
+            "key": "S_RANK_BATTLE_REVENGE",
+            "comment": "妖榜复仇请求",
+            "cmMethod": "RankBattleRevengeReq",
+            "smMethod": "RankBattleRevengeResp"
+        },
+        {
+            "key": "S_RANK_BATTLE_LOGIN_SYNC",
+            "comment": "斗法登录同步",
+            "smMethod": "RankBattleSync"
+        }
+    ],
+    "FundsActivity": [
+        {
+            "key": "S_ACTIVITY_FUNDS_GET_REWARD",
+            "comment": "领取基金活动任务条件奖励",
+            "cmMethod": "ReqGetFundsConditionReward",
+            "smMethod": "RspGetFundsConditionReward"
+        }
+    ],
+    "Union": [
+        {
+            "key": "S_UNION_CREATE",
+            "comment": "创建妖盟",
+            "cmMethod": "ReqUnionCreate",
+            "smMethod": "RspUnionCreate"
+        },
+        {
+            "key": "S_UNION_ENTER",
+            "comment": "进入妖盟",
+            "cmMethod": "ReqUnionEnter",
+            "smMethod": "RspUnionEnter"
+        },
+        {
+            "key": "S_UNION_LIST",
+            "comment": "获取妖盟列表",
+            "cmMethod": "ReqUnionList",
+            "smMethod": "RspUnionList"
+        },
+        {
+            "key": "S_UNION_JOIN",
+            "comment": "加入妖盟",
+            "cmMethod": "ReqUnionJoin",
+            "smMethod": "RspUnionJoin"
+        },
+        {
+            "key": "S_UNION_RANDOMJOIN",
+            "comment": "随机加入妖盟",
+            "cmMethod": "ReqUnionRandomJoin",
+            "smMethod": "RspUnionRandomJoin"
+        },
+        {
+            "key": "S_UNION_DETAIL",
+            "comment": "妖盟详情",
+            "cmMethod": "ReqUnionDetail",
+            "smMethod": "RspUnionDetail"
+        },
+        {
+            "key": "S_UNION_DETAIL_IN_GROUP",
+            "comment": "查看本分组妖盟详情",
+            "cmMethod": "ReqUnionDetail",
+            "smMethod": "RspUnionDetail"
+        },
+        {
+            "key": "S_UNION_POSITION",
+            "comment": "职位变更",
+            "cmMethod": "ReqUnionPosition",
+            "smMethod": "RspUnionPosition"
+        },
+        {
+            "key": "S_UNION_APPLYPLAYERLIST",
+            "comment": "获取申请加入妖盟的玩家列表",
+            "cmMethod": "ReqUnionApplyPlayerList",
+            "smMethod": "RspUnionApplyPlayerList"
+        },
+        {
+            "key": "S_UNION_RANDOMSTATE",
+            "comment": "设置随机加入状态",
+            "cmMethod": "ReqUnionRandomState",
+            "smMethod": "RspUnionRandomState"
+        },
+        {
+            "key": "S_UNION_LIMITREALMSID",
+            "comment": "设置入盟限制等级",
+            "cmMethod": "ReqUnionLimitRealmsId",
+            "smMethod": "RspUnionLimitRealmsId"
+        },
+        {
+            "key": "S_UNION_CLEARAPPLY",
+            "comment": "清理所有申请玩家",
+            "cmMethod": "ReqUnionClearApply",
+            "smMethod": "RspUnionClearApply"
+        },
+        {
+            "key": "S_UNION_PASSAPPLY",
+            "comment": "通过新玩家的申请",
+            "cmMethod": "ReqUnionPassApply",
+            "smMethod": "RspUnionPassApply"
+        },
+        {
+            "key": "S_UNION_REMOVE",
+            "comment": "解散妖盟",
+            "cmMethod": "ReqUnionRemove",
+            "smMethod": "RspUnionRemove"
+        },
+        {
+            "key": "S_UNION_EXIT",
+            "comment": "退出妖盟",
+            "cmMethod": "ReqUnionExit",
+            "smMethod": "RspUnionExit"
+        },
+        {
+            "key": "S_UNION_TRENDS",
+            "comment": "获取妖盟动态",
+            "cmMethod": "ReqUnionTrends",
+            "smMethod": "RspUnionTrends"
+        },
+        {
+            "key": "S_UNION_MODIFY",
+            "comment": "妖盟信息修改",
+            "cmMethod": "ReqUnionModify",
+            "smMethod": "RspUnionModify"
+        },
+        {
+            "key": "S_UNION_DAILYTASK",
+            "comment": "获取每日任务列表",
+            "cmMethod": "ReqUnionDailyTask",
+            "smMethod": "RspUnionDailyTask"
+        },
+        {
+            "key": "S_UNION_GETDAILYTASK",
+            "comment": "领取每日任务奖励",
+            "cmMethod": "ReqUnionGetDailyTask",
+            "smMethod": "RspUnionGetDailyTask"
+        },
+        {
+            "key": "S_UNION_PUSHEVICTION",
+            "comment": "推送被踢出妖盟广播",
+            "cmMethod": "",
+            "smMethod": "PushUnionEvictionMsg"
+        },
+        {
+            "key": "S_UNION_DONATEDAILYTASK",
+            "comment": "每日任务捐献",
+            "cmMethod": "ReqUnionDailyDonate",
+            "smMethod": "RspUnionDailyDonate"
+        },
+        {
+            "key": "S_UNION_DAILYTASKPROGRESS",
+            "comment": "获取每日任务成员完成进度",
+            "cmMethod": "ReqUnionDailyProgress",
+            "smMethod": "RspUnionDailyProgress"
+        },
+        {
+            "key": "S_UNION_EVICTION",
+            "comment": "逐出妖盟",
+            "cmMethod": "ReqUnionEviction",
+            "smMethod": "RspUnionEviction"
+        },
+        {
+            "key": "S_UNION_JOINLIST",
+            "comment": "加入的妖盟列表(我没有妖盟时的列表)",
+            "cmMethod": "ReqUnionJoinList",
+            "smMethod": "RspUnionJoinList"
+        },
+        {
+            "key": "S_UNION_PUSHMYDATA",
+            "comment": "推送我的妖盟数据更新",
+            "cmMethod": "",
+            "smMethod": "MyUnionData"
+        },
+        {
+            "key": "S_GET_UNION_HELP_DATA_LIST",
+            "comment": "获取妖盟协助列表",
+            "cmMethod": "GetUnionHelpDataListReq",
+            "smMethod": "GetUnionHelpDataListResp"
+        },
+        {
+            "key": "S_REQUEST_UNION_HELP",
+            "comment": "请求妖盟协助",
+            "cmMethod": "RequestUnionHelpReq",
+            "smMethod": "RequestUnionHelpResp"
+        },
+        {
+            "key": "S_UNION_HELP",
+            "comment": "执行妖盟协助",
+            "cmMethod": "UnionHelpReq",
+            "smMethod": "UnionHelpResp"
+        },
+        {
+            "key": "S_GET_UNION_HELP_STATE",
+            "comment": "获取妖盟协助状态",
+            "cmMethod": "GetUnionHelpStateReq",
+            "smMethod": "GetUnionHelpStateResp"
+        },
+        {
+            "key": "S_UNION_WATCH_REDDOT",
+            "comment": "查看妖盟的红点",
+            "cmMethod": "ReqUnionWatchRedDot",
+            "smMethod": "RspUnionWatchRedDot"
+        },
+        {
+            "key": "S_UNION_SAME_NAME_ACTIVITY_NAME_LIST",
+            "comment": "获取商会同名姓名列表",
+            "cmMethod": "ReqUnionSameNameListMsg",
+            "smMethod": "RspUnionSameNameListMsg"
+        },
+        {
+            "key": "S_GET_UNION_RECHARGE_ACTIVITY_RECHARGE_DATA",
+            "comment": "获取商会充值列表",
+            "cmMethod": "UnionRechargeUserReqMsg",
+            "smMethod": "UnionRechargeUserRspMsg"
+        },
+        {
+            "key": "S_UNION_RECHARGE_ACTIVITY_RECHARGE_DATA_SYNC",
+            "comment": "商会充值活动数据同步",
+            "cmMethod": "",
+            "smMethod": "UnionRechargeDataSync"
+        },
+        {
+            "key": "S_UNION_TIME_SYNC",
+            "comment": "妖盟时间同步",
+            "cmMethod": "",
+            "smMethod": "UnionTimeMsg"
+        },
+        {
+            "key": "S_UNION_PUBLISH_RECRUIT",
+            "comment": "发布招募信息",
+            "cmMethod": "UnionPublishRecruitReqMsg",
+            "smMethod": "UnionPublishRecruitRespMsg"
+        },
+        {
+            "key": "S_UNION_PUBLISH_RECRUIT_SYNC",
+            "comment": "同步招募次数",
+            "smMethod": "NotifyUnionRecruitCountMsg"
+        },
+        {
+            "key": "S_UNION_PLAYER_STRENGTH_RANK",
+            "comment": "获取分组评级排行",
+            "cmMethod": "UnionPlayerGradeRankReqMsg",
+            "smMethod": "UnionPlayerGradeRankRespMsg"
+        },
+        {
+            "key": "S_UNION_GET_CROSS_SERVER",
+            "comment": "获取妖盟跨服信息",
+            "cmMethod": "GetCrossUnionGroupServersReq",
+            "smMethod": "GetCrossUnionGroupServersResp"
+        },
+        {
+            "key": "S_UNION_SET_RECRUIT_INFO",
+            "comment": "评级人数分配设置",
+            "cmMethod": "UnionMemberGradeSettingReq",
+            "smMethod": "UnionMemberGradeSettingResp"
+        },
+        {
+            "key": "S_UNION_PLAYER_RATE_SYNC",
+            "comment": "登录或者评级变化时 同步玩家的评级数据",
+            "smMethod": "NotifyPlayerGradeMsg"
+        }
+    ],
+    "Destiny": [
+        {
+            "key": "S_DESTINY_DATA_SYNC",
+            "comment": "数据同步",
+            "cmMethod": "",
+            "smMethod": "DestinyData"
+        },
+        {
+            "key": "S_DESTINY_GIFT",
+            "comment": "赠礼",
+            "cmMethod": "ReqDestinyGift",
+            "smMethod": "RspDestinyGift"
+        },
+        {
+            "key": "S_DESTINY_TRAVEL",
+            "comment": "游历",
+            "cmMethod": "ReqDestinyTravel",
+            "smMethod": "RspDestinyTravel"
+        },
+        {
+            "key": "S_DESTINY_CHALLENGE",
+            "comment": "切磋",
+            "cmMethod": "ReqDestinyChallenge",
+            "smMethod": "RspDestinyChallenge"
+        },
+        {
+            "key": "S_DESTINY_UNLOCK",
+            "comment": "解锁道具仙友",
+            "cmMethod": "ReqUnlockDestinyByItem",
+            "smMethod": "RspUnlockDestinyByItem"
+        },
+        {
+            "key": "S_DESTINY_SKIN_UNLOCK",
+            "comment": "皮肤解锁",
+            "cmMethod": "ReqUnlockDestinySkinByItem",
+            "smMethod": "RspUnlockDestinySkinByItem"
+        },
+        {
+            "key": "S_DESTINY_SKIN_ENHANCE",
+            "comment": "强化皮肤",
+            "cmMethod": "ReqEnhanceDestinySkin",
+            "smMethod": "RspEnhanceDestinySkin"
+        },
+        {
+            "key": "S_DESTINY_SKIN_WEAR",
+            "comment": "穿戴皮肤",
+            "cmMethod": "ReqWearDestinySkin",
+            "smMethod": "RspWearDestinySkin"
+        },
+        {
+            "key": "S_DESTINY_SWITCH_LINKAGE_SKIN",
+            "comment": "切换挚友联动形象",
+            "cmMethod": "DestinySwitchLinkageSkinReq",
+            "smMethod": "DestinySwitchLinkageSkinResp"
+        }
+    ],
+    "LuckyDrawActivity": [
+        {
+            "key": "S_ACTIVITY_LUCKY_DRAW",
+            "comment": "运势抽奖请求",
+            "cmMethod": "LuckyDrawReq",
+            "smMethod": "LuckyDrawResp"
+        },
+        {
+            "comment": "ActivityDrawConfig解析",
+            "byteDecode": "ActivityDrawConfig"
+        },
+        {
+            "comment": "LuckyDrawActivityDataMsg解析",
+            "byteDecode": "LuckyDrawActivityDataMsg"
+        }
+    ],
+    "ADTimeActivity": [
+        {
+            "key": "S_WELFARE_GIFT_KR",
+            "comment": "缩时香礼包",
+            "cmMethod": "ADTimeTriggerReq",
+            "smMethod": ""
+        },
+        {
+            "key": "S_KILLTIME_GIFT_KR",
+            "comment": "使用缩时香",
+            "cmMethod": "ADTimeUseReq",
+            "smMethod": ""
+        }
+    ],
+    "UnionAreaWar": [
+        {
+            "comment": "UnionAreaWarConfigsSync解析",
+            "byteDecode": "UnionAreaWarConfigsSync"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_BASE_INFO",
+            "comment": "查询据点战基础信息",
+            "cmMethod": "UnionAreaWarReqMsg",
+            "smMethod": "UnionAreaWarRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_BASE_WORSHIP",
+            "comment": "查询据点战膜拜",
+            "cmMethod": "UnionAreaWarWorshipReq",
+            "smMethod": "UnionAreaWarWorshipRsp"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_AREA_LIST",
+            "comment": "获取据点列表",
+            "cmMethod": "UnionAreWarListReqMsg",
+            "smMethod": "UnionAreaWarListRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_AREA_LIST_UPDATE",
+            "comment": "刷新据点列表",
+            "cmMethod": "UnionAreWarListUpdateReqMsg",
+            "smMethod": "UnionAreaWarListUpdateRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_FIGHT_SCENE",
+            "comment": "请求战斗场景数据",
+            "cmMethod": "UnionAreaWarFightSceneReqMsg",
+            "smMethod": "UnionAreaWarFightSceneRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_ATTACK",
+            "comment": "请求战斗场景攻击",
+            "cmMethod": "UnionAreaWarAttackReqMsg",
+            "smMethod": "UnionAreaWarAttackRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_CONSTRUCT_DATA",
+            "comment": "请求捐献建设数据",
+            "cmMethod": "UnionAreaWarConstructReqMsg",
+            "smMethod": "UnionAreaWarConstructRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_DEFENDERS",
+            "comment": "请求防守人列表",
+            "cmMethod": "UnionAreaWarDefendersReqMsg",
+            "smMethod": "UnionAreaWarDefendersRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_DEFENDERS_UPDATE",
+            "comment": "刷新防守人列表",
+            "cmMethod": "UnionAreaWarDefendersUpdateReqMsg",
+            "smMethod": "UnionAreaWarDefendersUpdateRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_DEVELOP",
+            "comment": "建设(捐献)",
+            "cmMethod": "UnionAreaWarDevelopReqMsg",
+            "smMethod": "UnionAreaWarDevelopRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_TREASURE_INFO",
+            "comment": "加载宝库信息",
+            "cmMethod": "UnionAreaWarTreasuryReqMsg",
+            "smMethod": "UnionAreaWarTreasuryRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_TREASURE_DRAW",
+            "comment": "宝库抽奖",
+            "cmMethod": "UnionAreaWarTreasuryDrawReqMsg",
+            "smMethod": "UnionAreaWarTreasuryDrawRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_REPORT_DATA",
+            "comment": "请求战报数据",
+            "cmMethod": "UnionAreaWarReportReqMsg",
+            "smMethod": "UnionAreaWarReportRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_REPORT_DETAIL",
+            "comment": "请求战报伤害详情数据",
+            "cmMethod": "UnionAreaWarReportDetailReqMsg",
+            "smMethod": "UnionAreaWarReportDetailRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_UNION_DAMAGE_INFO",
+            "comment": "请求联盟伤害数据",
+            "cmMethod": "UnionAreaWarUnionDamageReqMsg",
+            "smMethod": "UnionAreaWarUnionDamageRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_UNION_BET_DATA",
+            "comment": "请求竞猜界面数据",
+            "cmMethod": "UnionAreaWarBetDataReqMsg",
+            "smMethod": "UnionAreaWarBetDataRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_UNION_BET_SELECT",
+            "comment": "请求竞猜选择",
+            "cmMethod": "UnionAreaWarBetSelectReqMsg",
+            "smMethod": "UnionAreaWarBetSelectRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_UNION_BET_REWARD",
+            "comment": "请求竞猜奖励",
+            "cmMethod": "UnionAreaWarBetRewardReqMsg",
+            "smMethod": "UnionAreaWarBetRewardRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_SUMMON_DRAGON",
+            "comment": "请求召唤神龙",
+            "cmMethod": "UnionAreaWarSummonDragonReqMsg",
+            "smMethod": "UnionAreaWarSummonDragonRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_UNION_GET_MEMBER_LIST",
+            "comment": "查看自己所属联盟的参与名单",
+            "cmMethod": "UnionAreaWarGetJoinMemberListReq",
+            "smMethod": "UnionAreaWarGetJoinMemberListRsp"
+        },
+        {
+            "comment": "UnionAreaWarRankList解析",
+            "byteDecode": "UnionAreaWarRankList"
+        },
+        {
+            "comment": "UnionAreaWarPlayerRankList解析",
+            "byteDecode": "UnionAreaWarPlayerRankList"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_DRAGON_ATTACK_SYNC",
+            "comment": "神龙战场攻击推送",
+            "cmMethod": "",
+            "smMethod": "SyncUnionAreaWarDragonAttackMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_BASE_GROUP",
+            "comment": "请求查看分组",
+            "cmMethod": "UnionAreaWarGroupReqMsg",
+            "smMethod": "UnionAreaWarGroupRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_UNION_GROUP_DAMAGE_INFO",
+            "comment": "请求查看联盟分段位伤害信息",
+            "cmMethod": "UnionAreaWarUnionGroupDamageReqMsg",
+            "smMethod": "UnionAreaWarUnionGroupDamageRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_UNION_RED_DOT_DATA",
+            "comment": "请求红点信息",
+            "cmMethod": "UnionAreaWarRedDotReqMsg",
+            "smMethod": "UnionAreaWarRedDotRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_GUESS_PLAYER_LIST",
+            "comment": "请求查看竞猜结果的获奖玩家列表",
+            "cmMethod": "UnionAreaWarGuessPlayersReqMsg",
+            "smMethod": "UnionAreaWarGuessPlayersRespMsg"
+        },
+        {
+            "key": "S_UNION_AREA_WAR_DAN_GROUP_COUNT",
+            "comment": "查看所有段位的分组数量",
+            "cmMethod": "UnionAreaWarDanGroupCountReq",
+            "smMethod": "UnionAreaWarDanGroupCountResp"
+        }
+    ],
+    "SpiritTrialActivity": [
+        {
+            "comment": "SpiritTrialActivityConfig解析",
+            "byteDecode": "SpiritTrialActivityConfig"
+        },
+        {
+            "comment": "SpiritTrialActivityDataMsg解析",
+            "byteDecode": "SpiritTrialActivityDataMsg"
+        },
+        {
+            "key": "S_SPIRIT_TRIAL_REFRESH_EVIL",
+            "comment": "刷新邪祟",
+            "cmMethod": "RefreshEvilThingReq",
+            "smMethod": "RefreshEvilThingResp"
+        },
+        {
+            "key": "S_SPIRIT_TRIAL_BATTLE_EVIL",
+            "comment": "镇压邪祟",
+            "cmMethod": "BattleEviThingReq",
+            "smMethod": "BattleEvilThingResp"
+        }
+    ],
+    "OptionalGiftActivity": [
+        {
+            "key": "S_ACTIVITY_OPTIONAL_GIFT_SELECT",
+            "comment": "自选礼包选择道具",
+            "cmMethod": "SelectItemsReq",
+            "smMethod": "SelectItemsResp"
+        },
+        {
+            "comment": "OptionalGiftActivityDataMsg解析",
+            "byteDecode": "OptionalGiftActivityDataMsg"
+        }
+    ],
+    "WelfareGiftActivity": [
+        {
+            "comment": "WelfareGiftActivityPlayerDataSync解析",
+            "byteDecode": "WelfareGiftActivityPlayerDataSync"
+        }
+    ],
+    "WeekCardActivity": [
+        {
+            "comment": "WeekCardActivityDataSync解析",
+            "byteDecode": "WeekCardActivityDataSync"
+        },
+        {
+            "key": "S_WEEK_CARD_ROUND_REWARD",
+            "comment": "仙缘进度领奖",
+            "cmMethod": "XyFundGetRewardReq",
+            "smMethod": "XyFundGetRewardResp"
+        }
+    ],
+    "GoodFortuneActivity": [
+        {
+            "comment": "GoodFortunePlayerDataMsg解析",
+            "byteDecode": "GoodFortunePlayerDataMsg"
+        },
+        {
+            "key": "S_GOOD_FORTUNE_GET_REWARD_REQ",
+            "comment": "获取签到奖励",
+            "cmMethod": "GoodFortuneGetRewardReq",
+            "smMethod": "GoodFortuneGetRewardRsp"
+        }
+    ],
+    "InviteFriends": [
+        {
+            "key": "S_BIND_INVITE_CODE",
+            "comment": "绑定邀请码",
+            "cmMethod": "ReqBindInviteCode",
+            "smMethod": "RspBindInviteCode"
+        },
+        {
+            "key": "S_GET_BIND_INVITE_CODE",
+            "comment": "获取绑定他人的邀请码",
+            "cmMethod": "ReqGetBindInviteCode",
+            "smMethod": "RspGetBindInviteCode"
+        }
+    ],
+    "MessageSubscribe": [
+        {
+            "key": "S_SET_MESSAGE_SUBSCRIBE",
+            "comment": "设置订阅消息",
+            "cmMethod": "SetMessageSubscribeDataReqMsg",
+            "smMethod": "SetMessageSubscribeDataRspMsg"
+        },
+        {
+            "key": "S_GET_LOGIN_MESSAGE_SUBSCRIBE",
+            "comment": "微信消息订阅登陆下发",
+            "cmMethod": "",
+            "smMethod": "MessageSubscribeInfo"
+        }
+    ],
+    "AdReward": [
+        {
+            "key": "S_AD_REWARD_DATA_SYNC",
+            "comment": "数据同步",
+            "cmMethod": "",
+            "smMethod": "PlayerAdRewardDataMsg"
+        },
+        {
+            "key": "S_AD_REWARD_GET_REWARD",
+            "comment": "广告领奖",
+            "cmMethod": "GetAdRewardReq",
+            "smMethod": "GetAdRewardResp"
+        }
+    ],
+    "CutPrice": [
+        {
+            "key": "S_CUT_PRICE_SYNC",
+            "comment": "砍价数据同步",
+            "smMethod": "CutPriceDataMsg"
+        },
+        {
+            "key": "S_CUT_PRICE_BARGAIN",
+            "comment": "砍价",
+            "cmMethod": "CutPriceBargainReqMsg",
+            "smMethod": "CutPriceBargainRespMsg"
+        },
+        {
+            "key": "S_CUT_PRICE_BUY",
+            "comment": "砍价购买",
+            "cmMethod": "CutPriceBuyReqMsg",
+            "smMethod": "CutPriceBuyRespMsg"
+        }
+    ],
+    "HeroRank": [
+        {
+            "key": "S_HERORANK_ENTER",
+            "comment": "进入群英榜",
+            "cmMethod": "",
+            "smMethod": "RspHeroRankEnter"
+        },
+        {
+            "key": "S_HERORANK_SYNC_PLAYERDATA",
+            "comment": "同步群英榜玩家信息",
+            "cmMethod": "",
+            "smMethod": "SynHeroRankPlayerInfo"
+        },
+        {
+            "key": "S_HERORANK_GET_FIGHT_LIST",
+            "comment": "请求挑战者列表",
+            "cmMethod": "ReqHeroRankFightPlayerList",
+            "smMethod": "RspHeroRankFightPlayerList"
+        },
+        {
+            "key": "S_HERORANK_FIGHT",
+            "comment": "请求挑战玩家",
+            "cmMethod": "ReqHeroRankFight",
+            "smMethod": "RspHeroRankFight"
+        },
+        {
+            "key": "S_HERORANK_CLEAR",
+            "comment": "请求扫荡玩家",
+            "cmMethod": "ReqHeroRankClear",
+            "smMethod": "RspHeroRankClear"
+        },
+        {
+            "key": "S_HERORANK_GET_RECORD",
+            "comment": "请求日志数据",
+            "cmMethod": "",
+            "smMethod": "RspHeroRankRecord"
+        },
+        {
+            "key": "S_HERORANK_GET_ACHIEVE_REWARD",
+            "comment": "请求领取成就奖励",
+            "cmMethod": "ReqHeroRankGetAchieve",
+            "smMethod": "RspHeroRankGetAchieve"
+        },
+        {
+            "key": "S_HERORANK_BUY_ENERGY",
+            "comment": "请求购买体力",
+            "cmMethod": "ReqHeroRankBuyEnergy",
+            "smMethod": "RspHeroRankBuyEnergy"
+        }
+    ],
+    "PetDreamLandActivityProto": [
+        {
+            "comment": "PetDreamLandActivityConfig解析",
+            "byteDecode": "PetDreamLandActivityConfig"
+        },
+        {
+            "comment": "灵兽幻境玩家数据",
+            "byteDecode": "PetDreamLandDataMsg"
+        },
+        {
+            "key": "S_PET_DREAMLAND_DRAW",
+            "comment": "抽奖",
+            "cmMethod": "ReqPetDreamLandDraw",
+            "smMethod": "RspPetDreamLandDraw"
+        },
+        {
+            "key": "S_PET_DREAMLAND_PLACE_UNLOCK",
+            "comment": "区域解锁",
+            "cmMethod": "ReqPetDreamLandAdventurePlaceUnlock",
+            "smMethod": "RspPetDreamLandAdventurePlaceUnlock"
+        },
+        {
+            "key": "S_PET_DREAMLAND_SLOT_UNLOCK",
+            "comment": "坑位解锁",
+            "cmMethod": "ReqPetDreamLandAdventureSlotUnlock",
+            "smMethod": "RspPetDreamLandAdventurePlaceSlot"
+        },
+        {
+            "key": "S_PET_DREAMLAND_DISPATCH",
+            "comment": "灵兽派遣",
+            "cmMethod": "ReqPetDreamLandAdventureDispatch",
+            "smMethod": "RspPetDreamLandAdventureDispatch"
+        },
+        {
+            "key": "S_PET_DREAMLAND_GET_PROFIT",
+            "comment": "领取收益",
+            "cmMethod": "ReqPetDreamLandAdventureGetAward",
+            "smMethod": "RspPetDreamLandAdventureGetAward"
+        }
+    ],
+    "Magic": [
+        {
+            "key": "S_MAGIC_PLAYER_DATA_SYNC",
+            "comment": "神通数据同步",
+            "smMethod": "PlayerMagicDataMsg"
+        },
+        {
+            "key": "S_MAGIC_EQUIP",
+            "comment": "装备神通",
+            "cmMethod": "MagicEquipReq",
+            "smMethod": "MagicEquipResp"
+        },
+        {
+            "key": "S_MAGIC_RESET",
+            "comment": "重置神通",
+            "cmMethod": "MagicResetReq",
+            "smMethod": "MagicResetResp"
+        },
+        {
+            "key": "S_MAGIC_STAGE_UP",
+            "comment": "进阶神通",
+            "cmMethod": "MagicStageUpReq",
+            "smMethod": "MagicStageUpResp"
+        },
+        {
+            "key": "S_MAGIC_STAGE_UP_ALL",
+            "comment": "一键突破神通",
+            "cmMethod": "MagicStageUpAllReq",
+            "smMethod": "MagicStageUpResp"
+        },
+        {
+            "key": "S_MAGIC_LEVEL_UP",
+            "comment": "升级神通",
+            "cmMethod": "MagicLvUpReq",
+            "smMethod": "MagicLvUpResp"
+        },
+        {
+            "key": "S_MAGIC_EQUIP_MARK",
+            "comment": "装备印记",
+            "cmMethod": "MagicEquipMarkReq",
+            "smMethod": "MagicEquipMarkResp"
+        },
+        {
+            "key": "S_MAGIC_UNSNATCH_MARK",
+            "comment": "卸下印记",
+            "cmMethod": "MagicUnsnatchMarkReq",
+            "smMethod": "MagicUnsnatchMarkResp"
+        },
+        {
+            "key": "S_MAGIC_FUSION_MARK",
+            "comment": "融合神通印记",
+            "cmMethod": "MagicFusionMarkReq",
+            "smMethod": "MagicFusionMarkResp"
+        },
+        {
+            "key": "S_MAGIC_DERIVATION",
+            "comment": "衍化",
+            "cmMethod": "MagicDerivationReq",
+            "smMethod": "MagicDerivationResp"
+        },
+        {
+            "key": "S_MAGIC_COMBINE_LEVEL_UP",
+            "comment": "升级组合",
+            "cmMethod": "MagicCombineLvUpReq",
+            "smMethod": "MagicCombineLvUpResp"
+        },
+        {
+            "key": "S_MAGIC_SWITCH_PRESETS_REQ",
+            "comment": "切换预设",
+            "cmMethod": "MagicSwitchPresetsReq",
+            "smMethod": "MagicSwitchPresetsResp"
+        }
+    ],
+    "WildZoneActivityProto": [
+        {
+            "comment": "蛮荒妖域活动数据解析解析",
+            "byteDecode": "ManHuangUserDataEntity"
+        },
+        {
+            "comment": "蛮荒妖域配置数据解析",
+            "byteDecode": "ManHuangConfigSyncMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_ENTER_PANEL",
+            "comment": "蛮荒 进入活动页",
+            "cmMethod": "ManHuangEnterPanelReqMsg",
+            "smMethod": "ManHuangEnterPanelRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_CREATE",
+            "comment": "蛮荒 创建队伍",
+            "cmMethod": "ManHuangCreateTeamReqMsg",
+            "smMethod": "ManHuangCreateTeamRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_LIST",
+            "comment": "蛮荒 获取队伍列表",
+            "cmMethod": "ManHuangGetTeamListReqMsg",
+            "smMethod": "ManHuangGetTeamListRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_INFO",
+            "comment": "蛮荒 查看队伍数据",
+            "cmMethod": "ManHuangGetTeamInfoReqMsg",
+            "smMethod": "ManHuangGetTeamInfoRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_APPLY_DO",
+            "comment": "蛮荒 加入队伍",
+            "cmMethod": "ManHuangJoinTeamReqMsg",
+            "smMethod": "ManHuangJoinTeamRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_APPLY_CANCEL",
+            "comment": "蛮荒 取消申请队伍",
+            "cmMethod": "ManHuangCancelTeamApplyReqMsg",
+            "smMethod": "ManHuangCancelTeamApplyRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_OUT",
+            "comment": "蛮荒 解散/退出队伍",
+            "cmMethod": "ManHuangQuitTeamReqMsg",
+            "smMethod": "ManHuangQuitTeamRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_LEAVE_PANEL",
+            "comment": "蛮荒 退出活动",
+            "cmMethod": "ManHuangLeavePanelReqMsg",
+            "smMethod": "ManHuangLeavePanelRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_APPLY_AGREE",
+            "comment": "蛮荒 玩家申请入队同意",
+            "cmMethod": "ManHuangApplyJoinTeamAgreeReqMsg",
+            "smMethod": "ManHuangApplyJoinTeamAgreeRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_APPLY_REFUSED",
+            "comment": "蛮荒 玩家申请入队一键拒绝",
+            "cmMethod": "ManHuangApplyJoinTeamRefusedReqMsg",
+            "smMethod": "ManHuangApplyJoinTeamRefusedRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ZONE_TEAM_KICK_OUT",
+            "comment": "蛮荒 踢出队伍",
+            "cmMethod": "ManHuangKickOutTeamReqMsg",
+            "smMethod": "ManHuangKickOutTeamRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_ENTER_REGION",
+            "comment": "蛮荒 进入区域",
+            "cmMethod": "ManHuangEnterRegionReqMsg",
+            "smMethod": "ManHuangEnterRegionRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_PLAYER_EXPLORE",
+            "comment": "蛮荒 探索",
+            "cmMethod": "ManHuangExploreReqMsg",
+            "smMethod": "ManHuangExploreRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_PLAYER_EXECUTE_EXPLORE",
+            "comment": "蛮荒 执行探索事件 ",
+            "cmMethod": "ManHuangEventHandleReqMsg",
+            "smMethod": "ManHuangEventHandleRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_PLAYER_ACTION_EXPLORE",
+            "comment": "蛮荒 action探索事件(标记，绕过) ",
+            "cmMethod": "ManHuangEventActionReqMsg",
+            "smMethod": "ManHuangEventActionRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_LOG_MEMBER_HELP",
+            "comment": "蛮荒 日志-队友互助 ",
+            "cmMethod": "ManHuangLogHelpReqMsg",
+            "smMethod": "ManHuangLogHelpRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_LOG_BATTLEGROUND",
+            "comment": "蛮荒 日志-战场日志 ",
+            "cmMethod": "ManHuangLogBattlegroundReqMsg",
+            "smMethod": "ManHuangLogBattlegroundRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_LOG_PERSON",
+            "comment": "蛮荒 日志-个人日志 ",
+            "cmMethod": "ManHuangLogPersonReqMsg",
+            "smMethod": "ManHuangLogPersonRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_RANK_PERSON",
+            "comment": "蛮荒 排行-个人 ",
+            "cmMethod": "ManHuangRankPersonReqMsg",
+            "smMethod": "ManHuangRankPersonRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_RANK_TEAM",
+            "comment": "蛮荒 排行-队伍 ",
+            "cmMethod": "ManHuangRankTeamReqMsg",
+            "smMethod": "ManHuangRankTeamRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_SYNC_ENEMY_INFO",
+            "comment": "蛮荒 广播-仇人信息",
+            "smMethod": "ManHuangEnemyNotify"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_SYNC_TEAM_LEADER",
+            "comment": "蛮荒 广播-队长收到的广播",
+            "smMethod": "ManHuangTeamLeaderNotify"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_SYNC_TEAM_MEMBER",
+            "comment": "蛮荒 广播-队员接收到的广播",
+            "smMethod": "ManHuangTeamMemberNotify"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_PLAYER_RECOVER_ENERGY",
+            "comment": "蛮荒 恢复体力",
+            "cmMethod": "ManHuangRecoverEnergyReqMsg",
+            "smMethod": "ManHuangRecoverEnergyRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_OPEN_BOX",
+            "comment": "蛮荒 开宝箱",
+            "cmMethod": "ManHuangOpenBoxReqMsg",
+            "smMethod": "ManHuangOpenBoxRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_PLAYER_DO_HELP",
+            "comment": "蛮荒 执行协助",
+            "cmMethod": "ManHuangHelpActionAttReqMsg",
+            "smMethod": "ManHuangHelpActionAttRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_SYNC_EVENT_INFO",
+            "comment": "蛮荒 事件广播",
+            "smMethod": "ManHuangEventInfoNotify"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_SEND_SYNC_USER_DATA",
+            "comment": "蛮荒 发送同步玩家信息协议",
+            "cmMethod": "ManHuangGetUserDataReqMsg",
+            "smMethod": "ManHuangGetUserDataRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_PLAYER_DO_HELP_REWARD",
+            "comment": "蛮荒 领取协助奖励",
+            "cmMethod": "ManHuangHelpActionRewardReqMsg",
+            "smMethod": "ManHuangHelpActionRewardRespMsg"
+        },
+        {
+            "key": "S_ACTIVITY_WILD_SYNC_MARQUEE",
+            "comment": "蛮荒 击杀广播",
+            "smMethod": "ManHuangMarqueeNotify"
+        }
+    ],
+    "UnionBattle": [
+        {
+            "key": "S_UNION_BATTLE_ENTER",
+            "comment": "进入妖盟乱斗",
+            "cmMethod": "UnionBattleEnterReq",
+            "smMethod": "UnionBattleEnterRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_GET_JOIN_MEMBER_LIST",
+            "comment": "查看自己所属联盟的参与名单",
+            "cmMethod": "UnionBattleGetJoinMemberListReq",
+            "smMethod": "UnionBattleGetJoinMemberListRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_MATCH",
+            "comment": "匹配",
+            "cmMethod": "UnionBattleMatchReq",
+            "smMethod": "UnionBattleMatchRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_CHALLENGE",
+            "comment": "挑战",
+            "cmMethod": "UnionBattleChallengeReq",
+            "smMethod": "UnionBattleChallengeRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_GET_REPORT",
+            "comment": "查看战报信息",
+            "cmMethod": "UnionBattleGetReportReq",
+            "smMethod": "UnionBattleGetReportRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_BUY_BUFF",
+            "comment": "购买buff",
+            "cmMethod": "UnionBattleBuyOpenBuffReq",
+            "smMethod": "UnionBattleBuyOpenBuffRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_SELECT_BUFF",
+            "comment": "选择buff",
+            "cmMethod": "UnionBattleSelectBuffReq",
+            "smMethod": "UnionBattleSelectBuffRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_GET_PLAY_BACK_LIST",
+            "comment": "获取本次挑战的回放列表",
+            "cmMethod": "UnionBattleGetPlayBackListReq",
+            "smMethod": "UnionBattleGetPlayBackListRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_RECEIVE_UNION_ACHIEVE_REWARD",
+            "comment": "领取联盟成就奖励",
+            "cmMethod": "UnionBattleReceiveUnionAchieveRewardReq",
+            "smMethod": "UnionBattleReceiveUnionAchieveRewardRsp"
+        },
+        {
+            "key": "S_UNION_BATTLE_GET_UNION_MEMBER_SCORE",
+            "comment": "查看联盟积分",
+            "cmMethod": "UnionBattleGetUnionMemberScoreReq",
+            "smMethod": "UnionBattleGetUnionMemberScoreRsp"
+        },
+        {
+            "key": "S_UnionBattlePb_SynPlayerInfo",
+            "comment": "同步玩家用户信息",
+            "smMethod": "SynPlayerInfo"
+        }
+    ],
+    "EquipmentAdvance": [
+        {
+            "key": "S_EQUIPMENT_REFINE",
+            "comment": "精炼",
+            "cmMethod": "ReqEquipmentRefine",
+            "smMethod": "RespEquipmentRefine"
+        },
+        {
+            "key": "S_EQUIPMENT_ADVANCE",
+            "comment": "进阶",
+            "cmMethod": "ReqEquipmentAdvance",
+            "smMethod": "RespEquipmentAdvance"
+        },
+        {
+            "key": "S_EQUIPMENT_SKILL_UNLOCK",
+            "comment": "技能解锁",
+            "cmMethod": "ReqEquipmentActivate",
+            "smMethod": "RespEquipmentActivate"
+        },
+        {
+            "key": "S_EQUIPMENT_ADVANCE_DATA_SYNC",
+            "comment": "数据同步",
+            "smMethod": "EquipmentAdvanceDataMsg"
+        }
+    ],
+    "SecretTower": [
+        {
+            "key": "S_SECRETTOWER_ENTER",
+            "comment": "进入秘境",
+            "cmMethod": "SecretTowerEnterReq",
+            "smMethod": "SecretTowerEnterRsp"
+        },
+        {
+            "key": "S_SECRETTOWER_FIGHT",
+            "comment": "挑战怪物",
+            "cmMethod": "SecretTowerFightReq",
+            "smMethod": "SecretTowerFightResp"
+        },
+        {
+            "key": "S_SECRETTOWER_GETSTAGE",
+            "comment": "领取阶段奖励",
+            "cmMethod": "SecretTowerGetStageRewardReq",
+            "smMethod": "SecretTowerGetStageRewardRsp"
+        },
+        {
+            "key": "S_SECRETTOWER_VIEWMONSTER",
+            "comment": "查看怪物属性",
+            "cmMethod": "SecretTowerViewMonsterAttrReq",
+            "smMethod": "SecretTowerViewMonsterAttrResp"
+        },
+        {
+            "key": "S_SECRETTOWER_SYNC",
+            "comment": "秘境数据同步",
+            "smMethod": "SynSecretTowerInfo"
+        },
+        {
+            "key": "S_SECRETTOWER_VIEWACHI",
+            "comment": "查看秘境成就",
+            "cmMethod": "SecretTowerAchievementReq",
+            "smMethod": "SecretTowerAchievementRsp"
+        },
+        {
+            "key": "S_SECRETTOWER_GETACHI",
+            "comment": "领取成就奖励",
+            "cmMethod": "SecretTowerGetAchiRewardReq",
+            "smMethod": "SecretTowerGetAchiRewardRsp"
+        }
+    ],
+    "UnionBoss": [
+        {
+            "key": "S_UNION_BOSS_ENTER",
+            "comment": "进入妖邪讨伐",
+            "cmMethod": "UnionBossInfoReqMsg",
+            "smMethod": "UnionBossInfoRespMsg"
+        },
+        {
+            "key": "S_UNION_BOSS_ARRAYING",
+            "comment": "布阵",
+            "cmMethod": "UnionBossBuffReqMsg",
+            "smMethod": "UnionBossBuffRespMsg"
+        },
+        {
+            "key": "S_UNION_BOSS_GET_REWARD_INFO",
+            "comment": "查看讨伐奖励",
+            "cmMethod": "UnionBossRewardReqMsg",
+            "smMethod": "UnionBossRewardRespMsg"
+        },
+        {
+            "key": "S_UNION_BOSS_RECEIVE_REWARD",
+            "comment": "领取讨伐奖励",
+            "cmMethod": "UnionBossRewardReceiveReqMsg",
+            "smMethod": "UnionBossRewardReceiveRespMsg"
+        },
+        {
+            "key": "S_UNION_BOSS_BATTLE",
+            "comment": "挑战",
+            "cmMethod": "UnionBossBattleReqMsg",
+            "smMethod": "UnionBossBattleRespMsg"
+        },
+        {
+            "key": "S_UNION_BOSS_RECEIVE_ACHIEVE_REWARD",
+            "comment": "领取讨伐成就奖励",
+            "cmMethod": "UnionBossAchieveRewardReqMsg",
+            "smMethod": "UnionBossAchieveRewardRespMsg"
+        },
+        {
+            "key": "S_UNION_BOSS_GET_ADD_BUFF_PLAYER",
+            "comment": "请求已布阵玩家信息",
+            "cmMethod": "UnionBossAddBuffPlayerReqMsg",
+            "smMethod": "UnionBossAddBuffPlayerRespMsg"
+        },
+        {
+            "key": "S_UNION_BOSS_BOSS_INFO_MSG_SYNC",
+            "comment": "同步boss信息",
+            "smMethod": "UnionBossMsg"
+        },
+        {
+            "key": "S_UNION_BOSS_MSG_BUFF_INFO_SYNC",
+            "comment": "同步阵法信息",
+            "smMethod": "UnionBossBuff"
+        }
+    ],
+    "MagicTreasure": [
+        {
+            "key": "S_MAGIC_TREASURE_PLAYER_DATA_MSG",
+            "comment": "玩家法宝数据",
+            "smMethod": "MagicTreasurePlayerDataMsg"
+        },
+        {
+            "key": "S_MAGIC_TREASURE_SYNC_DATA_MSG",
+            "comment": "同步法宝列表数据",
+            "smMethod": "SyncMagicTreasureDataMsg"
+        },
+        {
+            "key": "S_MAGIC_TREASURE_DRAW_REQ",
+            "comment": "法宝抽取",
+            "cmMethod": "MagicTreasureDrawReq",
+            "smMethod": "MagicTreasureDrawRsp"
+        },
+        {
+            "key": "S_MAGIC_TREASURE_LV_UP_REQ",
+            "comment": "法宝升级",
+            "cmMethod": "MagicTreasureLvUpReq",
+            "smMethod": "MagicTreasureLvUpRsp"
+        },
+        {
+            "key": "S_MAGIC_TREASURE_ACTIVE_REQ",
+            "comment": "法宝激活",
+            "cmMethod": "MagicTreasureActiveReq",
+            "smMethod": "MagicTreasureActiveRsp"
+        },
+        {
+            "key": "S_MAGIC_TREASURE_STAR_UP_REQ",
+            "comment": "法宝升星",
+            "cmMethod": "MagicTreasureStarUpReq",
+            "smMethod": "MagicTreasureStarUpRsp"
+        }
+    ],
+    "MallShield": [
+        {
+            "key": "S_SHIELD_MALL_RECHARGE_ID",
+            "comment": "同步渠道屏蔽商城付费项列表",
+            "smMethod": "MallRechargeIdShieldSync"
+        }
+    ],
+    "SeekTreasure": [
+        {
+            "comment": "seektreasure_draw配置表解析",
+            "byteDecode": "SeekTreasureConfigsSync"
+        },
+        {
+            "key": "S_ACTIVITY_SEEKTREASURE_DRAW",
+            "comment": "妖市觅宝抽奖",
+            "cmMethod": "SeekTreasureDrawReq",
+            "smMethod": "SeekTreasureDrawResp"
+        },
+        {
+            "key": "S_ACTIVITY_SEEKTREASURE_DRAW_NOTICE_SYNC",
+            "comment": "同步妖市觅宝抽奖公告",
+            "cmMethod": "",
+            "smMethod": "SeekTreasureNoticeSyncInfo"
+        },
+        {
+            "key": "S_ACTIVITY_SEEKTREASURE_VIEW",
+            "comment": "妖市觅宝界面",
+            "cmMethod": "SeekTreasureViewReq",
+            "smMethod": "SeekTreasureViewResp"
+        },
+        {
+            "comment": "妖市觅宝玩家数据解析",
+            "byteDecode": "SeekTreasureActivityData"
+        },
+        {
+            "key": "S_ACTIVITY_SEEKTREASURE_RARE_REWARD",
+            "comment": "选择稀有奖励",
+            "cmMethod": "SeekTreasureChooseRareRewardReq",
+            "smMethod": "SeekTreasureChooseRareRewardResp"
+        }
+    ],
+    "WestTravel": [
+        {
+            "key": "S_WEST_TRAVEL_PASS_GAME",
+            "comment": "通关请求",
+            "cmMethod": "WestTravelPassGameReq",
+            "smMethod": "WestTravelPassGameResp"
+        },
+        {
+            "comment": "WestTravel玩家数据解析",
+            "byteDecode": "WestTravelActivityPlayerDataSync"
+        },
+        {
+            "comment": "westTravel西天关卡数据解析",
+            "byteDecode": "WestTravelDataMsgSync"
+        }
+    ],
+    "AskWay": [
+        {
+            "key": "S_ASKWAY_ENTER",
+            "comment": "进入活动",
+            "cmMethod": "AskWayEnterReq",
+            "smMethod": "AskWayEnterRsp"
+        },
+        {
+            "key": "S_ASKWAY_MATCH",
+            "comment": "斗法匹配",
+            "cmMethod": "AskWayMatchReq",
+            "smMethod": "AskWayMatchRsp"
+        },
+        {
+            "key": "S_ASKWAY_BATTLE",
+            "comment": "斗法战斗",
+            "cmMethod": "AskWayBattleReq",
+            "smMethod": "AskWayBattleRsp"
+        },
+        {
+            "key": "S_ASKWAY_GETREPORT",
+            "comment": "获取战报",
+            "cmMethod": "AskWayGetReportReq",
+            "smMethod": "AskWayGetReportRsp"
+        },
+        {
+            "key": "S_ASKWAY_BATTLEREPLY",
+            "comment": "斗法战斗回放",
+            "cmMethod": "AskWayBattleReplyReq",
+            "smMethod": "AskWayBattleReplyRsp"
+        },
+        {
+            "key": "S_ASKWAY_RECEIVETIERREWAWARD",
+            "comment": "领取段位奖励",
+            "cmMethod": "AskWayReceiveTierRewardReq",
+            "smMethod": "AskWayReceiveTierRewardRsp"
+        },
+        {
+            "key": "S_ASKWAY_ReceiveScoreReward",
+            "comment": "领取斗法榜单积分奖励",
+            "cmMethod": "AskWayReceiveScoreRewardReq",
+            "smMethod": "AskWayReceiveScoreRewardRsp"
+        },
+        {
+            "key": "S_ASKWAY_GetGuessCoin",
+            "comment": "领取竞猜币",
+            "cmMethod": "AskWayGetGuessCoinReq",
+            "smMethod": "AskWayGetGuessCoinRsp"
+        },
+        {
+            "key": "S_ASKWAY_ToSkyGuess",
+            "comment": "登天竞猜",
+            "cmMethod": "AskWayToSkyGuessReq",
+            "smMethod": "AskWayToSkyGuessRsp"
+        },
+        {
+            "key": "S_ASKWAY_ToSkyBattleReply",
+            "comment": "登天战斗回放",
+            "cmMethod": "AskWayToSkyBattleReplyReq",
+            "smMethod": "AskWayToSkyBattleReplyRsp"
+        },
+        {
+            "key": "S_ASKWAY_Worship",
+            "comment": "朝拜",
+            "cmMethod": "AskWayWorshipReq",
+            "smMethod": "AskWayWorshipRsp"
+        },
+        {
+            "key": "S_ASKWAY_ToSkyRankReward",
+            "comment": "领取登天榜单奖励",
+            "cmMethod": "AskWayReceiveToSkyRankRewardReq",
+            "smMethod": "AskWayReceiveToSkyRankRewardRsp"
+        },
+        {
+            "key": "S_ASKWAY_ToSkyRoster",
+            "comment": "往届妖神榜",
+            "cmMethod": "AskWayToSkyRosterReq",
+            "smMethod": "AskWayToSkyRosterRsp"
+        },
+        {
+            "key": "S_ASKWAY_BUYCHALLENGETIME",
+            "comment": "购买挑战令道具",
+            "cmMethod": "AskWayBuyFightTicketReq",
+            "smMethod": "AskWayBuyFightTicketRsp"
+        },
+        {
+            "comment": "问道特有配置解析",
+            "byteDecode": "AskWayConfigSyncMsg"
+        },
+        {
+            "key": "S_ASKWAY_GETPLAYERINFO",
+            "comment": "查看玩家数据",
+            "cmMethod": "AskWayGetPlayerDetailReq",
+            "smMethod": "AskWayGetPlayerDetailRsp"
+        },
+        {
+            "key": "S_ASKWAY_ToSkyGetGoupData",
+            "comment": "获取登天期组别数据",
+            "cmMethod": "AskWayToSkyGetBattleResultReq",
+            "smMethod": "AskWayToSkyGetBattleResultRsp"
+        },
+        {
+            "key": "S_ASKWAY_GetToSkyGuessInfo",
+            "comment": "获取竞猜信息",
+            "cmMethod": "AskWayGetGuessInfoReq",
+            "smMethod": "AskWayGetGuessInfoRsp"
+        },
+        {
+            "key": "S_ASKWAY_GetToSkyReport",
+            "comment": "获取登天战报数据",
+            "cmMethod": "AskWayToSkyGetReportReq",
+            "smMethod": "AskWayToSkyGetReportRsp"
+        },
+        {
+            "key": "S_ASKWAY_GetCurStateInfo",
+            "comment": "获取海报数据",
+            "cmMethod": "AskWayGetGetCurStateInfoReq",
+            "smMethod": "AskWayGetGetCurStateInfoRsp"
+        }
+    ],
+    "ForbiddenTrials": [
+        {
+            "key": "S_PLAYER_FORBIDDEN_TRAILS_GET_REWARD",
+            "comment": "禁地试炼领奖",
+            "cmMethod": "ForbiddenTrailsGetRewardReq",
+            "smMethod": "ForbiddenTrailsGetRewardResp"
+        }
+    ],
+    "StarTrial": [
+        {
+            "key": "S_STARTRIAL_DATA_SYNC",
+            "comment": "星宿试炼数据同步",
+            "smMethod": "StarTrialDataMsg"
+        },
+        {
+            "key": "S_STARTRIAL_Fight",
+            "comment": "星宿试炼战斗",
+            "cmMethod": "StarTrialChallengeReq",
+            "smMethod": "StarTrialChallengeResp"
+        },
+        {
+            "key": "S_STARTRIAL_GetRecord",
+            "comment": "获取日志信息",
+            "cmMethod": "StarTrialRecordReq",
+            "smMethod": "StarTrialRecordResp"
+        },
+        {
+            "key": "S_STARTRIAL_BattleReply",
+            "comment": "战斗回放",
+            "cmMethod": "StarTrialBattleReplyReq",
+            "smMethod": "StarTrialBattleReplyResp"
+        },
+        {
+            "key": "S_STARTRIAL_CodexEnter",
+            "comment": "进入星空图鉴信息",
+            "cmMethod": "EnterStarTrialCodexMsgReq",
+            "smMethod": "EnterStarTrialCodexMsgResp"
+        },
+        {
+            "key": "S_STARTRIAL_GetCodexMsg",
+            "comment": "获取详细图鉴击败信息",
+            "cmMethod": "PlayerStarTrialCodexMsgReq",
+            "smMethod": "RspPlayerStarTrialCodexMsg"
+        },
+        {
+            "key": "S_STARTRIAL_GetBossAttrMsg",
+            "comment": "获取Boss属性信息",
+            "cmMethod": "GetBossDetailDataReq",
+            "smMethod": "GetBossDetailDataResp"
+        },
+        {
+            "key": "S_STARTRIAL_GetDailyFightReward",
+            "comment": "每日领奖",
+            "cmMethod": "GetDailyFightRewardReq",
+            "smMethod": "GetDailyFightRewardResp"
+        },
+        {
+            "key": "S_STARTRIAL_GetGroupInfo",
+            "comment": "获取分组信息",
+            "cmMethod": "GetStarTrialGroupInfoReq",
+            "smMethod": "GetStarTrialGroupInfoResp"
+        },
+        {
+            "key": "S_STARTRIAL_GetPlayerDetailInfo",
+            "comment": "查看玩家详情",
+            "cmMethod": "StarTrialGetPlayerDetailReq",
+            "smMethod": "StarTrialGetPlayerDetailResp"
+        },
+        {
+            "key": "S_STARTRIAL_EnterMainPanel",
+            "comment": "进入星宿试炼",
+            "cmMethod": "StarTrialEnterMainPanelReq",
+            "smMethod": "StarTrialEnterMainPanelResp"
+        }
+    ],
+    "GatherEnergy": [
+        {
+            "key": "S_SYNC_GATHER_ENERGY_MSG",
+            "comment": "同步聚灵阵数据",
+            "cmMethod": "",
+            "smMethod": "SyncGatherEnergyMsg"
+        },
+        {
+            "key": "S_GATHER_ENERGY_OPEN_VIEW",
+            "comment": "开启灵阵界面",
+            "cmMethod": "GatherEnergyOpenViewReq",
+            "smMethod": "GatherEnergyOpenViewResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_OPEN",
+            "comment": "开启某个灵阵",
+            "cmMethod": "GatherEnergyOpenReq",
+            "smMethod": "GatherEnergyOpenResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_FIRST_LIST_VIEW",
+            "comment": "打开聚灵阵一级列表界面（参与人数）",
+            "cmMethod": "GatherEnergyFirstListViewReq",
+            "smMethod": "GatherEnergyFirstListViewResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_SECOND_LIST_VIEW",
+            "comment": "打开聚灵阵二级列表界面（参与名字）",
+            "cmMethod": "GatherEnergySecondListViewReq",
+            "smMethod": "GatherEnergySecondListViewResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_INSIDE_VIEW_NEW",
+            "comment": "打开某个聚灵阵内部",
+            "cmMethod": "GatherEnergyInsideViewNewReq",
+            "smMethod": "GatherEnergyInsideViewNewResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_FIGHT",
+            "comment": "挑战某人",
+            "cmMethod": "GatherEnergyFightReq",
+            "smMethod": "GatherEnergyFightResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_FIGHT_REPORT_NEW",
+            "comment": "打开战报界面",
+            "cmMethod": "GatherEnergyFightReportNewReq",
+            "smMethod": "GatherEnergyFightReportNewResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_SEARCH_NEW",
+            "comment": "查询某人参与的阵法",
+            "cmMethod": "GatherEnergySearchNewReq",
+            "smMethod": "GatherEnergySearchNewResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_TRANSFORM",
+            "comment": "灵气转换",
+            "cmMethod": "GatherEnergyTransformReq",
+            "smMethod": "GatherEnergyTransformResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_ATTEND_NEW",
+            "comment": "加入聚灵阵",
+            "cmMethod": "GatherEnergyAttendNewReq",
+            "smMethod": "GatherEnergyAttendNewResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_ENTER_NEW",
+            "comment": "进入聚灵阵",
+            "cmMethod": "GatherEnergyEnterNewReq",
+            "smMethod": "GatherEnergyEnterNewResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_LEAVE",
+            "comment": "离开聚灵阵",
+            "cmMethod": "GatherEnergyLeaveReq",
+            "smMethod": "GatherEnergyLeaveResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_NOTICE",
+            "comment": "聚灵阵公告",
+            "cmMethod": "GatherEnergyNoticeReq",
+            "smMethod": "GatherEnergyNoticeResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_REWARD_SHOW",
+            "comment": "聚灵阵奖励推送",
+            "cmMethod": "",
+            "smMethod": "GatherEnergyRewardShowResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_GET_REWARD",
+            "comment": "聚灵阵奖励领取",
+            "cmMethod": "GatherEnergyRewardReq",
+            "smMethod": "GatherEnergyRewardResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_LIKE",
+            "comment": "聚灵阵排行榜点赞",
+            "cmMethod": "GatherEnergyLikeReq",
+            "smMethod": "GatherEnergyLikeResp"
+        },
+        {
+            "key": "S_GATHER_ENERGY_GET_AD_AWARD",
+            "comment": "聚灵阵获取广告奖励",
+            "cmMethod": "GatherEnergyGetADAwardReq",
+            "smMethod": "GatherEnergyGetADAwardResp"
+        }
+    ],
+    "GodIsland": [
+        {
+            "comment": "GodIslandConfigSync解析",
+            "byteDecode": "GodIslandConfigSync"
+        },
+        {
+            "comment": "GodIslandUnionRankList解析",
+            "byteDecode": "GodIslandUnionRankList"
+        },
+        {
+            "comment": "GodIslandPlayerRankList解析",
+            "byteDecode": "GodIslandPlayerRankList"
+        },
+        {
+            "comment": "GodIslandBetUnionInfoList解析",
+            "byteDecode": "GodIslandBetUnionInfoList"
+        },
+        {
+            "key": "S_GOD_ISLAND_BASE_INFO_LOAD",
+            "comment": "基础信息",
+            "cmMethod": "GodIslandBaseInfoReqMsg",
+            "smMethod": "GodIslandBaseInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GROUP",
+            "comment": "查看分组",
+            "cmMethod": "GodIslandGroupReqMsg",
+            "smMethod": "GodIslandGroupRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_PLAYER_BATTLE_REPORT",
+            "comment": "请求个人战报",
+            "cmMethod": "GodIslandPlayerReportReqMsg",
+            "smMethod": "GodIslandPlayerReportRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_REPORT_DATA",
+            "comment": "请求妖盟建筑战报",
+            "cmMethod": "GodIslandReportReqMsg",
+            "smMethod": "GodIslandReportRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_REPORT_DETAIL",
+            "comment": "请求妖盟建筑战报详情数据",
+            "cmMethod": "GodIslandReportDetailReqMsg",
+            "smMethod": "GodIslandReportDetailRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_UNION_DAMAGE_INFO",
+            "comment": "请求联盟战功数据",
+            "cmMethod": "GodIslandUnionDamageReqMsg",
+            "smMethod": "GodIslandUnionDamageRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_UNION_GET_MEMBER_LIST",
+            "comment": "查看自己所属联盟的参与名单",
+            "cmMethod": "GodIslandGetJoinMemberListReq",
+            "smMethod": "GodIslandGetJoinMemberListRsp"
+        },
+        {
+            "key": "S_GOD_ISLAND_UNION_GROUP_DAMAGE_INFO",
+            "comment": "妖盟分段位伤害信息",
+            "cmMethod": "GodIslandUnionGroupDamageReqMsg",
+            "smMethod": "GodIslandUnionGroupDamageRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_WORSHIP",
+            "comment": "点赞",
+            "cmMethod": "GodIslandWorshipReq",
+            "smMethod": "GodIslandWorshipResp"
+        },
+        {
+            "key": "S_GOD_ISLAND_RED_DOT_DATA",
+            "comment": "红点信息",
+            "cmMethod": "GodIslandRedDotReqMsg",
+            "smMethod": "GodIslandRedDotRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_HEART_BEAT",
+            "comment": "活动心跳",
+            "cmMethod": "GodIslandHeartBeatReqMsg",
+            "smMethod": "GodIslandHeartBeatRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_INFO_LOAD",
+            "comment": "游戏基础信息",
+            "cmMethod": "GodIslandGameInfoReqMsg",
+            "smMethod": "GodIslandGameInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_ROUTE_INFO_SYNC",
+            "comment": "游戏路线同步信息",
+            "cmMethod": "",
+            "smMethod": "GodIslandGameRouteInfoSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_MAP_CITY_INFO",
+            "comment": "游戏大地图城市信息(在滑动地图时候将视野内的城市id发送)",
+            "cmMethod": "GodIslandGameCityInfoReqMsg",
+            "smMethod": "GodIslandGameCityInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_EVENT",
+            "comment": "npc事件选择",
+            "cmMethod": "GodIslandGameEventReqMsg",
+            "smMethod": "GodIslandGameEventRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_CITY_BUFF_SYNC",
+            "comment": "城市buff同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandGameCityBuffSync"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_SPIRITUALBALL_INFO",
+            "comment": "灵力球信息",
+            "cmMethod": "GodIslandGameSpiritualBallInfoReqMsg",
+            "smMethod": "GodIslandGameSpiritualBallInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_USE_SPIRITUALBALL",
+            "comment": "使用灵力球",
+            "cmMethod": "GodIslandGameUseSpiritualBallReqMsg",
+            "smMethod": "GodIslandGameUseSpiritualBallRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_TARGET_CITY_INFO",
+            "comment": "目标城市具体信息",
+            "cmMethod": "GodIslandGameTargetCityInfoReqMsg",
+            "smMethod": "GodIslandGameTargetCityInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_TARGET_CITY_LINE_INFO",
+            "comment": "目标城市队列信息",
+            "cmMethod": "GodIslandGameTargetCityLineInfoReqMsg",
+            "smMethod": "GodIslandGameTargetCityLineInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_ATTACK",
+            "comment": "进攻",
+            "cmMethod": "GodIslandGameAttackReqMsg",
+            "smMethod": "GodIslandGameAttackRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_AUTO_ATTACK",
+            "comment": "自动操作 托管",
+            "cmMethod": "GodIslandGameAutoAttackReqMsg",
+            "smMethod": "GodIslandGameAutoAttackRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_MOVE",
+            "comment": "行军移动",
+            "cmMethod": "GodIslandGameMoveReqMsg",
+            "smMethod": "GodIslandGameMoveRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_EVENT_SYNC",
+            "comment": "npc事件同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandGameEventSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_MINIMAP_INFO",
+            "comment": "小地图信息",
+            "cmMethod": "GodIslandGameMiniMapInfoReqMsg",
+            "smMethod": "GodIslandGameMiniMapInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_SET_UNION_TYPE",
+            "comment": "设置联盟类型",
+            "cmMethod": "GodIslandGameSetUnionTypeReqMsg",
+            "smMethod": "GodIslandGameSetUnionTypeRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_PLANT_INFO",
+            "comment": "联盟种草信息",
+            "cmMethod": "GodIslandGamePlantInfoReqMsg",
+            "smMethod": "GodIslandGamePlantInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_USE_FRUIT",
+            "comment": "使用仙果 补充灵力球的灵力",
+            "cmMethod": "GodIslandUseFruitReq",
+            "smMethod": "GodIslandUseFruitResp"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_PLANT_RECEIVE_FRUITS",
+            "comment": "联盟种草领取果实",
+            "cmMethod": "GodIslandGamePlantReceiveFruitsReqMsg",
+            "smMethod": "GodIslandGamePlantReceiveFruitsRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_PLANT_WATER",
+            "comment": "联盟种草浇水",
+            "cmMethod": "GodIslandGamePlantWaterReqMsg",
+            "smMethod": "GodIslandGamePlantWaterRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_CRYSTAL_INFO",
+            "comment": "灵晶数据加载",
+            "cmMethod": "GodIslandCrystalInfoReqMsg",
+            "smMethod": "GodIslandCrystalInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_CRYSTAL_RECEIVE",
+            "comment": "领取灵晶",
+            "cmMethod": "GodIslandCrystalReceiveReqMsg",
+            "smMethod": "GodIslandCrystalReceiveRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_STRATEGY_INFO",
+            "comment": "联盟指挥信息",
+            "cmMethod": "GodIslandGameStrategyInfoReqMsg",
+            "smMethod": "GodIslandGameStrategyInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_COMMANDER_SET",
+            "comment": "联盟指挥设置",
+            "cmMethod": "GodIslandGameCommanderSetReqMsg",
+            "smMethod": "GodIslandGameCommanderSetRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_SET_UNION_TARGET",
+            "comment": "联盟指挥设置目标",
+            "cmMethod": "GodIslandGameSetUnionTargetReqMsg",
+            "smMethod": "GodIslandGameSetUnionTargetRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_FOR_HELP",
+            "comment": "联盟指挥请求支援",
+            "cmMethod": "GodIslandGameForHelpReqMsg",
+            "smMethod": "GodIslandGameForHelpRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_CITY_CHANGE_SYNC",
+            "comment": "城市变化同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandGameCityChangeSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_PLAYER_WIN_SYNC",
+            "comment": "连胜消息同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandGamePlayerWinSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_HORSE_LAMP_SYNC",
+            "comment": "跑马灯消息同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandGameHorseLampSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_SUPPRESS_BUFF_SYNC",
+            "comment": "玩家的所向披靡同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandSuppressBuffSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_LINE_INFO_SYNC",
+            "comment": "队列消息同步(大地图，城市队列，具体队列信息都通过这条去同步刷新)",
+            "cmMethod": "",
+            "smMethod": "GodIslandGameLineInfoSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_ACCELERATE_MOVE",
+            "comment": "加速行军",
+            "cmMethod": "GodIslandGameAcclerateMoveMsg",
+            "smMethod": "GodIslandGameAcclerateMoveRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_MYGAMEINFO_SYNC",
+            "comment": "我的游戏信息同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandGameMyGameInfoSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_PLANT_SEND_LIQUID",
+            "comment": "联盟发送灵液",
+            "cmMethod": "GodIslandGameSendLiquidReqMsg",
+            "smMethod": "GodIslandGameSendLiquidRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_PLANT_SEND_LIQUID_RECORD",
+            "comment": "联盟灵液发送记录",
+            "cmMethod": "GodIslandGameSendLiquidRecordReqMsg",
+            "smMethod": "GodIslandGameSendLiquidRecordRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_CITY_BUFF_INFO",
+            "comment": "请求城市界面buff信息",
+            "cmMethod": "GodIslandGameCityBuffInfoReqMsg",
+            "smMethod": "GodIslandGameCityBuffInfoRespMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_UPDATE_POWER",
+            "comment": "妖力转灵力",
+            "cmMethod": "GodIslandUpdatePowerReq",
+            "smMethod": "GodIslandUpdatePowerResp"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_BACK_HOME",
+            "comment": "阵亡之后 补兵完成之后从场外回大本营",
+            "cmMethod": "GodIslandBackHomeReq",
+            "smMethod": "GodIslandBackHomeResp"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_LEFT_OUT_SYNC",
+            "comment": "场内有妖盟被淘汰 同步下来",
+            "cmMethod": "",
+            "smMethod": "GodIslandLeftOutSyncInfo"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_SET_FRIEND_UNION",
+            "comment": "修改盟友",
+            "cmMethod": "GodIslandSetFriendUnionReq",
+            "smMethod": "GodIslandSetFriendUnionResp"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_FRIEND_UNION_SYNC",
+            "comment": "盟友同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandSyncFriendUnionMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_COMMANDER_CHANGE_SYNC",
+            "comment": "指挥权变化同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandCommanderChangeSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_BEEN_KILL_SYNC",
+            "comment": "被击杀后同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandBeenKillSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GAME_CITY_BATTLE",
+            "comment": "城市战斗状态",
+            "cmMethod": "",
+            "smMethod": "GodIslandGameCityBattleSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_AUTO_BATTLE_STOP_SYNC",
+            "comment": "托管操作 结束后同步给客户端",
+            "cmMethod": "",
+            "smMethod": "GodIslandAutoBattleStopSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_GHOST_CITY_UNLOCK_SYNC",
+            "comment": "修罗城解锁同步",
+            "cmMethod": "",
+            "smMethod": "GodIslandGhostCityUnlockSyncMsg"
+        },
+        {
+            "key": "S_GOD_ISLAND_UNION_BATTLE_SCORE_LIST",
+            "comment": "查看妖盟战功列表",
+            "cmMethod": "GodIslandUnionBattleScoreListReq",
+            "smMethod": "GodIslandUnionBattleScoreListResp"
+        },
+        {
+            "key": "S_GOD_ISLAND_UNION_LIQUID_RECEIVE_RECORD",
+            "comment": "灵液领取记录",
+            "cmMethod": "GodIslandLiquidReceiveRecordReq",
+            "smMethod": "GodIslandLiquidReceiveRecordResp"
+        },
+        {
+            "key": "S_GOD_ISLAND_UNION_MEMBER_SCORE_LIST",
+            "comment": "妖盟成员战功统计",
+            "cmMethod": "GodIslandUnionMemberScoreListReq",
+            "smMethod": "GodIslandUnionMemberScoreListResp"
+        }
+    ],
+    "UnionFight": [
+        {
+            "key": "S_UNION_FIGHT_LOGIN_SYNC",
+            "comment": "妖盟夺位战登录数据",
+            "smMethod": "UnionFightApplyDataSync"
+        },
+        {
+            "key": "S_UNION_FIGHT_MAIN",
+            "comment": "妖盟夺位战主界面",
+            "cmMethod": "UnionFightMainReq",
+            "smMethod": "UnionFightMainRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_APPLY",
+            "comment": "妖盟夺位战报名",
+            "cmMethod": "UnionFightApplyReq",
+            "smMethod": "UnionFightApplyRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_ENTER",
+            "comment": "妖盟夺位战进入战斗界面",
+            "cmMethod": "UnionFightEnterReq",
+            "smMethod": "UnionFightEnterRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_REQUEST",
+            "comment": "妖盟夺位战请战",
+            "cmMethod": "UnionFightRequestReq",
+            "smMethod": "UnionFightRequestRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_UP",
+            "comment": "妖盟夺位战上阵",
+            "cmMethod": "UnionFightPositionReq",
+            "smMethod": "UnionFightPositionRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_DOWN",
+            "comment": "妖盟夺位战下阵",
+            "cmMethod": "UnionFightUnPositionReq",
+            "smMethod": "UnionFightUnPositionRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_GROUP_RANK",
+            "comment": "妖盟夺位战小组排行",
+            "cmMethod": "UnionFightGroupRankReq",
+            "smMethod": "UnionFightGroupRankRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_DATA_SYNC",
+            "comment": "妖盟夺位战备战数据同步",
+            "smMethod": "UnionFightPrepareDataSync"
+        },
+        {
+            "key": "S_UNION_FIGHT_LEAVE",
+            "comment": "妖盟夺位战离开",
+            "cmMethod": "UnionFightLeaveReq"
+        },
+        {
+            "key": "S_UNION_FIGHT_WORSHIP",
+            "comment": "妖盟夺位战膜拜",
+            "cmMethod": "UnionFightWorshipReq",
+            "smMethod": "UnionFightWorshipRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_PLAY_BACK",
+            "comment": "妖盟夺位战回放",
+            "cmMethod": "UnionFightFightPlaybackReq",
+            "smMethod": "UnionFightFightPlaybackRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_RECORD",
+            "comment": "妖盟夺位战对战记录",
+            "cmMethod": "UnionFightRecordReq",
+            "smMethod": "UnionFightRecordRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_SUPREMACY",
+            "comment": "妖盟夺位战至尊榜",
+            "cmMethod": "UnionFightSupremacyListReq",
+            "smMethod": "UnionFightSupremacyListRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_HISTORY",
+            "comment": "妖盟夺位战历史最高",
+            "cmMethod": "UnionFightGetHistoryDataReq",
+            "smMethod": "UnionFightGetHistoryDataRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_LOCKED_DETAIL",
+            "comment": "妖盟夺位战获取锁定属性",
+            "cmMethod": "UnionFightGetLockedDetailReq",
+            "smMethod": "UnionFightGetLockedDetailRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_SET_LOCK",
+            "comment": "妖盟夺位战设置锁定状态",
+            "cmMethod": "UnionFightChangeLockStatusReq",
+            "smMethod": "UnionFightChangeLockStatusRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_TODAY_DETAIL",
+            "comment": "妖盟夺位战今日详情",
+            "cmMethod": "UnionFightGetTodayResultReq",
+            "smMethod": "UnionFightGetTodayResultRsp"
+        },
+        {
+            "key": "S_UNION_FIGHT_GET_UNION_RANK_LIST",
+            "comment": "获取妖盟排行列表",
+            "cmMethod": "UnionFightGetUnionRankListReq",
+            "smMethod": "RspUnionList"
+        }
+    ],
+    "PigEscape": [
+        {
+            "key": "S_PIG_ESCAPE_GET_REWARD",
+            "comment": "熊口逃生领奖",
+            "cmMethod": "CutRopeGetRewardReq",
+            "smMethod": "CutRopeGetRewardRsp"
+        }
+    ],
+    "GoodsShield": [
+        {
+            "key": "S_GOODSSHIELD_DATA_SYNC",
+            "comment": "道具屏蔽列表同步",
+            "smMethod": "GoodsShieldSync"
+        },
+        {
+            "key": "S_ACTIVITY_POSTER_SHIELD_SYNC",
+            "comment": "活动海报屏蔽列表同步",
+            "smMethod": "ActivityPosterShieldSync"
+        }
+    ],
+    "SystemShield": [
+        {
+            "key": "S_SYSTEMSHIELD_DATA_SYNC",
+            "comment": "系统屏蔽列表同步",
+            "smMethod": "SystemShieldSync"
+        }
+    ],
+    "MiniGames": [
+        {
+            "key": "S_MINI_GAMES_REWARD",
+            "comment": "小游戏领奖",
+            "cmMethod": "ReceiveMiniGamesRewardReq",
+            "smMethod": "ReceiveMiniGamesRewardResp"
+        },
+        {
+            "key": "S_MINI_GAMES_STAGE_MAP_CHALLENGE",
+            "comment": "秘境挑战",
+            "cmMethod": "StageMapChallengeReq",
+            "smMethod": "StageMapChallengeRsp"
+        }
+    ],
+    "HolidayPresent": [
+        {
+            "comment": "HolidayGiftActivityPlayerDataMsg解析",
+            "byteDecode": "HolidayGiftActivityPlayerDataMsg"
+        }
+    ],
+    "ADGiftActivity": [
+        {
+            "key": "S_ADGIFTPB_TRIGGER",
+            "comment": "支付宝广告礼包-触发",
+            "cmMethod": "ADGiftTriggerReq",
+            "smMethod": "ADGiftTriggerResp"
+        },
+        {
+            "key": "S_ADGIFTPB_GET_REWARD",
+            "comment": "支付宝广告礼包-领取奖励",
+            "cmMethod": "ADGiftGetRewardReq",
+            "smMethod": "ADGiftGetRewardResp"
+        },
+        {
+            "comment": "ADGiftActivityPlayerDataSync解析",
+            "byteDecode": "ADGiftActivityPlayerDataSync"
+        }
+    ],
+    "Mark": [
+        {
+            "key": "S_SYNC_MARK_STATE_MSG",
+            "comment": "同步评分状态",
+            "smMethod": "SyncMarkStateMsg"
+        },
+        {
+            "key": "S_MARK_FINISH",
+            "comment": "评分完成",
+            "cmMethod": "MarkFinishReq",
+            "smMethod": "MarkFinishResp"
+        }
+    ],
+    "WorldRule": [
+        {
+            "key": "S_WORLD_RULE_PLAYER_DATA_SYNC",
+            "comment": "天地法则玩家数据同步",
+            "smMethod": "WorldRulePlayerDataMsg"
+        },
+        {
+            "key": "S_WORLD_RULE_PERCEPTION_REQ",
+            "comment": "法则感悟",
+            "cmMethod": "WorldRulePerceptionReq",
+            "smMethod": "WorldRulePerceptionResp"
+        },
+        {
+            "key": "S_WORLD_RULE_PERCEPTION_REPLACE_REQ",
+            "comment": "法则感悟替换",
+            "cmMethod": "WorldRulePerceptionReplaceReq",
+            "smMethod": "WorldRulePerceptionReplaceResp"
+        },
+        {
+            "key": "S_WORLD_RULE_GET_PERCEPTION_LOG_REQ",
+            "comment": "获取法则感悟记录",
+            "cmMethod": "WorldRuleGetPerceptionLogReq",
+            "smMethod": "WorldRuleGetPerceptionLogResp"
+        },
+        {
+            "key": "S_WORLD_RULE_SWITCH_PROGRAMME_REQ",
+            "comment": "切换法则方案",
+            "cmMethod": "WorldRuleSwitchProgrammeReq",
+            "smMethod": "WorldRuleSwitchProgrammeResp"
+        }
+    ],
+    "PackagesBase": [
+        {
+            "key": "S_SKY_WAR_DATA_LOGIN_SYNC",
+            "comment": "征战诸天数据登录同步，阶段变化同步1",
+            "smMethod": "SkyWarDataLoginSync"
+        },
+        {
+            "key": "S_UNION_DUEL_SYNC_DATA",
+            "comment": "妖盟对决-妖盟对决同步数据",
+            "cmMethod": "UnionDuelSyncDataReq",
+            "smMethod": "UnionDuelSyncDataResp"
+        },
+        {
+            "key": "SYNC_UNION_DUEL_MSG",
+            "comment": "妖盟对决-同步妖盟对决数据",
+            "cmMethod": "UnionDuelSyncMsgReq",
+            "smMethod": "SyncUnionDuelMsg"
+        },
+        {
+            "key": "S_UNION_DUEL_OPEN_VIEW",
+            "comment": "妖盟对决-开启主界面",
+            "cmMethod": "UnionDuelOpenViewReq",
+            "smMethod": "UnionDuelOpenViewResp"
+        },
+        {
+            "key": "U_RULE_TRIAL_PLAYER_DATA_SYNC",
+            "comment": "同步法则试炼",
+            "smMethod": "RuleTrialDataSync"
+        },
+        {
+            "key": "U_RULE_TRIAL_SYNC_BOSS_CONFIG",
+            "comment": "同步法则试炼Boss妖力",
+            "cmMethod": "",
+            "smMethod": "RuleTrialBossConfigSyncMsg"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_JOIN_TEAM",
+            "comment": "加入队伍",
+            "cmMethod": "MountainSeaJoinTeamReq",
+            "smMethod": "MountainSeaJoinTeamRsp"
+        },
+        {
+            "key": "S_MOUNTAIN_SEA_CHALLENGE_TIME",
+            "comment": "请求挑战次数",
+            "cmMethod": "MountainSeaChallengeTimeReq",
+            "smMethod": "MountainSeaChallengeTimeRsp"
+        },
+        {
+            "key": "S_HOLY_LAND_BATTLE_APPLY_DATA_SYNC",
+            "comment": "九幽争霸数据登录同步",
+            "cmMethod": "HolyLandBattleApplyDataSyncReq",
+            "smMethod": "HolyLandBattleApplyDataSync"
+        },
+        {
+            "key": "S_HOLY_LAND_BATTLE_TIME_STAMPS",
+            "comment": "九幽争霸赛事时间戳数据登录前同步",
+            "smMethod": "HolyLandBattleTimeStampsDataSync"
+        },
+        {
+            "key": "S_SOUL_LIQUID_DATA_MSG",
+            "comment": "琼浆玉液数据同步",
+            "smMethod": "PlayerSoulLiQuidDataMsg"
+        },
+        {
+            "comment": "问鼎八荒AskDingConfigSyncMsg解析",
+            "byteDecode": "AskDingConfigSyncMsg"
+        },
+        {
+            "key": "S_ASKDING_PLAYER_JOIN_SYNC",
+            "comment": "玩家参赛后 同步玩家参赛资格",
+            "smMethod": "AskDingSyncPlayerJoinMsg"
+        },
+        {
+            "key": "S_ASKDING_CHAMPION_INFO",
+            "comment": "领奖期 冠军弹窗",
+            "cmMethod": "AskDingGetChampionInfoReq",
+            "smMethod": "AskDingGetChampionInfoResp"
+        },
+        {
+            "key": "S_SKY_PRESENT_DATA_SYNC",
+            "comment": "天道馈赠数据同步",
+            "smMethod": "SkyPresentDataSync"
+        },
+        {
+            "comment": "瑞兽赐福 数据同步 解析",
+            "byteDecode": "AuspiciousBlessDataSyncResp"
+        },
+        {
+            "comment": "RecallPlayerDataMsg解析",
+            "byteDecode": "RecallPlayerDataMsg"
+        },
+        {
+            "comment": "RegressionActivePlayerData解析",
+            "byteDecode": "RegressionActivePlayerData"
+        },
+        {
+            "comment": "RenewNewPlayerDataMsg解析",
+            "byteDecode": "RenewNewPlayerDataMsg"
+        },
+        {
+            "key": "S_DOUBLE_DEMONS_DATA_LOGIN_SYNC",
+            "comment": "双妖成行登录同步数据",
+            "smMethod": "DoubleDemonsDataLoginSync"
+        },
+        {
+            "key": "S_DOUBLE_DEMONS_AGREE",
+            "comment": "同意邀请/结为伴侣",
+            "cmMethod": "DoubleDemonsAgreeReq",
+            "smMethod": "DoubleDemonsAgreeResp"
+        },
+        {
+            "key": "S_DOUBLE_DEMONS_REFUSE",
+            "comment": "一键拒绝",
+            "cmMethod": "DoubleDemonsRefuseReq",
+            "smMethod": "DoubleDemonsRefuseResp"
+        },
+        {
+            "key": "S_DOUBLE_DEMONS_RECEIVE_PRESENT",
+            "comment": "领取赠送奖励",
+            "cmMethod": "DoubleDemonsReceivePresentReq",
+            "smMethod": "DoubleDemonsReceivePresentResp"
+        },
+        {
+            "key": "S_DOUBLE_DEMONS_APPOINT_INVITE",
+            "comment": "指定邀请",
+            "cmMethod": "DoubleDemonsAppointInviteReq",
+            "smMethod": "DoubleDemonsAppointInviteResp"
+        },
+        {
+            "key": "S_PUPIL_LOGIN_SYNC",
+            "comment": "门徒系统登录同步",
+            "smMethod": "PupilSystemLoginSync"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_RECORD_SYNC",
+            "comment": "结义记录数据同步",
+            "smMethod": "MarriageRecordTempSync"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_GET_APPOINT_APPLY_TIMES_LIST",
+            "comment": "同步其他玩家发起的结义请求时间",
+            "smMethod": "MarriageGetAppointApplyTimeSync"
+        },
+        {
+            "key": "S_SUPPRESSDEMON_LOGIN_SYNC",
+            "comment": "镇魔登录同步",
+            "cmMethod": "TownDemonApplyDataSyncReq",
+            "smMethod": "TownDemonApplyDataSync"
+        },
+        {
+            "key": "S_SUPPRESSDEMON_TIME_SYNC",
+            "comment": "镇魔登录时间戳同步",
+            "smMethod": "TownDemonTimeStampsDataSync"
+        },
+        {
+            "key": "S_PEACH_BANQUET_LOGIN_SYNC",
+            "comment": "蟠桃宴登录同步",
+            "smMethod": "PeachBanquetLoginSync"
+        },
+        {
+            "key": "S_PEACH_BANQUET_OPEN_SYNC",
+            "comment": "宴会开启同步(类仙宫送福)",
+            "smMethod": "PeachBanquetOpenSync"
+        },
+        {
+            "key": "S_PEACH_BANQUET_ITEM_SYNC",
+            "comment": "蟠桃宴道具同步",
+            "smMethod": "PeachBanquetItemSync"
+        },
+        {
+            "key": "S_PEACH_BANQUET_ITEM_USE",
+            "comment": "宴会道具使用",
+            "cmMethod": "UsePeachBanquetItemReq",
+            "smMethod": "UsePeachBanquetItemResp"
+        },
+        {
+            "key": "S_FRIEND_SYNC",
+            "comment": "同步世交信息列表",
+            "smMethod": "SyncFriendList"
+        },
+        {
+            "key": "S_FRIEND_SYNC_MODIFY",
+            "comment": "同步世交信息",
+            "smMethod": "SyncFriendInfo"
+        },
+        {
+            "key": "S_UNIVERSE_SYNC_PLAYER_DATA",
+            "comment": "同步小世界信息",
+            "smMethod": "UniverseDataMsgSync"
+        },
+        {
+            "key": "S_FAIRYLAND_SYNC_PLAYER_DATA",
+            "comment": "飞升仙界-同步玩家数据",
+            "cmMethod": "",
+            "smMethod": "PlayerFairyLandDataMsg"
+        },
+        {
+            "key": "S_FAIRYLAND_SYNC_SERVERS_DATA",
+            "comment": "飞升仙界-区服列表同步",
+            "cmMethod": "",
+            "smMethod": "FairyLandServerSync"
+        },
+        {
+            "key": "S_FAIRYLAND_SOUTH_DOOR_HELP",
+            "comment": "飞升仙界-南天门协助",
+            "cmMethod": "FairyLandSouthDoorHelpReq",
+            "smMethod": "FairyLandSouthDoorHelpResp"
+        },
+        {
+            "key": "S_UNION_BOUNTY_GET_EXIST_MONSTER",
+            "comment": "获取当前存在的妖兽",
+            "cmMethod": "UnionBountyGetExistMonsterReq",
+            "smMethod": "UnionBountyGetExistMonsterResp"
+        },
+        {
+            "key": "S_UNION_BOUNTY_MANAGE_TEAM",
+            "comment": "妖盟悬赏-队伍管理（加入队伍、离开队伍、踢出队伍）",
+            "cmMethod": "UnionBountyManageAskHelpReq",
+            "smMethod": "UnionBountyManageAskHelpResp"
+        },
+        {
+            "key": "S_UNION_BOUNTY_SYN_MONSTER_INFO",
+            "comment": "妖盟悬赏-同步妖兽房间信息",
+            "cmMethod": "",
+            "smMethod": "UnionBountySynMonsterInfoMsg"
+        },
+        {
+            "key": "S_PAINT_FAIRYLAND_BEING_SYNC",
+            "comment": "画中仙境被抢夺同步",
+            "smMethod": "BeingSnatchedSync"
+        },
+        {
+            "key": "S_PAINT_FAIRYLAND_CHECK_POOL",
+            "comment": "画中仙境-检测仙泽",
+            "cmMethod": "CheckFairyPoolReq",
+            "smMethod": "CheckFairyPoolResp"
+        }
+    ],
+    "SignInFundActivity": [
+        {
+            "comment": "SignInFundPlayerDataMsg解析",
+            "byteDecode": "SignInFundPlayerDataMsg"
+        },
+        {
+            "key": "S_SIGN_FUND_REPAIR",
+            "comment": "补签接口",
+            "cmMethod": "ReqSignInFundRepair",
+            "smMethod": "RspSignInFundRepair"
+        }
+    ],
+    "ActivitysShield": [
+        {
+            "key": "S_ACTIVITY_SHIELD_SYNC",
+            "comment": "活动屏蔽同步",
+            "smMethod": "ActivityShieldSync"
+        }
+    ],
+    "UnionBlessing": [
+        {
+            "key": "S_UNION_BLESSING_SEND_GIFT",
+            "comment": "妖盟赐福",
+            "cmMethod": "UnionBlessingSendGiftReq",
+            "smMethod": "UnionBlessingSendGiftResp"
+        },
+        {
+            "key": "S_UNION_BLESSING_RECEIVE_GIFT",
+            "comment": "领取赐福奖励",
+            "cmMethod": "UnionBlessingRewardReqMsg",
+            "smMethod": "UnionBlessingRewardRespMsg"
+        },
+        {
+            "key": "S_UNION_BLESSING_SYNC_GIFT",
+            "comment": "同步妖盟散财数据",
+            "cmMethod": "",
+            "smMethod": "UnionBlessingGiftSyncList"
+        },
+        {
+            "key": "S_UNION_BLESSING_SYNC_BLESSING_COUNT",
+            "comment": "同步自己妖盟的散财的旗帜和时间",
+            "cmMethod": "",
+            "smMethod": "UnionBlessingCountSyncList"
+        }
+    ],
+    "FirstRechargeActivity": [
+        {
+            "key": "S_FIRST_RECHARGE_GET_REWARD",
+            "comment": "首充领取奖励",
+            "cmMethod": "GetMallRewardReq",
+            "smMethod": "GetMallRewardResp"
+        },
+        {
+            "comment": "FirstRechargeActivityPlayerDataSync解析",
+            "byteDecode": "FirstRechargeActivityPlayerDataSync"
+        }
+    ],
+    "NewYearRedBag": [
+        {
+            "key": "NewYearRedBagPb_PlayerData",
+            "comment": "新春红包 登录数据下发",
+            "smMethod": "NewYearRedBagPlayerData"
+        },
+        {
+            "key": "NewYearRedBagPb_Enter",
+            "comment": "新春红包 进入系统",
+            "cmMethod": "NewYearRedBagEnterReqMsg",
+            "smMethod": "NewYearRedBagEnterRespMsg"
+        },
+        {
+            "key": "NewYearRedBagPb_Exit",
+            "comment": "新春红包 退出系统",
+            "cmMethod": "NewYearRedBagExitReqMsg",
+            "smMethod": "NewYearRedBagExitRespMsg"
+        },
+        {
+            "key": "NewYearRedBagPb_OPEN",
+            "comment": "新春红包 打开红包",
+            "cmMethod": "NewYearRedBagOpenReqMsg",
+            "smMethod": "NewYearRedBagOpenRespMsg"
+        },
+        {
+            "key": "NewYearRedBagPb_SYNC_NOTICE",
+            "comment": "新春红包 同步公告",
+            "smMethod": "NewYearSyncNoticeRespMsg"
+        }
+    ],
+    "FestivalCelebrations": [
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_PLAYER_INFO_MSG",
+            "comment": "庆典玩家数据同步",
+            "smMethod": "FestivalCelebrationsPlayerInfoMsg"
+        },
+        {
+            "comment": "FestivalCelebrationsPlayerInfoMsg解析",
+            "byteDecode": "FestivalCelebrationsPlayerInfoMsg"
+        },
+        {
+            "comment": "FestivalCelebrationsConfigSync解析",
+            "byteDecode": "FestivalCelebrationsConfigSync"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_USE_BANQUET_ITEM_REQ",
+            "comment": "使用宴会道具",
+            "cmMethod": "FestivalCelebrationsUseBanquetItemReq",
+            "smMethod": "FestivalCelebrationsUseBanquetItemRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_DRAW_BANQUET_REWARD_REQ",
+            "comment": "领取宴会奖励",
+            "cmMethod": "FestivalCelebrationsDrawBanquetRewardReq",
+            "smMethod": "FestivalCelebrationsDrawBanquetRewardRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_GET_BANQUET_SCORE_DETAIL_REQ",
+            "comment": "获取积分详情",
+            "cmMethod": "FestivalCelebrationsGetBanquetScoreDetailReq",
+            "smMethod": "FestivalCelebrationsGetBanquetScoreDetailRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_USE_LUCKY_FATE_ITEM_REQ",
+            "comment": "使用福缘道具",
+            "cmMethod": "FestivalCelebrationsUseLuckyFateItemReq",
+            "smMethod": "FestivalCelebrationsUseLuckyFateItemRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_GET_SIGN_REWARD_REQ",
+            "comment": "获取签到奖励",
+            "cmMethod": "FestivalCelebrationsGetSignRewardReq",
+            "smMethod": "FestivalCelebrationsGetSignRewardRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_COLLECT_SYNTHESIS_REQ",
+            "comment": "请求合成",
+            "cmMethod": "FestivalCelebrationsCollectSynthesisReq",
+            "smMethod": "FestivalCelebrationsCollectSynthesisRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_COLLECT_FILL_REQ",
+            "comment": "请求填充",
+            "cmMethod": "FestivalCelebrationsCollectFillReq",
+            "smMethod": "FestivalCelebrationsCollectFillRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_COLLECT_DRAW_BIG_REWARD_REQ",
+            "comment": "领取大奖",
+            "cmMethod": "FestivalCelebrationsCollectDrawBigRewardReq",
+            "smMethod": "FestivalCelebrationsCollectDrawBigRewardRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_COLLECT_GET_CLAIM_LIST_REQ",
+            "comment": "获取领取名单",
+            "cmMethod": "FestivalCelebrationsCollectGetClaimListReq",
+            "smMethod": "FestivalCelebrationsCollectGetClaimListRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_COLLECT_SEARCH_PLAYER_REQ",
+            "comment": "搜索玩家",
+            "cmMethod": "FestivalCelebrationsCollectSearchPlayerReq",
+            "smMethod": "FestivalCelebrationsCollectSearchPlayerRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_COLLECT_GIVE_REQ",
+            "comment": "赠送道具",
+            "cmMethod": "FestivalCelebrationsCollectGiveReq",
+            "smMethod": "FestivalCelebrationsCollectGiveRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_COLLECT_ASK_FOR_REQ",
+            "comment": "索要道具",
+            "cmMethod": "FestivalCelebrationsCollectAskForReq",
+            "smMethod": "FestivalCelebrationsCollectAskForRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_EASTER_EGG_GET_REWARD_REQ",
+            "comment": "领取彩蛋奖励",
+            "cmMethod": "FestivalCelebrationsEasterEggGetRewardReq",
+            "smMethod": "FestivalCelebrationsEasterEggGetRewardRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_COLLECT_GET_GIVEN_REQ",
+            "comment": "领取赠送五福",
+            "cmMethod": "FestivalCelebrationsCollectGetGivenReq",
+            "smMethod": "FestivalCelebrationsCollectGetGivenResp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_GET_LUCKY_FATE_REWARD_REQ",
+            "comment": "领取福源奖励",
+            "cmMethod": "FestivalCelebrationsFuYuanGetRewardReq",
+            "smMethod": "FestivalCelebrationsFuYuanGetRewardResp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_GET_BIND_UNION_MEMBER_DATA_LIST_REQ",
+            "comment": "获取绑定妖盟成员列表",
+            "cmMethod": "FestivalCelebrationsGetBindUnionMemberDataListReq",
+            "smMethod": "FestivalCelebrationsGetBindUnionMemberDataListRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_GET_ANNUAL_MEMORY_REQ",
+            "comment": "获取周年回忆条目",
+            "cmMethod": "FestivalCelebrationsGetAnnualMemoryReq",
+            "smMethod": "FestivalCelebrationsGetAnnualMemoryRsp"
+        },
+        {
+            "key": "S_FESTIVAL_CELEBRATIONS_WORSHIP_REQ",
+            "comment": "膜拜",
+            "cmMethod": "FestivalCelebrationsWorshipReq",
+            "smMethod": "FestivalCelebrationsWorshipResp"
+        }
+    ],
+    "PetKernel": [
+        {
+            "key": "S_PET_KERNEL_DRAW",
+            "comment": "抽取灵兽内丹",
+            "cmMethod": "PetKernelDrawReq",
+            "smMethod": "PetKernelDrawResp"
+        },
+        {
+            "key": "S_PET_KERNEL_CARRY",
+            "comment": "穿戴内丹",
+            "cmMethod": "PetKerneCarryReq",
+            "smMethod": "PetKerneCarryResp"
+        },
+        {
+            "key": "S_PET_KERNEL_UP_LEVEL",
+            "comment": "内丹升级",
+            "cmMethod": "PetKerneUpLevelReq",
+            "smMethod": "PetKerneUpLevelResp"
+        },
+        {
+            "key": "S_PET_KERNEL_UP_GRADE",
+            "comment": "内丹升星",
+            "cmMethod": "PetKerneUpStarReq",
+            "smMethod": "PetKerneUpStarResp"
+        },
+        {
+            "key": "S_PET_KERNEL_ACTIVE",
+            "comment": "内丹激活",
+            "cmMethod": "PetKerneActiveReq",
+            "smMethod": "PetKerneActiveResp"
+        },
+        {
+            "key": "S_PET_KERNEL_COMBINE_UPGRADE",
+            "comment": "内丹共鸣升级或激活",
+            "cmMethod": "PetKerneCombineUpLevelReq",
+            "smMethod": "PetKerneCombineUpLevelResp"
+        },
+        {
+            "key": "S_PET_KERNEL_SYNC_DATA",
+            "comment": "内丹同步(商店是否开启 pieceShopOpen只有这个字段有用)",
+            "cmMethod": "",
+            "smMethod": "PetKernelPlayerDataMsg"
+        }
+    ],
+    "GodDemonBattle":[
+        {
+            "comment": "活动表配置",
+            "byteDecode": "GodDemonBattleConfig"
+        }
+    ],
+    "Pupil": [
+        {
+            "key": "S_PUPIL_ENTER",
+            "comment": "进入门徒系统",
+            "cmMethod": "EnterPupilSystemReq",
+            "smMethod": "EnterPupilSystemResp"
+        },
+        {
+            "key": "S_PUPIL_TRAIN",
+            "comment": "门徒培养",
+            "cmMethod": "PupilTrainReq",
+            "smMethod": "PupilTrainResp"
+        },
+        {
+            "key": "S_PUPIL_TRAIN_TIMES_RECOVER",
+            "comment": "恢复培养次数",
+            "cmMethod": "PupilSiteTrainTimesRecoverReq",
+            "smMethod": "PupilSiteTrainTimesRecoverResp"
+        },
+        {
+            "key": "S_PUPIL_RECRUIT",
+            "comment": "招收门徒",
+            "cmMethod": "PupilRecruitReq",
+            "smMethod": "PupilRecruitResp"
+        },
+        {
+            "key": "S_PUPIL_GRADUATE",
+            "comment": "门徒出师",
+            "cmMethod": "PupilGraduateReq",
+            "smMethod": "PupilGraduateResp"
+        },
+        {
+            "key": "S_PUPIL_GET_GRADUATE_LIST",
+            "comment": "获取出师门徒列表",
+            "cmMethod": "PupilGetGraduatedListReq",
+            "smMethod": "PupilGetGraduatedListResp"
+        },
+        {
+            "key": "S_PUPIL_GET_FIGHT_LIST",
+            "comment": "获取上阵列表",
+            "cmMethod": "PupilGetFightListReq",
+            "smMethod": "PupilGetFightListResp"
+        },
+        {
+            "key": "S_PUPIL_FIGHT_ON",
+            "comment": "门徒上阵",
+            "cmMethod": "PupilFightOnReq",
+            "smMethod": "PupilFightOnResp"
+        },
+        {
+            "key": "S_PUPIL_GET_SECT_INFO",
+            "comment": "获取门派统计信息",
+            "cmMethod": "PupilGetSectInfoReq",
+            "smMethod": "PupilGetSectInfoResp"
+        },
+        {
+            "comment": "PupilRankList解析",
+            "byteDecode": "PupilRankList"
+        },
+        {
+            "key": "S_PUPIL_GET_AD_REWARD",
+            "comment": "领取广告奖励",
+            "cmMethod": "PupilGetAdRewardReq",
+            "smMethod": "PupilGetAdRewardResp"
+        },
+        {
+            "comment": "PupilDataMsg解析",
+            "byteDecode": "PupilDataMsg"
+        },
+        {
+            "key": "S_PUPIL_LOCK",
+            "comment": "锁定弟子",
+            "cmMethod": "PupilLockReq",
+            "smMethod": "PupilLockResp"
+        }
+    ],
+    "Marriage": [
+        {
+            "key": "S_PUPIL_MARRIAGE_USER_DATA_SYNC",
+            "comment": "结义用户数据同步",
+            "smMethod": "MarriageUserDataMsgSync"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_APPOINT_APPLY_SYNC",
+            "comment": "同步其他玩家发起的结义请求（别的玩家指定你结义的列表）",
+            "smMethod": "MarriageGetAppointApplySync"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_GRADUATED_UN_MARRIAGE_LIST_SYNC",
+            "comment": "同步出师未结义的门徒列表",
+            "smMethod": "PupilGraduatedUnMarryListSync"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_REFUSE_NOTIFY_SYNC",
+            "comment": "拒绝结义通知同步",
+            "smMethod": "MarriageRefuseNotifyMsgSync"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_GRADUATED_UN_MARRIAGE_LIST",
+            "comment": "获得出师未结义的门徒列表",
+            "cmMethod": "PupilGraduatedUnMarryListReq",
+            "smMethod": "PupilGraduatedUnMarryListResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_RECORD_LIST",
+            "comment": "结义记录列表",
+            "cmMethod": "MarriageRecordListReq",
+            "smMethod": "MarriageRecordListResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_GET_SERVER_APPLY",
+            "comment": "获取全服结义请求列表(包括妖盟)",
+            "cmMethod": "MarriageGetServerApplyReq",
+            "smMethod": "MarriageGetServerApplyResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_RECOMMEND_PLAYER",
+            "comment": "指定结义推荐玩家请求",
+            "cmMethod": "MarriageRecommendPlayerReq",
+            "smMethod": "MarriageRecommendPlayerResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_GET_APPOINT_APPLY",
+            "comment": "获取其他玩家发起的结义请求（别的玩家指定你结义的列表）",
+            "cmMethod": "MarriageGetAppointApplyReq",
+            "smMethod": "MarriageGetAppointApplyResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_APPLY_DEAL",
+            "comment": "处理结义请求",
+            "cmMethod": "MarriageApplyDealReq",
+            "smMethod": "MarriageApplyDealResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_APPLY_PUBLISH",
+            "comment": "发布结义请求",
+            "cmMethod": "MarriageApplyPublishReq",
+            "smMethod": "MarriageApplyPublishResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_APPLY_CANCEL",
+            "comment": "取消结义请求",
+            "cmMethod": "MarriageApplyCancelReq",
+            "smMethod": "MarriageApplyCancelResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_REFRESH_SERVER_APPLY",
+            "comment": "刷新全服结义列表请求",
+            "cmMethod": "MarriageRefreshServerApplyReq",
+            "smMethod": "MarriageRefreshServerApplyResp"
+        },
+        {
+            "key": "S_PUPIL_MARRIAGE_SET_APPOINT",
+            "comment": "设置是否接受指向结义请求",
+            "cmMethod": "MarriageSetAppointReq",
+            "smMethod": "MarriageSetAppointResp"
+        },
+        {
+            "comment": "MarriageRecordTempMsg解析",
+            "byteDecode": "MarriageRecordTempMsg"
+        }
+    ]
+}

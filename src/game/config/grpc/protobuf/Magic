@@ -1,0 +1,119 @@
+package com.yq.msg.CityMsg;
+message PlayerMagicDataMsg {
+    repeated int32 equipMagicList = 1; 
+    repeated MagicDataMsg magicMsgList = 2; 
+    repeated MagicMarkMsg magicMarkMsgList = 3;
+    required int32 floorsTimes = 4; 
+    required int32 freeDrawTimes = 5; 
+    repeated MagicCombineMsg magicCombineMsgList = 6;
+    optional MagicFreeAdData magicFreeAd = 7; 
+    optional bool pieceShopOpen = 8; 
+    optional int32 curUsePresetsIndex = 9; 
+}
+message MagicFreeAdData{
+    optional int32 freeTimes = 1; 
+    optional int64 lastAdTime = 2;
+}
+message MagicCombineMsg{
+    optional int32 combineId = 1;
+    optional int32 lv = 2; 
+}
+message MagicDataMsg {
+    optional int32 magicId = 1; 
+    optional int32 level = 2; 
+    optional int32 stage = 3; 
+    repeated int32 markList = 4;
+}
+message MagicMarkMsg{
+    optional int32 configId = 1;
+    optional int64 num = 2; 
+}
+message MagicDerivationReq {
+    optional int32 times = 1; 
+    optional bool isAd = 2;   
+    optional bool isUseADTime = 3;
+}
+message MagicDerivationResp {
+    optional int32 ret = 1;
+    repeated int32 magicId = 2; 
+    optional string reward = 3; 
+    repeated MagicDataMsg magicMsgList = 4; 
+    optional int32 floorsTimes = 5; 
+    optional int32 freeDrawTimes = 6; 
+    optional MagicFreeAdData magicFreeAd = 7; 
+}
+message MagicEquipReq {
+    optional int32 magicId = 1; 
+}
+message MagicEquipResp {
+    optional int32 ret = 1;
+    repeated int32 equipMagicList = 2; 
+}
+message MagicResetReq {
+    optional int32 magicId = 1; 
+}
+message MagicResetResp {
+    optional int32 ret = 1;
+    repeated MagicDataMsg magicMsgList = 2; 
+    optional string reward = 3; 
+    repeated MagicMarkMsg magicMarkMsgList = 4;
+}
+message MagicStageUpReq {
+    optional int32 magicId = 1; 
+}
+message MagicStageUpAllReq {
+}
+message MagicStageUpResp {
+    optional int32 ret = 1;
+    repeated MagicDataMsg magicMsgList = 2; 
+    optional string reward = 3; 
+    optional bool pieceShopOpen = 4; 
+}
+message MagicLvUpReq {
+    optional int32 magicId = 1; 
+    optional bool isTen = 2; 
+}
+message MagicLvUpResp {
+    optional int32 ret = 1;
+    repeated MagicDataMsg magicMsgList = 2; 
+}
+message MagicEquipMarkReq {
+    optional int32 magicId = 1; 
+    optional int32 index = 2; 
+    optional int32 markId = 3; 
+}
+message MagicEquipMarkResp {
+    optional int32 ret = 1;
+    repeated MagicDataMsg magicMsgList = 2; 
+    repeated MagicMarkMsg magicMarkMsgList = 3;
+}
+message MagicUnsnatchMarkReq{
+    optional int32 magicId = 1; 
+    optional int32 index = 2; 
+}
+message MagicUnsnatchMarkResp {
+    optional int32 ret = 1;
+    repeated MagicDataMsg magicMsgList = 2; 
+    repeated MagicMarkMsg magicMarkMsgList = 3;
+}
+message MagicFusionMarkReq{
+    repeated int32 typeList = 1; 
+}
+message MagicFusionMarkResp {
+    optional int32 ret = 1;
+    repeated MagicMarkMsg magicMarkMsgList = 2;
+    optional string reward = 3; 
+}
+message MagicCombineLvUpReq{
+    optional int32 combineId = 1; 
+}
+message MagicCombineLvUpResp {
+    optional int32 ret = 1;
+    optional MagicCombineMsg magicCombineMsg = 2;
+}
+message MagicSwitchPresetsReq{
+    required int32 presetsIndex = 1; 
+}
+message MagicSwitchPresetsResp {
+    required int32 ret = 1;
+}

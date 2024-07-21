@@ -1,0 +1,125 @@
+package com.yq.msg.CityMsg;
+import "WatchPlayer";
+import "Common";
+import "Pupil";
+enum ApplyType {
+	UnApply =0; 
+	Server =1; 
+	Union =2; 
+	Appoint=3; 
+	CrossServer=4;
+}
+message MarriageApplyTempMsg{
+	required int64  playerId =1;            
+	required string playerNickName =2;      
+	required PupilDataMsg pupilInfo = 3;
+	required int64 requestMarryTime =4;		
+	required int64 appointUserId = 5;    
+	required ApplyType type = 6; 
+	optional int64 serverId = 7; 
+	optional int32 levelLimit =8;
+}
+message MarriageRecordTempMsg{
+	required int64  playerId =1;            
+	required PupilDataMsg pupilInfo = 2;		
+	required int64  marriageTime =3;                
+}
+message MarriageUserDataMsg{
+	required bool   isAcceptAppoint =1;              
+	required int32  serverApplyRefreshTimes =2;      
+	optional int32  crossServerApplyRefreshTimes = 3;
+	required int32  serverApplyItemRefreshTimes =4;      
+    optional int32  crossServerApplyItemRefreshTimes = 5;
+}
+message MarriageUserDataMsgSync{
+	required MarriageUserDataMsg userMarriageInfo = 1;
+}
+message MarriageGetAppointApplySync{
+	repeated MarriageApplyTempMsg dataList = 1;
+}
+message PupilGraduatedUnMarryListSync {
+	repeated MarriageApplyTempMsg dataList = 1;
+}
+message MarriageRefuseNotifyMsgSync{
+	required int32 pupilUid = 1;                 
+	required string playerName = 2;                 
+}
+message PupilGraduatedUnMarryListReq {
+}
+message PupilGraduatedUnMarryListResp{
+	required int32 ret = 1;
+	repeated MarriageApplyTempMsg dataList = 2;
+}
+message MarriageRecordListReq{
+}
+message MarriageRecordListResp{
+	required int32 ret = 1;
+	repeated MarriageRecordTempMsg dataList = 2;
+	optional int32 totalNum = 3; 
+}
+message MarriageGetServerApplyReq{
+	required int32 pupilSex = 1;                
+	required int32 applyType = 2;               
+}
+message MarriageGetServerApplyResp{
+	required int32 ret = 1;
+	optional int32 applyType = 2;               
+	repeated MarriageApplyTempMsg dataList = 3;   
+}
+message MarriageRecommendPlayerReq{
+	required int32 pupilUid = 1;                 
+}
+message MarriageRecommendPlayerResp{
+	required int32 ret = 1;
+	repeated SearchPlayerMsg dataList = 2;    
+}
+message MarriageGetAppointApplyReq{
+}
+message MarriageGetAppointApplyResp{
+	required int32 ret = 1;
+	repeated MarriageApplyTempMsg dataList = 2;
+}
+message MarriageApplyDealReq{
+	required int32 type = 1;                
+	optional int32 myPupilUid = 2;          
+	optional int64 partnerPlayerId = 3;      
+	optional int32 partnerPupilUid = 4;     
+	optional bool agree = 5;               
+}
+message MarriageApplyDealResp{
+	required int32 ret = 1;
+	optional int32 type = 2;                
+	optional string reward = 3;                       
+	optional MarriageRecordTempMsg marriageData = 4;  
+	repeated MarriageApplyTempMsg applylist =5; 
+}
+message MarriageApplyPublishReq{
+	optional int32 pupilUid = 1;          
+	optional ApplyType applyType = 2;         
+	optional int64  appointUserId = 3;     
+	optional int32  levelLimit = 4;     
+}
+message MarriageApplyPublishResp{
+	required int32 ret = 1;
+}
+message MarriageApplyCancelReq{
+	required int32 pupilUid = 1;        
+}
+message MarriageApplyCancelResp{
+	required int32 ret = 1;
+	optional int32 pupilUid = 2;        
+}
+message MarriageRefreshServerApplyReq{
+	required int32 pupilSex = 1;               
+	required int32 type = 2;    
+}
+message MarriageRefreshServerApplyResp{
+	required int32 ret = 1;                       
+	repeated MarriageApplyTempMsg dataList = 2;   
+}
+message MarriageSetAppointReq{
+    required bool isAcceptAppoint = 1;
+}
+message MarriageSetAppointResp{
+    required int32 ret = 1;                       
+}

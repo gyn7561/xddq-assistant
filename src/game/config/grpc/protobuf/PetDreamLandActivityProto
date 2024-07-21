@@ -1,0 +1,84 @@
+package com.yq.msg.CityMsg;    
+message PetDreamLandActivityConfig {
+    repeated PetDreamLandDrawConfig luckyDrawConfig = 1;
+    repeated ActivityPlaceConfig activityPlaceConfig = 2;
+}
+message PetDreamLandDrawConfig {
+    optional int32 id = 1;
+    optional string reward = 2;
+    optional int32 weight = 3;
+    optional int32 limit = 4;
+    optional int32 rewardType = 5; 
+}
+message ActivityPlaceConfig {
+    optional int32 id = 1;
+    optional string name = 2;
+    optional string unlockCost = 3;
+    optional string seatUnlockCost = 4;
+    optional int32 petType = 5;
+    optional int32 speedup = 6;
+}
+message PetDreamLandDataMsg {
+    optional int32 activityScore = 1; 
+    optional PetDreamLandTurnTableData turnTable = 2; 
+    optional PetDreamLandAdventureData adventure = 3; 
+}
+message PetDreamLandTurnTableData {
+    optional int32 times = 1;
+    repeated PetDreamLandTurnTableGetReward getRewardList = 2; 
+}
+message PetDreamLandTurnTableGetReward {
+    optional int32 id = 1;  
+    optional int32 getNum = 2; 
+}
+message PetDreamLandAdventureData{
+    optional int32 curProfit = 1; 
+    optional int64 calculateStartTime = 2;
+    repeated PetDreamLandAdventurePlaceData placeData = 3; 
+}
+message PetDreamLandAdventurePlaceData{
+    required int32 id = 1; 
+    repeated int32 petData = 2; 
+    optional int32 slotNum = 3;
+}
+message ReqPetDreamLandDraw {
+    required int32 activityId = 1; 
+    required int32 times = 2; 
+}
+message RspPetDreamLandDraw{
+    required int32  ret = 1;            
+    optional int32  slotId = 2;          
+    optional string reward = 3;          
+}
+message ReqPetDreamLandAdventurePlaceUnlock {
+    required int32 activityId = 1; 
+    required int32 placeId = 2; 
+}
+message RspPetDreamLandAdventurePlaceUnlock {
+    required int32  ret = 1;
+}
+message ReqPetDreamLandAdventureSlotUnlock {
+    required int32 activityId = 2; 
+    required int32 placeId = 1; 
+}
+message RspPetDreamLandAdventurePlaceSlot {
+    required int32  ret = 1;
+}
+message ReqPetDreamLandAdventureDispatch {
+    required int32 activityId = 1; 
+    required int32 placeId = 2; 
+    required int32 slotIdx = 3; 
+    required int32 petId = 4;   
+}
+message RspPetDreamLandAdventureDispatch {
+    required int32  ret = 1;
+}
+message ReqPetDreamLandAdventureGetAward {
+    required int32 activityId = 1; 
+    required bool isQuick = 2; 
+}
+message RspPetDreamLandAdventureGetAward {
+    required int32 ret = 1;
+    optional int32 addScore = 2;
+    optional string reward = 3;
+}

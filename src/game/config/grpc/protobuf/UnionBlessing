@@ -1,0 +1,51 @@
+package com.yq.msg.CityMsg;
+enum UnionBlessingProtocol {
+    UnionBlessing_NULL = 0;
+    UnionBlessing_sendGift = 210601; 
+    UnionBlessing_receiveGift = 210602; 
+    UnionBlessing_syncGift = 210603; 
+    UnionBlessing_syncBlessingCount = 210604; 
+}
+message UnionBlessingSendGiftReq {
+  required int32 flagId = 1; 
+  required string words = 2;
+}
+message UnionBlessingSendGiftResp {
+  required int32 ret = 1;
+}
+message UnionBlessingGiftSyncList {
+  repeated UnionBlessingGiftSyncMsg data = 1;
+}
+message UnionBlessingGiftSyncMsg {
+  required string id = 1; 
+  required int64 expiredTime = 2; 
+  required string words = 3;
+  required int64 serverId = 4;  
+  required int64 unionId = 5;  
+  required string unionName = 6; 
+  required int32 flagId = 7; 
+  repeated  UnionBlessingPlayerShowMsg members = 8; 
+}
+message UnionBlessingPlayerShowMsg {
+  required int64 playerId = 1;
+  required string nickName = 2;
+  optional int32 appearanceId = 3; 
+  optional int32 equipCloudId = 4; 
+  optional int32 realmsId = 5;  
+  optional int32 position = 6; 
+}
+message UnionBlessingRewardReqMsg {
+  required string id = 1; 
+}
+message UnionBlessingRewardRespMsg {
+  required int32 ret = 1;
+  optional string reward = 2;
+  optional string id = 3; 
+}
+message UnionBlessingCountSyncList {
+    repeated UnionBlessingCountSyncMsg data = 1;
+}
+message UnionBlessingCountSyncMsg {
+  optional int32 flagId = 1; 
+  optional int64 lastBlessingTime = 2; 
+}

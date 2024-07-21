@@ -1,0 +1,57 @@
+package com.yq.msg.CityMsg;
+    enum MallParamTypeEnum {
+        MallParamTypeEnum_Replace = 0;    
+        DealEquipmentEnum_ServerId = 1;  
+    }
+    message MailTempMsg {
+        required string mailUid = 1;             
+        required int32  mailType = 2;            
+        required string title = 3;               
+        required string content = 4;             
+        required string annexes = 5;             
+        required int64  sendTime = 6;            
+        required int64  sendPlayerId = 7;          
+        required string sendNickName = 8;        
+        required int64  receivePlayerId = 9;       
+        required bool   isRead = 10;             
+        required int64  readTime = 11;            
+        required bool   isGetReward = 12;        
+        optional bool isNeedAnalysis = 13;      
+        optional string qrCodeUrl = 14;         
+    }
+    message MailListMsg {
+        repeated MailTempMsg mailList = 1;
+    }
+    message MailListReq {
+    }
+    message MailReadReq {
+        required string mailUid = 1; 
+    }
+    message MailReadResp {
+        required int32 ret = 1;
+    }
+    message MailGetRewardReq {
+        required string mailUid = 1;             
+    }
+    message MailGetRewardResp {
+        required int32 ret = 1;
+        optional string reward = 2;    
+    }
+    message MailGetAllRewardReq {
+    }
+    message MailGetAllRewardResp {
+        required int32 ret = 1;
+        optional string reward = 2;    
+    }
+    message MailDeleteReq {
+        required string mailUid = 1;             
+    }
+    message MailDeleteResp {
+        required int32 ret = 1;
+    }
+    message MailDeleteAllReq {
+        optional int32 mailType = 1;  
+    }
+    message MailDeleteAllResp {
+        required int32 ret = 1;
+    }

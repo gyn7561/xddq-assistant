@@ -1,0 +1,42 @@
+package com.yq.msg.CityMsg;
+message SpiritTrialActivityConfig {
+    repeated ActivityBossConfig activityBossConfig = 1;
+}
+message ActivityBossConfig {
+    optional int32 id = 1;
+    optional string name = 2;
+    optional int32 seatCount = 3;
+    optional string pointProduce = 4;
+    optional string award = 5;
+    optional int32 weight = 6;
+}
+message SpiritTrialActivityDataMsg {
+    optional int32 battleItemNum = 1; 
+    optional int64 battleItemLastRecoveryTime = 2; 
+    repeated EvilThingDataMsg evilThingDataMsg = 3; 
+    repeated int32 restSpiritId = 4; 
+    optional int32 activityScore = 5; 
+}
+message EvilThingDataMsg {
+    optional int32 index = 1; 
+    optional int32 id = 2; 
+    optional bool defeat = 3; 
+}
+message RefreshEvilThingReq {
+    required int32 activityId = 1; 
+}
+message RefreshEvilThingResp {
+    required int32 ret = 1;
+}
+message BattleEviThingReq {
+    required int32 activityId = 1; 
+    repeated int32 spiritId = 2; 
+    required int32 evilThingIndex = 3; 
+}
+message BattleEvilThingResp {
+    required int32 ret = 1;
+    optional string reward = 2; 
+    optional int32 score = 3; 
+    optional int32 curRank = 4; 
+    optional bool isRankRise = 5; 
+}

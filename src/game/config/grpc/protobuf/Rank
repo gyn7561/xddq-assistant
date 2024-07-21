@@ -1,0 +1,50 @@
+package com.yq.msg.CityMsg;
+import "WatchPlayer";  
+    message GetRankListReq {
+        optional int32 bigRankType = 1; 
+        optional int32 rankType = 2; 
+        optional int32 activityId = 3; 
+    }
+    message GetRankListResp {
+        optional int32 ret = 1;
+        optional RankMsg rankMsg = 2;
+    }
+    message RankMsg {
+        optional int32 bigType = 1; 
+        optional int32 rankType = 2; 
+        optional bytes rankList = 3; 
+        optional int32 myRank = 4; 
+        optional string myValue = 5; 
+        optional string param = 6; 
+        optional int32 activityId = 7; 
+    }
+    message RankMsgList {
+        repeated RankTempMsg rankTemp = 1;
+    }
+    message RankTempMsg {
+        optional PlayerCharacterImageMsg playerBaseData = 1; 
+        optional string value = 2; 
+        optional bytes param = 3; 
+    }
+    message UnionMsgList {
+        repeated UnionRankTempMsg unionRankTemp = 1;
+    }
+    message UnionRankTempMsg {
+        optional UnionBaseData baseData = 1;            
+        required string value = 2;
+        optional bytes param = 3; 
+        optional string masterName = 4;         
+    }
+    message GetUnionMemberScoreReq{
+        required int32 activityId = 1;
+        required int64 unionId = 2;
+    }
+    message GetUnionMemberScoreRsp{
+        optional int32 ret = 1;
+        repeated UnionMemberScoreCommon unionMemberScoreList = 2;
+    }
+    message UnionMemberScoreCommon{
+        optional int64 playerId = 1;
+        optional string memberName = 2;
+        optional int32 score = 3;
+    }

@@ -1,0 +1,13 @@
+package com.yq.msg.CityMsg;
+import "Battle";  
+    message InvadeDataMsg {
+        required int32 curInvadeId = 1; 
+        required int32 count = 3; 
+    }
+    message InvadeChallengeResp {
+        required int32 ret = 1;
+        optional BattleRecordMsg allBattleRecord = 2; 
+        optional int64 damage = 3;
+        optional string rewards = 4; 
+        optional InvadeDataMsg invadeDataSync = 5; 
+    }

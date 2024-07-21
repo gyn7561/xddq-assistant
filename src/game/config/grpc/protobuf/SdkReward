@@ -1,0 +1,66 @@
+package com.yq.msg.CityMsg;
+import "Common";
+enum ReceiveSdkRewardPb{
+    ReceiveSdkRewardPb_RECEIVE_SDK_REWARD_SYN = 207201;  
+    ReceiveSdkRewardPb_RECEIVE_SDK_REWARD = 207202;   
+    QQCARD_GET_REWARD = 207203;   
+    ALIPAY_SET_START_PARAM = 207204; 
+    RECEIVE_SDK_DAILY_REWARD = 207205;  
+    GET_WECHAT_RANK_WHITE_LIST = 212601; 
+}
+message ReceiveSdkRewardSyn {
+    required string bit = 1;            
+    optional ReceiveSdkDailyRewardData dailyRewardData = 2; 
+}
+message ReceiveSdkRewardReq {
+    optional SdkRewardTypeEnum type = 1;
+}
+message ReceiveSdkRewardRsp {
+    required int32 ret = 1;
+    repeated AwardInfo awardInfoList = 2;
+    required string bit = 3;            
+}
+enum SdkRewardTypeEnum{
+    SdkRewardTypeEnum_1 = 1;    
+    SdkRewardTypeEnum_2 = 2;    
+    SdkRewardTypeEnum_3 = 3;    
+    SdkRewardTypeEnum_4 = 4;    
+    SdkRewardTypeEnum_5 = 5;    
+    SdkRewardTypeEnum_6 = 6;    
+    SdkRewardTypeEnum_7 = 7;    
+}
+message QQCardGetRewardReq {
+    required string openId =1;
+}
+message QQCardGetRewardRsp {
+    required int32 ret = 1;
+}
+message AlipayStartParamReq {
+    required string actionChannel = 1;
+}
+message AlipayStartParamRsp {
+    required int32 ret = 1;
+}
+message GetWechatRankWhiteListReq {
+}
+message GetWechatRankWhiteListRsp {
+    required int32 ret = 1;
+    repeated string whiteList = 2;
+}
+message ReceiveSdkDailyRewardData {
+    optional SdkDailyRewardTypeEnum type = 1;
+    optional int64 firstRewardTime = 2;     
+    optional string bit = 3;                
+}
+enum SdkDailyRewardTypeEnum{
+    SdkDailyRewardTypeEnum_1 = 1;    
+    SdkDailyRewardTypeEnum_2 = 2;    
+}
+message ReceiveSdkDailyRewardReq {
+    optional SdkDailyRewardTypeEnum type = 1;
+    optional int32 index = 2; 
+}
+message ReceiveSdkDailyRewardRsp {
+    required int32 ret = 1;
+    optional ReceiveSdkDailyRewardData data = 2;
+}

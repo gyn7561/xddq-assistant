@@ -1,0 +1,38 @@
+package com.yq.msg.CityMsg;     
+message CutPriceDataMsg{
+    required int32  bussinessId = 1;                  
+    required int32  productId = 2;                    
+    required int32  status = 3;                       
+    required int64  disappearTime = 4;                
+    required int64  bargainPrice = 5;                 
+    required int32  bargainTimes = 6;                 
+    required int32  bargainNum = 7;                   
+    repeated CutPriceRecordMsg records = 8;              
+    optional bool isTaskReward =9;                      
+    repeated CutPriceNotBargainMemberMsg noCutPriceRecords = 10; 
+}
+message CutPriceRecordMsg{
+    required string nickName = 1;                           
+    required int64  bargainPrice = 2;                  
+    required bool   hasBuy = 3;                        
+    required int64  userId = 4;                        
+}
+message CutPriceNotBargainMemberMsg{
+    required string nickName = 1;                           
+    required int64  userId = 2;                        
+    required int64 loginTime = 3;                      
+}
+message CutPriceBargainReqMsg{
+    required int32  bussinessId = 1;                     
+}
+message CutPriceBargainRespMsg{
+    required int32  ret = 1;
+    optional int64  bargainPrice = 2;                  
+}
+message CutPriceBuyReqMsg{
+    required int32  bussinessId = 1;                     
+}
+message CutPriceBuyRespMsg{
+    required int32  ret = 1;
+    optional string reward = 2;                        
+}

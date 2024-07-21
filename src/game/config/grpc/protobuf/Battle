@@ -1,0 +1,169 @@
+package com.yq.msg.CityMsg;
+message BattleMagicMsg {
+    required int32 type = 1; 
+    required int32 magicId = 2; 
+}
+message BattleMain {
+    required int32 objId = 1; 
+    required BattleModelMsg battleModel = 2; 
+    required int64 maxHp = 3; 
+    optional int32 maxEnergy = 4; 
+    optional int64 initShieldVal = 5; 
+    optional int64 curHp = 6; 
+    optional int32 pos = 7; 
+    optional string name = 8; 
+    optional int64 playerId = 9; 
+}
+message BattleModelMsg {
+    required int32 type = 1; 
+    optional int32 mainRoleId = 2; 
+    optional int32 realmsId = 3; 
+    optional int32 cloudId = 4; 
+    repeated PetObj pet = 5; 
+    repeated SpiritObj spirit = 6; 
+    repeated BattleMagicMsg magic = 7; 
+    optional int32 atkEffectId = 8;
+    optional int32 soaringState = 9; 
+    optional UniverseObj universeObj = 10; 
+    repeated int32 commonSkillId = 11; 
+}    
+message PetObj {
+    optional int32 objId = 1; 
+    optional int32 petId = 2; 
+    optional int32 resChange = 3; 
+    optional int32 skillId = 4;
+    optional int32 petLinkageId = 5; 
+    repeated int32 equipKernelId = 6; 
+}
+message SpiritObj {
+    optional int32 objId = 1; 
+    optional int32 spiritId = 2; 
+    optional int32 skillLv = 3; 
+    optional int32 spiritLinkageId = 4; 
+}
+message UniverseObj {
+    optional int32 level = 1; 
+    repeated int32 skillId = 2; 
+}
+message BattleRecordMsg {
+    repeated BattleMain battleMain = 1; 
+    repeated BattleRoundLog battleRoundLog = 2; 
+    required bool isWin = 3; 
+    required int32 maxRoundLimit = 4; 
+    optional int32 leftTeamSkillId = 5; 
+    optional int32 rightTeamSkillId = 6; 
+}
+message TeamBattleRecordMsg {
+    repeated BattleMain battleMain = 1; 
+    repeated BattleRoundLog battleRoundLog = 2; 
+    required bool isWin = 3; 
+    required int32 maxRoundLimit = 4; 
+    optional int32 leftTeamSkillId = 5; 
+    optional int32 rightTeamSkillId = 6; 
+}
+message BattleRoundLog {
+    required int32 round = 1; 
+    repeated BattleAction action = 2; 
+    repeated BattleMainState battleMainState = 3; 
+}
+message BattleAction {
+    required int32 objType = 1; 
+    required bytes action = 2; 
+}
+message MainAction {
+    required int32 objId = 1;
+    optional bool isAttackBackAction = 2; 
+    repeated MainAttackResult mainAttackResult = 3; 
+    optional bool removeStun = 4; 
+    optional int32 targetId = 5; 
+    optional int32 teamEnergyMyChange = 6; 
+    optional int32 teamEnergyOtherChange = 7; 
+}
+message MainAttackResult {
+    required bool isHit = 1; 
+    required bool isCritical = 2; 
+    required bool isMagic = 3; 
+    required int64 damage = 4; 
+    required int64 lifeSteal = 5; 
+    required int32 stunRound = 6; 
+    optional int32 energyMyChange = 7; 
+    optional int32 energyOtherChange = 8; 
+    optional SpiritAction spiritAction = 9; 
+    optional MagicAction magicAction = 10; 
+    optional bool isParry = 11; 
+    optional bool isArmorBreak = 12; 
+    optional bool isMagicDoubleAttack = 13; 
+    optional BossSpecialSkillAction bossSpecialSkillAction = 14;
+    optional int64 shieldMyChange = 15; 
+    optional int64 shieldOtherChange = 16; 
+    optional SpiritAction beforeSpiritAction = 17; 
+    optional MagicAction beforeMagicAction = 18; 
+    optional BossSpecialSkillAction beforeBossSpecialSkillAction = 19;
+}
+message SpiritAction {
+    repeated PetAction action = 1;
+}
+message BossSpecialSkillAction {
+    repeated BossSpecialSkillOneAction action = 1;
+}
+message BossSpecialSkillOneAction {
+    required int32 objId = 1;
+    required SkillEffect skillEffect = 2;
+    optional int32 targetId = 3; 
+}
+message PetAction {
+    required int32 objId = 1;
+    required SkillEffect skillEffect = 2;
+    optional SpiritAction spiritAction = 3; 
+    optional MagicAction magicAction = 4; 
+    optional int32 targetId = 5; 
+    optional BossSpecialSkillAction bossSpecialSkillAction = 6;
+}
+message MagicAction {
+    repeated MagicOneAction magicOneAction = 1;
+}
+message MagicOneAction {
+    required int32 objId = 1;
+    required int32 magicId = 2;
+    required SkillEffect skillEffect = 3;
+    optional int32 targetId = 4; 
+}
+message SkillEffect {
+    required int32 skillId = 1; 
+    required int32 continueRound = 2; 
+    optional int64 damage = 3; 
+    optional int64 addHp = 4; 
+    optional int32 energyMyChange = 5; 
+    optional int32 energyOtherChange = 6; 
+    optional int32 continueRound2 = 7; 
+    optional bool isParry = 8; 
+    optional bool isArmorBreak = 9; 
+    optional int32 triggerIndex = 10;
+    optional int64 shieldMyChange = 11; 
+    optional int64 shieldOtherChange = 12; 
+    optional bool isSuppress = 13; 
+    optional bool isInspire = 14; 
+}
+message BattleMainState {
+    required int32 objId = 1; 
+    required int64 hp = 2; 
+    required int32 energy = 3; 
+    optional int64 maxHp = 4; 
+    optional int64 shieldVal = 5; 
+}
+message TeamSkillAction {
+    required bool isLeft = 1; 
+    repeated TeamSkillOneAction actions = 2;
+    required int32 teamEnergyChange = 3; 
+}
+message TeamSkillOneAction{
+    required int32 objId = 1;
+    repeated SkillEffect skillEffect = 2;
+}
+message BossSkillAction {
+    required int32 objId = 1;
+    required int32 skillId = 2;
+    repeated TeamSkillOneAction actions = 3;
+    repeated SpiritAction spiritAction = 4; 
+    optional MagicAction magicAction = 5; 
+}

@@ -1,0 +1,39 @@
+package com.yq.msg.CityMsg;        
+message MessageSubscribeConfig {
+    optional int32 id = 1;                                                  
+    optional string templateId = 2;                                         
+    optional string title = 3;
+    optional string content = 4;
+    optional int32 pushRate = 5;                                            
+    optional string dyTemplateId = 6;                                       
+    optional string zfbTemplateId = 7;                                      
+}
+message MessageSubscribeData {
+    optional string templateId = 1;                                         
+    optional bool isSubscribeOfGame = 2;                                    
+    optional bool isSubscribeOfWx = 3;                                      
+}
+message MessageSubscribePlayerData {
+    repeated MessageSubscribeData messageSubscribeDataList = 1;             
+    optional bool switch = 2;                                               
+}
+message SetMessageSubscribeData {
+    optional string templateId = 1;                                         
+    optional bool isSubscribeOfGame = 2;                                    
+    optional bool isSubscribeOfWx = 3;                                      
+}
+message SetMessageSubscribeDataReqMsg {
+    repeated SetMessageSubscribeData setList = 1;                           
+    optional bool switch = 2;                                               
+    optional string wxOpenId = 3;                                           
+    optional string dyOpenId = 4;                                           
+    optional string zfbOpenId = 5;                                          
+}
+message SetMessageSubscribeDataRspMsg {
+    required int32 ret = 1;
+    optional MessageSubscribePlayerData playerData = 2;
+}
+message MessageSubscribeInfo {
+    repeated MessageSubscribeConfig messageSubscribeConfigList = 1;         
+    optional MessageSubscribePlayerData playerData = 2;
+}

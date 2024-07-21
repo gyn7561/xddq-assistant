@@ -1,0 +1,482 @@
+package com.yq.msg.CityMsg;
+import "WatchPlayer";
+import "Common";
+import "Bag";
+import "Battle";
+import "Magic";
+import "Spirit";
+import "Pet";
+message ManHuangTeamEntity {
+    optional int64 teamId = 1;              
+    optional string teamName = 2;           
+    optional int64 leaderId = 3;            
+    optional int64 leaderServerId = 4;      
+    optional string leaderName = 5;         
+    repeated ManHuangMemberEntity members = 6; 
+    optional int64 fightValue = 7 ;                 
+    optional int64 createTime = 8 ;              
+    repeated ManHuangApplyUserEntity applyList = 9; 
+    optional int32 rank = 10;                        
+    optional int32 iceSoul = 11;
+}
+message ManHuangUserDataEntity {
+    optional int64 userId = 1;
+    optional int64 teamId = 2;
+    optional PlayerCharacterImageMsg playerInfo = 3; 
+    optional int64 fightValue = 4; 
+    optional int32 regionId = 5;    
+    repeated int32 unlockRegionId = 6;
+    optional int32 energy = 7;   
+    optional int64 integral = 8;  
+    optional int64 rank = 9;   
+    optional ManHuangTeamEntity teamInfo = 10;              
+    repeated ManHuangUserMallInfo mallInfo = 11;            
+    optional int64 lastLeaveTeam = 12;               
+    optional int64 lastCreateTeam = 13;              
+    repeated int64 applyJoinTeamIdList = 14;         
+    optional bool isEnter = 15;    
+    optional int64 energyLastTime = 16;              
+    optional int64 totalBlood = 17;                  
+    optional int64 blood = 18;                      
+    optional ManHuangTeamMemberNotify teamMemberNotify = 19;        
+    repeated ManHuangEnemyNotify enemyNotify = 20;            
+    repeated ManHuangUserItemInfoTemp monsterBall = 21; 
+    repeated ManHuangUserItemInfoTemp grass = 22; 
+    repeated ManHuangUserItemInfoTemp box = 23; 
+    repeated ManHuangUserItemInfoTemp eventDone = 24; 
+    optional ManHuangEventDoingInfoEntity eventDoingInfo = 25;
+    optional ManHuangEventDoingInfoEntity signInfo = 26;
+    optional int32 iceSoul = 27;
+    optional ManHuangUserWinInfo winInfo = 28;
+}
+/**连胜信息,第三层才有*/
+message ManHuangUserWinInfo{
+    required int32 winCount = 1;
+    required int64 loseNum = 2;
+}
+message ManHuangUserMallInfo{
+    optional int32 mallId = 1;          
+    optional int64 touchTime = 2;       
+    optional int32 canBuyTimes = 3;     
+}
+message ManHuangMemberEntity {
+    optional int64 userId = 1;      
+    optional PlayerCharacterImageMsg memberInfo = 2; 
+    optional int32 regionId = 3;    
+    optional int64 integral = 4;    
+    optional int64 rank = 5;        
+    optional int64 fightValue = 6; 
+    optional int32 iceSoul = 7; 
+}
+message ManHuangApplyUserEntity {
+    optional int64 userId = 1;                   
+    optional PlayerBaseDataMsg playerInfo = 2;   
+    optional int64 applyTime = 3;               
+    optional int64 fightValue = 4; 
+}
+message ManHuangUserItemInfoTemp{
+    required int32 itemId = 1;         
+    required int32 num = 2;            
+}
+message ManHuangEnterPanelReqMsg {
+    required int32 activityId = 1;
+    optional PlayerCharacterImageMsg playerDetail = 2;
+}
+message ManHuangEnterPanelRespMsg {
+    required int32 ret = 1;
+    optional ManHuangUserDataEntity userData = 2;
+}
+message ManHuangLeavePanelReqMsg {
+    required int32 activityId = 1;
+}
+message ManHuangLeavePanelRespMsg {
+    required int32 ret = 1;
+}
+message ManHuangCreateTeamReqMsg {
+    required int32 activityId = 1;
+    required string teamName = 2;
+    required bool firstCreateFlg = 3;
+}
+message ManHuangCreateTeamRespMsg {
+    required int32 ret = 1;
+    optional ManHuangTeamEntity teamInfo = 2;
+    optional int32 activityId = 3; 
+    optional bool firstCreateFlg = 4;
+}
+message ManHuangGetTeamListReqMsg {
+    required int32 activityId = 1;
+    required int32 type = 2; 
+    required int32 page = 3; 
+}
+message ManHuangGetTeamListRespMsg {
+    required int32 ret = 1;
+    repeated ManHuangTeamEntity teamList = 2; 
+}
+message ManHuangGetTeamInfoReqMsg {
+    required int32 activityId = 1;
+    required int64 teamId = 2;
+}
+message ManHuangGetTeamInfoRespMsg {
+    required int32 ret = 1;
+    optional ManHuangTeamEntity teamInfo = 2; 
+}
+message ManHuangJoinTeamReqMsg {
+    required int32 activityId = 1;
+    required int64 teamId = 2;
+}
+message ManHuangJoinTeamRespMsg {
+    required int32 ret = 1;
+}
+message ManHuangCancelTeamApplyReqMsg {
+    required int32 activityId = 1;
+    required int64 teamId = 2;
+}
+message ManHuangCancelTeamApplyRespMsg {
+    required int32 ret = 1;
+}
+message ManHuangApplyJoinTeamAgreeReqMsg {
+    required int32 activityId = 1;
+    required int64 playerId = 2; 
+}
+message ManHuangApplyJoinTeamAgreeRespMsg {
+    required int32 ret = 1;
+    optional ManHuangTeamEntity teamInfo = 2;              
+}
+message ManHuangApplyJoinTeamRefusedReqMsg {
+    required int32 activityId = 1;
+}
+message ManHuangApplyJoinTeamRefusedRespMsg {
+    required int32 ret = 1;
+    optional ManHuangTeamEntity teamInfo = 2;              
+}
+message ManHuangQuitTeamReqMsg {
+    required int32 activityId = 1;
+}
+message ManHuangQuitTeamRespMsg {
+    required int32 ret = 1;
+}
+message ManHuangKickOutTeamReqMsg {
+    required int32 activityId = 1;
+    required int64 playerId = 2; 
+}
+message ManHuangKickOutTeamRespMsg {
+    required int32 ret = 1;
+}
+message ManHuangEnemyNotify {
+    optional string enemyName = 1;          
+    optional int64 enemyServerId = 2;       
+    optional int64 damage = 3;              
+    optional ManHuangUserItemInfoTemp monsterBall = 4; 
+    optional int32 regionId = 5;            
+    optional int32 attackType = 6;          
+    optional int32 iceSoul = 7;            
+}
+message ManHuangTeamLeaderNotify {
+    required int32 type = 1;
+    required ManHuangApplyUserEntity userData = 2;
+}
+message ManHuangTeamMemberNotify {
+    required int32 type = 1;
+    optional ManHuangTeamEntity teamInfo = 2; 
+}
+message ManHuangNpcTargetEntity {
+    optional int32 monsterId = 1;
+    optional int64 totalBlood = 2;
+    optional int64 blood = 3;
+    repeated AttributeDataMsg attributeDataMsg = 4;
+}
+message ManHuangEventInfoTemp{
+    required int32 id = 1;         
+    required int32 eventType = 2;       
+    required string targetId = 3;       
+    required int32 score = 4;           
+    required string reward = 5;        
+    required string param = 6;          
+}
+message ManHuangRegionInfoTemp{
+    required int32 id = 1;
+    required string name = 2;          
+    required int32 energy = 3;          
+    required string consumeCondition = 4;  
+    required int32 scoreBase = 5;          
+    required string eventWeight = 6;    
+}
+message ManHuangBuffInfoTemp{
+    required int32 id = 1;         
+    required string name = 2;       
+    required int32 type = 3;       
+    required int32 effect = 4;       
+    required int32 level = 5;        
+    required int32 itemId = 6;        
+}
+message ManHuangConfigSyncMsg{
+    repeated ManHuangRegionInfoTemp region = 1;   
+    repeated ManHuangEventInfoTemp event = 2;     
+    repeated ManHuangBuffInfoTemp buff = 3;      
+}
+message ManHuangEnterRegionReqMsg {
+    required int32 activityId = 1;
+    required int32 region = 2; 
+    optional int32 consumeType = 3; 
+}
+message ManHuangEnterRegionRespMsg {
+    required int32 ret = 1;
+    optional int32 iceSoul =2;
+}
+message ManHuangEventDoingInfoEntity {
+    optional int32 eventId = 1;
+    optional ManHuangNpcTargetEntity targetNpc = 2;
+    optional ManHuangUserDataEntity targetPlayer = 3;
+    optional int64 lastAttackTime = 4; 
+    optional bool attackStatus = 5;
+    optional bool signStatus = 6;
+    repeated AttributeDataMsg attributeDataMsg = 7;
+}
+message ManHuangExploreReqMsg {
+    required int32 activityId = 1;
+}
+message ManHuangExploreRespMsg {
+    required int32 ret = 1;
+    optional ManHuangEventDoingInfoEntity eventDoingInfo = 2;
+}
+message ManHuangEventHandleReqMsg {
+    required int32 activityId = 1;
+    optional int32 eventId = 2;                     
+}
+message ManHuangEventHandleRespMsg {
+    required int32 ret = 1;
+    optional int64 damage = 2;                      
+    optional int64 blood = 3;                       
+    repeated AwardInfo rewards = 4;                
+    optional int64 integral = 5;                   
+    repeated int32 grass = 6;   
+    optional ManHuangUserItemInfoTemp monsterBall = 7;  
+    optional ManHuangUserMallInfo mallInfo = 8;   
+    optional BattleRecordMsg battleRecord = 9; 
+    optional int32 iceSoul = 10;
+    repeated ManHuangUserMallInfo mallInfoList = 11;   
+}
+message ManHuangEventActionReqMsg {
+    required int32 activityId = 1;
+    required int32 action = 2;
+}
+message ManHuangEventActionRespMsg {
+    required int32 ret = 1;
+}
+message ManHuangRecoverEnergyReqMsg {
+    required int32 activityId = 1;
+    optional UsePropReq userProp = 2;
+}
+message ManHuangRecoverEnergyRespMsg {
+    required int32 ret = 1;
+    optional ManHuangUserDataEntity userData = 2; 
+}
+message ManHuangOpenBoxReqMsg {
+    required int32 activityId = 1;
+    required int32 boxId = 2;
+    optional UsePropReq userProp = 3;
+}
+message ManHuangOpenBoxRespMsg {
+    required int32 ret = 1;
+    repeated AwardInfo rewards = 2;          
+    optional int32 activityId = 3;
+    optional int32 boxId = 4;
+}
+message ManHuangEventInfoNotify {
+    required int32 type = 1;        
+    optional int64 userId = 2;
+    optional int64 damage = 3;      
+    optional int64 remainBlood = 4; 
+}
+message ManHuangGetUserDataReqMsg {
+    required int32 activityId = 1;
+    required int64 playerId = 2;
+}
+message ManHuangGetUserDataRespMsg {
+    required int32 ret = 1;
+    optional ManHuangUserDataEntity userData = 2;
+}
+message ManHuangLogHelpItem {
+    required int64 id = 1;
+    required int32 eventId = 2;
+    required int32 type = 3;
+    optional int64 discoverPlayerId = 4;
+    optional string discoverPlayerName = 5;
+    optional int32 discoverRegionId = 6;
+    optional ManHuangNpcTargetEntity targetNpc = 7; 
+    optional ManHuangUserDataEntity targetPlayer = 8; 
+    optional int64 lastAttackTime = 9 ;        
+    optional bool rewardFlag = 10;
+    optional int64 recordTime = 11;
+    repeated AwardInfo rewards = 12;          
+    optional ManHuangUserItemInfoTemp monsterBall = 13;
+    repeated string helpUsers = 14;
+    optional int32 iceSoul = 15;
+}
+message ManHuangLogHelpReqMsg {
+    required int32 activityId = 1;
+}
+message ManHuangLogHelpRespMsg {
+    required int32 ret = 1;
+    repeated ManHuangLogHelpItem helpItem = 2;
+    optional int32 helpCount = 3;
+}
+message ManHuangHelpActionAttReqMsg {
+    required int32 activityId = 1;
+    required int64 id = 2;        
+    required int64 playerId = 3;        
+}
+message ManHuangHelpActionAttRespMsg {
+    required int32 ret = 1;
+    optional bool isKill = 2;                   
+    optional int64 blood = 3;             
+    optional int64 damage = 4;                  
+    optional int64 integral = 5;                   
+    repeated AwardInfo rewards = 6;          
+    optional ManHuangUserItemInfoTemp monsterBall = 7;
+    optional int64 lastAttackTime = 8;               
+    repeated int32 grass = 9;   
+    optional int32 iceSoul = 10;
+    optional BattleRecordMsg battleRecord = 11; 
+}
+message ManHuangHelpActionRewardReqMsg {
+    required int32 activityId = 1;
+    required int64 id = 2;        
+}
+message ManHuangHelpActionRewardRespMsg {
+    required int32 ret = 1;
+    repeated AwardInfo rewards = 2;          
+    optional ManHuangUserItemInfoTemp monsterBall = 3;
+}
+message ManHuangLogBattlegroundItem {
+    required int32 type = 1;
+    optional PlayerBaseDataMsg playerInfo = 2;
+    optional int32 attackType = 3;
+    optional PlayerBaseDataMsg helpPlayerInfo = 4;
+    optional PlayerBaseDataMsg enemyPlayer = 5;
+    optional int32 monsterId = 6;
+    optional ManHuangUserItemInfoTemp monsterBall = 7;
+    optional int32 periGrassId = 8;
+    repeated AwardInfo rewards = 9;          
+    optional int64 createTime = 10;          
+    optional int32 iceSoul = 11;
+    optional int32 winCount = 12;
+    optional int32 targetWinCount = 13;
+    optional int32 score = 14; 
+}
+message ManHuangLogBattlegroundReqMsg {
+    required int32 activityId = 1;
+}
+message ManHuangLogBattlegroundRespMsg {
+    required int32 ret = 1;
+    repeated ManHuangLogBattlegroundItem item = 2;
+}
+message ManHuangLogDefendItem {
+    optional int32 attackType = 1;
+    optional PlayerBaseDataMsg enemyPlayer = 2;
+    optional int64 damage = 3;
+    optional bool dieFlag = 4;
+    optional ManHuangUserItemInfoTemp monsterBall = 5;
+    optional int32 iceSoul = 6;
+}
+message ManHuangLogPersonItem {
+    required int32 type = 1;
+    optional ManHuangLogBattlegroundItem BattlegroundItem = 2;
+    optional ManHuangLogDefendItem defendItem = 3;
+    optional int64 createTime = 4;          
+}
+message ManHuangLogPersonReqMsg {
+    required int32 activityId = 1;
+}
+message ManHuangLogPersonRespMsg {
+    required int32 ret = 1;
+    repeated ManHuangLogPersonItem item = 2;
+}
+message ManHuangRankPersonItem {
+    required PlayerCharacterImageMsg playerBaseData = 1;
+    optional int64 integral = 2;
+}
+message ManHuangRankTeamItem {
+    required int64 id = 1;
+    required PlayerCharacterImageMsg playerBaseData = 2;
+    required int32 iceSoul = 3;
+    optional ManHuangTeamEntity teamInfo = 4;
+}
+message ManHuangRankPersonReqMsg{
+    required int32 activityId = 1;
+}
+message ManHuangRankPersonRespMsg{
+    required int32 ret = 1;
+    repeated ManHuangRankPersonItem personItem = 2;
+    optional ManHuangUserDataEntity userData = 3;
+}
+message ManHuangRankTeamReqMsg{
+    required int32 activityId = 1;
+}
+message ManHuangRankTeamRespMsg{
+    required int32 ret = 1;
+    repeated ManHuangRankTeamItem teamItem = 2;
+    optional ManHuangTeamEntity myTeam = 3;
+}
+message ManHuangMarqueeNotify{
+    repeated ManHuangMarqueeInfo marquee=1;
+}
+message ManHuangMarqueeInfo {
+    required int64 attackerServerId = 1; 
+    required string attackerName = 2; 
+    required int32 winCount=3;
+    required int64 targetServerId = 4; 
+    required string targetName = 5; 
+    required int32 iceSoul=6;
+    optional int32 targetWinCount=7;
+}
+message ManHuangGameToCrossSyncEventAttAveItem {
+    required int32 eventId = 1;
+    repeated AttributeDataMsg attributeDataMsg = 4;
+}
+message ManHuangGameToCrossSyncAllAttributeDataReqMsg {
+    required int32 activityId = 1;
+    required int64 serverId = 2;
+    repeated ManHuangGameToCrossSyncEventAttAveItem eventAttAveItem = 3;
+}
+message ManHuangGameToCrossSyncAllAttributeDataRespMsg {
+    required int32 ret = 1;
+}
+message ManHuangCrossToGameSyncAllAttributeDataReqMsg {
+    required int32 activityId = 1;
+}
+message ManHuangCrossToGameSyncAllAttributeDataRespMsg {
+    required int32 ret = 1;
+}
+message ManHuangCrossToGameRankReward {
+    optional int32 activityId = 1;
+    repeated ManHuangCrossToGamePersonRankReward playerRankRewardList = 2;
+    repeated ManHuangCrossToGameTeamRankReward teamRankRewardList = 3;
+    repeated int64 serverList = 4;
+}
+message ManHuangCrossToGamePersonRankReward {
+    optional int64 playerId = 1;
+    optional int32 rank = 2;
+    optional string reward = 3;
+}
+message ManHuangCrossToGameTeamRankReward {
+    optional int64 playerId = 1;
+    optional int64 teamId = 2;
+    optional string teamName = 3;
+    optional int32 rank = 4;
+    optional string reward = 5;
+}
+message WildZoneCrossToGameSyncMallBuyNumMsg {
+    required int32 activityId = 1;
+    required int64 playerId = 2;
+    repeated WildZoneCrossToGameMallBuyNum mallBuyNumList = 3;
+}
+message WildZoneCrossToGameMallBuyNum{
+    optional int32 mallId = 1;
+    optional int32 buyNum = 2;
+}
+message WildZoneGameToCrossAddWildZoneEnergy{
+    optional int32 activityId = 1;
+    optional int64 playerId = 2;
+    optional int32 addEnergy = 3;
+}

@@ -1,0 +1,163 @@
+package com.yq.msg.CityMsg;
+import "Common";
+import "PlayerChara";
+import "Talent";
+import "Spirit";
+    message PlayerAttributeDataMsg {
+        required int32 realmsId = 1;                                       
+        required string exp = 2;                                           
+        optional int64 fightValue = 3;                                     
+        repeated AttributeDataMsg playerAttributeDataList = 4;             
+        repeated EquipmentDataMsg equipmentList = 5;                       
+        optional int32 useSeparationIdx = 6;
+        optional int32 soaringState = 7;
+        optional int32 resetSoaringTimes = 8;
+        optional int32 todaySoaringTimes = 9;
+    }
+    message SeparationDataMsg{
+        optional int32 index = 1;
+        optional string name = 2;
+        repeated EquipmentDataMsg equipmentList = 3;
+        repeated TalentDataMsg talentData = 4; 
+        optional int32 equipPetId = 5; 
+        repeated SpiritBattleTeamMsg spiritBattleTeamMsg = 6; 
+        optional int32 spiritBattleTeamNo = 7; 
+        repeated int32 equipMagicList = 8; 
+        optional int32 equipCloudId = 9; 
+        optional int64 fightValue = 10; 
+        repeated AttributeDataMsg playerAttributeDataList = 11; 
+        optional int32 equipCloudSkinId = 12; 
+        optional int32 curRuleProgrammeIdx = 13; 
+        optional PupilDetailDataMsg pupilDetailData = 14; 
+        optional int32 equipAppearanceId = 15; 
+        repeated EquipUniverseSkillMsg equipUniverseSkillMsg = 16; 
+        optional int32 universeLevel = 17;  
+    }
+    message PupilDetailDataMsg {
+        repeated AttributeDataMsg baseAttr = 1;     
+        repeated AttributeDataMsg figthAttr = 2;   
+        repeated PupilFightDataMsg pupilFightDataList = 3; 
+    }
+    message PupilFightDataMsg {
+        optional int32 posIndex = 1; 
+        optional PupilCommonData pupilData = 2;     
+        optional PupilCommonData coupleData = 3;     
+    }
+    message PupilCommonData{
+        optional int32 uid = 1;                 
+        optional int32 quality = 2;                 
+        repeated int32 fateIdList = 3;              
+        optional int32 level = 4;                   
+        optional string name = 5;                   
+        optional int32 teacherId = 6;               
+        optional int32 job = 7;                     
+        optional AttributeDataMsg battleAttr = 8;  
+    }
+    message SoaringReq{
+        optional int32 soaringState = 1;
+        optional int32 operationType = 2;
+    }
+    message SoaringResp{
+        required int32 ret = 1;
+        optional int32 soaringState = 2;
+    }
+    message SetSeparationNameReq{
+        optional int32 separationIdx = 1;
+        optional string name = 2;
+    }
+    message SetSeparationNameResp{
+        required int32 ret = 1;
+    }
+    message SwitchSeparationReq{
+        optional int32 separationIdx = 1;
+    }
+    message SwitchSeparationResp{
+        required int32 ret = 1;
+        optional SeparationDataMsg separation = 2;
+    }
+    message GetSeparationDataMsgListReq{
+    }
+    message GetSeparationDataMsgListResp{
+        required int32 ret = 1;
+        repeated SeparationDataMsg useSeparationDataMsg = 2;
+    }
+    message DreamDataMsg {
+        optional int32 dreamLv = 1; 
+        repeated UnDealEquipmentDataMsg unDealEquipmentDataMsg = 2; 
+        optional int64 dreamLvUpEndTime = 3; 
+        optional int64 freeSpeedUpCdEndTime = 4; 
+        optional int32 freeSpeedUpTimes = 5; 
+    }
+    message UnDealEquipmentDataMsg {
+        required EquipmentDataMsg unDealEquipmentData = 1;              
+        repeated AttributeDataMsg playerAttributeDataList = 2;          
+        required int64 fightValue = 3;                                  
+    }
+    message ReqDealEquipmentMsg {
+        required DealEquipmentEnum type = 1;     
+        repeated int64 idList = 2;     
+    }
+    message RspDealEquipmentMsg {
+        optional int32 ret = 1;
+        optional string reward = 2;                                     
+        optional PlayerAttributeDataMsg playerAttributeDataMsg = 3;     
+        optional DreamDataMsg dreamDataMsg = 4;     
+        optional int32 exp = 5; 
+        optional int32 liquidAddExp = 6; 
+    }
+    message ReqRealmsLeveUpMsg{
+    }
+    message RspRealmsLeveUpMsg{
+        optional int32 ret = 1;
+        optional bool isSuccess = 2;                                    
+        optional PlayerAttributeDataMsg playerAttributeDataMsg = 3;     
+        optional PlayerCharaDataMsg playerCharaDataMsg = 4; 
+    }
+    message GetTribulationSuccessProReq {
+    }
+    message GetTribulationSuccessProResp {
+        required int32 ret = 1;
+        optional int32 probability = 2; 
+    }
+    enum DealEquipmentEnum {
+        DealEquipmentEnum_Equip = 0;    
+        DealEquipmentEnum_Resolve = 1;  
+        DealEquipmentEnum_EquipAndResolveOld = 2; 
+    }
+    message ReqDreamMsg{
+        optional bool auto = 1; 
+        repeated int32 attr = 2; 
+        optional int32 times = 3; 
+    }
+    message RspDreamMsg {
+        optional int32 ret = 1;
+        repeated DropReward dropReward = 2; 
+        optional PlayerAttributeDataMsg playerAttributeDataMsg = 3; 
+        optional int64 dreamItemCostTotalNum = 4;
+    }
+    message DropReward {
+        optional string reward = 1; 
+        optional UnDealEquipmentDataMsg equipment = 2; 
+    }
+    message DreamLvUpReq {
+    }
+    message DreamLvUpResp {
+        required int32 ret = 1;
+        optional DreamDataMsg dreamDataMsg = 2; 
+    }
+    message DreamLvUpSpeedUpReq {
+        required int32 speedUpType = 1; 
+        optional int32 useTimes = 2; 
+        optional bool isUseADTime = 3; 
+    }
+    message DreamLvUpSpeedUpResp {
+        required int32 ret = 1;
+        optional DreamDataMsg dreamDataMsg = 2; 
+        optional string reward = 3; 
+    }
+    message GetUnDealEquipmentMsgReq {
+    }
+    message GetUnDealEquipmentMsgResp {
+        required int32 ret = 1;
+        repeated UnDealEquipmentDataMsg undDealEquipmentDataMsg = 2;
+    }

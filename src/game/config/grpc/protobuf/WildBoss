@@ -1,0 +1,26 @@
+package com.yq.msg.CityMsg;    
+import "Battle";
+    message WildBossDataTemp {
+        required int32 passId = 1; 
+        required int32 useRepeatTimes = 2; 
+    }
+    message WildBossDataSync {
+        required WildBossDataTemp data = 1;
+    }
+    message WildBossChallengeReq {
+    }
+    message WildBossChallengeResp {
+        required int32 ret = 1;
+        optional BattleRecordMsg allBattleRecord = 2; 
+        optional bool challengeSuccess = 3; 
+        optional string rewards = 4; 
+        optional int32 challengeId = 5; 
+    }
+    message WildBossRepeatReq {
+    }
+    message WildBossRepeatResp {
+        required int32 ret = 1;
+        optional string rewards = 2; 
+        optional string miracleReward = 3; 
+        optional string destinyReward = 4; 
+    }

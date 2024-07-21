@@ -1,0 +1,524 @@
+package com.yq.msg.CityMsg;    
+import "Union";
+import "Rank";
+import "WatchPlayer";
+import "Common";
+enum UnionAreaWarProtocEnum {
+  union_area_war_base_info = 206001; 
+  union_area_war_rank = 206002; 
+  union_area_war_group = 206003; 
+  union_area_war_defenders = 206004; 
+  union_area_war_defenders_update = 206005; 
+  union_area_war_area_list = 206006; 
+  union_area_war_area_list_update = 206007; 
+  union_area_war_player_info = 206008; 
+  union_area_war_attack = 206009; 
+  union_area_war_develop = 206011; 
+  union_area_war_treasure_info = 206013; 
+  union_area_war_treasure_draw = 206014; 
+  union_area_war_summon_dragon = 206015; 
+  union_area_war_worship = 206016; 
+  union_area_war_guess_info = 206017; 
+  union_area_war_guess = 206018; 
+  union_area_war_fight_scene = 206019; 
+  union_area_war_fight_construct_data = 206020; 
+  union_area_war_fight_report_data = 206021; 
+  union_area_war_fight_report_detail = 206022; 
+  union_area_war_union_damage_info = 206023; 
+  union_area_war_bet_data = 206024;
+  union_area_war_bet_select = 206025;
+  union_area_war_bet_reward = 206026;
+  union_area_war_get_member_list = 206027;
+  union_area_war_dragon_attack_sync = 206028;
+  union_area_war_union_group_damage_info = 206029; 
+  union_area_war_union_red_dot_data = 206030; 
+  union_area_war_guess_player_list = 206031; 
+  union_area_war_dan_group_count = 206032; 
+  union_area_war_sync_apply = 206050; 
+  union_area_war_develop_success = 206052; 
+  union_area_war_attack_finish = 206053; 
+  union_area_war_summon_dragon_finish = 206054; 
+  union_area_war_worship_finish = 206055; 
+  union_area_war_create_member_snapshot = 206056; 
+  union_area_war_update_member_snapshot = 206057; 
+  union_area_war_union_red_dot_data_back = 206060; 
+  union_area_war_send_reward = 206061; 
+  union_area_war_guess_reward_finish = 206062; 
+}
+message UnionAreaInfo {
+  optional UnionBaseData baseData = 1;
+  optional int32 lv = 2; 
+  required string hp = 3;  
+  required string curHp = 4; 
+  optional int32 groupRank = 5; 
+  optional PlayerHeadDataMsg headInfo = 6; 
+  required int64 exp = 7; 
+  optional string masterName = 8; 
+  optional string dragonHurtHp = 9;
+  optional int64 lastHurtTimeStamp = 10;
+  optional string topPlayerName = 11; 
+  optional bool isTopOne = 12;
+  optional string damage = 13; 
+  optional bool isNpc = 14; 
+  optional int32 lockLv = 15; 
+}
+message UnionAreaUpdateInfo {
+  optional int64 unionId = 1;
+  required string curHp = 2; 
+  optional int32 groupRank = 3; 
+  optional int64 lv = 4; 
+}
+message UnionAreaDefenderInfo {
+  optional UnionAreaWarShowMsg info = 1;   
+  optional int64 fight = 2; 
+  optional string maxHp = 3; 
+  optional string leftHp = 4; 
+  optional int64 donateExp = 5;
+  optional string hurtHp = 6; 
+}
+message UnionAreaWarDefenderUpdateInfo {
+  optional int64 playerId = 1 ; 
+  optional string maxHp = 2; 
+  optional string leftHp = 3; 
+}
+message UnionAreaWarRankMsg {
+  optional UnionBaseData baseData = 1;            
+  required int64 score = 2;   
+  required int64 fightValue = 3; 
+  required int32 rank = 4; 
+  required int64 masterId = 5; 
+  required string masterName = 6; 
+}
+message UnionAreaWarRankList {
+  repeated UnionAreaWarRankMsg rankInfo = 1;
+}
+message UnionAreaWarPlayerRankList {
+  repeated UnionAreaWarPlayerRankMsg rankTemp = 1;
+}
+message UnionAreaWarPlayerRankMsg {
+  required int64 playerId = 1;
+  required PlayerCharacterImageMsg playerBaseData = 2;
+  required string value = 3;       
+  required int32 rank = 4; 
+}
+message UnionAreaWarConfigsSync {
+  repeated UnionAreaWarPeakHoldTimeConfig peakHoldTimeConfigs = 1; 
+  repeated UnionAreaWareDesertFloorConfig desertFloorConfigs = 2; 
+  repeated UnionAreaWarePeakHoldBaseConfig peakHoldBaseConfigs = 3;
+  repeated UnionAreaWarePeakHoldDonateConfig donateConfigs = 4; 
+  repeated UnionAreaWarGroupConfig groupConfig = 5; 
+}
+message UnionAreaWarPeakHoldTimeConfig {
+  required int32 activityId = 1; 
+  required int32 timeId = 2; 
+  required int32 type = 3; 
+  required int32 beginTime = 4; 
+  required int32 durationTime = 5; 
+  required string param = 6; 
+  required string score = 7; 
+}
+message UnionAreaWarePeakHoldBaseConfig {
+  required int32 activityId = 1;
+  required int32 id = 2;
+  required int32 level = 3;
+  required int32 hpAdd = 4;
+  required int32 needProcess = 5;
+}
+message UnionAreaWareDesertFloorConfig {
+  required int32 activityId = 1;
+  required int32 floor = 2 ; 
+  required string specialReward = 3;
+  required string rewards = 4;
+  required string consume = 5;
+}
+message UnionAreaWarePeakHoldDonateConfig {
+  required int32 activityId = 1;
+  required int32 id = 2;
+  required int32 type = 3;
+  required string consume = 4;
+  required int32 exp = 5;
+  required int32 rewards = 6; 
+}
+message UnionAreaWarGroupConfig {
+  required int32 activityId = 1;
+  required int32 rankId = 2; 
+  required int32 size = 3;  
+  required int32 up = 4; 
+  required string score = 5; 
+}
+message UnionAreaWarGroupBaseMsg {
+  optional int64 unionId = 1; 
+  optional string unionName = 2; 
+  optional int32 flag = 3; 
+  optional string masterName = 4; 
+  optional int64 masterId = 5; 
+  optional int32 masterVipExp = 6; 
+  optional int32 rank = 7; 
+  optional string damage = 8; 
+  optional int64 serverId = 9 ; 
+}
+message UnionAreaWarSceneData {
+  optional UnionAreaWarPlayerInfo playerInfo = 1; 
+  optional int64 defendUnionId = 2; 
+  optional UnionAreaInfo areaInfo = 3; 
+  optional UnionAreaDefenderInfo defenderInfo = 4; 
+  optional string curUnionHp = 5; 
+  optional string curDefenderHp = 6; 
+}
+message UnionAreaWarShowMsg{
+  required int64 playerId = 1;
+  required int64 serverId = 2;
+  required string nickName = 3;
+  repeated int32 pet = 4;
+  repeated int32 spirit = 5;
+  optional int32 appearanceId = 6; 
+  optional int32 equipCloudId = 7; 
+  optional int32 realmsId = 8;  
+  optional int32 rank = 10;
+  optional PlayerHeadDataMsg headInfo = 13;
+  repeated int32 petSoulShapeList = 14; 
+  optional int32 titleId = 15; 
+  optional bool isNpc = 16; 
+  repeated int32 petLinkageId = 17; 
+  repeated int32 spiritLinkageId = 18; 
+}
+message UnionAreaWarPlayerInfo {
+  optional int32 energy = 1; 
+  optional int64 lastRecoveryEnergyTime = 2; 
+  optional string score = 3; 
+  optional int32 attackCount = 4; 
+  optional int32 buyEnergyCount = 5; 
+}
+message UnionAreaWarDonateInfo {
+  required int32 id = 1; 
+  required int32 count = 2; 
+}
+message UnionAreaWarReqMsg {
+  required int32 activityId = 1;
+}
+message UnionAreaWarRespMsg {
+  required int32 ret = 1;
+  optional int32 activityId = 2;
+  optional int32 selfRank = 3;  
+  optional int32 cutOff = 4; 
+  optional int32 group = 5; 
+  optional int32 rankId = 6;
+  optional UnionAreaWarShowMsg topPlayer = 7; 
+  repeated UnionBaseData topUnion = 8; 
+  optional bool canWorship = 9; 
+  optional int32 groupCount = 10;
+  optional UnionAreaWarSettleData settleData = 11;
+  optional int64 unionId = 12; 
+  optional int32 position = 13; 
+  repeated int32 groupCountList = 14;
+  optional int64 dragonAttackTargetId = 15; 
+}
+message UnionAreaWarSettleData{
+  optional int32 timeId = 1;
+  optional bool upgrade = 2;
+  optional int32 rank = 3;
+  optional int32 groupRank = 4;
+  optional int32 riseScore = 5;
+  optional int32 totalScore = 6;
+}
+message UnionAreaWarGroupReqMsg {
+  required int32 activityId = 1;                  
+  required int32 groupId = 2; 
+  optional int32 danId = 3; 
+}
+message UnionAreaWarGroupRespMsg {
+  required int32 ret = 1;
+  optional int32 groupId = 2; 
+  repeated UnionAreaWarGroupBaseMsg groupInfo = 3; 
+  optional int32 danId = 4; 
+}
+message UnionAreaWarUnionDamageReqMsg{
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message UnionAreaWarUnionDamageRespMsg{
+  required int32 ret = 1;
+  optional int64 unionId = 2; 
+  optional string unionName = 3; 
+  optional int32 maxNum = 4; 
+  repeated UnionAreaWarPlayerBaseInfo playerInfo = 5; 
+}
+message UnionAreaWarPlayerBaseInfo{
+  required int64 playerId = 1 ; 
+  required string memberName =2 ; 
+  required string score = 3; 
+}
+message UnionAreaWarDefendersReqMsg {
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message UnionAreaWarDefendersRespMsg {
+  required int32 ret = 1;
+  repeated UnionAreaDefenderInfo defenderInfo = 2;
+}
+message UnionAreaWarDefendersUpdateReqMsg {
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message UnionAreaWarDefendersUpdateRespMsg {
+  required int32 ret = 1;
+  repeated UnionAreaWarDefenderUpdateInfo defenderUpdateInfo = 2;
+}
+message UnionAreaWarDevelopReqMsg {
+  required int32 activityId = 1;
+  required int32 id = 2;
+  required int32 count = 3; 
+  optional int32 propCount = 4; 
+}
+message UnionAreaWarDevelopRespMsg {
+  required int32 ret = 1;
+  optional UnionAreaInfo areaInfo = 2;
+  optional UnionAreaWarDonateInfo donateInfo = 3;
+  optional string reward = 4;
+}
+message UnionAreWarListReqMsg {
+  required int32 activityId = 1;
+  optional int32 groupId = 2; 
+  optional int32 rankId = 3; 
+}
+message UnionAreaWarListRespMsg {
+  required int32 ret = 1;
+  repeated UnionAreaInfo areaList = 2; 
+}
+message UnionAreWarListUpdateReqMsg {
+  required int32 activityId = 1;
+  optional int32 groupId = 2;
+  optional int32 rankId = 3; 
+}
+message UnionAreaWarListUpdateRespMsg {
+  required int32 ret = 1;
+  repeated UnionAreaUpdateInfo areaUpdateList = 2; 
+}
+message UnionAreaWarPlayerInfoReqMsg {
+  required int32 activityId = 1;
+}
+message UnionAreaWarPlayerInfoRespMsg {
+  required int32 ret = 1;
+  optional UnionAreaWarPlayerInfo playerInfo = 2;
+}
+message UnionAreaWarAttackReqMsg {
+  required int32 activityId = 1;
+  required int64 defendUnionId = 2; 
+  required int64 defendId = 3; 
+}
+message UnionAreaWarAttackRespMsg {
+  required int32 ret = 1;
+  optional int64 defendUnionId = 2; 
+  optional UnionAreaWarSceneData sceneData = 3;
+  optional string reward = 4; 
+  optional string attackValue = 5; 
+  optional bool isSkill = 6; 
+  repeated UnionAreaDefenderInfo playerInfo = 7;
+}
+message UnionAreaWarTreasuryReqMsg {
+  required int32 activityId = 1;                  
+}
+message UnionAreaWarTreasuryRespMsg {
+  required int32 ret= 1;
+  repeated UnionAreaWarTreasureMsg unlockInfo = 2;
+  optional int32 stage = 3; 
+  optional int32 openCount = 4; 
+}
+message UnionAreaWarTreasureMsg {
+  required int32 index = 1; 
+  required string reward = 2; 
+}
+message UnionAreaWarTreasuryDrawReqMsg {
+  required int32 activityId = 1;                  
+  required int32 idx = 2; 
+}
+message UnionAreaWarTreasuryDrawRespMsg {
+  required int32 ret= 1;
+  optional string reward = 2; 
+  optional int32 stage = 3; 
+  optional int32 openCount = 4; 
+}
+message UnionAreaWarWorshipReq{
+  required int32 activityId = 1;
+}
+message UnionAreaWarWorshipRsp{
+  required int32 ret = 1;
+  optional string reward = 2; 
+  optional UnionAreaWarShowMsg playerData = 3;
+}
+message UnionAreaWarFightSceneReqMsg {
+  required int32 activityId = 1;
+  required int64 defendUnionId = 2; 
+  optional int32 dataType = 3; 
+  optional int64 currentDefender = 4; 
+}
+message UnionAreaWarFightSceneRespMsg {
+  required int32 ret = 1;
+  optional UnionAreaWarSceneData sceneData = 2;
+}
+message UnionAreaWarConstructReqMsg {
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message UnionAreaWarConstructRespMsg {
+  required int32 ret = 1;
+  optional UnionAreaInfo areaInfo = 2;
+  optional string basicHp = 3;
+  repeated UnionAreaWarDonateInfo donateInfo = 4;
+}
+message UnionAreaWarReportReqMsg {
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+  optional int32 type = 3;
+}
+message UnionAreaWarReportRespMsg {
+  required int32 ret = 1;
+  optional string maxHp = 2;             
+  repeated UnionReportInfo infoList = 3;
+}
+message UnionReportInfo {
+  optional UnionBaseData baseData = 1;          
+  optional string maxHp = 2;                     
+  optional int32 lv = 3;                        
+  optional string leaderName = 4;               
+  optional string damageValue = 5;               
+  optional string hurtValue = 6;               
+  optional int64 time = 7;                          
+}
+message UnionAreaWarReportDetailReqMsg {
+  required int32 activityId = 1;
+  required int64 unionIdA = 2;
+  required int64 unionIdB = 3;
+  required int32 type = 4;
+}
+message UnionAreaWarReportDetailRespMsg {
+  required int32 ret = 1;
+  repeated UnionReportDetailInfo infoList = 2;
+}
+message UnionReportDetailInfo {
+  optional string playerName = 1;               
+  optional string damageValue = 2;               
+}
+message UnionAreaWarBetDataReqMsg {
+  required int32 activityId = 1;
+}
+message UnionAreaWarBetDataRespMsg {
+  required int32 ret = 1;
+  repeated UnionAreaWarBetUnionInfo infoList = 2;
+  repeated int64 unionIdArr = 3;
+  repeated int32 rewardRankAchi = 4;
+  optional bool isReceive = 5; 
+  optional int32 rewardParam = 6; 
+}
+message UnionAreaWarBetUnionInfo {
+  optional UnionAreaWarRankMsg rankInfo = 1;
+  optional int32 selectedCount = 2;
+  optional bool result = 3;
+}
+message UnionAreaWarBetSelectReqMsg {
+  required int32 activityId = 1;
+  repeated int64 unionIdArr = 3;
+}
+message UnionAreaWarBetSelectRespMsg {
+  required int32 ret = 1;
+}
+message UnionAreaWarBetRewardReqMsg {
+  required int32 activityId = 1;
+}
+message UnionAreaWarBetRewardRespMsg {
+  required int32 ret = 1;
+  optional string rewards = 2;
+}
+message UnionAreaWarSummonDragonReqMsg {
+  required int32 activityId = 1;
+  optional int64 targetUnionId = 2; 
+}
+message UnionAreaWarSummonDragonRespMsg{
+  required int32 ret = 1;
+  optional string totalDamage = 2; 
+  optional string killReward = 3; 
+  optional int32 killCount = 4; 
+  optional string summonReward = 5; 
+  optional int64 dragonAttackTargetId = 6; 
+}
+message UnionAreaWarGetJoinMemberListReq{
+  required int32 activityId = 1;
+}
+message UnionAreaWarGetJoinMemberListRsp{
+  optional int32 ret = 1;
+  repeated string joinMemberNameList = 2;
+  optional int64 unionExp = 3;
+}
+message SyncUnionAreaWarDragonAttackMsg{
+  repeated UnionAreaWarDragonAttackData data = 1;
+}
+message UnionAreaWarUnionGroupDamageReqMsg{
+  required int32 activityId = 1;
+  required int64 unionId = 2;
+}
+message UnionAreaWarUnionGroupDamageRespMsg{
+  required int32 ret = 1;
+  optional int64 unionId = 2; 
+  optional string unionName = 3; 
+  repeated UnionAreaWarGroupBaseInfo info = 4; 
+}
+message UnionAreaWarGroupBaseInfo{
+  required int32 groupId = 1 ; 
+  required int32 rank =2 ; 
+  required string score = 3; 
+  required int64 point = 4; 
+  required int32 danId = 5; 
+}
+message UnionAreaWarDragonAttackData{
+  required string id = 1;
+  optional int64 attackTime = 2;
+  optional UnionAreaWarShowMsg player = 3; 
+  optional int32 attackType = 4;
+  repeated UnionAreaInfo areaInfo = 5; 
+  optional int32 killPlayerCount = 6;
+  optional string damageValue = 7;
+  optional string killReward = 8;
+}
+message UnionAreaWarRedDotReqMsg {
+  required int32 activityId = 1;
+}
+message UnionAreaWarRedDotRespMsg {
+  required int32 ret = 1;
+  optional string data = 2;
+}
+enum UnionAreaWarRedPointEnum {
+  unionAreaWarRedPoint_none = 0;
+  unionAreaWarRedPoint_battle = 1; 
+  unionAreaWarRedPoint_gift = 2; 
+  unionAreaWarRedPoint_rankReward = 3; 
+  unionAreaWarRedPoint_donate = 4; 
+  unionAreaWarRedPoint_guess = 5; 
+  unionAreaWarRedPoint_guessReward = 6; 
+  unionAreaWarRedPoint_desertFloor = 7; 
+  unionAreaWarRedPoint_dragon = 8; 
+}
+message UnionAreaWarGuessPlayersReqMsg {
+  required int32 activityId = 1;
+  optional int32 param = 2; 
+}
+message UnionAreaWarGuessPlayersRespMsg {
+  required int32 ret = 1;
+  optional int32 param = 2;
+  repeated UnionAreaWarGuessPlayerInfo playerList = 3; 
+}
+message UnionAreaWarGuessPlayerInfo {
+  optional int64 playerId = 1;
+  optional int32 serverId = 2; 
+  optional string name = 3;
+}
+message UnionAreaWarDanGroupCountReq {
+  required int32 activityId = 1;
+}
+message UnionAreaWarDanGroupCountResp {
+  optional int32 ret = 1;
+  repeated UnionAreaWarDanCountMsg countList = 2;
+}
+message UnionAreaWarDanCountMsg {
+  optional int32 danId = 1; 
+  optional int32 groupCount = 2; 
+}

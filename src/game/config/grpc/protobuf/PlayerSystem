@@ -1,0 +1,12 @@
+package com.yq.msg.CityMsg;    
+     message SystemUnlockSync{
+        optional string unlockInfo = 1;
+        optional string getRewardInfo = 2;
+    }
+    message GetSysRewardReq {
+        required int32 systemId = 1;          
+    }
+    message GetSysRewardResp {
+        required int32  ret = 1;            
+        optional string reward =2;          
+    }

@@ -1,0 +1,46 @@
+package com.yq.msg.CityMsg;
+enum NewYearRedBagPb {
+    NewYearRedBagPb_PlayerData = 211500;            
+    NewYearRedBagPb_Enter = 211501;                 
+    NewYearRedBagPb_Exit = 211502;                  
+    NewYearRedBagPb_OPEN = 211503;                  
+    NewYearRedBagPb_SYNC_NOTICE = 211504;           
+}
+message NewYearRedBagPlayerData{
+    optional int64 startTime = 1;
+    optional int64 endTime = 2;
+    optional int32 wormHour = 3;
+    optional int32 version = 4;
+    optional int32 todayNum = 5;                     
+    optional int32 processingHour = 6;              
+}
+message NewYearRedBagEnterReqMsg {
+}
+message NewYearRedBagEnterRespMsg {
+    optional int32 ret = 1;
+    optional string rewardRecord = 2;               
+    repeated NewYearRedBagNoticeMsg notice = 3;
+    optional int32 openNum = 4;                     
+}
+message NewYearRedBagExitReqMsg {
+}
+message NewYearRedBagExitRespMsg {
+    optional int32 ret = 1;
+}
+message NewYearRedBagOpenReqMsg {
+    required int32 num = 1;
+}
+message NewYearRedBagOpenRespMsg {
+    optional int32 ret = 1;
+    repeated string reward = 2;                     
+    optional string rewardRecord = 3;               
+    optional int32 openNum = 4;                     
+    optional int32 todayNum = 5;                     
+}
+message NewYearRedBagNoticeMsg {
+    optional string nickname = 1;
+    optional string reward = 2;
+}
+message NewYearSyncNoticeRespMsg {
+    repeated NewYearRedBagNoticeMsg notice = 1;
+}

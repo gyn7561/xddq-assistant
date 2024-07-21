@@ -1,0 +1,15 @@
+package com.yq.msg.CityMsg;        
+message GoodFortunePlayerDataMsg {
+    optional int64 nextResetTime = 1;
+    repeated int32 signInDays = 2; 
+    optional int64 lastSignInTime = 3; 
+}
+message GoodFortuneGetRewardReq {
+    optional int32 activityId = 1; 
+    optional int32 conditionId = 2; 
+    optional int32 type = 3; 
+}
+message GoodFortuneGetRewardRsp {
+    optional int32 ret = 1;
+    optional string rewards = 2;
+}

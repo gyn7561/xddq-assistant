@@ -1,0 +1,20 @@
+package com.yq.msg.CityMsg;    
+    message OptionalGiftActivityDataMsg {
+        repeated MallSelectItemsMsg mallSelectItemsMsg = 1;
+    }
+    message MallSelectItemsMsg {
+        required int32 mallId = 1;  
+        repeated CellSelectItemMsg selectItem = 2;   
+    }
+    message CellSelectItemMsg {
+        required int32 index = 1;   
+        required int32 selectIndex = 2; 
+    }
+    message SelectItemsReq {
+        required int32 activityId = 1;
+        required MallSelectItemsMsg mallSelectItemsMsg = 2;
+    }
+    message SelectItemsResp {
+        required int32 ret = 1;
+        optional MallSelectItemsMsg mallSelectItemsMsg = 2;
+    }

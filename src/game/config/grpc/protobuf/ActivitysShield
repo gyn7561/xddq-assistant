@@ -1,0 +1,9 @@
+package com.yq.msg.CityMsg;        
+message ActivityShieldSync {
+    repeated ActivityShieldData shieldList = 1;
+}
+message ActivityShieldData {
+    optional int32 type =1;
+    optional int32 childType =2;
+    optional int32 platformType =3;
+}

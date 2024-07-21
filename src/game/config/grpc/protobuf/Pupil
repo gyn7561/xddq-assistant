@@ -1,0 +1,185 @@
+package com.yq.msg.CityMsg;
+import "Common";
+import "PackagesBase";
+enum PupilPb {
+    S_SYNC_PUPIL_NULL = 0;
+    S_ENTER_PUPIL_SYSTEM = 211801;                    
+	S_PUPIL_TRAIN = 211802;                           
+	S_PUPIL_SITE_TRAIN_TIMES_RECOVER = 211803;        
+	S_PUPIL_INVITATION = 211805;                      
+	S_PUPIL_GRADUATE = 211806;                        
+	S_PUPIL_GET_GRADUATED_LIST = 211807;              
+	S_PUPIL_FIGHT_LIST = 211808;                      
+	S_PUPIL_FIGHT_ON = 211809;                        
+	S_PUPIL_SECT_INFO = 211810;                       
+	S_PUPIL_SEARCH_PLAYER = 211811;                   
+	S_PUPIL_FIGHT_SYNC = 211812;                      
+	S_PUPIL_LOGIN_SYNC = 211813;                      
+	S_PUPIL_GET_AD_AWARD = 211814;                    
+    S_PUPIL_LOCK = 211815;                            
+    S_MARRIAGE_USER_DATA_SYNC    = 211850;           
+	S_MARRIAGE_GET_APPOINT_APPLY_SYNC = 211851;      
+    S_PUPIL_GRADUATED_UNMARRY_LIST_SYNC = 211852;    
+	S_MARRIAGE_MARRIAGE_RECORD_TEMP_SYNC = 211853;   
+	S_MARRIAGE_REFUSE_NOTIFY     = 211854;           
+	S_PUPIL_GRADUATED_UNMARRY_LIST = 211855;         
+	S_MARRIAGE_MARRIAGR_RECORD_LIST = 211856;        
+	S_MARRIAGE_GET_SERVER_APPLY = 211857;            
+	S_MARRIAGE_RECOMMEND_PLAYER = 211858;            
+	S_MARRIAGE_GET_APPOINT_APPLY = 211859;           
+	S_MARRIAGE_APPLY_DEAL = 211860;                  
+	S_MARRIAGE_APPLY_PUBLISH = 211861;               
+	S_MARRIAGE_APPLY_CANCEL = 211862;                
+	S_MARRIAGE_REFRESH_SERVER_APPLY = 211863;        
+	S_MARRIAGE_SET_APPOINT_MARRIAGE = 211864;        
+	S_MARRIAGE_MARRIAGE_DEAL_SYNC = 211865;          
+}
+enum PupilState {
+    Training = 0;                                 
+    Graduation_UnMarry = 1;                       
+    Graduation_Marry = 2;                         
+    Graduation_RequestMarry_Server = 3;           
+    Graduation_RequestMarry_Union = 4;            
+    Graduation_RequestMarry_Player = 5;           
+}
+message CoupleDataMsg{
+    required string playerName = 1;               
+    required int64 marryTime = 2;                 
+    required int32 quality = 3;                   
+    repeated int32 fateIdList = 4;                
+    required int32 job = 5;                       
+    required string name = 6;                     
+    required int32 teacherId = 7;                 
+    required int32 level = 8;                     
+    repeated AttributeDataMsg baseAttr = 9;       
+    optional AttributeDataMsg battleAttr = 10; 
+    optional int32 evaluateParam = 11;        
+    optional int64 serverId = 12; 
+    optional int64 playerId = 13; 
+}
+message PupilDataMsg {
+    required int32 uid = 1;                     
+    required int32 quality = 2;                 
+    repeated int32 fateIdList = 3;              
+    required int32 level = 4;                   
+    optional string name = 5;                   
+    required int32 teacherId = 6;               
+    required int32 job = 7;                     
+    required PupilState state = 8;              
+    repeated AttributeDataMsg baseAttr = 9;     
+    optional AttributeDataMsg battleAttr = 10;  
+    optional CoupleDataMsg coupleData = 11;     
+    optional int64 pupilFightValue = 12;        
+    optional int32 evaluateParam = 13;          
+    optional int32 isLock =14; 
+}
+message PupilSiteDataMsg {
+    required int32 index = 1;                     
+    optional PupilDataMsg pupilData = 2;      
+    optional CurrentTrainTimeInfoMsg trainTimeInfo = 3; 
+}
+message SectInfoMsg {
+    optional int32  marriageCount = 1;      
+	optional int32  marriageRewardCount = 2;      
+    repeated AttributeDataMsg trainAttrValue = 3; 
+    repeated AttributeDataMsg fightAttrValue = 4; 
+    repeated AttributeDataMsg fightFateAttrValue = 5; 
+}
+message PupilRank{
+    optional int64 playerId = 1;                
+    optional string ownerName = 2;                
+    optional int64 fightValue = 3;                
+    optional PupilDataMsg pupilData = 4;          
+}
+message FightPupilDataMsg{
+    required int32 index = 1;                     
+    optional PupilDataMsg pupilData = 2;      
+}
+message PupilRankList{
+    repeated PupilRank pupilRank = 2;             
+}
+message PupilTrainTimesRecover{
+    required int32  index = 1;                      
+    required int32  useCount = 2;                   
+}
+message EnterPupilSystemReq {
+}
+message EnterPupilSystemResp {
+    required int32 ret = 1;
+    repeated PupilSiteDataMsg siteList = 2; 
+    optional int32 allGraduatedNums = 3; 
+    optional int32  getTimes = 4; 
+    repeated int64 serverIdList = 5;    
+}
+message PupilTrainReq {
+    optional int32 isOneKey = 1; 
+}
+message PupilTrainResp {
+    optional int32 ret = 1;
+    repeated PupilSiteDataMsg siteList = 2; 
+}
+message PupilSiteTrainTimesRecoverReq {
+    repeated PupilTrainTimesRecover trainTimesRecoverList=1;
+}
+message PupilSiteTrainTimesRecoverResp {
+    required int32  ret = 1;
+    repeated PupilSiteDataMsg siteList = 2;
+}
+message PupilRecruitReq {
+}
+message PupilRecruitResp {
+    optional int32 ret = 1;
+    optional PupilSiteDataMsg siteData = 2; 
+}
+message PupilGraduateReq {
+    required int32  siteIndex = 1;   
+}
+message PupilGraduateResp {
+    required int32  ret = 1;
+    optional PupilSiteDataMsg siteData = 2; 
+    optional int32 allGraduatedNums = 3; 
+    optional PupilDataMsg pupilData = 4; 
+    optional int32 sectLv = 5; 
+}
+message PupilGetGraduatedListReq{
+    optional int32 type = 1; 
+}
+message PupilGetGraduatedListResp{
+    required int32  ret = 1;
+    repeated PupilDataMsg pupilDataList = 2;
+}
+message PupilGetFightListReq{
+}
+message PupilGetFightListResp{
+    required int32  ret = 1;
+    repeated FightPupilDataMsg fightPupilData = 2;  
+}
+message PupilFightOnReq{
+    required int32 index = 1;                     
+    required int32 pupilUid = 2;                  
+    required int32 fightOnType = 3;               
+}
+message PupilFightOnResp{
+    required int32  ret = 1;
+    repeated FightPupilDataMsg fightPupilData = 2;  
+}
+message PupilGetSectInfoReq{
+}
+message PupilGetSectInfoResp{
+    required int32  ret = 1;
+    optional SectInfoMsg sectInfoMsg = 2;
+}
+message PupilGetAdRewardReq{
+    optional bool isUseADTime = 1; 
+}
+message PupilGetAdRewardResp{
+    required int32  ret = 1;
+    optional int32  getTimes = 2; 
+}
+message PupilLockReq{
+    required int32 pupilUid = 1;                  
+    required int32 lockType = 2;               
+}
+message PupilLockResp{
+    required int32  ret = 1;
+}

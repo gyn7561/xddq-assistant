@@ -1,0 +1,8 @@
+package com.yq.msg.CityMsg;
+message HolidayGiftActivityPlayerDataMsg {
+    required int32 activityId = 1;
+    repeated HolidayTriggerGiftDataMsg triggerGiftDataMsg = 2;
+}
+message HolidayTriggerGiftDataMsg {
+    optional int32 triggerMallId = 1;
+}
