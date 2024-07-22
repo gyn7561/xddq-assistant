@@ -33,7 +33,7 @@ export default class BagMgr {
                     this.bagData.push(newItem);
                 }
             });
-            logger.debug("[背包管理] 更新背包数据");
+            logger.info("[背包管理] 更新背包数据");
         }
     }
 
@@ -51,7 +51,7 @@ export default class BagMgr {
 
             const vipLevel = (PlayerAttributeMgr.isMonthCardVip ? 1 : 0) + (PlayerAttributeMgr.isYearCardVip ? 1 : 0);
             const count = 2 + vipLevel * 3;
-            if (fightTicket > count) {
+            if (fightTicket.num > count) {
                 logger.info(`[背包管理] 还剩 ${fightTicket} 张斗法券`);
                 GameNetMgr.sendPbMsg(Protocol.S_RANK_BATTLE_GET_BATTLE_LIST, {}, null);
                 await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -60,7 +60,7 @@ export default class BagMgr {
 
             // 万年灵芝 > 0 的时候自动激活
             const books = this.findItemById(100008);
-            if (books > 0) {
+            if (books.num > 0) {
                 logger.info(`[背包管理] 还剩 ${books} 万年灵芝`);
                 GameNetMgr.sendPbMsg(Protocol.S_TALENT_READ_BOOK, { readTimes: books }, null);
             }
