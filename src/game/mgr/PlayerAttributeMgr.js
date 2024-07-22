@@ -90,7 +90,10 @@ export default class PlayerAttributeMgr {
             t.useSeparationDataMsg.forEach((data) => {
                 if (data.hasOwnProperty("index")) {
                     this.equipmentData[data.index] = data.equipmentList || [];
-                    this.fightValueData[data.index] = data.fightValueData || [];
+                    this.fightValueData[data.index] = data.fightValueData || data.fightValue;
+                    if (!this.fightValueData[data.index]) {
+                        throw new Error("获取妖力失败");
+                    }
                 }
             });
         }
@@ -139,7 +142,7 @@ export default class PlayerAttributeMgr {
             const { result, index } = this.checkMultipleConditions(attackType, [attackType, defenseType], rule.condition);
 
             if (account.chopTree.showResult) {
-                if ( quality >= rule.quality) {
+                if (quality >= rule.quality) {
                     logger.info(
                         `[装备] 新装备 ${DBMgr.inst.getEquipmentQuality(quality)} ${DBMgr.inst.getEquipmentName(
                             equipmentId
@@ -151,7 +154,7 @@ export default class PlayerAttributeMgr {
                     logger.info("[装备] 新装备品质过差");
                 }
             }
-            
+
             if (result) {
                 let betterAttributes = false;
                 let existingAttributeList = null;
@@ -182,8 +185,7 @@ export default class PlayerAttributeMgr {
                                 this.equipmentData[index][equipmentType].quality
                             )} ${DBMgr.inst.getEquipmentName(this.equipmentData[index][equipmentType].equipmentId)} ${DBMgr.inst.getAttribute(
                                 existingAttributeList.attack.type
-                            )}:${existingAttributeList.attack.value / 10} ${DBMgr.inst.getAttribute(existingAttributeList.defense.type)}:${
-                                existingAttributeList.defense.value / 10
+                            )}:${existingAttributeList.attack.value / 10} ${DBMgr.inst.getAttribute(existingAttributeList.defense.type)}:${existingAttributeList.defense.value / 10
                             }`
                         );
                     }
