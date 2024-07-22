@@ -90,7 +90,7 @@ export default class PlayerAttributeMgr {
             t.useSeparationDataMsg.forEach((data) => {
                 if (data.hasOwnProperty("index")) {
                     this.equipmentData[data.index] = data.equipmentList || [];
-                    this.fightValueData[data.index] = data.fightValueData || data.fightValue;
+                    this.fightValueData[data.index] = data.fightValue || [];
                     if (!this.fightValueData[data.index]) {
                         throw new Error("获取妖力失败");
                     }
