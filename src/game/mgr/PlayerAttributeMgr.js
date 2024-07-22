@@ -311,10 +311,10 @@ export default class PlayerAttributeMgr {
 
     // 104 判断是否VIP
     SyncVip(t) {
-        const monthlyCardExpired = this.isExpired(body.monthlyCardEndTime);
-        const getMonthlyCardRewardToday = this.isToday(body.getMonthlyCardRewardTime);
-        const yearCardExpired = this.isYearCardEndTimeNegativeOne(body.yearCardEndTime);
-        const getYearCardRewardToday = this.isToday(body.getYearCardRewardTime);
+        const monthlyCardExpired = this.isExpired(t.monthlyCardEndTime);
+        const getMonthlyCardRewardToday = this.isToday(t.getMonthlyCardRewardTime);
+        const yearCardExpired = this.isYearCardEndTimeNegativeOne(t.yearCardEndTime);
+        const getYearCardRewardToday = this.isToday(t.getYearCardRewardTime);
 
         if (!monthlyCardExpired) {
             logger.info(`[玩家管理] 检测到月卡`);
